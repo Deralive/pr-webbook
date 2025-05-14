@@ -1,0 +1,57 @@
+# 目录
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: 概率部分
+    numbered: True
+    chapters:
+    - file: Chapter01
+      sections:
+      - file: Chapter01Section01
+      - file: Chapter01Section02
+      - file: Chapter01Section03
+      - file: Chapter01Section04
+      - file: Chapter01Section05
+      - file: Chapter01Section06
+    - file: Chapter02
+      sections:
+      - file: Chapter02Section01
+      - file: Chapter02Section02
+      - file: Chapter02Section03
+      - file: Chapter02Section04
+      - file: Chapter02Section05
+      - file: Chapter02Section06
+      - file: Chapter02Section07
+    - file: Chapter03
+      sections:
+      - file: Chapter03Section01
+      - file: Chapter03Section02
+    - file: Chapter04
+      sections:
+      - file: Chapter04Section01
+      - file: Chapter04Section02
+      - file: Chapter04Section03
+      - file: Chapter04Section04
+      - file: Chapter04Section05
+      - file: Chapter04Section06
+    - file: Chapter05
+      sections:
+      - file: Chapter05Section01
+      - file: Chapter05Section02
+      - file: Chapter05Section03
+      - file: Chapter05Section04
+    - file: Chapter06
+      sections:
+      - file: Chapter06Section01
+      - file: Chapter06Section02
+      - file: Chapter06Section03
+      - file: Chapter06Section04
+      - file: Chapter06Section05
+      - file: Chapter06Section06
+      - file: Chapter06Section07
+      - file: Chapter06Section08
+
+
+
