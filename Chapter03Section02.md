@@ -1,39 +1,39 @@
 # 分布函数
 
-为了掌握随机变量$X$的统计规律，我们只需要掌握$X$的各种取值的概率。由于
+为了掌握随机变量 $X$ 的统计规律，我们只需要掌握 $X$ 的各种取值的概率。由于
 
 \begin{eqnarray*}
 &\{a < X \leq b\} = \{X\leq b\} - \{X\leq a\}\\
 & \{X > c\} = \Omega - \{X \leq c\}
 \end{eqnarray*}
 
-因此对任意实数$x$，只要确定事件$\{X\leq x\}$的概率就足够了。
+因此对任意实数 $x$ ，只要确定事件$\{X\leq x\}$的概率就足够了。
 
 分布函数
-: 设$X$为一个随机变量。对任意实数$x$，称
+: 设 $X$ 为一个随机变量。对任意实数 $x$ ，称
 
 $$
 F(x) = P(X\leq x)
 $$
 
-为随机变量$X$的**累积分布函数**，简称**分布函数**。也称$X$服从$F(x)$，记$X\sim F(x)$。
+为随机变量 $X$ 的**累积分布函数**，简称**分布函数**。也称 $X$ 服从 $F(x)$ ，记 $X\sim F(x)$。
 
 ```{prf:remark}
 
-任一随机变量$X$都有一个分布函数。
+任一随机变量 $X$ 都有一个分布函数。
 ```
 
 ````{prf:theorem} 
 :label: thm03-a
 
-任一分布函数$F(x)$都具有以下三条基本性质：
-- **单调性**：$F(x)$是定义在整个实数轴$(-\infty,\infty)$上的单调非减函数，即对任意$x_1<x_2$，有
+任一分布函数 $F(x)$ 都具有以下三条基本性质：
+- **单调性**：$F(x)$ 是定义在整个实数轴 $(-\infty,\infty)$ 上的单调非减函数，即对任意 $x_1<x_2$ ，有
 
 $$
 F(x_1)\leq F(x_2).
 $$
 
-- **有界性**：对任意的$x$，有$0 \leq F(x) \leq 1$,且
+- **有界性**：对任意的 $x$ ，有 $0 \leq F(x) \leq 1$ ,且
 
 $$
  \left\{\begin{aligned}
@@ -42,7 +42,7 @@ F(\infty)&=&\lim _{x \rightarrow \infty} F(x)=1
 \end{aligned}\right.
 $$
 
-- **右连续性**：$F(x)$是$x$的右连续函数，即对任意的$x_0$，有
+- **右连续性**：$F(x)$ 是 $x$ 的右连续函数，即对任意的 $x_0$，有
 
 $$
  \lim \limits_{x \rightarrow x_0 +0} F(x_0)=0
@@ -56,13 +56,15 @@ $$
 
 ```{dropdown} Proof
 
-- 设事件$A =\left\{\omega: X(\omega) \leqslant x_{1}\right\} \quad B=\left\{\omega: X(\omega) \leqslant x_{2}\right\}$。若$x_1<x_2$，那么 $A \subset B$。根据概率的单调性，
+- 设事件 $A =\left\{\omega: X(\omega) \leqslant x_{1}\right\} \quad B=\left\{\omega: X(\omega) \leqslant x_{2}\right\}$。若 $x_1<x_2$，那么 $A \subset B$。根据概率的单调性，
 
-$$P\left(x \leqslant x_{1}\right)=P(A) \leqslant P(B)=P\left(X \leqslant x_{2}\right).$$
+$$
+P\left(x \leqslant x_{1}\right)=P(A) \leqslant P(B)=P\left(X \leqslant x_{2}\right).
+$$
 
-即$F(x_1) \leq F(x_2) $。
+即 $F(x_1) \leq F(x_2) $。
 
-- 因为 $F(x) = P(X \leq x) $表示事件${X \leq x}$的概率。所以，$0 \leq F(x) \leq 1$。根据$F(x)$的单调性可知，$F(\lfloor x\rfloor) \leqslant F(x) \leqslant F(\lceil x\rceil)$。对于整数$m$和$n$，
+- 因为 $F(x) = P(X \leq x)$ 表示事件 ${X \leq x}$ 的概率。所以，$0 \leq F(x) \leq 1$。根据 $F(x)$ 的单调性可知，$F(\lfloor x\rfloor) \leqslant F(x) \leqslant F(\lceil x\rceil)$。对于整数 $m$ 和 $n$，
   $$ \lim _{x \rightarrow-\infty} F(x)=\lim _{m \rightarrow-\infty} F(m) \quad \lim _{x \rightarrow \infty} F(x)=\lim _{x \rightarrow \infty} F(n) $$
 存在。由于概率的可列可加性，
 
