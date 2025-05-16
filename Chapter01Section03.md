@@ -23,7 +23,11 @@ $$
 
 - **非负性公理**：若  $A \in \mathcal{F}$ ，则 $P(A)\geq 0$ ；
 - **正则性公理**： $P(\Omega)=1$ ；
-- **可列可加性公理**：若  $A_{1} ,A_{2} ,\dots ,A_{n} ,\dots $ 互不相容，则$$P \left(\bigcup_{i=1}^{\infty }A_{i}  \right)=\sum_{i=1}^{\infty } P(A_{i} ).$$
+- **可列可加性公理**：若  $A_{1} ,A_{2} ,\dots ,A_{n} ,\dots $ 互不相容，则
+
+$$
+P \left(\bigcup_{i=1}^{\infty }A_{i}  \right)=\sum_{i=1}^{\infty } P(A_{i} )
+$$
 
 则称 $P(A)$ 为事件 $A$ 的概率，称三元素 $\{\Omega,\mathcal{F},P\}$ 为**概率空间**。
 
