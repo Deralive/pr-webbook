@@ -4,6 +4,7 @@
 
 样本空间
 : 称随机现象的一切可能基本结果组成的集合，记为
+
 $
 \Omega=\{ \omega \}.
 $。
@@ -106,9 +107,9 @@ $。
 * -   结合律
    -   $\left (  A\cup B \right )\cup C  =A\cup \left ( B \cup C \right ),\quad \left (  A B \right ) C  =A \left ( B  C \right ) $ 
 * -  分配律
-   -   $(A\cup B)\cap C=AC\cup BC, (A\cap B)\cup C=(A\cup C)\cap (B\cup C)$ 
+   -   $(A\cup B)\cap C=AC\cup BC,\quad (A\cap B)\cup C=(A\cup C)\cap (B\cup C)$ 
 * -  对偶律
-   -   $\overline{A \cup B } =\overline{A} \cap \overline{B},\overline{A \cap  B } =\overline{A} \cup  \overline{B}$ 
+   -   $\overline{A \cup B } =\overline{A} \cap \overline{B},\quad \overline{A \cap  B } =\overline{A} \cup  \overline{B}$ 
 ```
 
 在实际应用中，**对偶律**是最为常用的运算性质，并且可以推广至有限个和可列个随机变量的情形。
