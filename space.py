@@ -1,18 +1,13 @@
 import re
-import sys
 import uuid
+import os
+
 
 def process_text_content(text_content: str) -> str:
     """
     处理文本内容，在成对的单美元符号周围添加空格，
     同时忽略双美元符号('$$')作为分隔符。
     '$$'序列被视为文字文本，并且可以出现在有效的'$...$'对内部。
-
-    例如:
-    "$math$" -> " $math$ "
-    "$$display$$" -> "$$display$$" (无变化)
-    "text $math$$formula$ more" -> "text  $math$$formula$  more"
-    "text $$$triple$$$end" -> "text$$ $triple$ $$ end" (例如 a$$$b$c -> a$$ $b$ c)
     """
 
     # 生成一个不太可能出现在文本中的唯一占位符。
@@ -36,37 +31,18 @@ def process_text_content(text_content: str) -> str:
 
     # 步骤 3: 从占位符恢复原始的'$$'序列。
     final_text = processed_text.replace(placeholder, '$$')
-
     return final_text
 
+
 def main():
-    if len(sys.argv) != 3:
-        print("用法: python your_script_name.py <输入文件路径> <输出文件路径>")
-        print("例如: python process_dollars.py input.txt output.txt")
-        sys.exit(1)
+    for file in os.listdir('.'):
+        if file.endswith('.md'):
+            with open(file, 'r', encoding='utf-8') as infile:
+                content = infile.read()
+                processed_content = process_text_content(content)
+            with open(file, 'w', encoding='utf-8') as outfile:
+                outfile.write(processed_content)
 
-    input_file_path = sys.argv[1]
-    output_file_path = sys.argv[2]
-
-    try:
-        with open(input_file_path, 'r', encoding='utf-8') as infile:
-            content = infile.read()
-    except FileNotFoundError:
-        print(f"错误: 输入文件 '{input_file_path}' 未找到。")
-        sys.exit(1)
-    except Exception as e:
-        print(f"错误: 读取输入文件 '{input_file_path}' 时发生错误: {e}")
-        sys.exit(1)
-
-    processed_content = process_text_content(content)
-
-    try:
-        with open(output_file_path, 'w', encoding='utf-8') as outfile:
-            outfile.write(processed_content)
-        print(f"处理完成。输出已写入 '{output_file_path}'。")
-    except Exception as e:
-        print(f"错误: 写入输出文件 '{output_file_path}' 时发生错误: {e}")
-        sys.exit(1)
 
 if __name__ == '__main__':
     main()
