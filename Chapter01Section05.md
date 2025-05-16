@@ -11,7 +11,7 @@
 
 :::{dropdown} Proof
 
-令 $A_1 = \Omega$ 而 $A_i = \emptyset,i=2,3,\cdots$ 。当 $i\neq j$ ， $A_i A_j = \emptyset$ ，所以所构造的 $A_1,A_2,\cdots,A_n,\cdots$ 是一列互不相容的随机事件。根据概率的公理化定义中可列可加性，我们有
+令 $A_1 = \Omega$ 而 $A_i = \emptyset,i=2,3,\cdots$ 。当 $i\neq j$ ， $A_i A_j = \emptyset$ ，所以所构造的 $A_1,A_2,\cdots,A_n,\cdots$ 是一列互不相容的随机事件。根据概率的公理化定义中可列可加性，我们有：
 
 \begin{eqnarray*}
  1= P(\Omega) &=& P\left( \cup_{n=1}^{\infty} A_n \right) \\
@@ -20,7 +20,7 @@
  &=& 1+ \sum_{n=2}^{\infty} P(\emptyset)
 \end{eqnarray*}
 
-并根据概率的公理化定义中非负性有，
+并根据概率的公理化定义中非负性有：
 
 $$
 P(\emptyset) = 0
@@ -31,20 +31,20 @@ $$
 ````{prf:theorem} 有限可加性
 :label: thm1.1
 
- 若有限个事件 $A_{1} ,A_{2} ,\dots ,A_{n} $  互不相容，则有
+ 若有限个事件 $A_{1} ,A_{2} ,\dots ,A_{n} $  互不相容，则有：
 ```{math}
 P\left(\bigcup_{i=1}^{n}A_{i}  \right)=\sum_{i=1}^{n } P(A_{i} )
 ```
 
 :::{dropdown} Proof
-令 $A_{n+1} = A_{n+2} = \cdots = \emptyset$ 。根据概率的公理化定义中可列可加性，我们有
+令 $A_{n+1} = A_{n+2} = \cdots = \emptyset$ 。根据概率的公理化定义中可列可加性，我们有：
 \begin{eqnarray*}
 P\left( \cup_{k=1}^{n} A_k \right)   &=& P\left( \cup_{n=1}^{\infty} A_n \right) \\
  &=& \sum_{n=1}^{\infty} P(A_n) \\
  &=&  \sum_{k=1}^{n} P(A_k) + \sum_{k=n+1}^{\infty} P(A_k)  \\
  &=& \sum_{k=1}^{n} P(A_k)
 \end{eqnarray*}
-其中，最后一个等式成立是因为对于 $k\geq n+1$ ， $A_k = \emptyset$ ，所以根据{prf:ref}`lem1.1`， $P(A_k)=0$ 。
+最后一个等式成立是因为对于 $k\geq n+1$ ， $A_k = \emptyset$ ，根据 {prf:ref}`lem1.1`，$P(A_k)=0$ 。
 :::
 
 ````
@@ -63,16 +63,16 @@ P\left( \cup_{k=1}^{n} A_k \right)   &=& P\left( \cup_{n=1}^{\infty} A_n \right)
 若 $A\supset B$  ，则 $P(A-B)=P(A)-P(B)$ 。
 
 :::{dropdown} Proof
-当 $A\supset B$ 时， $A = B \cup (A-B)$ ，而且 $B$ 与 $A-B$ 是互不相容的。根据 {prf:ref}`thm1.1` 有
+当 $A\supset B$ 时， $A = B \cup (A-B)$ ，而且 $B$ 与 $A-B$ 是互不相容的。根据 {prf:ref}`thm1.1` 有：
 
 $$
 P(A) = P(B) + P(A-B)
 $$
 
-所以，
+故：
 
 $$
-P(A-B)=P(A)-P(B).
+P(A-B)=P(A)-P(B)
 $$
 :::
 ````
@@ -83,10 +83,14 @@ $$
 若 $A\supset B$  ，则 $P(A)\geq P(B)$ ；
 
 :::{dropdown} Proof
-根据{prf:ref}`lem1.2`， $P(A-B) = P(A) -P(B) $ 。因为概率的非负性，所以 $P(A-B)\geq 0$ ，于是，
+根据 {prf:ref}`lem1.2`， $P(A-B) = P(A) -P(B) $。
+
+因为概率的非负性，所以 $P(A-B)\geq 0$ ，于是，
+
 $$
 P(A) \geq P(B).
 $$ 
+
 :::
 
 ````
@@ -101,7 +105,7 @@ $$
 对任意两个事件 $A,B$ ，有 $P(A-B)=P(A)-P(AB)$ 。
 
 :::{dropdown} Proof
-因为 $A = (A-B) \cup AB$ ，而且这两个事件均是互不相容的。根据{prf:ref}`thm1.1` 有
+因为 $A = (A-B) \cup AB$ ，而且这两个事件均是互不相容的。根据 {prf:ref}`thm1.1` 有：
 
 \begin{equation*}
 P(A) = P(A-B) + P(AB) 
@@ -110,7 +114,7 @@ P(A) = P(A-B) + P(AB)
 所以，
 
 $$
-P(A-B)=P(A)-P(AB).
+P(A-B)=P(A)-P(AB)
 $$
 :::
 ````
@@ -123,44 +127,44 @@ $$
 ````{prf:lemma} 概率的加法公式
 :label: lem1.4
 
-对任意两个事件 $A,B$ ，有
+对任意两个事件 $A,B$ ，有：
 
-$$P(A\cup B)=P(A)+P(B)-P(AB).$$
+$$P(A\cup B)=P(A)+P(B)-P(AB)$$
 
 :::{dropdown} Proof
-因为 $A\cup B = (A-B) \cup (B-A) \cup AB$ ，而且这三个事件均是互不相容的。根据 {prf:ref}`thm1.1` 有
+因为 $A\cup B = (A-B) \cup (B-A) \cup AB$ ，且这三个事件均互不相容。根据 {prf:ref}`thm1.1` 有：
 
 \begin{eqnarray*}
 P(A\cup B) &=& P(A-B) + P(B-A) + P(AB) \\
 & = & P(A-B) + P(AB) + P(B-A) + P(AB) - P(AB)\\
 &=& P(A) + P(B) - P(AB) 
 \end{eqnarray*}
-其中最后一个等式成立是因为 {prf:ref}`lem1.3`。因此，
+其中最后一个等式成立是因为 {prf:ref}`lem1.3`。因此：
 
-$$P(A\cup B)=P(A)+P(B)-P(AB).$$
+$$P(A\cup B)=P(A)+P(B)-P(AB)$$
 :::
 ````
 
 ````{prf:theorem} 概率的半可加性
 :label: thm1.3
 
-对任意两个事件 $A,B$ ，有
+对任意两个事件 $A,B$ ，有：
 
-$$P(A\cup B)\leq P(A)+P(B).$$
+$$P(A\cup B)\leq P(A)+P(B)$$
 
 :::{dropdown} Proof
 根据 {prf:ref}`lem1.4` 有 $P(A\cup B)=P(A)+P(B)-P(AB)$ 。
-又由于概率的非负性，有
+又由于概率的非负性，有：
 
-$$P(A\cup B)\leq P(A)+P(B).$$
+$$P(A\cup B)\leq P(A)+P(B)$$
 :::
 ````
 ````{prf:corollary} 
 :label: cor1.2
 
-对任意 $n$ 个事件 $A_{1} ,A_{2} ,\dots ,A_{n} $  ，有
+对任意 $n$ 个事件 $A_{1} ,A_{2} ,\dots ,A_{n} $  ，有：
 
-$$P\left(\bigcup_{i=1}^{n}A_{i}  \right)\leq \sum_{i=1}^{n } P(A_{i} ).$$
+$$P\left(\bigcup_{i=1}^{n}A_{i}  \right)\leq \sum_{i=1}^{n } P(A_{i} )$$
 ````
 
 ```{prf:remark}
@@ -191,15 +195,15 @@ $$P\left(\bigcup_{i=1}^{n}A_{i}  \right)\leq \sum_{i=1}^{n } P(A_{i} ).$$
 
 先证 $P$ 的下连续性。
 
-设  $\left \{ F_{n}  \right \} $ 是  $\mathcal{F}$ 中一个单调不减的事件序列，即
+设  $\left \{ F_{n}  \right \} $ 是  $\mathcal{F}$ 中一个单调不减的事件序列，即：
 
-$$\lim_{n \to \infty} F_{n} =\cup_{n=1}^{\infty } F_{n}.$$
+$$\lim_{n \to \infty} F_{n} =\cup_{n=1}^{\infty } F_{n}$$
 
-若定义  $F_{0} =\phi $ ，则
+若定义  $F_{0} =\phi $ ，则：
 
-$$\cup_{i=1}^{\infty } F_{i}=\cup_{i=1}^{\infty }(F_{i}-F_{i-1}).$$
+$$\cup_{i=1}^{\infty } F_{i}=\cup_{i=1}^{\infty }(F_{i}-F_{i-1})$$
 
-由于 $F_{i-1} \subset F_{i}$  ，显然  $\left (  F_{i}-F_{i-1}  \right ) $ 两两不相容，再由可列可加性得
+由于 $F_{i-1} \subset F_{i}$  ，显然  $\left (  F_{i}-F_{i-1}  \right ) $ 两两不相容，再由可列可加性得：
 
 \begin{eqnarray*}
    P\left(\cup_{i=1}^{\infty }F_{i}  \right)
@@ -214,7 +218,7 @@ $$\cup_{i=1}^{\infty } F_{i}=\cup_{i=1}^{\infty }(F_{i}-F_{i-1}).$$
 
 再证概率 $P$ 的上连续性。
 
-设  $\left \{ E_{n}  \right \} $ 是单调不增的事件序列，则 $\left \{ \overline{E_{n} }  \right \} $ 为单调不减的事件序列，由概率的下连续性可得
+设  $\left \{ E_{n}  \right \} $ 是单调不增的事件序列，则 $\left \{ \overline{E_{n} }  \right \} $ 为单调不减的事件序列，由概率的下连续性可得：
 
 \begin{eqnarray*}
    1-\lim_{n\to \infty} P(E_{n} )
@@ -227,7 +231,7 @@ $$\cup_{i=1}^{\infty } F_{i}=\cup_{i=1}^{\infty }(F_{i}-F_{i-1}).$$
 
 因此，
 
-$$\lim_{n \to \infty} P(E_{n} )=P(\cap_{n=1}^{\infty } E_{n} )=P(\lim_{n \to \infty}E_{n} ).$$
+$$\lim_{n \to \infty} P(E_{n} )=P(\cap_{n=1}^{\infty } E_{n} )=P(\lim_{n \to \infty}E_{n} )$$
 
 这就证明了概率 $P$ 的上连续性。
 :::
