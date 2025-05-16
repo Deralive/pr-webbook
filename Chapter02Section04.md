@@ -1,10 +1,10 @@
 # 全概率公式
 
 样本空间的分割
-: 对样本空间 $\Omega$ ，如果有 $n$ 个事件 $D_{1},D_{2} ,\cdots ,D_{n} $ 满足：
+: 对样本空间 $\Omega$ ，如果有 $n$ 个事件 $D_{1},D_{2} ,\cdots ,D_{n}$ 满足：
 
-- 诸 $D_{i}$ 互不相容： $\forall i\neq j,D_{i}\cap  D_{j}=\emptyset $ ；
--  $\cup_{i=1}^{n} D_{i}=\Omega $ ；
+- 诸 $D_{i}$ 互不相容： $\forall i\neq j,D_{i}\cap D_{j}=\emptyset$ ；
+- $\cup_{i=1}^{n} D_{i}=\Omega$ ；
 
 则称 $\{D_{1},D_{2},\cdots,D_{n}\}$ 为样本空间 $\Omega$ 的一组分割。
 
@@ -14,22 +14,22 @@
 
 设样本空间为 $R$ 。设 $\mu$ 和 $\sigma>0$ 为两个已知的常数。令：
 
--  $D_{1}=\left \{ \left | x-\mu \right | \leq \sigma \right \} $ ；
--  $D_{2}=\left \{ \sigma <\left | x-\mu \right | \leq 2\sigma \right \} $ ；
--  $D_{3}=\left \{ 2 \sigma <\left | x-\mu \right | \leq 3\sigma \right \} $ ；
--  $D_{4}=\left \{ \left | x-\mu \right | > 3\sigma \right \}  $ 。
+- $D_{1}=\left \{ \left | x-\mu \right | \leq \sigma \right \}$ ；
+- $D_{2}=\left \{ \sigma <\left | x-\mu \right | \leq 2\sigma \right \}$ ；
+- $D_{3}=\left \{ 2 \sigma <\left | x-\mu \right | \leq 3\sigma \right \}$ ；
+- $D_{4}=\left \{ \left | x-\mu \right | > 3\sigma \right \}$ 。
 
-于是， $\mathcal{D} =\left \{ D_{1} ,D_{2} ,D_{3} ,D_{4}  \right \} $ 是一个分割。
+于是， $\mathcal{D} =\left \{ D_{1} ,D_{2} ,D_{3} ,D_{4} \right \}$ 是一个分割。
 ```
 
 ````{prf:theorem} 全概率公式
 :label: thm02-d
 
-设 $B_{1},B_{2},\cdots,B_{n}$ 为样本空间 $\Omega$ 的一个分割，即 $B_{1},B_{2},\cdots,B_{n}$ 互不相容，且 $\cup_{i=1}^{n} B_{i}=\Omega $ 。如果 $P(B_{i})>0$ ，则对任一事件 $A$ ，有：
+设 $B_{1},B_{2},\cdots,B_{n}$ 为样本空间 $\Omega$ 的一个分割，即 $B_{1},B_{2},\cdots,B_{n}$ 互不相容，且 $\cup_{i=1}^{n} B_{i}=\Omega$ 。如果 $P(B_{i})>0$ ，则对任一事件 $A$ ，有：
 
 $$P(A)=\sum_{i=1}^{n} P(B_{i})P(A|B_{i})$$
 
-```{dropdown}  Proof
+```{dropdown} Proof
 
 由题可知，
 
@@ -60,7 +60,7 @@ $$
 而其未摸出中奖彩票的概率为：
 
 $$
-P(\overline{A_{1}  } )=\frac{n-1}{n}
+P(\overline{A_{1} } )=\frac{n-1}{n}
 $$
 
 在第一个人是否模出中奖彩票的条件下，第二个人能否摸出中奖彩票 $A_{2}$ 的条件概率是不同的，即
@@ -79,7 +79,7 @@ $$
 由全概率公式可知：
 
 $$
-P(A_{2})=P(A_{1}  )P(A_{2}| A_{1} )+P(\overline{A_{1}  } )P(A_{2}| \overline{A_{1}}  )=\frac{1}{n} \cdot 0+\frac{n-1}{n}\cdot\frac{1}{n-1}=\frac{1}{n} 
+P(A_{2})=P(A_{1} )P(A_{2}| A_{1} )+P(\overline{A_{1} } )P(A_{2}| \overline{A_{1}} )=\frac{1}{n} \cdot 0+\frac{n-1}{n}\cdot\frac{1}{n-1}=\frac{1}{n} 
 $$
 ```
 
@@ -107,10 +107,10 @@ $$P(A_{i})=\frac{1}{n} ,i=1,2,\cdots ,n$$
 1. 被调查者在没有旁人的情况下，独自一人在一个房间内操作呵呵回答问题；
 2. 被调查者从一个罐子（罐子里只有白球和红球）里随机抽一个球，确认颜色后即放回。若抽到的是白球，则回答问题A；若抽到的是红球，则回答问题B。
 
-被调查者无论回答问题 $A$ 或问题 $B$，只需要在答卷上认可的方框内搭够，然后把答卷放入一个密封的投票箱内。
+被调查者无论回答问题 $A$ 或问题 $B$ ，只需要在答卷上认可的方框内搭够，然后把答卷放入一个密封的投票箱内。
 
 设我们有 $n$ 张答卷，其中有 $k$ 张答卷回答“是”。但是我们并不知道此 $n$ 张答卷中有多少张是回答问题B的，同样无法知道 $k$ 张回答“是”的答卷中有多少张是回答问题B得。但有两个信息我们是预先知道的，即
-1. 当 $n$ 较大时，任选一人的生日在 $7$ 月 $1$ 日之前的概率为 $0.5$。
+1. 当 $n$ 较大时，任选一人的生日在 $7$ 月 $1$ 日之前的概率为 $0.5$ 。
 2. 罐中红球的比率 $\pi$ 已知。
 
 根据 $(n,k,0.5,\pi)$ 求出问题B回答“是”的比例 $p$ 。由全概率公式可知：

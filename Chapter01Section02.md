@@ -49,7 +49,7 @@ $。
 : 称随机现象的某些样本点组成的集合为随机事件，简称事件。常用英文大写字母表示。
 
 
-```{prf:example}  随机事件
+```{prf:example} 随机事件
 :label: ex01-b
 考虑投掷一颗六面骰子，样本空间为 $\Omega = \{1,2,3,4,5,6\}$ 。
 
@@ -74,12 +74,12 @@ $。
 :name: tab1.2
 * - 文字描述
    - 数学表示
-* -  事件 $A$ 发生必然导致事件 $B$ 发生
-   -   $ A\subset B$ 
-* -  事件 $A$ 与事件 $B$ 相等
-   -   $ A = B$ 
-* -  事件 $A$ 与事件 $B$ 不可能同时发生（ $A$ 与 $B$ 互不相容）
-   -   $AB=\emptyset$ 
+* - 事件 $A$ 发生必然导致事件 $B$ 发生
+   - $A\subset B$  
+* - 事件 $A$ 与事件 $B$ 相等
+   - $A = B$  
+* - 事件 $A$ 与事件 $B$ 不可能同时发生（ $A$ 与 $B$ 互不相容）
+   - $AB=\emptyset$  
 ```
 
 ```{list-table} 事件间的运算
@@ -87,14 +87,14 @@ $。
 :name: tab1.3
 * - 文字描述
    - 数学表示
-* -  事件 $A$ 与 $B$ 中至少有一个发生
-   -   $A\cup B$ 
-* -   事件 $A$ 与 $B$ 同时发生
-   -   $A\cap B$ 或 $AB$ 
-* -  事件 $A$ 发生而 $B$ 不发生
-   -   $A-B$ 
-* -  事件 $A$ 不发生
-   -   $\overline{A}$ 或 $A^{c}$ 
+* - 事件 $A$ 与 $B$ 中至少有一个发生
+   - $A\cup B$  
+* - 事件 $A$ 与 $B$ 同时发生
+   - $A\cap B$ 或 $AB$  
+* - 事件 $A$ 发生而 $B$ 不发生
+   - $A-B$  
+* - 事件 $A$ 不发生
+   - $\overline{A}$ 或 $A^{c}$  
 ```
 
 ```{list-table} 事件间的运算性质
@@ -102,14 +102,14 @@ $。
 :name: tab1.4
 * - 运算性质
    - 数学表示
-* -  交换律
-   -   $A\cup B =B \cup A, \quad AB =BA$ 
-* -   结合律
-   -   $\left (  A\cup B \right )\cup C  =A\cup \left ( B \cup C \right ),\quad \left (  A B \right ) C  =A \left ( B  C \right ) $ 
-* -  分配律
-   -   $(A\cup B)\cap C=AC\cup BC,\quad (A\cap B)\cup C=(A\cup C)\cap (B\cup C)$ 
-* -  对偶律
-   -   $\overline{A \cup B } =\overline{A} \cap \overline{B},\quad \overline{A \cap  B } =\overline{A} \cup  \overline{B}$ 
+* - 交换律
+   - $A\cup B =B \cup A, \quad AB =BA$  
+* - 结合律
+   - $\left ( A\cup B \right )\cup C =A\cup \left ( B \cup C \right ),\quad \left ( A B \right ) C =A \left ( B C \right )$  
+* - 分配律
+   - $(A\cup B)\cap C=AC\cup BC,\quad (A\cap B)\cup C=(A\cup C)\cap (B\cup C)$  
+* - 对偶律
+   - $\overline{A \cup B } =\overline{A} \cap \overline{B},\quad \overline{A \cap B } =\overline{A} \cup \overline{B}$  
 ```
 
 在实际应用中，**对偶律**是最为常用的运算性质，并且可以推广至有限个和可列个随机变量的情形。
@@ -117,7 +117,7 @@ $。
 $$
 \begin{aligned}
 &\text{有限个的情形：} &\overline{\bigcup_{i=1}^{n} A_{i} } =\bigcap_{i=1}^{n} \overline{A_{i} }, \quad \overline{\bigcap_{i=1}^{n} A_{i} } =\bigcup_{i=1}^{n} \overline{A_{i} } \\
-&\text{可列个的情形：} & \overline{\bigcup_{i=1}^{\infty } A_{i} } =\bigcap_{i=1}^{\infty } \overline{A_{i} },  \quad 
+&\text{可列个的情形：} & \overline{\bigcup_{i=1}^{\infty } A_{i} } =\bigcap_{i=1}^{\infty } \overline{A_{i} }, \quad 
  \overline{\bigcap_{i=1}^{\infty } A_{i} } =\bigcup_{i=1}^{\infty } \overline{A_{i} }
 \end{aligned}
 $$

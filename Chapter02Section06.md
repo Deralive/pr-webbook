@@ -4,14 +4,14 @@
 ```{prf:example} 有回放机制 VS 无回放机制
 :label: ex02-h
 
-设罐子里有 $r$ 个红球，$b$ 个黑球。令 $R_1$ 为事件“第一个人抽到红球”， $R_2$ 为事件“第二个人抽到红球”。
+设罐子里有 $r$ 个红球， $b$ 个黑球。令 $R_1$ 为事件“第一个人抽到红球”， $R_2$ 为事件“第二个人抽到红球”。
 
 在**有回放**机制下，“第二个人是否能够抽到红球”不受到“第一个人是否抽到红球”结果的影响。于是：
 
 \begin{eqnarray*}
     P(R_1) &=& \frac{r}{r+b}\\
     P(R_2) &=& \frac{r}{r+b}\\
-    P(R_1R_2) &=& \frac{r^2}{(r+b)^2} = \frac{r}{r+b} \cdot \frac{r}{r+b}  = P(R_1)\cdot P(R_2)
+    P(R_1R_2) &=& \frac{r^2}{(r+b)^2} = \frac{r}{r+b} \cdot \frac{r}{r+b} = P(R_1)\cdot P(R_2)
 \end{eqnarray*}
 
 在**无回放**机制下，“第二个人是否能够抽到红球”会受到“第一个人是否抽到红球”结果的影响。
@@ -50,8 +50,8 @@ $$
 :label: cor02-a
 
 若事件 $A$ 与 $B$ 独立，则
--  $\overline{A}$ 与 $B$ 独立；
--  $\overline{A}$ 与 $\overline{B}$ 独立。
+- $\overline{A}$ 与 $B$ 独立；
+- $\overline{A}$ 与 $\overline{B}$ 独立。
 ```
 
 ## 三个事件间的独立性
@@ -61,7 +61,7 @@ $$
     \begin{equation*}
         \left\{
         \begin{aligned}
-       &    P(AB)=P(A)P(B)\\
+       & P(AB)=P(A)P(B)\\
        & P(AC)=P(A)P(C)\\
        & P(BC)=P(B)P(C)
         \end{aligned}
@@ -130,10 +130,10 @@ $$
  因为 $P(A\cup B) C = AC \cup BC$ . 所以：
  
 \begin{eqnarray*}
-    P((A\cup B)C) &=& P(AC \cup BC)    \\
-    &=& P(AC) + P(BC) - P(AC \cap BC)  \\
-    &=& P(A)P(C) + P(B)P(C) - P(A)P(B)P(C)  \\
-    &=& \left(P(A) + P(B) -P(A)P(B)\right)\cdot P(C)  \\
+    P((A\cup B)C) &=& P(AC \cup BC) \\
+    &=& P(AC) + P(BC) - P(AC \cap BC) \\
+    &=& P(A)P(C) + P(B)P(C) - P(A)P(B)P(C) \\
+    &=& \left(P(A) + P(B) -P(A)P(B)\right)\cdot P(C) \\
     &=& P(A\cup B) P(C)
 \end{eqnarray*}
     
@@ -141,15 +141,15 @@ $$
 ```
 ````
 
-##  $n$ 个事件的独立性
+## $n$ 个事件的独立性
 
- $n$ 个事件的独立性
-: 设有 $n$ 个事件 $A_1,A_2,\cdots,A_n$ ，对任意的 $1\leq i<j<k<\cdots\leq n $ ，如果：
+  $n$ 个事件的独立性
+: 设有 $n$ 个事件 $A_1,A_2,\cdots,A_n$ ，对任意的 $1\leq i<j<k<\cdots\leq n$ ，如果：
 
     \begin{equation*}
         \left\{
         \begin{aligned}
-       &    P(A_iA_j) = P(A_i)P(A_j)\\
+       & P(A_iA_j) = P(A_i)P(A_j)\\
        & P(A_iA_jA_k) = P(A_i)P(A_j)P(A_k)\\
        &\vdots\\
        & P(A_1A_2\cdots A_n) = \prod_{i=1}^n P(A_i) 
@@ -185,7 +185,7 @@ $$
 \begin{eqnarray*}
 H_1 &=& \{\text{第一枚硬币正面}\}\\
 H_2 &=& \{\text{第二枚硬币正面}\}\\
- D &=&  \{\text{两枚硬币的结果不一致}\}
+ D &=& \{\text{两枚硬币的结果不一致}\}
 \end{eqnarray*}
     
 于是， $H_1$ 和 $H_2$ 是独立的。但是，
