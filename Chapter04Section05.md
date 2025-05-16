@@ -11,7 +11,7 @@ $$
 其中，参数 $\lambda >0$ 。称随机变量 $X$ 的概率分布为泊松分布，记 $X\sim P(\lambda)$ 。
 
 
-泊松分布是有法国数学家Siméon-Denis Poisson教授提出的。故此得名。
+泊松分布是有法国数学家 Siméon-Denis Poisson 教授提出的。故此得名。
 
 ```{admonition} Question
 
@@ -41,12 +41,12 @@ $$
 :label: lemma04-a
 
 $$
-\sum_{k=0}^{+\infty }\frac{\lambda ^{k} }{k!} = e^{\lambda }.
+\sum_{k=0}^{+\infty }\frac{\lambda ^{k} }{k!} = e^{\lambda }
 $$
 
 ```{dropdown} Proof
 
-令 $f(x)=e^{\lambda x}$ 可知
+令 $f(x)=e^{\lambda x}$ 可知：
 
 \begin{eqnarray*}
 f'(x)&=&\lambda e^{\lambda x}, \\ 
@@ -55,16 +55,16 @@ f''(x)&=&\lambda^{2}  e^{\lambda x},\\
 f^{(k)}(x) &=&\lambda^{k}  e^{\lambda x}.
 \end{eqnarray*}
 
-在 $x = x_0$ 处对 $f(x)$ 进行泰勒展开，可知
+在 $x = x_0$ 处对 $f(x)$ 进行泰勒展开，可知：
 
 $$
-f(x)=f(x_{0} )+\sum_{k=1}^{\infty } \frac{f^{(k)}(x_{0} )}{k!} (x-x_{0})^{k}.
+f(x)=f(x_{0} )+\sum_{k=1}^{\infty } \frac{f^{(k)}(x_{0} )}{k!} (x-x_{0})^{k}
 $$
 
-所以，取 $x= 1$ 且 $x_0=0$ 时，有
+所以，取 $x= 1$ 且 $x_0=0$ 时，有：
 
 $$
-e^{\lambda} = f(1)=f(0 )+\sum_{k=1}^{\infty } \frac{f^{(k)}(0)}{k!} = \sum_{k=0}^{\infty} \frac{\lambda^k}{k!}. 
+e^{\lambda} = f(1)=f(0 )+\sum_{k=1}^{\infty } \frac{f^{(k)}(0)}{k!} = \sum_{k=0}^{\infty} \frac{\lambda^k}{k!}
 $$
 ```
 ````
@@ -76,16 +76,16 @@ $$
 
 这是一个显然的结果 $P(X=k)=\frac{\lambda ^{k} }{k!} e^{-\lambda } > 0,k=0,1,2,\cdots$ ，这是因为参数 $\lambda>0$ 。
 
-- 要证明正则性，即 $\sum_{k=0}^\infty P(X=k) = 1$ 。于是，
+- 要证明正则性，即 $\sum_{k=0}^\infty P(X=k) = 1$ 。于是：
 
 \begin{eqnarray*}
-1=\sum_{k=0}^{+\infty } \frac{\lambda ^{k} }{k!} e^{-\lambda } = e^{-\lambda }\sum_{k=0}^{+\infty }\frac{\lambda ^{k} }{k!}=e^{-\lambda }e^{\lambda }.
+1=\sum_{k=0}^{+\infty } \frac{\lambda ^{k} }{k!} e^{-\lambda } = e^{-\lambda }\sum_{k=0}^{+\infty }\frac{\lambda ^{k} }{k!}=e^{-\lambda }e^{\lambda }
 \end{eqnarray*}
 
-根据 {prf:ref}`lemma04-a`，可知
+根据 {prf:ref}`lemma04-a`，可知：
 
 $$
-\sum_{k=0}^{+\infty }\frac{\lambda ^{k} }{k!} = e^{\lambda }.
+\sum_{k=0}^{+\infty }\frac{\lambda ^{k} }{k!} = e^{\lambda }
 $$
 ```    
 ``````
@@ -98,7 +98,6 @@ $$
 ```
 
 
-
 ```{admonition} Question
 
 都可以表示所关心事件发生的次数，泊松分布与二项分布有什么关系？
@@ -108,7 +107,7 @@ $$
 ```{prf:example}
 :label: ex04-c
 
-我们想要关注学校东门在每天上午7:00-8:00这一个小时内的车流量——在这一个小时内东门通过 $K$ 辆车。 $K$ 可以看作一个泊松分布随机变量。
+我们想要关注学校东门在每天上午 $7:00-8:00$ 这一个小时内的车流量——在这一个小时内东门通过 $K$ 辆车。 $K$ 可以看作一个泊松分布随机变量。
 
 如果将这一个小时切分为 $n$ 个时段，并满足以下两个假定：
 
@@ -121,28 +120,28 @@ $$
 ````{prf:theorem}
 :label: thm04-d
 
-在 $n$ 重伯努利试验中，记事件 $A$ 在一次试验中发生的概率为 $p_{n}$ （与试验次数 $n$ 有关），如果当 $n\to \infty$ 时，有 $np_{n}\to \lambda$ ，则
+在 $n$ 重伯努利试验中，记事件 $A$ 在一次试验中发生的概率为 $p_{n}$ （与试验次数 $n$ 有关），如果当 $n\to \infty$ 时，有 $np_{n}\to \lambda$ ，则：
 
 $$
-\lim_{n \to \infty} C_{n}^{k}p_{n} ^{k} (1-p_{n})^{n-k}=\frac{\lambda ^{k} }{k!} e^{-\lambda }.
+\lim_{n \to \infty} C_{n}^{k}p_{n} ^{k} (1-p_{n})^{n-k}=\frac{\lambda ^{k} }{k!} e^{-\lambda }
 $$
 
 ```{dropdown} Proof
 
-令 $\lambda_{n}=np_{n}$ ，即 $p_{n}=\frac{\lambda _{n}}{n} $ ，可得
+令 $\lambda_{n}=np_{n}$ ，即 $p_{n}=\frac{\lambda _{n}}{n} $ ，可得：
 
 \begin{eqnarray*}
 C_{n}^{k}p_{n} ^{k} (1-p_{n})^{n-k}&=&\frac{n(n-1)\cdots (n-k+1)}{k!} (\frac{\lambda _{n}}{n} )^{k}(1-\frac{\lambda _{n}}{n} )^{n-k}\\
 &=&\frac{\lambda _{n}^{k}}{k!} (1-\frac{1}{n} )(1-\frac{2}{n} )\cdots (1-\frac{k-1}{n} )(1-\frac{\lambda _{n}}{n} )^{n-k}
 \end{eqnarray*}
 
-对固定的 $k$ 有
+对固定的 $k$ 有：
 
 $$
-\lim_{n \to \infty} \lambda _{n}=\lambda ,
+\lim_{n \to \infty} \lambda _{n}=\lambda
 $$
 
-于是有
+于是有：
 
 $$
 \lim_{n \to \infty} (1-\frac{\lambda _{n}}{n})^{n-k} =e^{-\lambda }
@@ -151,10 +150,10 @@ $$
 $$\lim_{n \to \infty} (1-\frac{1}{n} )\cdots (1-\frac{k-1}{n} )=1
 $$
 
-从而
+从而：
 
 $$
-\lim_{n \to \infty} C_{n}^{k}p_{n} ^{k} (1-p_{n})^{n-k}=\frac{\lambda ^{k} }{k!} e^{-\lambda },
+\lim_{n \to \infty} C_{n}^{k}p_{n} ^{k} (1-p_{n})^{n-k}=\frac{\lambda ^{k} }{k!} e^{-\lambda }
 $$
 
 对任意 $k$ 均成立。

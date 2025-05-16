@@ -10,7 +10,7 @@ $$P(A|B)=\frac{P(AB)}{P(B)} $$
 `````{prf:example}
 :label: ex02-a
 
-投掷一颗公平的四面骰子两次。令 $X$ 表示第一次投掷的结果， $Y$ 表示第二次投掷的结果。若
+投掷一颗公平的四面骰子两次。令 $X$ 表示第一次投掷的结果， $Y$ 表示第二次投掷的结果。若：
 
 $$
 A_m = \{\max\{X,Y\} = m\},  \quad B = \{\min\{X,Y\} = 2\}
@@ -72,18 +72,18 @@ $$
 
 - 对于任意一个随机事件 $A\in \mathcal{F}$ ， $P(AB)\geq 0$ ，则 $P(A|B)\geq 0$ 。
 
-- 对于必然事件 $\Omega$ ，有
+- 对于必然事件 $\Omega$ ，有：
     
     $$
-    P(\Omega ) = \frac{P(\Omega \cap B)}{P(B)} = \frac{P(B)}{P(B)} = 1.
+    P(\Omega ) = \frac{P(\Omega \cap B)}{P(B)} = \frac{P(B)}{P(B)} = 1
     $$
     
--  对于一列互不相容的随机事件 $A_1,A_2,\cdots,A_n,\cdots \in  \mathcal{F}$ ，有
+-  对于一列互不相容的随机事件 $A_1,A_2,\cdots,A_n,\cdots \in  \mathcal{F}$ ，有：
     \begin{eqnarray*}
         P\left( \cup_{i=1}^{\infty} A_i | B\right) &=& \frac{P\left( \left(\cup_{i=1}^{\infty} A_i\right) \cap B \right)}{P(B)} \\
         &=& \frac{P\left( \cup_{i=1}^{\infty}\left( A_i \cap B \right)  \right)}{P(B)} \\
         &=& \frac{ \sum_{i=1}^{\infty} P\left(\left( A_i \cap B \right)  \right)}{P(B)} \\
-        &=&  \sum_{i=1}^{\infty} P\left(A_i | B  \right) .
+        &=&  \sum_{i=1}^{\infty} P\left(A_i | B  \right)
     \end{eqnarray*}   
 ```
 
