@@ -52,6 +52,9 @@ parts:
       - file: Chapter06Section06
       - file: Chapter06Section07
       - file: Chapter06Section08
+    - file: Chapter07
+    - file: Chapter08
+
 
 
 

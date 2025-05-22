@@ -9,43 +9,43 @@ def envs_cover(line: str) -> str:
     patterns = {
         # Math Environments
         # Definition
-        r'\\begin\{definition\}\s*\{(.+?)\}\s*\\label\s*\{(.+?)\}': r'\1\n:label: \2',  # Title and Label
-        r'\\begin\{definition\}\s*\\label\s*\{(.+?)\}': r'`````{prf:definition} \n:label: \1',  # Title only
-        r'\\begin\{definition\}\s*\{(.+?)\}': r'\1',  # Title only
-        r'\\begin\{definition\}': '',  # Plain
+        r'\\begin\{definition\}\s*\{(.+?)\}\s*\\label\s*\{(.+?)\}': r'\1\n:label: \2',  
+        r'\\begin\{definition\}\s*\\label\s*\{(.+?)\}': r'`````{prf:definition} \n:label: \1',  
+        r'\\begin\{definition\}\s*\{(.+?)\}': r'\1',  
+        r'\\begin\{definition\}': '',  
         r'\\end\{definition\}': '',
 
         # Example
-        r'\\begin\{example\}\s*\{(.+?)\}\s*\\label\s*\{(.+?)\}': r'`````{prf:example} \1\n:label: \2',  # Title and Label
-        r'\\begin\{example\}\s*\{(.+?)\}': r'`````{prf:example} \1',  # Title only
-        r'\\begin\{example\}\s*\\label\s*\{(.+?)\}': r'`````{prf:example} \n:label: \1',  # Title only
-        r'\\begin\{example\}': '`````{prf:example}',  # Plain
+        r'\\begin\{example\}\s*\{(.+?)\}\s*\\label\s*\{(.+?)\}': r'`````{prf:example} \1\n:label: \2',  
+        r'\\begin\{example\}\s*\{(.+?)\}': r'`````{prf:example} \1',  
+        r'\\begin\{example\}\s*\\label\s*\{(.+?)\}': r'`````{prf:example} \n:label: \1',  
+        r'\\begin\{example\}': '`````{prf:example}',  
         r'\\end\{example\}': '`````',
 
         # Property
-        r'\\begin\{property\}\s*\{(.+?)\}\s*\\label\s*\{(.+?)\}': r'`````{prf:property} \1\n:label: \2',  # Title and Label
-        r'\\begin\{property\}\s*\\label\s*\{(.+?)\}': r'`````{prf:property} \n:label: \1',  # Title only
-        r'\\begin\{property\}\s*\{(.+?)\}': r'`````{prf:property} \1',  # Title only
-        r'\\begin\{property\}': '`````{prf:property}',  # Plain
+        r'\\begin\{property\}\s*\{(.+?)\}\s*\\label\s*\{(.+?)\}': r'`````{prf:property} \1\n:label: \2',  
+        r'\\begin\{property\}\s*\\label\s*\{(.+?)\}': r'`````{prf:property} \n:label: \1',  
+        r'\\begin\{property\}\s*\{(.+?)\}': r'`````{prf:property} \1',  
+        r'\\begin\{property\}': '`````{prf:property}',  
         r'\\end\{property\}': '`````',
 
         # Problem
-        r'\\begin\{problem\}\s*\{(.+?)\}\s*\\label\s*\{(.+?)\}': r'```{admonition} Question \1\n:label: \2',  # Title and Label
-        r'\\begin\{problem\}\s*\\label\s*\{(.+?)\}': r'`````{prf:problem} \n:label: \1',  # Title only
-        r'\\begin\{problem\}\s*\{(.+?)\}': r'```{admonition} Question \1',  # Title only
-        r'\\begin\{problem\}': '```{admonition} Question',  # Plain
+        r'\\begin\{problem\}\s*\{(.+?)\}\s*\\label\s*\{(.+?)\}': r'```{admonition} Question \1\n:label: \2',  
+        r'\\begin\{problem\}\s*\\label\s*\{(.+?)\}': r'`````{prf:problem} \n:label: \1',  
+        r'\\begin\{problem\}\s*\{(.+?)\}': r'```{admonition} Question \1',  
+        r'\\begin\{problem\}': '```{admonition} Question',  
         r'\\end\{problem\}': '```',
 
         # Lemma
-        r'\\begin\{lemma\}\s*\{(.+?)\}\s*\\label\s*\{(.+?)\}': r'````` \1\n:label: \2',  # Title and Label
-        r'\\begin\{lemma\}\s*\\label\s*\{(.+?)\}': r'`````{prf:lemma} \n:label: \1',  # Title only
-        r'\\begin\{lemma\}\s*\{(.+?)\}': r'````` \1',  # Title only
-        r'\\begin\{lemma\}': '`````',  # Plain
-        r'\\end\{lemma\}': '`````',        # Theorem
+        r'\\begin\{lemma\}\s*\{(.+?)\}\s*\\label\s*\{(.+?)\}': r'````` \1\n:label: \2',  
+        r'\\begin\{lemma\}\s*\\label\s*\{(.+?)\}': r'`````{prf:lemma} \n:label: \1',  
+        r'\\begin\{lemma\}\s*\{(.+?)\}': r'````` \1',  
+        r'\\begin\{lemma\}': '`````',  
+        r'\\end\{lemma\}': '`````',
 
         # Theorem
         r'\\begin\{theorem\}\{(.+?)\}\\label\{(.+?)\}': r'``````{prf:theorem} \1' + f'\n' + r':label: \2',
-        r'\\begin\{theorem\}\s*\\label\s*\{(.+?)\}': r'`````{prf:theorem} \n:label: \1',  # Title only
+        r'\\begin\{theorem\}\s*\\label\s*\{(.+?)\}': r'`````{prf:theorem} \n:label: \1',  
         r'\\begin\{theorem\}\{(.+?)\}': r'``````{prf:theorem} \1',
         r'\\begin\{theorem\}': '``````{prf:theorem}',
         r'\\end\{theorem\}': '``````',
@@ -69,6 +69,20 @@ def envs_cover(line: str) -> str:
         r'\\section\{(.+?)\}': r'# \1',
         r'\\subsection\{(.+?)\}': r'## \1',
         r'\\subsubsection\{(.+?)\}': r'### \1',
+
+        # Note
+        r'\\begin\{note\}': '',
+        r'\\end\{note\}': '',
+
+        # Vpsace
+        r'\\vspace\{(.+?)\}': '',
+
+        # Bold
+        r'\\textbf\{(.+?)\}': r'**\1**',
+
+        # Eqnarray
+        r'\\begin\{eqnarray\*\}': r'$$' + f'\n' + r'\\begin\{eqnarray*\}',
+        r'\\end\{eqnarray\*\}': r'\\end\{eqnarray*\}' + f'\n' + r'$$',
     }
 
     for pattern, replacement in patterns.items():
@@ -127,30 +141,33 @@ def two_dollar(cont: str) -> str:
 
 
 def main():
-    file_name = "Lect06.tex"
+    file_name = "Lect07.tex"
     lines = tex_spliter(file_name)
     processed_lines = []
     for line in lines:
         processed_line = envs_cover(line)
         processed_lines.append(processed_line)
 
-    output_md_file = "Lect06.md"
+    # 先转为 Markdown 格式
+    output_md_file = "../Chapter07.md"
     with open(output_md_file, "w", encoding="utf-8") as md_file:
         for proc_line in processed_lines:
             md_file.write(proc_line + "\n")
 
-    with open("Lect06.md", 'r', encoding='utf-8') as infile:
+    # 处理美元符号，保证左右两边有一个空格
+    with open("../Chapter07.md", 'r', encoding='utf-8') as infile:
         content = infile.read()
         processed_content = process_text_content(content)
-    with open("Lect06.md", 'w', encoding='utf-8') as outfile:
+    with open("../Chapter07.md", 'w', encoding='utf-8') as outfile:
         outfile.write(processed_content)
 
-    with open("Lect06.md", 'r', encoding='utf-8') as infile:
+    # 处理双美元符号，保证双美元符号的上下具有一个空行
+    with open("../Chapter07.md", 'r', encoding='utf-8') as infile:
         content = infile.read()
         processed_content = two_dollar(content)
-    with open("Lect06.md", 'w', encoding='utf-8') as outfile:
+    with open("../Chapter07.md", 'w', encoding='utf-8') as outfile:
         outfile.write(processed_content)
 
-
+    
 if __name__ == '__main__':
     main()
