@@ -1,0 +1,506 @@
+\chapter{数学期望}
+\begin{introduction}
+  \item Intro to Prob\quad 2.4
+  \item Prob$\&$Stat\quad2.2 2.3 2.7
+\end{introduction}
+\section{引导问题：期望的来源}
+\begin{instance}[（分赌本问题）]
+甲、乙两人赌技不相上下。两人进行赌博，各出赌注50法郎，每局中无平局。他们约定：谁先赢三局，则赢得全部赌本100法郎。当甲赢了二局，乙赢了一局，因故要中止赌博。现问这100法郎如何分才算公平？
+
+\begin{enumerate}
+\item 甲得$\frac{2}{3}$,乙得$\frac{1}{3}$。
+
+这个方案看似是合理的。但是，如果甲赢了一局，乙赢了零局，那么这种分法的结果是：甲得 100法郎,乙得0法郎,这样是否合理？
+\item 设想再赌下去，则甲最终所得$X$为一个随机变量，其可能取值为0或100，再赌两局必可结束。接下来两局的结果为$\{\text{甲甲, 甲乙, 乙甲, 乙乙}\}$。这四种情况中有三种情况：甲赢了100法郎。只有一种情况：乙赢下100法郎，因为两人赌技不相上下，所以，在两局后甲的收益是一个随机变量，其分布列为
+ \begin{table}[h]
+        \centering
+\begin{tabular}{c|cc}
+$X$ & 100           & 0             \\ \hline
+$P$ & $\frac{3}{4}$ & $\frac{1}{4}$
+\end{tabular}
+\end{table}
+
+于是，甲的“期望”收益应为
+$$
+100\times \frac{3}{4} + 0 \times \frac{1}{4} = 75\text{ （法郎）}
+$$
+相应地，乙的“期望”收益应为25（法郎）。
+\end{enumerate}    
+\end{instance}
+
+
+
+\section{数学期望}
+
+
+\begin{definition}{数学期望}\label{def:expectation}
+\begin{enumerate}
+\item 假设$X$为一个离散随机变量，其分布列记为
+        $p_{i}=P\left(X=x_{i}\right) \quad i=1.2, \cdots, n, \cdots$。
+    如果 $\sum_{i=1}^{\infty}\left|x_{i}\right| p_{i}<\infty$，则称 
+    $$E(x)=\sum_{i=1}^{\infty} x_{i} p\left(x_{i}\right)$$
+        为随机变量$X$的（数学）期望或均值。
+\item 假设$X$为一个连续随机变量，其密度函数$p(x)$。如果$\int_{-\infty}^{+\infty}|x| p(x) d x<\infty$，则称 $$E(x)=\int_{-\infty}^{+\infty} x p(x) d x$$
+为随机变量$X$的（数学）期望或均值。
+\end{enumerate}
+\end{definition}
+\begin{remark}
+    如果$\sum_{i=1}^{\infty}\left|x_{i}\right| p_{i}$或$\int_{-\infty}^{+\infty}|x| p(x)$不收敛，则称$X$的期望不存在。
+\end{remark}
+\begin{example}
+设$X$服从区间$(a,b)$上的均匀分布，求$E(X)$.
+\end{example}
+\begin{solution}
+因为$X$的密度函数为
+$$
+p(x) = \left\{
+\begin{aligned}
+  &  \frac{1}{b-a}, & a<x<b,\\
+  &  0, &  \text{其他}.
+\end{aligned}
+\right.
+$$
+所以，
+$$
+E(X) = \int_{a}^b x \frac{1}{b-a}\text{d} x = \frac{1}{b-a} \left.\frac{x^2}{2}\right|_a^b = \frac{a+b}{2}.
+$$
+\end{solution}
+
+\begin{example}\label{ex:chap06_discrete_rv_expectation}
+如果$X$的分布列为
+ \begin{table}[ht]
+        \centering
+\begin{tabular}{c|ccc}
+$X$ & -1          & 0  & 1           \\ \hline
+$P$ & $\frac{1}{3}$ & $\frac{1}{3}$ & $\frac{1}{3}$
+\end{tabular}
+\end{table}
+
+那么$E(X) = 0$。而$X^2$的分布列为
+\begin{table}[ht]
+        \centering
+\begin{tabular}{c|cc}
+$X$ &            0  & 1           \\ \hline
+$P$ &  $\frac{1}{3}$ & $\frac{2}{3}$
+\end{tabular}
+\end{table}
+
+那么$E(X^2) = \frac{2}{3}$。
+\end{example}
+
+\section{数学期望的性质}
+通过例\ref{ex:chap06_discrete_rv_expectation}，我们在计算随机变量函数的期望时有统一的公式。
+
+\begin{theorem}\label{thm:chap06_expectation_rv_funciton}
+若随机变量$X$的分布用分布列$p(x_i)$或密度函数$p(x)$表示，则$X$的某一函数$g(X)$的数学期望为
+$$E(g(x))=\left\{\begin{aligned}
+&\sum_{i} g\left(x_{i}\right) p\left(x_{i}\right), &\quad \text{在离散场合}, \\
+&\int_{-\infty}^{+\infty} g(x) p(x) d x, &\quad \text{在连续场合}. 
+\end{aligned}\right.$$
+\end{theorem}
+
+\begin{property}
+\begin{enumerate}
+\item 若$c$是常数，则$E(c) = c$；
+ \item 对任意常数$a$，有$E(aX) = aE(X)$；
+ \item 对任意的两个函数$g_1(x)$和$g_2(x)$，有
+ $$ 
+ E(g_1(X)\pm g_2(X)) = E(g_1(X)) \pm E(g_2(X)).
+ $$
+\end{enumerate}
+\end{property}
+\begin{note}
+    \vspace{5cm}
+\end{note}
+\begin{problem}
+    已知$X$的期望$E(X)$，如何计算$X$的线性变换$aX+b$的期望呢？
+\end{problem}
+
+
+
+\section{方差与标准差}
+通过定理\ref{thm:chap06_expectation_rv_funciton}，我们可以计算随机变量$X$函数的期望。其中，有一个特殊的函数，即$(X-E(X))^2$，它的期望也是分布的重要特征，我们单独给一个定义——方差。
+
+\begin{definition}{方差与标准差}\label{def:variance}
+若随机变量$X^{2}$的数学期望$E(X^{2})$存在，则称偏差平方$$E(X-E(X))^{2}$$为随机变量$X$的方差，记为\begin{eqnarray*}
+\text{Var}(X) &=&E(X-E(X))^{2}\\
+&=& \left\{
+\begin{aligned}
+   & \sum_{i}\left(x_{i}-E(x)\right)^{2} p\left(x_{i}\right), \qquad \mbox{在离散场合}\\
+   &\int_{-\infty}^{+\infty}(x-E(X))^{2} p(x) d x, \quad \mbox{在连续场合}
+\end{aligned}
+\right.
+\end{eqnarray*}
+称方差的平方根$\sqrt{\operatorname{Var}(X)}$为随机变量$X$的标准差，记为$\sigma(x)$或$\sigma_x$。
+\end{definition}
+
+\begin{property}
+    \begin{enumerate}
+        \item $\text{Var}(X) = E(X^2) - (E(X))^2$；
+        \item 常数的方差为零，即若$c$为常数，则$\text{Var}(c) = 0$；
+        \item 若$a,b$为常数，则$\text{Var}(aX+b) = a^2 \text{Var}(X)$.
+    \end{enumerate}
+\end{property}
+\begin{note}
+    \vspace{5cm}
+\end{note}
+
+
+
+
+这里介绍三个常见随机变量期望和方差的计算方法。
+\begin{example}
+    如果$X\sim b(n,p)$，那么$E(X) = np$且$\text{Var}(X) = np(1-p)$。
+\end{example}
+\begin{solution}
+$X$的分布列为
+    $$
+    P(X=k) = C_n^k p^k (1-p)^{n-k},k = 0,1,2,\cdots,n.
+    $$
+于是，$X$的期望为
+\begin{eqnarray*}
+    E(X) &=& \sum_{k=0}^n k P(X=k)\\
+    &=& \sum_{k=0}^n k \cdot C_n^k p^k (1-p)^{n-k}\\
+    &=& \sum_{k=1}^n k\cdot \frac{n!}{k!(n-k)!} p^k (1-p)^{n-k}\\
+ &=& \sum_{k=1}^n \frac{n!}{(k-1)!(n-k)!} p^k (1-p)^{n-k}\\
+ &=& np\cdot \sum_{k=1}^n \frac{(n-1)!}{(k-1)!(n-k)!} p^{k-1} (1-p)^{n-k}\\
+ &\overset{k'=k-1}{=}& np\cdot \sum_{k'=0}^{n-1} \frac{(n-1)!}{(k')!(n-1-k')!} p^{k'} (1-p)^{n-1-k'}\\
+ &=& np,
+\end{eqnarray*}
+因为$X$的方差$\text{Var}(X) = E(X^2) - (E(X))^2$，所以，需要计算$X^2$的期望。而$X^2$的期望为
+\begin{eqnarray*}
+    E(X) &=& \sum_{k=0}^n k^2 P(X=k)\\
+    &=& \sum_{k=0}^n k^2\cdot  C_n^k p^k (1-p)^{n-k}\\
+    &=& \sum_{k=1}^n k^2\cdot \frac{n!}{k!(n-k)!} p^k (1-p)^{n-k}\\
+ &=& \sum_{k=1}^n k\cdot \frac{n!}{(k-1)!(n-k)!} p^k (1-p)^{n-k}\\
+ &=& np\cdot \sum_{k=1}^n k\cdot  \frac{(n-1)!}{(k-1)!(n-k)!} p^{k-1} (1-p)^{n-k}\\
+ &\overset{k'=k-1}{=}& np\cdot \sum_{k'=0}^{n-1} (k'+1) \frac{(n-1)!}{(k')!(n-1-k')!} p^{k'} (1-p)^{n-1-k'}\\
+ &=& np\cdot ((n-1)p+1) \\
+ &=& n(n-1)p^2 + np,
+\end{eqnarray*}
+于是，
+$$\text{Var}(X) = E(X^2) - (E (X))^2 = n(n-1)p^2 + np - (np)^2 = np - np^2 = np(1-p).$$
+\end{solution}
+
+\begin{example}
+    如果$X\sim N(\mu,\sigma^2)$，那么$E(X) = \mu$且$\text{Var}(X) = \sigma^2$。
+\end{example}
+\begin{solution}
+$X$的密度函数为
+    $$
+    p(x) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left\{ - \frac{1}{2\sigma^2} (x-\mu)^2\right\},x\in R.
+    $$
+于是，$X$的期望为
+\begin{eqnarray*}
+    E(X) &=&  \int_{0}^{\infty} x p(x) \text{d}x\\
+ &=&     \int_{-\infty}^{\infty} x \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left\{ - \frac{1}{2\sigma^2} (x-\mu)^2\right\} \text{d}x\\
+    &\overset{z = x-\mu}{=}&  \int_{-\infty}^{\infty} (z+\mu) \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left\{ - \frac{1}{2\sigma^2} (z)^2\right\} \text{d} z\\
+    &= & \int_{-\infty}^{\infty} z \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left\{ - \frac{1}{2\sigma^2} (z)^2\right\} \text{d} z + \mu\int_{-\infty}^{\infty}  \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left\{ - \frac{1}{2\sigma^2} (z)^2\right\} \text{d} z\\
+    &=& \mu.
+\end{eqnarray*}
+而$X$的方差为
+\begin{eqnarray*}
+    \text{Var}(X) &=& E(X-E(X))^2\\
+    &=&\int_{-\infty}^{\infty} (x-\mu)^2 \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left\{ - \frac{1}{2\sigma^2} (x-\mu)^2\right\} \text{d} x \\
+    &\overset{z = x-\mu}{=}& \int_{-\infty}^{\infty} z^2 \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left\{ - \frac{1}{2\sigma^2} z^2\right\} \text{d} z\\
+&=&  \frac{1}{\sqrt{2\pi \sigma^2}} \int_{-\infty}^{\infty} -{\sigma^2} z \text{d} \exp\left\{ - \frac{1}{2\sigma^2} z^2\right\} \\
+&=& \frac{1}{\sqrt{2\pi \sigma^2}} \cdot \left(\left.-{\sigma^2} z\exp\left\{ - \frac{1}{2\sigma^2} z^2\right\} \right|_{-infty}^{\infty}+  \int_{-\infty}^{\infty}  {\sigma^2}\exp\left\{ - \frac{1}{2\sigma^2} z^2\right\} \text{d}z \right)\\
+&=&  \int_{-\infty}^{\infty} {\sigma^2} \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left\{ - \frac{1}{2\sigma^2} z^2\right\} \text{d}z \\
+&=& \sigma^2.
+\end{eqnarray*}
+\end{solution}
+
+\begin{example}
+    如果$X\sim Ga(\alpha,\lambda)$，那么$E(X) = \frac{\alpha}{\lambda}$且$\text{Var}(X) = \frac{\alpha}{\lambda^2}$。
+\end{example}
+\begin{solution}
+$X$的密度函数为
+    $$
+    p(x) = \frac{\lambda^\alpha}{\Gamma(\alpha)} x^{\alpha-1} \exp\{-\lambda x\},x>0.
+    $$
+这里我们先考虑$X^k$的期望
+\begin{eqnarray*}
+    E(X^k) &=&  \int_{0}^{\infty} x^k p(x) \text{d}x = \int_{0}^{\infty} x^k \frac{\lambda^\alpha}{\Gamma(\alpha)} x^{\alpha-1} \exp\{-\lambda x\}\text{d}x\\
+    &=& \int_{0}^{\infty}  \frac{\lambda^\alpha}{\Gamma(\alpha)} x^{\alpha+k -1} \exp\{-\lambda x\}\text{d}x\\
+    &=& \int_{0}^{\infty} \frac{(\alpha+k-1)\times \cdots \times (\alpha)}{\lambda^k}\cdot \frac{\lambda^{\alpha+k}}{\Gamma(\alpha+k)} x^{\alpha+k -1} \exp\{-\lambda x\}\text{d}x\\
+    &=&\frac{(\alpha+k-1)\times \cdots \times (\alpha)}{\lambda^k}.
+\end{eqnarray*}
+于是，$X$的期望为
+$$E(X) = \frac{\alpha}{\lambda}.$$
+而
+$X$的方差为
+$$
+\text{Var}(X) = E(X^2) - (E X)^2 = \frac{(\alpha+1)\alpha}{\lambda^2} -  \frac{\alpha^2}{\lambda^2}  =  \frac{\alpha}{\lambda^2}.
+$$
+\end{solution}
+
+\begin{remark}
+    在计算期望时，一个最常用的方法是“合成概率函数”。
+\end{remark}
+
+\section{$k$阶矩}
+
+\begin{definition}\label{def:moment}
+设$X$为随机变量，$k$为正整数。如果以下的数学期望都存在，则
+\begin{enumerate}
+    \item 称
+$$
+\mu_k = E(X^k)
+$$
+为$X$的$k$阶原点矩。
+\item 称
+$$
+\nu_k = E((X-E(X))^k)
+$$
+为$X$的$k$阶中心矩。
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+    \begin{enumerate}
+        \item $\mu_1$是数学期望；
+        \item $\nu_2$是方差；
+        \item $k$阶矩存在时，$k-1$阶矩也存在，从而低于$k$的各阶矩都存在。
+        \item 中心矩和原点矩的关系
+        $$
+        \nu_k = E(X-E(X))^k = E(X-\mu_1)^k = \sum_{i=0}^k C_k^i \mu_i (-\mu_1)^{k-i}.
+        $$
+    \end{enumerate}
+\end{remark} 
+
+基于矩，统计学中也关注以下三个特征数，供学生课后自行了解。
+
+\subsection{变异系数}
+\begin{definition}\label{def:cv}
+设随机变量$X$的二阶矩存在，则称比值
+$$
+C_v(X) = \frac{\sqrt{Var(X)}}{E(X)} = \frac{\sigma(X)}{E(X)}.
+$$
+为$X$的变异系数。
+\end{definition}
+\begin{remark}
+    变异系数是一个无量纲的量，从而消除量纲对波动的影响。
+\end{remark}
+\subsection{偏度系数}
+\begin{definition}\label{def:skewness}
+设随机变量$X$的前三阶矩阵存在，则比值
+$$\beta_{s}=\frac{\nu_{3}}{\nu_{2}^{{3}/{2}}}=\frac{E(X-E(X))^{3}}{(\operatorname{Var}(X))^{{3}/{2}}}$$
+称为$X$或分布的偏度系数，简称偏度。
+    
+\end{definition}
+\begin{remark}
+    \begin{enumerate}
+    \item 偏度$\beta_s$是描述分布偏离对称程度的一个特征数；
+        \item $\beta_{s}<0$时，称左偏，又称负偏；
+        \item $\beta_{s}>0$时，称右偏，又称正偏；
+        \item 对于连续型随机变量，当密度函数$p(x)$关于其数学期望对称，则其三阶中心矩$\nu_3$必为0，从而$\beta_s =0$。
+    \end{enumerate}
+\end{remark}
+\begin{itemize}
+    \item 当密度$p(x)$关于数学期望堆成时,$V_{3}=0 \Rightarrow \beta_{s}=0$。
+    \item $\beta_{s}<0$时，称左偏。
+    \item $\beta_{s}>0$时，称右偏。
+\end{itemize}
+
+
+\subsection{峰度系数}
+\begin{definition}\label{def:kurtosis}
+设随机变量$X$的前四阶存在，则
+$$\beta_{k}=\frac{\nu_{4}}{\nu_{2}^{2}}-3=\frac{E(X-E(X))^{4}}{(\operatorname{Var}(X))^{2}}-3 $$
+称为$X$或分布的峰度系数，简称峰度。
+\end{definition}
+\begin{remark}
+    \begin{enumerate}
+        \item 峰度是描述分布是否存在“尖峰后尾”现象的一个特征数；
+        \item 正态分布$N(\mu,\sigma^2)$中$\nu_2 = \sigma^2$且$\nu_4 = 3\sigma^4$（请同学们课后证明）。于是，$\beta_k = 3\sigma^4 / \sigma^4 - 3 =0$。这表明了峰度系数$\beta_k$是相对于正态分布而言的超出量。
+        \item $\beta_{k}>0$表示“厚尾”分布；
+         \item $\beta_{k}<0$表示“薄尾”分布；
+         \item 偏度和峰度都是描述分布形状的特征数。
+    \end{enumerate}
+\end{remark}
+
+
+\section{基于矩的概率不等式}
+\begin{theorem}{Markov不等式}\label{thm:chap06_Markov_Inequality}
+    设$X$是一个非负随机变量。如果$a>0$，那么
+	$$P(X>a ) \leq \frac{E(X)}{a}.$$
+\end{theorem}
+\begin{proof}
+     (仅考虑连续情况)设$X$是一个连续随机变量，其密度函数为$p(x)$。于是，$X$的期望是
+     \begin{eqnarray*}
+        E(X) &=& \int_{0}^{\infty} xp(x)\text{d} x \\
+        &=& \int_{0}^{a} xp(x)\text{d} x +\int_{a}^{\infty} xp(x)\text{d} x \\
+        &\geq&  \int_{a}^{\infty} xp(x)\text{d} x 
+        \\
+        &\geq&  \int_{a}^{\infty} ap(x)\text{d} x \\
+        &=& a P(X\geq a)
+     \end{eqnarray*}
+因此，定理得证，对离散随机变量亦可类似进行证明。
+\end{proof}
+
+\begin{theorem}{Chebyshev不等式}\label{thm:chap06_Chebyshev_Inequality}
+    设随机变量$X$的数学期望和方差都存在，则对任意常数$\varepsilon >0$,有
+	$$P(|x-E x| \geqslant \varepsilon) \leq \frac{\text{Var}(X)}{\varepsilon^{2}}.$$
+\end{theorem}
+\begin{remark}
+事件${|x-E x| \geqslant \varepsilon}$称为大偏差，其概率$P(|x-E x| \geqslant \varepsilon)$称为大偏差发生概率。
+\end{remark}
+\begin{proof}
+    (仅考虑连续情况)其密度函数$p(x)$,记$E(x)=\mu$,
+	\begin{eqnarray*}
+	    P(|X-\mu| \geqslant \varepsilon) &=&\int_{\{x:|x-\mu| \geqslant \varepsilon\}} p(x) d x \\
+& \leqslant &\int_{\{x:|x-\mu| \geqslant \varepsilon\}} \frac{(x-\mu)^{2}}{\varepsilon^{2}} p(x) d x \\
+& \leqslant& \frac{1}{\varepsilon^{2}} \int_{-\infty}^{+\infty}(x-\mu)^{2} p(x) d x \\
+&=&\frac{\text{Var}(X)}{\varepsilon^{2}}.
+	\end{eqnarray*}
+\end{proof}
+
+\section{信息量}
+在信息论中，由美国克劳德·艾尔伍德·香农（Claude Elwood Shannon）院士提出了一个概念——信息熵，也称为香农熵。对于一个离散的随机变量，其概率分布列
+$$
+P(X=x_i) = p_i,i=1,2,\cdots,n.
+$$
+则信息熵的定义为
+$$
+H(X) = -\sum_{i=1}^n p_i \log_2(p_i).
+$$
+从形式上来看，信息熵的定义是随机变量$X$函数的期望。香农熵可以用于度量随机变量的不确定性。而如今，在机器学习中，对于信息熵有更一般的定义。
+\begin{definition}[（信息熵）]
+    对于一个随机变量$X$，其概率分布列或概率密度函数为$p(x)$，则称
+    $$
+    H(X) = - E(\ln(p(X)))
+    $$
+    为信息熵。
+\end{definition}
+
+\begin{example}
+    对于一个二点分布随机变量$X$，$P(X=1)=p$。则信息熵为
+    \begin{eqnarray*}
+        H(X) = - ((1-p) \ln(1-p) + p \ln(p)).
+    \end{eqnarray*}
+\end{example}
+
+除了香农熵之外，费歇尔信息量是统计学中一个基本概念。
+\begin{definition}
+    对于一个随机变量$X$，其概率分布列或概率密度函数为$p(x;\theta), \theta \in \Theta$满足下列条件：
+    \begin{itemize}
+        \item 参数空间$\Theta$是直线上的一个开区间；
+        \item 支撑$S = \{x:p(x;\theta)>0\}$与$\theta$无关；
+        \item 导数$\frac{\partial }{\partial \theta}p(x;\theta)$对一切$\theta \in \Theta$都存在；
+        \item 对$p(x;\theta)$，积分与微分运算可交换次序，即
+        $$
+        \frac{\partial }{\partial \theta} \int_{-\infty}^{\infty} p(x;\theta)\text{d} x =  \int_{-\infty}^{\infty} \frac{\partial }{\partial \theta}p(x;\theta)\text{d} x;
+        $$
+        \item 期望$E\left(\frac{\partial }{\partial \theta} \ln p(x;\theta)  \right)^2$存在；
+    \end{itemize}
+    则称
+    $$
+    I(\theta) = E\left(\frac{\partial }{\partial \theta} \ln p(X;\theta)  \right)^2
+    $$
+    为随机变量$X$的费歇尔信息量。
+\end{definition}
+
+\begin{example}
+    随机变量$X$服从泊松分布$P(\lambda)$，即其分布列为
+    $$
+    p(x;\lambda) = \frac{\lambda^x}{x!}e^{-\lambda}, x=0,1,2,\cdots
+    $$
+    可验证泊松分布的分布列满足条件。于是，我们可计算
+    \begin{enumerate}
+        \item 求对数，即
+        $$
+        \ln p(x;\lambda) = x\ln \lambda - \lambda - \ln(x!).
+        $$
+        \item 求导数，即
+        $$
+        \frac{\partial }{\partial \lambda}  \ln p(x;\lambda) = \frac{x}{\lambda} - 1
+        $$
+        \item 求期望，即
+$$
+I(\lambda ) = E\left( \frac{X}{\lambda} - 1 \right)^2 = E\left( \frac{(X-\lambda)^2}{\lambda^2}  \right)^2 = \frac{1}{\lambda}.
+$$
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    随机变量$X$服从指数分布$Exp(1/\theta)$，即其密度函数为
+    $$
+    p(x;\theta) = \frac{1}{\theta} \exp\left\{-\frac{x}{\theta}\right\}, x>0
+    $$
+    可验证指数分布的分布列满足条件。于是，我们可计算
+    \begin{enumerate}
+        \item 求对数，即
+        $$
+        \ln p(x;\theta) = -\ln(\theta) - \frac{x}{\theta}.
+        $$
+        \item 求导数，即
+        $$
+        \frac{\partial }{\partial \theta}  \ln p(x;\theta) = -\frac{1}{\theta} + \frac{x}{\theta^2}
+        $$
+        \item 求期望，即
+$$
+I(\lambda ) = E\left( -\frac{1}{\theta} + \frac{X}{\theta^2} \right)^2 = \frac{1}{\theta^2}.
+$$
+    \end{enumerate}
+\end{example}
+
+
+\section{习题}
+
+    \begin{enumerate}
+        \item 设随机变量$X$的密度函数为
+$$ p(x) = \begin{cases}
+a + bx^2, & 0\leq x\leq 1\\
+0, & \text{其他}.
+\end{cases}
+$$
+如果$E(X) = 2/3$,求$a$和$b$。
+
+\item 设随机变量$X$的分布函数为
+$$
+	    F(x) = 1- e^{-x^2},x > 0
+$$
+试求$E(X)$和$\text{Var}(X)$。
+
+\item 设随机变量$X \sim U(a,b)$，对$k = 1,2,3,4$，求：
+\begin{enumerate}
+    \item $\mu_k = E(X^k)$与$\upsilon_k = E(X - E(X))^k$；
+    \item 偏度系数和峰度系数。
+\end{enumerate}
+
+\item 设随机变量$X$服从双参数韦布尔分布，其分布函数为
+$$
+	    F(x) = 1-\exp \left \{-\left (\frac{x}{\eta} \right )^m \right \}, x>0,
+$$
+其中$\eta > 0,m > 0$.试写出该分布的$p$分位数$x_p$的表达式，且求出当$m = 1.5,\eta = 1000$时的$x_{0.1},x_{0.5},x_{0.8}$的值。
+ 
+\begin{exercise} 请根据常见分布的分布列或密度函数，计算其期望和方差。
+	\begin{table}[ht]
+			\centering
+   \caption{常见分布的分布列（密度函数）及其期望与方差}
+			\begin{tabular}{llc c}
+				\hline
+				分布 & 分布列/密度函数& 期望& 方差\\
+				\hline
+				二项分布$b(n,p)$ & $P(X=x) = \frac{n!}{x!(n-x)!} p^x (1-p)^{n-x}, x = 0,1, \cdots,n$ & $np$&$np(1-p)$\\
+			\hline
+				泊松分布$P(\lambda)$ &$P(X=x) = \frac{\lambda^x}{x!} e^{-\lambda }, x = 0,1, \cdots$  & $\lambda$& $\lambda$\\
+					\hline
+				负二项分布$Nb(r,p)$ &$P(X=x) = \frac{(x-1)!}{(r-1)!(x-r)!} (1-p)^{x-r}p^r, x = r,r+1, \cdots$ & $\frac{r}{p}$& $\frac{r(1-p)}{p^2}$\\
+				\hline
+				正态分布$N(\mu,\sigma^2)$ &$p(x) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left\{-\frac{(x-\mu)^2}{2\sigma^2}\right\}, -\infty <x <\infty$ &$\mu$&$\sigma^2$\\
+				\hline
+				均匀分布$U(a,b)$ &$p(x) = \frac{1}{b-a}, a<x<b$ & $\frac{a+b}{2}$ & $\frac{(b-a)^2}{12}$\\
+				\hline
+				伽马分布$Ga(\alpha,\lambda)$ &$p(x) = \frac{\lambda^\alpha}{\Gamma(\alpha)} x^{\alpha -1} \exp\{-\lambda x\}, x \geq  0$ $\frac{\alpha}{\lambda}$&$\frac{\alpha}{\lambda^2}$\\
+				\hline
+				 贝塔分布$Be(a,b)$ &$p(x) = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} x^{a-1} (1-x)^{b-1}, 0<x<1$ &$\frac{a}{a+b}$ & $\frac{ab}{(a+b)^2(a+b+1)}$ \\
+				\hline
+			\end{tabular}
+		\end{table}
+\end{exercise}
+   \end{enumerate}
+
+
+
+    
