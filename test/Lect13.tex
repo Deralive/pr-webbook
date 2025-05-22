@@ -1,0 +1,175 @@
+\chapter{大数定律}
+\begin{introduction}
+  \item Intro to Prob\quad5.2 5.5
+  \item Prob $\&$ Stat\quad 4.3
+\end{introduction}
+
+\section{引导问题}
+从图\ref{fig:Lect11_cointossing2}，我们发现：\textbf{概率是频率的稳定值}。
+
+\begin{problem}
+   如何用数学语言来刻画这个现象？
+\end{problem}
+
+\section{伯努利大数定律}
+考虑抛硬币这个伯努利实验，记第$i$次抛硬币的结果为$X_{i}$。一般假定每次抛硬币的结果仅有两个：正面（感兴趣的）和反面（不感兴趣的）；而且每次的结果是相互独立的。正面朝上的概率记为$p$。所以，$X_i$是服从伯努利分布或二点分布，即$X_i\overset{iid}{\sim} b(1,p)$，即$P(X_{i}=1)=p$。
+
+于是，在$n$次抛硬币的结果中，正面朝上的总次数为
+$$S_{n}=\sum_{i=1}^{n}X_{i},$$
+在$n$次结果中，正面朝上的频率为$$\frac{S_{n}}{n}=\frac{1}{n}\sum_{i=1}^{n}  X_{i}.$$
+根据二项分布的可加性，可知
+$$S_{n}\sim b(n,p).$$
+那么，
+\begin{eqnarray*}
+E\left(\frac{S_{n}}{n}\right) &=& \frac{1}{n} E(S_{n})=\frac{1}{n}\cdot (np)=p, \\
+\text{Var}\left(\frac{S_{n}}{n}\right) &=& \frac{1}{n^{2}}\text{Var}(S_{n})=\frac{1}{n^{2}}\cdot (np(1-p))=\frac{p(1-p)}{n} .
+\end{eqnarray*}
+我们发现：
+\begin{enumerate}
+    \item 这个频率的期望是概率，意味着频率是在概率附近周围波动的；
+    \item 频率的方差$p(1-p)/n$，随着$n$不断增大而快速减小的。
+\end{enumerate}
+
+于是，一个很自然的问题：这个频率的“极限”是不是这个概率呢？由此，我们来看以下定理。
+
+
+\begin{theorem}[伯努利大数定律]
+设$S_{n}$为$n$重伯努利试验中事件$A$发生的次数，$p$为每次试验中$A$出现的概率，则对任意的$\varepsilon>0$，有$$\lim_{n \to \infty} P\left( \left |  \frac{S_{n}}{n}-p  \right | < \varepsilon  \right)=1.$$
+\end{theorem}
+\begin{proof}
+由于$S_{n}\sim b(n,p)$且$$E(\frac{S_{n}}{n})=p,\text{Var}(\frac{S_{n}}{n})=\frac{p(1-p)}{n}.$$
+
+由切比雪夫不等式，可得
+$$1\ge  P \left( \left |  \frac{S_{n}}{n}-p  \right | < \varepsilon \right )\ge 1-\frac{\text{Var}(\frac{S_{n}}{n})}{\varepsilon ^{2}}=1-\frac{p(1-p)}{n\varepsilon ^{2}} \rightarrow 1 $$
+因此$$P\left( \left |  \frac{S_{n}}{n}-p  \right | < \varepsilon  \right)\rightarrow 1.$$
+\end{proof}
+\begin{remark}
+随着$n$的增大，事件$A$发生的频率$\frac{S_{n}}{n}$与其概率$p$的偏差$\left | \frac{S_{n}}{n}-p \right |$大于预先给定的精度$\varepsilon$的可能性越来越小，这就是频率稳定于概率的含义。
+\end{remark}
+
+
+\section{大数定律的一般形式}
+我们从另一个视角看一下伯努利大数定律，所谓的频率是
+$$
+\frac{S_n}{n} = \frac{1}{n} \sum_{i=1}^n X_i
+$$
+而所谓的概率是
+$$
+p = E\left( \frac{1}{n} \sum_{i=1}^n X_i\right) =\frac{1}{n} \sum_{i=1}^n E(X_i).
+$$
+伯努利大数定律表明了对于$\{X_n\}$这个随机变量序列，如果$X_i$是服从伯努利分布$b(1,p)$ ，且每个随机变量是相互独立，那么对任意$\varepsilon>0$，都有
+$$
+\lim_{n\rightarrow \infty} P\left( \left|   \frac{1}{n} \sum_{i=1}^n X_i - \frac{1}{n} \sum_{i=1}^n E(X_i)\right| >\varepsilon \right) =1.
+$$
+注意到的是，伯努利大数定律给了一个\textbf{很强}的条件——不仅约束了随机变量序列中每一个随机变量的分布类型，还约束了随机变量序列中每一个随机变量之间都是相互独立的。于是，我们可以给出以下这个定义。
+
+\begin{definition}[弱大数定律]
+设有一随机变量序列$\{X_{n}\}$，如果其具有形如
+$$P\left( \left |  \frac{1}{n}\sum_{i=1}^{n}X_{i}-\frac{1}{n}\sum_{i=1}^{n}E(X_{i})   \right | < \varepsilon  \right)\rightarrow 1$$
+的性质，则称该随机变量序列${X_{n}}$服从（弱）大数定律。
+\end{definition}
+
+我们自然有下面的一个问题：
+\begin{problem}
+是否只有满足伯努利大数定律的条件，随机变量序列才能满足大数定律？
+\end{problem}
+
+\section{不同形式的大数定律}
+由此，我们可以给出以下不同形式的\textbf{大数定律}。它们的差异在于对于随机变量序列$\{X_n\}$的假设条件不同。
+\subsection{切比雪夫大数定律}
+
+在伯努利大数定律中，要求每个随机变量是独立同分布，且该分布是伯努利分布。为了放松\textbf{独立同分布}这一条件，我们有以下这个定理。
+\begin{theorem}[切比雪夫大数定律]
+设$\left \{ X_{n} \right \} $为一列两两不相关的随机变量序列。若每个$X_{i}$的方差存在，且有共同的上界，即$$\text{Var}(X_{i})\leq c, \quad  
+ i=1,2,\cdots.$$
+ 则$\left \{ X_{n} \right \} $服从（弱）大数定律。
+\end{theorem}
+\begin{proof}
+    因为$\{X_n\}$两两不相关，故
+    $$
+   \text{Var}\left(\frac{1}{n}\sum_{i=1}^n X_i\right) = \frac{1}{n^2}\sum_{i=1}^n \text{Var}(X_i)  \leq \frac{c}{n}.
+    $$
+    根据切比雪夫不等式可知，对任意的$\varepsilon > 0$，有
+    $$
+    P\left(\left| \frac{1}{n}\sum_{i=1}^n X_i - \frac{1}{n} \sum_{i=1}^n E(X_i) \right| < \varepsilon \right)\geq 1-\frac{\text{Var}\left(\frac{1}{n}\sum_{i=1}^n X_i\right)}{\varepsilon^2} \geq 1-\frac{c}{n\varepsilon^2}. 
+    $$
+    于是，当$n\rightarrow \infty$时，有
+    $$
+    \lim_{n\rightarrow \infty}  P\left(\left| \frac{1}{n}\sum_{i=1}^n X_i - \frac{1}{n} \sum_{i=1}^n E(X_i) \right| < \varepsilon \right) = 1.
+    $$
+\end{proof}
+
+
+\begin{remark}
+切比雪夫大数定律只要求$\left \{ X_{n} \right \} $互不相关，并不要求$X_n$是独立的，也不要求它们是同分布的。因此，如果${X_{n}}$是独立同分布的随机变量序列且方差有限，则$\left \{ X_{n} \right \} $必定服从大数定律。这表明了伯努利大数定律是切比雪夫大数定律的一个特例。
+\end{remark}
+
+\subsection{马尔可夫大数定律}
+在切比雪夫大数定律证明的过程中，我们不难发现，其核心在于使用了切比雪夫不等式。而切比雪夫不等式本质上证明的是大偏差存在的概率可以被其方差所约束。因此，我们只需要要求这些随机变量的算术平均数的方差不能过大。
+
+在切比雪夫大数定律中要求了随机变量序列中两两不相关，这样可以使得随机变量的算术平均数的方差可以由每一个随机变量的方差计算而得。切比雪夫大数定律中又约束了每一个随机变量的方差存在且存在共同上界。由此，解决了随机变量的算术平均数的方差不能过大的问题。
+
+事实上，切比雪夫大数定律的条件仍是比较严苛的，因为随机变量序列中仍需要它们是两两不相关的。但，这个条件并不是必要的。于是，我们考虑以下这个定理。
+\begin{theorem}[马尔可夫大数定律]
+对随机变量序列$\left \{ X_{n} \right \} $，若马尔可夫条件即$$
+\text{Var}\left(\frac{1}{n}\sum_{i=1}^{n}X_{i}  \right)=\frac{1}{n^{2}} \text{Var}\left(\sum_{i=1}^{n}X_{i}  \right)\rightarrow 0$$满足，则$\left \{ X_{n} \right \}$服从（弱）大数定律。
+\end{theorem}
+\begin{remark}
+马尔可夫大数定律对$\left \{ X_{n} \right \} $已经没有同分布、独立性、不相关的假定。
+\end{remark}
+\begin{proof}(本定理的证明过程由学生课后自行补充)
+    \vspace{3cm}
+\end{proof}
+\subsection{辛钦大数定律}
+之前我们介绍的大数定律都假定了随机变量序列$\{X_n\}$的方差存在。而我们也知道，对于一个随机变量而言，如果它的方差是存在的，那么它的期望一定是存在的。但反之不然。在大数定律的一般形式中，并未涉及随机变量序列的方差。所以，在随机变量序列的方差不存在的情况下，大数定律仍可以存在。
+\begin{theorem}[辛钦大数定律]
+设$\left \{ X_{n} \right \} $为一独立同分布的随机变量序列，若$X_{i}$的数学期望存在，则$\left \{ X_{n} \right \} $服从（弱）大数定律。
+\end{theorem}
+\begin{remark}
+\begin{itemize}
+    \item 在辛钦大数定律中，可以放松对随机变量方差存在性的假定，但要求$\left \{ X_{n} \right \} $为独立同分布的随机变量序列。
+    \item 因为$\left \{ X_{n} \right \} $是同分布的随机变量序列，所以$$E(X)=\frac{1}{n}\sum_{i=1}^{n}E(X_{i})  $$
+    因此，从另一角度来看辛钦大数定律，可以计算一个随机变量期望$E(X)$的近似值：对随机变量$X$有$n$次独立重复地观测，记第$k$次观测值为$X_{k}$。则$X_{1},X_{2},\cdots,X_{n}$是相互独立的，且它们的分布应该与$X$的分布相同。于是，在$E(X)$存在的条件下，按照辛钦大数定律，当$n$足够大时，可以把这些观测的平均值$$\frac{1}{n}\sum_{i=1}^{n}X_{i}$$作为$E(X)$的近似值。
+    \item 类似的方法也可以推广到计算随机变量的$k$阶原点矩的近似值。
+\end{itemize}
+\end{remark}
+
+
+\section{强大数定律（选修）}
+除了弱大叔定律之外，在概率论中，还可以有“强大数定律”的概念。
+
+\begin{theorem}[强大数定律]
+设$\left \{ X_{n} \right \} $为一列独立同分布的随机变量序列，其期望为$E(X)$，则
+$$P\left(\lim_{n \to \infty} \frac{ \sum_{i=1}^{n}X_{i} }{n}=E(X) \right)=1$$
+\end{theorem}
+
+\begin{problem}
+    大数定律的强弱差异在哪？
+\end{problem}
+\begin{note}
+    \vspace{2cm}
+\end{note}
+\section{习题}
+\begin{enumerate}
+    \item  在伯努利试验中，事件$A$出现的概率为$p$,令
+$$
+X_n = \left\{ 
+\begin{matrix}
+1, &  \text{若在第$n$次及第$n+1$次试验中$A$都出现},\\
+0, &  \text{其他}.
+\end{matrix} 
+\right.
+$$
+证明：$\{X_n\}$服从大数定律。
+
+\item  艾文想要估计众多人口中吸烟人数的真实比例$f$。他随机选择了$n$个人，并统计出其中抽烟人数$S_n$。他的估算值$M_n$是由$S_n$除以$n$得到的，即$M_n=S_n/n$。预先给定两个参数$\epsilon$和$\delta$，艾文选择使得切比雪夫不等式
+$$
+P(|M_n - f|\geq \epsilon ) \leq \delta
+$$
+成立最小的$n$作为样本量。请回答：当参数发生变化时，所确定的样本量会发生怎样的变化？
+\begin{enumerate}
+    \item $\epsilon$减少到原本的一半。
+    \item $\delta$降低到原本的一半。
+\end{enumerate}
+
+\end{enumerate}

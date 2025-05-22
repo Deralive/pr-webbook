@@ -1,0 +1,399 @@
+\chapter{条件分布与条件期望}
+\begin{introduction}
+  \item Intro to Prob\quad3.5 3.6
+  \item Prob $\&$ Stat\quad 3.5
+\end{introduction}
+\section{引导问题：公平 vs 不公平}
+\begin{example}{（Simpson悖论）}
+某一年北美某高校的商学院和法学院录取率如表\ref{tab:lect10_1}所示。从数据来看，在录取时该高校是否存在性别歧视？因女生的性别，而导致学生不予录取。
+\begin{table}[ht]
+  \caption{某高校两个学院的总录取人数\label{tab:lect10_1}}
+  \centering
+  \begin{tabular}{ccc}
+  \toprule
+    & {全部男生} 
+    & {全部女生} \\
+\midrule
+    录取 & 209
+    & 143
+     \\
+    未录取      & 95
+    & 110
+    \\
+    录取率& 67.43$\%$
+    & 56.52$\%$
+    \\
+  \bottomrule
+  \end{tabular}
+\end{table}
+
+商学院和法学院实际的录取人数如表\ref{tab:lect10_2}所示。无论在法学院还是在商学院，女生的录取率都高于男生的录取率。
+\begin{table}[ht]
+  \caption{某高校两个学院各自的录取人数\label{tab:lect10_2}}
+  \centering
+  \begin{tabular}{ccccc}
+  \toprule
+  & \multicolumn{2}{c}{法学院} &  \multicolumn{2}{c}{商学院}\\
+  \cline{2-3}\cline{4-5}
+    & 男生 
+    & 女生
+    & 男生
+    &女生\\
+\midrule
+    录取 & 8
+    & 51
+    & 201
+    & 92
+     \\
+    未录取      & 45
+    & 101
+    & 50
+    & 9
+     \\
+    录取率& 15.09$\%$
+    & 33.55$\%$
+    & 80.08$\%$
+    & 91.09$\%$
+    \\
+  \bottomrule
+  \end{tabular}
+\end{table}
+\end{example}
+\begin{problem}
+但是为什么从总体上来看，我们会认为女生的录取低？
+\end{problem}
+\begin{note}
+\vspace{5cm}
+\end{note}
+
+\section{离散场合下的条件分布}
+设二维离散随机变量$(X,Y)$的联合分布列为$$p_{i j}=P\left(X=x_{i}, Y=y_{j}\right), i=1,2, \cdots;\quad j=1,2, \cdots.$$
+\begin{definition}
+对一切使$P\left(Y=y_{j}\right)=p_{\cdot j}=\sum_{i=1}^{\infty} p_{i j}>0$的$y_{j}$，称
+\begin{eqnarray*}
+p_{i  |  j} &=&P\left(X=x_{i}  |  Y=y_{j}\right) \\
+&=&\frac{P\left(X=x_{i}, Y=y_{j}\right)}{P\left(Y=y_{j}\right)} \\
+&=&\frac{p_{i j}}{p_{\cdot j}  }
+\end{eqnarray*}
+为给定$Y=y_{j}$条件下$X$的条件分布列，$i=1,2,\cdots$。
+\end{definition}
+\begin{definition}
+给定$Y=y_{j}$条件下$X$的条件分布函数为
+$$F\left(x  |  y_{j}\right)=\sum_{x_{i} \leq x} P\left(X=x_{i}  |  Y=y_{j}\right)=\sum_{x_{i} \leq x} p_{i  |  j}$$
+\end{definition}
+
+\begin{example}
+设随机变量$X$与$Y$独立，且$x \sim P\left(\lambda_{1}\right), Y \sim P\left(\lambda_{2}\right)$。在已知$X+Y=n$的条件下，求$X$的条件分布。
+\end{example}
+\begin{solution}
+在例\ref{ex:lect9_1}中已经证明了$X+Y\sim P(\lambda_{1}+\lambda_{2})$。所以
+\begin{eqnarray*}
+P(X=k  |  X+Y=n)&=&\frac{P(X=k, X+Y=n)}{P(X+Y=n)}\\
+&=&\frac{P(X=k, Y=n-k)}{P(X+Y=n)} \\
+&=& \frac{P(X=k) \cdot P(Y=n-k)}{P(X+Y=n)}\\
+&=&\frac{\frac{\lambda_{1}^{k}}{k !} e^{-\lambda_{1}} \cdot \frac{\lambda_{2}^{(n-k)}}{(n-k) !} e^{-\lambda_{2}}}{\frac{\left(\lambda_{1}+\lambda_{2}\right)^{n}}{n !} e^{-\left(\lambda_{1}+\lambda_{2}\right)}}\\
+&=&\frac{n !}{k !(n-k) !}\left(\frac{\lambda_{1}}{\lambda_{1}+\lambda_{2}}\right)^{k}\left(1-\frac{\lambda_{1}}{\lambda_{1}+\lambda_{2}}\right)^{n-k}
+\end{eqnarray*}
+因此，在$X+Y=n$的条件下，$X$的条件分布为二项分布$b\left(n, \frac{\lambda_{1}}{\lambda_{1}+\lambda_{2}}\right).$
+\end{solution}
+\begin{example}
+设在一段时间内进入某一商店的顾客人数$X$服从泊松分布$P(\lambda)$，每位顾客购买某商品的概率为$p$，并且每位顾客是否购买该种物品相互独立。求进入商店的顾客购买这种物品的人数$Y$的分布列。
+\end{example}
+\begin{solution}
+由题可知，
+$$P(X=m)=\frac{\lambda^{m}}{m !} e^{-\lambda} \quad m=0,1,2, \cdots$$
+在进入商店的人数$X=m$的条件下，购买某种物品的人数$Y$的条件分布为二项分布$b(m,p)$，即
+$$P(Y=k  |  X=m)=\begin{pmatrix}
+m \\
+k
+\end{pmatrix} p^{k}(1-p)^{m-k}, \quad k=0,1, \cdots, m.$$
+由全概率公式有$$\begin{aligned}
+P(Y=k) &=\sum_{m=k}^{+\infty} P(X=m) \cdot P(Y=k  |  X=m) \\
+&=\sum_{m=k}^{+\infty} \frac{\lambda^{m}}{m !} e^{-\lambda} \cdot \frac{m !}{k !(m-k) !} p^{k}(1-p)^{m-k} \\
+&=\frac{1}{k !} e^{-\lambda}(\lambda p)^{k} \cdot \sum_{m=k}^{+\infty} \frac{(\lambda(1-p))^{m-k}}{(m-k) !} \\
+&=\frac{1}{k !}(\lambda p)^{k} e^{-\lambda} \sum_{m=0}^{+\infty} \frac{(\lambda(1-p))^{m}}{m !} e^{-\lambda(1-p)} \cdot e^{\lambda(1-p)} \\
+&=\frac{(\lambda p)^{k}}{k !} e^{-\lambda p} ,\quad k=0,1,2, \cdots
+\end{aligned}$$
+因此，$Y\sim P(\lambda p)$。
+\end{solution}
+
+\section{连续场合下的条件分布}
+设二维连续随机变量$(X,Y)$的联合密度为$p(x,y)$，边际密度函数为$p_{X}(x)$和$p_{Y}(y)$。
+在离散随机变量场合，其条件分布函数为$P(X\le x |  Y=y)$，但是连续随机变量取某个值的概率为零，即$P(Y=y)=0$。所以无法用条件概率直接计算$P(X\le x |  Y=y)$。一个自然的想法是，将$P(X\le x |  Y=y)$看成当$h \rightarrow 0$时$P(X\le x |  y\le Y\le y+h)$的极限，即
+\begin{eqnarray*}
+P(X \leq x  |  Y=y) &=&\lim _{h \rightarrow 0} P(X \leqslant x  |  y \leqslant Y \leqslant y+h) \\
+&=&\lim _{h \rightarrow 0} \frac{P(X \leq x, y \leq Y \leq y+h)}{P(y \leq Y \leq y+h)} \\
+&=&\lim _{h \rightarrow 0} \frac{\int_{-\infty}^{x} \int_{y}^{y+h} p(u, v) \text{d} v \text{d} u}{\int_{y}^{y+h} p(v) \text{d} v} \\
+&=&\lim _{h \rightarrow 0} \frac{\int_{-\infty}^{x}\left(\frac{1}{h} \int_{y}^{y+h} p(u, v) \text{d} v\right) \text{d} u}{\frac{1}{h} \int_{y}^{y+h} P_{Y}(v) \text{d} v}
+\end{eqnarray*}
+当$p_{Y}(y),p(x,y)$在$y$处连续时，由积分中值定理可得\begin{eqnarray*}
+\lim _{h \rightarrow 0} \frac{1}{h} \int_{y}^{y+h} p_{Y}(v) \text{d} v
+&=&\lim _{h \rightarrow 0} \frac{1}{h} \cdot(y+h-y) \cdot p_{Y}(y+\delta h)=p_{Y}(y) \\
+\lim _{h \rightarrow 0} \frac{1}{h} \int_{y}^{y+h} p(u, v) \text{d} v&=&\lim _{h \rightarrow 0} \frac{1}{h}(y+h-y) \cdot p(u, y+\delta h)=p(u, y)
+\end{eqnarray*}
+所以
+$$P(X \leq x  |  Y=y)=\int_{-\infty}^{x} \frac{p(u, y)}{p_{Y}(y)} \text{d} u.$$
+
+\begin{definition}
+对一切使$p_{Y}(y)>0$的$y$，给定$Y=y$条件下$X$的条件分布函数和条件密度函数分别为
+\begin{eqnarray*}
+F(x  |  y)&=&\int_{-\infty}^{x} \frac{p(u, y)}{p_{Y}(y)} \text{d} u, \\
+p(x  |  y)&=&\frac{p(x, y)}{p_{Y}(y)}.
+\end{eqnarray*}
+\end{definition}
+
+\begin{example}
+设$(X,Y)$服从二维正态分布$$N_{2}\left(\begin{pmatrix}
+\mu_{1} \\
+\mu_{2}
+\end{pmatrix},\begin{pmatrix}
+    \sigma_{1}^{2} & \rho \sigma_{1} \sigma_{2} \\
+\rho \sigma_{1} \sigma_{2} & \sigma_{2}^{2}
+\end{pmatrix}
+\right)$$
+由边际分布可知，$X$服从正态分布$N(\mu_{1},\sigma_{1}^{2})$，$Y$服从正态分布$N(\mu_{2},\sigma_{2}^{2})$。
+在给定$Y=y$的条件下，$X$的边际密度函数为
+\begin{eqnarray*}
+ p(x |  y) &=&\frac{p(x, y)}{p_{Y}(y)} \\
+&=&\frac{\frac{1}{2 \pi \sqrt{\sigma_{1}^{2} \sigma_{2}^{2}\left(1-\rho ^{2}\right)}} \exp \left\{-\frac{1}{2\left(1-\rho ^{2}\right)}\left(\frac{(x-\mu_{1})^{2}}{\sigma_{1}^{2}}-2 \rho  \frac{\left(x-\mu_{1}\right)\left(y-\mu_{2}\right)}{\sigma_{1} \sigma_{2}}+\frac{\left(y-\mu_{2}\right)^{2}}{\sigma_{2}^{2}}\right)\right\}}{\frac{1}{\sqrt{2 \pi \sigma_{2}^{2}}} \exp \left\{-\frac{1}{2 \sigma_{2}^{2}}\left(y-\mu_{2}\right)^{2}\right\}} \\
+&=&\frac{1}{\sqrt{2 \pi}} \cdot \frac{1}{\sqrt{\sigma_{1}^{2}(1-\rho ^{2})}} \exp \left\{-\frac{1}{2\left(1-\rho^{2}\right)}\left(\frac{\left(x-\mu_{1}\right)^{2}}{\sigma_{1}^{2}}-2 \rho \frac{\left(x-\mu_{1}\right)\left(y-\mu_{2})\right.}{\sigma_{1} \sigma_{2}}+\frac{\rho^{2}\left(y-\mu_{2}\right)^{2}}{\sigma_{2}^{2}}\right)\right\}\\
+&=&\frac{1}{\sqrt{2 \pi \sigma_{1}^{2}(1-\rho ^{2})}} \exp \left\{-\frac{1}{2 \sigma_{1}^{2}\left(1-\rho^{2}\right)}\left(x-\left(\mu_{1}+\rho \cdot \frac{\sigma_{1}}{\sigma_{2}}\left(y-\mu_{2}\right)\right)\right)^{2}\right\}
+   \end{eqnarray*}
+因此，在$Y=y$的条件下，$X$的条件分布为
+$$ N\left(\mu_{1}+ \frac{\rho\sigma_{1}}{\sigma_{2}}\left(y-\mu_{2}\right), \sigma_{1}^{2}\left(1-\rho ^{2}\right)\right) .$$
+\end{example}
+\begin{remark}
+在定义连续场合下的条件密度函数下，我们可以给出连续场合下的全概率公式及贝叶斯公式。因为
+$$
+p_Y(y)= \frac{p(x,y)}{p_Y(y)}
+$$
+所以，
+$$
+p(x,y) = p_Y(y)p_Y(y).
+$$
+于是，我们有
+\begin{itemize}
+    \item 全概率公式
+    $$
+    p_X(x) = \int_{-\infty}^{+\infty} p(x, y) \text{d} y =  \int_{-\infty}^{+\infty} p_{Y}(y) p(x  |  y) \text{d} y.
+    $$
+    \item 贝叶斯公式
+    $$
+    p(y|x) = \frac{p(x,y)}{p_{X}(x)} = \frac{p_Y(y)p(x|y)}{\int_{-\infty}^{+\infty} p_{Y}(y) p(x  |  y) \text{d} y}.
+    $$
+\end{itemize}
+\end{remark}
+
+\begin{example}
+设$X\sim N(\mu,\sigma_{1}^{2})$且在给定$X = x$的条件下，$Y$的条件分布为$N(x,\sigma_{2}^{2})$，求$Y$的密度函数$p_{Y}(y)$。
+\end{example}
+\begin{solution}
+由题可知，
+\begin{eqnarray*}
+    p_X(x) &=& \frac{1}{\sqrt{2\pi \sigma_1^2}} \exp\left\{-\frac{1}{2\sigma_1^2} (x-\mu)^2\right\},\\
+    p(y|x) &=& \frac{1}{\sqrt{2\pi \sigma_2^2}}
+    \exp\left\{-\frac{1}{2\sigma_2^2} (y-x)^2\right\}.
+\end{eqnarray*}
+所以，根据全概率公式可知，
+\begin{eqnarray*}
+P_{Y}(y)
+&=&\int_{-\infty}^{+\infty}p_{X}(x)p(y  |  x) \text{d} x\\
+&=&\int_{-\infty}^{+\infty} \frac{1}{\sqrt{2 \pi \sigma_{1}^{2}}} \exp \left\{-\frac{1}{2 \sigma_{1}^{2}}(x-\mu)^{2}\right\} \cdot \frac{1}{\sqrt{2 \pi \sigma_{2}^{2}}} \exp \left\{-\frac{1}{2 \sigma_{2}^{2}}(y-x)^{2}\right\} \text{d} x\\
+&=&\frac{1}{2 \pi \sqrt{\sigma_{1}^{2} \sigma_{2}^{2}}} \int_{-\infty}^{+\infty} \exp \left\{-\frac{1}{2} \left(\frac{1}{\sigma_{1}^{2}} x^{2}-\frac{2 \mu}{\sigma_{1}^{2}} x+\frac{\mu^{2}}{\sigma_{1}^{2}}\right.\right.
+\left.\left.+\frac{y^{2}}{\sigma_{2}^{2}}-\frac{2 y}{\sigma_{2}^{2}} x+\frac{x^{2}}{\sigma_{2}^{2}} \right)\right\} \text{d} x\\
+&=& \int_{-\infty}^{+\infty} \frac{1}{\sqrt{2 \pi \frac{\sigma_{1}^{2} \sigma_{2}^{2}}{\sigma_{1}^{2}+\sigma_{2}^{2}}}} 
+\exp \left\{-\frac{1}{2} \left(\left( \frac { 1 } { \sigma _ { 1 } ^ { 2 } } + \frac { 1 } { \sigma _ { 2 } ^ { 2 } } \right)
+\left(x-\left(\frac{1}{\sigma_{1}^{2}}+\frac{1}{\sigma_{2}^{2}}\right)^{-1}\left(\frac{\mu}{\sigma_{1}^{2}}+\frac{y}{\sigma_{2}^{2}}\right)\right)^{2} \right)\right\}\text{d}x \\
+&& \cdot \frac{1}{\sqrt{2 \pi\sigma_{1}^{2}+\sigma_{2}^{2}}}   \exp\left\{
+-\left(\frac{\sigma_{1}^{2} \sigma_{2}^{2}}{\sigma_{1}^{2}+\sigma_{2}^{2}}\right)\left(\frac{\mu^{2}}{\sigma_{1}^{4}}+\frac{2 \mu y}{\sigma_{1}^{2} \sigma_{2}^{2}}+\frac{y^{2}}{\sigma_{2}^{4}}\right)+\frac{y^{2}}{\sigma_{2}^{2}}+\frac{\mu^{2}}{\sigma_{1}^{2}} \right\} \\
+&=&\frac{1}{\sqrt{2 \pi\left(\sigma_{1}^{2}+\sigma_{2}^{2}\right)}} \exp \left\{-\frac{1}{2} \left(\frac{1}{\sigma_{1}^{2}+\sigma_{2}^{2}} y^{2}-\frac{2 \mu y}{\sigma_{1}^{2}+\sigma_{2}^{2}}+\frac{\mu^{2}}{\sigma_{1}^{2}+\sigma_{2}^{2}} \right)\right\}\\
+&=&\frac{1}{\sqrt{2 \pi(\sigma_{1}^{2}+\sigma_{2}^{2})}} \exp \left\{-\frac{1}{2\left(\sigma_{1}^{2}+\sigma_{2}^{2}\right)}(y-\mu)^{2}\right\}
+\end{eqnarray*}
+因此，
+$$Y\sim N(\mu,\sigma_{1}^{2}+\sigma_{2}^{2}).$$   
+\end{solution}
+
+\section{混合场合下的条件分布}
+\begin{example}
+    生活中，医生根据一些生理指标测量，如体温、血压等生化指标来进行医学诊断。
+\end{example}
+
+我们简化一下这个问题。令$A$是我们感兴趣的一个随机变量，而$P(A)$是事件$A$发生的概率。令$Y$是一个连续型随机变量，并假定已知条件密度函数$p(y|A)$和$p(y|\overline{A})$。
+
+\begin{problem}
+    在给定$Y$取值为$y$时，事件$A$发生的条件概率$P(A|Y=y)$是什么？如何计算？
+\end{problem}
+
+和连续场合下的条件分布有同一个问题，因为$Y$是连续型的随机变量，所以事件$\{Y = y\}$发生的概率为零。这里我们考虑$\{y \leq Y \leq y + \delta\}$，其中$\delta>0$。我们考虑
+\begin{eqnarray*}
+    P(A | Y= y) &\approx& P(A|y \leq Y \leq y+\delta)= \frac{P(A)P(y\leq Y\leq y+\delta | A)}{P(y \leq Y\leq y+\delta)}\\
+    &\approx& \frac{P(A) p(y|A)\delta}{p(y)\delta} = \frac{P(A) p(y|A)}{p(y)}
+\end{eqnarray*}
+以上就是混合场景下条件分布的定义。由此，可以定义全概率公式和贝叶斯公式。
+\begin{enumerate}
+    \item 全概率公式为
+    $$
+    p_Y(y) = P(A) p(y|A) + P(\overline{A}) p(y|\overline{A}). 
+    $$
+    \item 贝叶斯公式为
+    $$
+    P(A|Y= y) = \frac{P(A)p(y|A)}{P(A)p(y|A) + P(\overline{A})p(y|\overline{A})}.
+    $$
+\end{enumerate}
+
+如果已知$P(A|Y=y)$后，我们也可以推导出$p(y|A)$，即
+$$
+p(y|A) = \frac{p_Y(y) P(A|Y=y)}{P(A)} = \frac{p_Y(y) P(A|Y=y)}{\int_{-\infty}^{\infty} p_Y(y) P(A|Y=y) \text{d} y}.
+$$
+
+\begin{remark}
+    上述公式中将随机事件$A$推广到离散型随机变量。
+\end{remark}
+
+\section{条件数学期望}
+正如之前课程内容中介绍的，我们讨论过条件概率是符合概率的公理化定义。由此，根据条件概率，我们可以定义随机变量的\textbf{条件分布}。既然有分布，我们也可以定义这个分布的特征数。这里，我们首先介绍如何定义条件分布的数学期望——条件期望。
+\begin{definition}{条件期望}\label{def:conditional_expectation}
+条件分布的数学期望（若存在）称为条件期望，即$$E(X | Y=y)=\left\{\begin{aligned}
+    &\sum_{i} x_{i} P\left(X=x_{i}  |  Y=y\right) , &\quad \text{离散场合},\\
+  &\int_{-\infty}^{+\infty} x P(x  |  y) d x,&\quad \text{连续场合}.
+\end{aligned}
+\right.$$
+\end{definition}
+
+因为条件期望是一种期望，所以条件期望也满足期望的性质。
+\begin{property}
+ $E\left(a_{1} X_{1}+a_{2} X_{2}  |  Y=y\right)=a_{1} E\left(X_{1}  |  Y=y\right)+a_{2} E\left(X_{2}  |  Y=y\right)$;
+\end{property}
+\begin{note}
+\vspace{4.5cm}
+\end{note}
+
+
+这里从另一个角度来看条件期望。在给定$Y=y$的条件下，$X$的条件分布会因$y$的取值不同而不同，从而导致了$E(X|Y=y)$亦是如此。所以，$E(X|Y=y)$可以看作$y$的函数。我们记$g(y) = E(X|Y=y)$。
+
+对于随机变量$Y$，$g(Y)= E(X|Y)$是随机变量$Y$的函数。所以，条件期望$E(X|Y)$可以看作随机变量$Y$的函数，通常仍是一个随机变量。这里，我们讨论一下，其期望$E(E(X|Y))$是什么呢？
+
+\begin{theorem}{重期望公式}
+设$(X,Y)$是二维随机变量且$E(X)$存在，则$$E(X)=E(E(X |  Y)).$$
+\end{theorem}
+\begin{proof}
+这里仅证明连续场合。
+
+设二维随机变量$(X,Y)$的联合密度函数为$p(x,y)$，记$g(y)=E(X |  Y=y)$，则$g(X)=E(X |  Y)$，由于$p(x,y)=p(x |  Y)\cdot p_{Y}(y)$，可得
+\begin{eqnarray*}
+E(X) &=&\int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} x p(x, y) d x d y \\
+&=&\int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} x \cdot p(x  |  y) \cdot p_{Y}(y) d x d y \\
+&=&\int_{-\infty}^{+\infty} \left(\int_{-\infty}^{+\infty} x p(x |  y) dx \right) \cdot p_{Y}(y) d y \\
+&=&\int_{-\infty}^{+\infty} E(X  |  Y=y) \cdot p_{Y}(y) d y \\
+&=&\int_{-\infty}^{+\infty} g(y) \cdot p_{Y}(y) d y \\
+&=&E[g(Y)] \\
+&=&E(E(X  |  Y)).
+\end{eqnarray*}
+\end{proof}
+类似地，我们可以定义条件方差，即$Var(X|Y)$，即
+\begin{eqnarray*}
+    \text{Var}(X | Y) &=& E\left ( (X-E(X |  Y))^{2} |  Y \right )\\
+    &=&E(X^{2} |  Y)-\left ( E(X |  Y) \right )^{2}.
+\end{eqnarray*}
+类似于重期望公式，我们也可以将$X$的方差拆解成两个部分，即
+$$\text{Var}(X)=E(\text{Var}(X |  Y))+\text{Var}(E(X |  Y)),$$
+其中，前者可以看成组内方差，后者可以看成组间方差。
+
+\begin{example}
+    一矿工被困在有三个门的矿井里。第一个门通一坑道，沿此坑道走3小时可到达安全区；第二个门通一坑道，沿此坑道走5小时又回到原处；第三个门通一坑道，沿此坑道走7小时也回到原处。假定此矿工总是等可能地在三个门中选择一个，试求他平均要用多少时间才能到达安全区。
+    \vspace{5cm}
+\end{example}
+\begin{solution}
+如果直接求$X$的分布，$X$的可能取值为$3,5+3,7+3,5+5+3,5+7+3,\cdots$这是很困难的。
+
+这里，我们考虑另一种解法：$Y$表示在矿井中选的门，即${Y=i}$表示选了第$i$个门。可知$$P(Y=1)=P(Y=2)=P(Y=3)=\frac{1}{3}.$$
+因为选了第一个门后，$3$小时到达安全区，所以$E(X |  Y=1)=3$；因为选了第二个门后，$5$小时回到原地，所以$E(X |  Y=2)=5+E(X)$；因为选了第三个门后，$7$小时回到原地，所以$E(X |  Y=3)=7+E(X)$.
+综上，
+\begin{eqnarray*}
+E(X) &=&E(E(X  |  Y)) \\
+&=&E(X  |  Y=1) \cdot \frac{1}{3}+E(X  |  Y=2) \cdot \frac{1}{3}+E(X  |  Y=3) \cdot \frac{1}{3} \\
+&=&3 \cdot \frac{1}{3}+(5+E(X)) \cdot \frac{1}{3}+(7+E(X)) \cdot \frac{1}{3} \\
+&=& 5 +\frac{2}{3} E(X).
+\end{eqnarray*}
+解得$E(X)=15$.
+\end{solution}
+
+\begin{example}
+    设$X_{1},X_{2},\cdots$为一列独立同分布的随机变量，随机变量$N$只取正整数值且$N$与${X_{n}}$独立，证明
+    \begin{enumerate}
+        \item $$
+        E\left(\sum_{i=1}^{N} X_{i}\right)=E\left(X_{1}\right) \cdot E(N)
+        $$
+        \item （课后自学）$$
+        \text{Var}\left(\sum_{i=1}^{N} X_{i}\right)=\operatorname{Var}\left(X_{1}\right) E(N)+\left(E\left(X_{1}\right)\right)^{2} \operatorname{Var}(N)
+        $$
+    \end{enumerate}
+\end{example}
+\begin{proof}
+    \begin{enumerate}
+        \item 我们先考虑第一个问题，这里与之前介绍的期望的性质有一个明显的差异——这里考虑了随机变量个随机变量之和的期望，而之前考虑的是有限个随机变量之和的期望。
+        \begin{eqnarray*}
+           E\left(\sum_{i=1}^{N} X_{i}\right) &=&E\left(E\left(\sum_{i=1}^{N} X_{i}  |  N\right)\right) \\
+&=&\sum_{n=1}^{+\infty} E\left(\sum_{i=1}^{N} X_{i}  |  N=n\right) \cdot p_{N}(n) \\
+&=&\sum_{n=1}^{+\infty} E\left(\sum_{i=1}^{n} X_{i}  |  N=n\right) p_{N}(n) \\
+&=&\sum_{n=1}^{+\infty} E\left(\sum_{i=1}^{n} X_{i}\right) \cdot p_{N}(n) \\
+&=&\sum_{n=1}^{+\infty} n \cdot E\left(X_{1}\right) \cdot p_{N}(n) \\
+&=&E\left(X_{1}\right) \cdot E(N) 
+        \end{eqnarray*}
+\item 随机变量个随机变量之和的方差的证明过程由学生课后自学。
+\begin{eqnarray*}
+    \text{Var}\left(\sum_{i=1}^{N} X_{i}\right) &=&
+    E\left(\text{Var}\left(\sum_{i=1}^{N} X_{i}  |  N\right)\right)+\text{Var}\left(E\left(\sum_{i=1}^{N} X_{i}  |  N\right)\right) \\
+& =& I_{1}+I_{2}
+\end{eqnarray*}
+其中\begin{eqnarray*}
+I_{1} &=&\sum_{n=1}^{+\infty} \text{Var}\left(\sum_{i=1}^{n} X_{i}  |  N=n\right) \cdot p_{N}(n) \\
+&=&\sum_{n=1}^{+\infty} \text{Var}\left(\sum_{i=1}^{n} X_{i}\right) p_{N}(n) \\
+&=&\sum_{n=1}^{+\infty} \sum_{i=1}^{n} \text{Var}\left(X_{i}\right) p_{N}(n) \\
+&=&\text{Var}\left(X_{1}\right) \cdot E(N)
+\end{eqnarray*}
+\begin{eqnarray*}
+I_{2} &=&E\left(E\left(\sum_{i=1}^{N} X_{i}  |  N\right)\right)^{2}-E^{2}\left(E\left(\sum_{i=1}^{N} X_{i}  |  N\right)\right) \\
+&=&\sum_{n=1}^{+\infty}\left(E\left(\sum_{i=1}^{N} X_{i}  |  N=n\right)\right)^{2} p_{N}(n)-\left(E\left(X_{1}\right) \cdot E(N)\right)^{2} \\
+&=&\sum_{n=1}^{+\infty}\left(E\left(\sum_{i=1}^{n} X_{i}  |  N=n\right)\right)^{2} p_{N}(n)-\left(E\left(X_{1}\right) \cdot E(N)\right)^{2} \\
+&=&\sum_{n=1}^{+\infty}\left(n \cdot E\left(X_{1}\right)\right)^{2} p_{N}(n) \\
+&=&\left(E\left(X_{1}\right)\right)^{2} E\left(N^{2}\right)-\left(E\left(X_{1}\right)\right)^{2} \cdot(E(N))^{2} \\
+&=&\left(E\left(X_{1}\right)\right)^{2} \text{Var}(N)
+\end{eqnarray*}
+    \end{enumerate}
+\end{proof}
+
+\section{习题}
+    \begin{enumerate}
+        \item 一射手单发命中目标的概率为$p(0 < p < 1)$，射击进行到命中目标两次为止。设$X$为第一次命中目标所需的射击次数，$Y$为总共进行的射击次数，求$(X,Y)$的联合分布和条件分布。
+        \item 随机变量$X$服从$(1,2)$上的均匀分布，在$X=x$的条件下，随机变量$Y$的条件分布是参数为$x$的指数分布，证明：$XY$服从参数为1的指数分布。
+        \item 设以下所涉及的数学期望均存在，试证：
+        \begin{enumerate}
+            \item $E[g(X)Y|X] = g(X)E(Y|X)$；
+            \item $E(XY) = E[XE(Y|X)]$；
+            \item $\text{Cov}[X,E(Y|X)] = \text{Cov}(X,Y).$
+        \end{enumerate}
+
+
+\item 设$X$是一个连续随机变量，其密度函数为
+$$
+p_X(x) = \begin{aligned}
+    &x/4, &1< x\leq 3\\
+&0, &\text{其他}.
+\end{aligned}
+$$
+令事件$A = \{X\geq 2\}$。
+\begin{enumerate}
+    \item 求$E(X)$，$P(A)$，$p_{X|A}(x)$以及$E(X|A)$；
+    \item 令$Y = X^2$。求$E(Y)$和$\text{Var}(Y)$。
+\end{enumerate}
+
+\item Pat和Nat将要约会，他们所有的约会都安排在晚上9点开始。Nat总是在晚上9点准时到达。Pat非常混乱，到达的时间在晚上8点到晚上10点之间均匀分布。设$X$表示从晚上8点到Pat到达的时间之间的小时数。如果Pat在晚上9点之前到达，他们的约会将持续整整3个小时。如果Pat在晚上9点之后到达，他们约会的持续时间将在0到3-X小时之间均匀分布。约会从他们见面的时候开始。当Pat迟到时，Nat会感到生气，在Pat第二次约会迟到超过45分钟后，Nat将结束这段关系。所有约会均相互独立。
+\begin{enumerate}
+    \item Nat等待Pat到达的期望小时数是多少？
+    \item 任一约会的期望持续时间是多少？
+    \item 他们分手前的期望约会次数是多少？
+\end{enumerate}
+    \end{enumerate}
+
+

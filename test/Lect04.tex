@@ -1,0 +1,325 @@
+\chapter{一元离散型随机变量}
+\begin{introduction}
+  \item Intro to Prob\quad2.1 2.2 
+  \item Prob $\&$ Stat\quad2.1 2.4
+\end{introduction}
+
+\section{概率分布列}
+\begin{definition}{概率分布列} \label{def: pmf} 
+设$X$是一个离散随机变量，如果$X$的所有可能取值$x_1,x_2,..,x_n,...,$则称$X$取$x_i$的概率
+$$p_i = p(x_i)=P(X = x_i) \quad i=1,2,...,n,...$$
+为X的概率分布列，或称概率质量函数（p.m.f）。
+\end{definition}
+\begin{remark}
+    概率分布列以一个表格的形式来展现，如下：
+\begin{table}[ht]
+\centering
+\begin{tabular}{c|c c cc c}
+\hline
+$X$ & $x_1$ & $x_2$ & $\cdots$ & $x_n$ & $\cdots$ \\
+\hline
+$P$ & $p_1$ & $p_2$ & $\cdots$ & $p_n$ & $\cdots$\\
+\hline
+\end{tabular}
+\end{table}
+\end{remark}
+
+\begin{example}
+掷两颗骰子，其样本空间含有36个样本点$\Omega=\{(x, y): x, y=1,2, \ldots, 6\}$。
+在$\Omega$上我们定义3个随机变量$X,Y,Z$。
+\begin{itemize}
+\item $X$为两颗骰子的点数之和，则其分布列为
+\vspace{3cm}
+\item $Y$为6点的骰子个数，则其分布列为
+\vspace{3cm}
+\item $Z$为最大点数，则其分布列为
+\vspace{3cm}
+\end{itemize}
+\end{example}
+\begin{property}
+任一概率分布列$\{p_i\}$都具有如下两条基本性质：
+\begin{enumerate}
+    \item 非负性：$p(x_i) \geq 0, i=1,2,\cdots$；
+    \item 正则性：$\sum_{i=1}^\infty p(x_i) = 1$。
+\end{enumerate}
+\end{property}
+\begin{remark}
+    上述两个性质也是判断某个函数是否为随机变量的概率分布列的充要条件。
+\end{remark}
+
+\begin{problem}
+    分布函数与分布列有什么关系？
+\end{problem}
+\vspace{5cm}
+
+\begin{example}
+    设随机变量$X$的分布列为
+    \begin{table}[ht]
+        \centering
+        \begin{tabular}{c c c c}
+        \hline
+          $X$ &  -1 & 2 & 3 \\
+        \hline
+        $P$ & 0.25 & 0.5 & 0.25 \\
+        \hline
+        \end{tabular}
+    \end{table}
+    求
+    \begin{itemize}
+        \item $P(X\leq 0.5)$；
+        \item $P(1.5<X\leq 2.5)$；
+        \item 写出$X$的分布函数。
+    \end{itemize}
+\end{example}
+\begin{solution}
+    \begin{itemize}
+        \item 根据定义可知，$$P(X\leq 0.5) = P(X=-1) = 0.25.$$
+        \item 根据定义可知，
+        $$
+        P(1.5<X\leq 2.5) = P(X=2) = 0.5.
+        $$
+        \item 根据分布函数与分布列的关系可知，
+        \begin{itemize}
+            \item 当$x<-1$时， $F(x) = P(X\leq x) =0$；
+            \item 当$-1\leq x<2$时， $F(x) = P(X\leq x) =P(X=-1) = 0.25$；
+            \item 当$2\leq x<3$时， $F(x) = P(X\leq x) =P(X=-1) + P(X=2) = 0.75$；
+            \item 当$x>3$时， $F(x) = P(X\leq x) =P(X=-1) + P(X=2) + P(X=3) =1$；
+        \end{itemize}
+    \end{itemize}
+\end{solution}
+\begin{remark}
+    对于离散型随机变量，我们可以通过其密度函数来判断其分布类型。
+\end{remark}
+
+\section{常见的离散随机变量}
+\subsection{单点分布}
+\begin{definition}\label{def:one_point_dist}
+    常量$c$可作为仅取一个值的随机变量$X$，即
+$$
+P(X = c) = 1.
+$$
+这个分布称为单点分布或退化分布。
+\end{definition}
+\begin{note}
+    \vspace{5cm}
+\end{note}
+\subsection{二项分布与二点分布}
+在介绍二项分布之前，这里先介绍一个重要的概念——伯努利试验。
+\begin{definition}\label{def:Bernoulli_experiment}
+\begin{enumerate}
+    \item 设有两个试验$E_1$和$E_2$。假如试验$E_1$的任一结果（事件）与试验$E_2$的任一结果（事件）都是相互独立的事件，则称这两个试验相互独立的。
+    \item 如果$E_1$的任一结果，$E_2$的任一结果，$\cdots$，$E_n$的任一结果都是相互独立的事件，则称试验$E_1,E_2,\cdots,E_n$相互独立。
+    \item 如果这$n$个独立试验还是相同的，则称为$n$重独立重复试验。
+    \item 如果在$n$重独立重复试验中，每次试验的可能结果有两个（$A$和$\overline{A}$），则称这种试验为$n$重伯努利试验。
+\end{enumerate}
+\end{definition}
+
+\begin{definition}\label{def:Binomial_dist}
+假定伯努利试验中成功（事件$A$)概率为$p$。记$X$为$n$重伯努利试验中成功的次数，其分布列为
+$$
+P(X=k) = C_n^k p^k (1-p)^{(n-k)}, k=0,1,2,\cdots,n.
+$$
+称这个分布为二项分布。记$X\sim b(n,p)$。
+\end{definition}
+\begin{remark}
+\begin{enumerate}
+    \item 二项分布的分布列中每一项$C_n^k p^k (1-p)^{(n-k)}$恰好是$n$次二项式$(p+(1-p))^n$的展开式中$k+1$项。这正是其名称的由来。
+\end{enumerate}
+\end{remark}
+
+
+ 二点分布是一种特殊的二项分布，即$n=1$。
+ \begin{definition}\label{def:two_point_dist}
+假定伯努利试验中成功（事件$A$)概率为$p$。记$X$为一次伯努利试验中成功的次数，其分布列为
+$$
+P(X=k) =  p^k (1-p)^{(1-k)} = \left\{
+\begin{aligned}
+    p, k=1\\ 1-p , k=0.
+\end{aligned}\right., k=0,1.
+$$
+称这个分布为二点分布（或伯努利分布）。记$X\sim b(1,p)$。
+\end{definition}
+\begin{remark}
+二项分布与二点分布之间的关系是很紧密的。
+\begin{itemize}
+    \item 二点分布是二项分布的一种特例，即 $n=1$；
+    \item 服从二项分布的随机变量可以分解为$n$个独立同为二点分布的随机变量之和，即设$X\sim b(n,p)$且$X_i \overset{\text{i.i.d}}{\sim} b(1,p),i=1,2,\cdots,n$，有$X=\sum_{i=1}^n X_i$。
+\end{itemize}
+\end{remark}
+
+
+\subsection{几何分布与负二项分布}
+\begin{definition}\label{def:geometry_dist}
+假定伯努利试验中成功（事件$A$)概率为$p$。记$X$为伯努利试验首次成功的次数，其分布列为
+$$
+P(X=k) =   (1-p)^{(k-1)}p, k=1,2,\cdots.
+$$
+称这个分布为几何分布。记$X\sim Ge(p)$。
+\end{definition}
+\begin{theorem}
+几何分布的随机变量具有无记忆性，即设$X \sim Ge(p)$，则对任意正整数$m$和$n$，有  
+$$P(X>m+n|X>m)=P(X>n).$$
+\end{theorem}
+
+\begin{proof}
+	因为$X$的概率分布列为
+	$P(X= k) = (1-p)^{k-1} p , k=1,2,\cdots,$，所以，
+		 $$P(X>n)=\sum_{k=n+1}^{+\infty } (1-p)^{k-1} p=p\cdot \frac{(1-p)^{n} }{p} =(1-p)^{n}. $$
+	因此，对于任意正整数$m$和$n$，条件概率为
+	$$P(X>m+n|X>m)=\frac{P(X>m+n,X>m)}{P(X>m)} =\frac{P(X>m+n)}{P(X>m)}=\frac{(1-p)^{m+n} }{(1-p)^{m} }=(1-p)^{n}$$
+	\end{proof}
+  \begin{remark}
+ 在本证明中，我们使用到等比数列的求和公式。对于一个等比数列$\{a_n\}$，首项为$a_1$，公比为$q$。
+ \begin{enumerate}
+     \item 前$n$项和$S_n = \sum_{i=1}^n a_i =  \frac{a_1 ( 1- q^n)}{(1-q)}$；
+     \item 无穷项求和$S_\infty = \sum_{i=1}^\infty a_i$有三种需要讨论的情况。
+     \begin{enumerate}
+         \item 若$|q|<1$，则
+         $$
+         S_\infty = \lim_{n\rightarrow \infty} S_n = \frac{a_1}{1-q};
+         $$
+         \item 若$|q| \geq 1$，则
+         $S_\infty$是发散的；
+     \end{enumerate}
+ \end{enumerate}
+ \end{remark}
+
+\begin{definition}\label{def:negative_binomial_dist}
+	假定伯努利试验中成功（事件$A$)概率为$p$。记$X$为伯努利试验第$r$次成功的次数，其分布列为
+	$$
+	P(X=k) =   C_{k-1}^{r-1} (1-p)^{(k-r)}p^{r}, k=r,r+1,r+2,\cdots.
+	$$
+	称这个分布为负二项分布。记$X\sim Nb(r,p)$。
+\end{definition}
+\begin{remark}
+负二项分布与几何分布之间的关系是很紧密的。
+
+\begin{itemize}
+    \item 几何分布是负二项分布的一种特例，即
+$r=1$；
+\item 负二项分布的随机变量可以分解为$r$个独立同分布的几何分布随机变量之和，即
+	如果$X \sim Nb(r,p)$，$X_i \overset{\text{i.i.d}}{\sim} Ge(p) $，那么， $X = \sum_{i=1}^r X_i$。
+\end{itemize}
+\end{remark}
+
+\subsection{泊松分布}
+\begin{definition}
+   假定一个离散随机变量$X$，其分布列为
+    $$P(X=k)=\frac{\lambda ^{k} }{k!} e^{-\lambda } ,k=0,1,2,\cdots $$
+    其中，参数$\lambda >0$。称随机变量$X$的概率分布为泊松分布，记$X\sim P(\lambda)$.
+\end{definition}
+
+泊松分布是有法国数学家Siméon-Denis Poisson教授提出的。
+
+
+\begin{theorem}
+证明函数
+$$P(X=k)=\frac{\lambda ^{k} }{k!} e^{-\lambda } ,k=0,1,2,\cdots $$是一个随机变量的分布列。
+\end{theorem}
+
+\begin{proof}
+要论证一个函数是一个随机变量的分布列，就是要证明该函数满足非负性和正则性。
+\begin{itemize}
+    \item 要证明非负性，即$P(X= k ) \geq 0$。一个显然的结果$P(X=k)=\frac{\lambda ^{k} }{k!} e^{-\lambda } > 0,k=0,1,2,\cdots$。这是因为参数$\lambda>0$。
+    \item 要证明正则性，即$\sum_{k=0}^\infty P(X=k) = 1$。于是，
+    \begin{eqnarray*}
+        1=\sum_{k=0}^{+\infty } \frac{\lambda ^{k} }{k!} e^{-\lambda } = e^{-\lambda }\sum_{k=0}^{+\infty }\frac{\lambda ^{k} }{k!}=e^{-\lambda }e^{\lambda }.
+    \end{eqnarray*}
+    也就是说，要证明$$
+    \sum_{k=0}^{+\infty }\frac{\lambda ^{k} }{k!} = e^{\lambda }.
+    $$
+    以下给出具体的证明：令$f(x)=e^{\lambda x}$可知
+     \begin{eqnarray*}
+  f'(x)&=&\lambda e^{\lambda x}, \\ 
+  f''(x)&=&\lambda^{2}  e^{\lambda x},\\ 
+  &\vdots&\\
+   f^{(k)}(x) &=&\lambda^{k}  e^{\lambda x}.
+    \end{eqnarray*}
+    利用在$x = x_0$泰勒展开可知
+    $$
+    f(x)=f(x_{0} )+\sum_{k=1}^{\infty } \frac{f^{(k)}(x_{0} )}{k!} (x-x_{0})^{k}.
+    $$
+    所以，取$x= 1$且$x_0=0$时，有
+    $$e^{\lambda} = f(1)=f(0 )+\sum_{k=1}^{\infty } \frac{f^{(k)}(0)}{k!} = \sum_{k=0}^{\infty} \frac{\lambda^k}{k!}. $$
+\end{itemize} 
+\end{proof}
+\begin{remark}
+    \begin{itemize}
+        \item 泊松分布是一种常见的离散分布，常用于计数数据。
+        \item 泊松分布常常用于刻画单位时间内或单位面积上的所关心事件发生的次数。
+    \end{itemize}
+    \end{remark}
+\begin{problem}
+都可以表示所关心事件发生的次数，泊松分布与二项分布有什么关系？
+\end{problem}
+\begin{example}
+我们想要关注学校东门在每天上午7:00-8:00这一个小时内的车流量——在这一个小时内东门通过$K$辆车。
+$K$可以看作一个泊松分布随机变量。
+
+如果将这一个小时切分为$n$个时段，并满足以下两个假定：
+    \begin{itemize}
+        \item $n$非常大，导致$\frac{1}{n} $非常小，在一个小时段内仅可通过一辆车；
+        \item 在各个小时段内是否通过车是互不影响的。假设通过一辆车的概率为$p_{n}$。在$n$个时段中，有$K$个时段中通过了一辆车，而余下的$n-K$个时段中并没有通过。
+    \end{itemize}
+
+由此，每一个时段内是否有车辆通过可以看作一个伯努利试验。
+也可以看作一个二项分布随机变量。这是一种直观的认知，理论解释见定理\ref{thm:chap04_relation_between_poison_and_binomial}。
+\end{example}
+
+\begin{theorem} \label{thm:chap04_relation_between_poison_and_binomial} 
+    在$n$重伯努利试验中，记事件$A$在一次试验中发生的概率为$p_{n}$（与试验次数$n$有关），如果当$n\to \infty$时，有$np_{n}\to \lambda$，则$$\lim_{n \to \infty} C_{n}^{k}p_{n} ^{k} (1-p_{n})^{n-k}=\frac{\lambda ^{k} }{k!} e^{-\lambda }. $$
+    \end{theorem}
+    \begin{proof}
+    令$\lambda_{n}=np_{n}$，即$p_{n}=\frac{\lambda _{n}}{n} $，可得
+    \begin{eqnarray*}
+         C_{n}^{k}p_{n} ^{k} (1-p_{n})^{n-k}
+    &=&\frac{n(n-1)\cdots (n-k+1)}{k!} (\frac{\lambda _{n}}{n} )^{k}(1-\frac{\lambda _{n}}{n} )^{n-k}\\
+    &=&\frac{\lambda _{n}^{k}}{k!} (1-\frac{1}{n} )(1-\frac{2}{n} )\cdots (1-\frac{k-1}{n} )(1-\frac{\lambda _{n}}{n} )^{n-k}
+    \end{eqnarray*}
+    对固定的$k$有$$\lim_{n \to \infty} \lambda _{n}=\lambda ,$$于是有
+    $$\lim_{n \to \infty} (1-\frac{\lambda _{n}}{n})^{n-k} =e^{-\lambda }$$$$\lim_{n \to \infty} (1-\frac{1}{n} )\cdots (1-\frac{k-1}{n} )=1$$从而
+    $$\lim_{n \to \infty} C_{n}^{k}p_{n} ^{k} (1-p_{n})^{n-k}=\frac{\lambda ^{k} }{k!} e^{-\lambda },$$对任意$k$均成立。
+    \end{proof}
+
+\subsection{超几何分布}
+ \begin{definition}\label{def:hypergeometry_dist}
+     假定一个离散随机变量$X$，其分布列为
+    $$P(X=k)=\frac{\begin{pmatrix}M \\k\end{pmatrix}\begin{pmatrix}N-M \\n-k\end{pmatrix}}{\begin{pmatrix}N \\n\end{pmatrix}},k=0,1,2,\cdots,r $$
+    其中，$r =\min\{M,n\}$且$M\leq N, n\leq N,n,N,M$均为正整数。称随机变量$X$的概率分布为超几何分布，记$X\sim h(n,N,M)$. 
+ \end{definition}
+ \begin{remark}
+     超几何分布与二项分布在应用场景中的差异：
+     \begin{itemize}
+         \item 二项分布应用于有放回随机抽样。
+         \item 超几何分布应用于无放回随机抽样。
+     \end{itemize}
+ \end{remark}
+ 
+\section{习题}
+
+    \begin{enumerate}
+        \item 口袋中有5个球，编号为1,2,3,4,5。从中任取3个，以$X$表示取出来的3个球中的最大号码。
+        \begin{enumerate}
+            \item 试求$X$的分布列；
+            \item 写出$X$的分布函数，并作图。
+        \end{enumerate}
+
+
+
+\item 麻省理工学院足球队计划在一个周末进行两场比赛。第一局不输的概率为0.4。第二局不输的概率为0.7，与第一局无关。比赛不输的时候，球队获胜或平局的概率是相同的，两局比赛是相互独立的。麻省理工学院队获胜得2分，平局得1分落败得分为0。给出足球队在周末获得的分数的分布列。
+
+\item 凯尔特人队和湖人队将进行共$n$场篮球赛的系列赛，其中 $n$ 是奇数。 在每场比赛中，凯尔特人队赢的概率为$p$，且每场比赛之间相互独立的。
+\begin{enumerate}
+    \item 当$p$取何值时，$n = 5$对凯尔特人队比 $n = 3$更具有优势？ 
+    \item 
+对$(a)$进行归纳，即对于任何 $k > 0$，当$p$取何值时，$n = 2k+1$对凯尔特人队比 $n = 2k-1$更具有优势？
+\end{enumerate}
+
+\item  假设你租了一个别墅，租赁公司给你提供了5把钥匙，5把钥匙是用于打开公寓中5扇不同的门。你无法从这五把钥匙的外观来进行区分。于是，为了打开前门，你进行随机尝试。令$X$为直到你需要尝试的次数直到你成功打开前门。请写出在以下两种假设下，求出$X$的概率分布列。
+\begin{enumerate}
+    \item 在你发现一枚钥匙无法打开门，你做了一个记号，之后你不会再尝试标记过的钥匙，而在未标记的钥匙中等概率地选择。
+    \item 在每一次尝试中，你等概率地选择每一把钥匙。
+\end{enumerate}
+    \end{enumerate}
+% \begin{exercise}
+% \end{exercise}

@@ -1,0 +1,301 @@
+\chapter{充分统计量}
+\begin{introduction}
+	\item Prob $\&$ Stat\quad 5.5
+\end{introduction}
+\section{引导问题}
+统计量是样本的一种函数，是对样本中所蕴含信息的一种压缩。类似于图片的有损压缩和无损压缩，怎样的统计量是对样本的一种无损压缩？
+
+
+\section{定义}
+为了阐述清楚充分统计量，我们先讲以下这个简单的例子。
+\begin{example}
+	30秒口算是小学数学课课前一项测试。在表中是四位同学的20题的结果。
+	
+	\begin{table}[h]
+		\centering 
+		\begin{tabular}{ c cccc}
+			\hline
+			题号 & 学生1 & 学生2 & 学生3 & 学生4\\ 
+			\hline
+			1 & $\surd$ & $\times$ & $\surd$ & $\times$ \\
+			2 & $\times$ & $\times$ & $\surd$ & $\times$ \\
+			3 & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+			4 & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+			5 & $\surd$ & $\surd$ & $\times$ & $\surd$ \\
+			6 & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+			7 & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+			8 & $\times$ & $\surd$ & $\surd$ & $\surd$ \\
+			9 & $\surd$ & $\surd$ & $\times$ & $\surd$ \\
+			10 & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+			11 & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+			12 & $\surd$ & $\surd$ & $\surd$ & $\times$ \\
+			13 & $\surd$ & $\times$ & $\surd$ & $\surd$ \\
+			14 & $\times$ & $\surd$ & $\surd$ & $\surd$ \\
+			15 & $\surd$ & $\surd$ & $\times$ & $\surd$ \\
+			16 & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+			17 & $\times$ & $\surd$ & $\surd$ & $\times$ \\
+			18 & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+			19 & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+			20 & $\surd$ & $\times$ & $\times$ & $\surd$ \\
+			\hline
+			总分 & 16 & 16 & 16 & 16 \\
+			\hline
+		\end{tabular}
+	\end{table}
+ 通过上述数据，你的直观感受是什么？
+ 
+我们重新定义一下这个问题。记$x_{i,j}$为第$j$个学生在第$i$道题目的结果，若正确，$x_{i,j}$取值为$1$；否则为$0$，$i=1,2,\cdots,20,j=1,2,3,4$。
+    以学生1为例，可观测到一组样本
+        $$\{1,0,1,1,1,
+             1,1,0,1,1,
+             1,1,1,0,1,
+             1,0,1,1,1\}.$$
+    以学生2为例，可以观测到另一组样本
+     $$\{0,0,1,1,1,
+         1,1,1,1,1,
+          1,1,0,1,1,
+           1,1,1,1,0\}.$$
+      这里的1或者0都是$x_{i,j}$具体的取值。也就是说，对于学生$j$，可以得到一组样本
+      $\{x_{1,j},x_{2,j},\cdots,x_{20,j}\}$，而总分
+      $$
+      \sum_{i=1}^{20} x_{i,j}
+      $$
+      是样本的统计量。显然，给定样本，我们可以知道统计量的信息（根据样本我们能够计算统计量），但是根据统计量，我们无法得知样本的所有信息（根据总分，我们无法反推出学生$j$在每道题是否回答正确的结果）。因此，在统计量对样本加工或者简化的过程中，信息被丢失了。
+      \end{example}
+  \begin{problem}
+ 在构建统计量时，哪些信息可以丢失？哪些信息不可以丢失？
+ \end{problem}
+在参数模型中，我们使用参数化的概率质量函数或概率密度函数来刻画样本的信息。为了不区分概率质量函数和概率密度函数，我们这里统称为\textbf{概率函数}，记为$p(x;\bm{\theta})$，其中$\bm{\theta}$是未知参数。一旦参数确定，参数模型是唯一确定的。因此，参数模型中的未知参数包含的就是“有用信息”。
+如果我们希望统计量不损失信息，本质上就要求了统计量囊括了未知参数的一切信息。  
+      
+\begin{example} 
+  对于每一个学生，其以一定概率能够回答正确任意一道口算题，假定其总体分布为$b(1,p)$。每一道口算可以看作独立同分布的样本。于是，样本的符号可记为
+  $$x_1,x_2,\cdots,x_n$$
+  其中，这里样本量$n$取20。这里用$n$表示只是为了更一般的情况。
+  
+  对于样本来说，其联合概率（质量）函数为
+  \begin{eqnarray*}
+  	P(X_1 = x_1,X_2=x_2,\cdots,X_n=x_n) &=& p_{(X_1,X_2,\cdots,X_n)}(x_1,x_2,\cdots,x_n) \\
+  	&=& \prod_{i=1}^n p_{X_i}(x_i) \\
+  	&=& \prod_{i=1}^n P(X_i = x_i)\\ &=&\prod_{i=1}^n p^{x_i}(1-p)^{1-x_i}\\
+  	&=& p^{\sum_{i=1}^n x_i} (1-p)^{n - \sum_{i=1}^n x_i}. 
+  \end{eqnarray*}
+这是样本所有的信息，可以看出其依赖于未知参数$p$。
+
+接下来，我们来考虑统计量$$
+T = \sum_{i=1}^n X_i
+$$
+的分布。
+根据所学习到的知识，$T$的分布为$b(n,p)$，其概率（质量）函数为
+$$
+P(T = t) = p_T(t) = C_{n}^t p^{t} (1-p)^{n-t}.
+$$
+
+然后，在已知统计量的分布条件下，我们来考虑样本中剩余信息的分布，这里我们用条件概率（质量）函数来表示，即
+\begin{eqnarray*}
+	P(X_1=x_1,X_2 = x_2,\cdots,X_n = x_n | T = t) &=& \frac{P((X_1=x_1,X_2 = x_2,\cdots,X_n = x_n ,T = t)}{P(T=t)}\\
+	&=&  \left\{
+	\begin{aligned}
+		&\frac{1}{C_{n}^t}, & \text{如果$t = \sum_{i=1}^n x_i$}.\\
+		&0 , &  \text{如果$t \neq \sum_{i=1}^n x_i$}.
+		\end{aligned}
+	\right.
+\end{eqnarray*}
+我们发现这个条件分布竟然与未知参数$p$无关，这意味着，这个统计量已经囊括了样本中所有有用的信息，也就是数理统计里所定义的“充分的”。
+\end{example}
+
+
+\begin{definition}
+设$X \sim F(x;\theta),x_1,\cdots,x_n$是来自某个总体的样本，总体分布函数为$F(x;\theta)$，统计量$T=T(x_1,x_2,\cdots,x_n)$。
+如果在给定$T$的取值后，$x_1,x_2,\cdots,x_n$的条件分布与$\theta$无关，则称$T$为$\theta$的充分统计量。
+\end{definition}
+
+接下来，我们来看另一个例子。
+\begin{example}
+设$x_1,x_2,\cdots,x_n$是来自正态分布$N(\mu,1)$的样本，$T = \bar{x}$，则$T$是充分的。
+\end{example}
+\begin{proof}
+我们可知，$x_1,x_2,\cdots,x_n$的联合密度函数为
+\begin{eqnarray*}
+    p(x_1,x_2,\cdots,x_n;\mu) &=&  \prod_{i=1}^n p(x_i) \\
+    &=& \prod_{i=1}^n \frac{1}{\sqrt{2\pi }} \exp\left\{-\frac{1}{2}(x_i - \mu)^2\right\}.
+\end{eqnarray*}
+因为统计量
+$$
+T = \bar{x} \sim N(\mu,\frac{1}{n}),
+$$
+所以，$T$的密度函数为
+$$
+p_T(t) = \frac{1}{\sqrt{2\pi/n}}\exp\left\{-\frac{1}{2\sigma^2/n} (t-\mu)^2\right\}.
+$$
+根据定义来判断一个统计量是否是充分的，需要考虑一个条件概率（密度）函数，即
+$$
+p(x_1,x_2,\cdots,x_n|t) = \frac{p(x_1,x_2,\cdots,x_n,t)}{p_T(t)}
+$$ 
+我们注意到，$p(x_1,x_2,\cdots,x_n,t)$这是一个退化分布。一旦确定$t$之后，不是所有的样本都是自由的，$x_n $可以改写成$nt - (x_1+\cdots+x_{n-1})$。于是，
+\begin{eqnarray*}
+   && p(x_1,x_2,\cdots,x_n,t) \\
+   &=& p(x_1,x_2,\cdots,x_{n-1},t)\\
+    &=& (2\pi)^{-n/2}\exp\left\{-\frac{1}{2}\left( \sum_{i=1}^{n-1}(x_i - \mu)^2 + \left(nt - \sum_{i=1}^{n-1} x_i -\mu \right)^2 \right)\right\}\\
+    &=& (2\pi)^{-n/2} \exp\left\{
+    -\frac{1}{2}\left( \sum_{i=1}^{n-1} x_i^2 - 2\mu(nt - x_n) + (n-1)\mu^2 + \left(nt - \sum_{i=1}^{n-1} x_i\right)^2 - 2(x_n \mu) + \mu^2
+    \right)
+    \right\}\\
+    &=&(2\pi)^{-n/2} \exp\left\{ -\frac{1}{2}\left( n\mu^2 - 2n \mu t + \sum_{i=1}^n x_i^2\right) \right\}
+\end{eqnarray*}
+因此，条件概率函数为
+\begin{eqnarray*}
+    p(x_1,x_2,\cdots,x_n|t) &=& \frac{p(x_1,x_2,\cdots,x_n,t)}{p(t)} \\
+    &=& \frac{(2\pi)^{-n/2} \exp\left\{ -\frac{1}{2}\left( n\mu^2 - 2n \mu t + \sum_{i=1}^n x_i^2\right) \right\}}{ (2\pi/n)^{-1/2} \exp\left\{ -\frac{1}{2/n} \left(t-\mu\right)^2 \right\}} \\
+    &=& \frac{(2\pi)^{-n/2}}{(2\pi/n)^{-1/2} } \exp\left\{
+    -\frac{1}{2}\sum_{i=1}^n x_i^2 + \frac{n}{2}t^2
+    \right\}
+\end{eqnarray*}
+这与参数$\mu$无关。由此得证。
+\end{proof}
+
+\section{因子分解定理}
+根据以上例子，我们发现定义往往可以论证某一个统计量是充分统计量。但是难以通过定义来寻找那个统计量是充分的。以下我们有因子分解定理，可以帮助我们来寻找。
+\begin{theorem}{因子分解定理}
+设总体概率函数为$f(x;\theta)$，$x_1,\cdots,x_n$是样本，则$T = T(x_1,x_2,\cdots,x_n)$为充分统计量的充分必要条件是：存在两个函数$g(t,\theta)$和$h(x_1,x_2,\cdots,x_n)$使得对任意的$\theta$和任一组观测值$x_1,x_2,\cdots,x_n$，有
+\begin{eqnarray*}
+    f(x_1,x_2,\cdots,x_n;\theta) = g(T(x_1,x_2,\cdots,x_n),\theta)h(x_1,x_2,\cdots,x_n),
+\end{eqnarray*}
+其中，$g(t,\theta)$是通过统计量$T$的取值而依赖于样本的。
+\end{theorem}
+\begin{proof}
+本定理的一般性结果的证明过程超过了本课程的内容。以下仅考虑离散随机比纳凉的证明。此时概率函数为
+$$
+f(x_1,x_2,\cdots,x_n;) = P(X_1 = x_1,X_2=x_2,\cdots,X_n = x_n;\theta).
+$$
+首先证明必要性。假定$T$是充分统计量，所以
+\begin{eqnarray*}
+    P(X_1 = x_1,X_2=x_2,\cdots,X_n = x_n|T=t)
+\end{eqnarray*}
+与$\theta$无关。我们将其记为$h(x_1,x_2,\cdots,x_n)$。令$A(t) = \left\{x_1,x_2,\cdots,x_n | T(x_1,x_2,\cdots,x_n) = t\right\}$。当样本$(x_1,x_2,\cdots,x_n) \in A(t)$时有
+$$
+\{T = t\} \subset \{X_1 = x_1,X_2=x_2,\cdots,X_n = x_n\},
+$$
+故
+\begin{eqnarray*}
+    P(X_1 =x_1,X_2=x_2,\cdots,X_n = x_n ) &=&  
+    P(X_1 =x_1,X_2=x_2,\cdots,X_n = x_n , T= t;\theta) \\
+    &=& P(X_1 =x_1,X_2=x_2,\cdots,X_n = x_n | T= t) P(T =t;\theta)\\
+    &=& h(x_1,x_2,\cdots,x_n) g(t,\theta).
+\end{eqnarray*}
+其中$g(t,\theta) = P(T = t;\theta)$，而$h(x_1,x_2,\cdots,x_n) = P(X_1=x_1,X_2=x_2,\cdots,X_n = x_n|T=t)$与$\theta$无关。因此，必要性得证。
+
+其次证明充分性。由于
+\begin{eqnarray*}
+    P(T=t;\theta) &=& \sum_{(x_1,x_2,\cdots,x_n)\in A(t)} P(X_1 = x_1,X_2=x_2,\cdots,X_n=x_n;\theta)\\
+    &=&  \sum_{(x_1,x_2,\cdots,x_n)\in A(t)} g(t,\theta) h(x_1,x_2,\cdots,x_n).
+\end{eqnarray*}
+对任意$(x_1,x_2,\cdots,x_n)$和$t$，满足$(x_1,x_2,\cdots,x_n)\in A(t)$有
+\begin{eqnarray*}
+    P(X_1 = x_1,X_2=x_2,\cdots,X_n=x_n|T=t) &=& \frac{P(X_1 = x_1,X_2=x_2,\cdots,X_n=x_n,T = t;\theta)}{P(T=t;\theta)}\\
+    &=& \frac{P(X_1 = x_1,X_2=x_2,\cdots,X_n=x_n;\theta)}{P(T=t;\theta)}
+    \\
+    &=& \frac{g(t,\theta) h(x_1,x_2,\cdots,x_n)}{ g(t,\theta)\sum_{(x_1,x_2,\cdots,x_n)\in A(t)}  h(x_1,x_2,\cdots,x_n)}\\
+    &=&  \frac{h(x_1,x_2,\cdots,x_n)}{ \sum_{(x_1,x_2,\cdots,x_n)\in A(t)}  h(x_1,x_2,\cdots,x_n)}
+    .
+\end{eqnarray*}
+该分布与$\theta$无关，这证明了充分性。
+\end{proof}
+\begin{remark}
+    这里$T$可以是一维的，也可以是多维的。
+\end{remark}
+
+\begin{example}
+设$x_1,x_2,\cdots,x_n$是来自于$b(1,\theta)$的样本。于是，$x_1,x_2,\cdots,x_n$的概率函数为
+$$
+P(X_1=x_1,X_2=x_2,\cdots,X_n=x_n) = \prod_{i=1}^n \theta^{x_i}(1-\theta)^{1-x_i} = \theta^{\sum_{i=1}^n x_i} (1-\theta)^{n - \sum_{i=1}^n x_i}.
+$$
+令$t = \sum_{i=1}^n x_i$，$g(t,\theta) = (1-\theta)^{n} \left(\theta/(1-\theta)\right)^t $且$h(x_1,x_2,\cdots,x_n) = 1$。根据因子分解定理，$t$是$\theta$的充分统计量。
+\end{example}
+
+\begin{example}
+    设$x_1,x_2,\cdots,x_n$是来自于$N(\mu,\sigma^2)$的样本。 
+\begin{enumerate}
+    \item 若$\sigma^2 = \sigma_0^2$，其中$ \sigma_0^2$已知。$x_1,x_2,\cdots,x_n$的概率函数为
+    \begin{eqnarray*}
+        p(x_1,x_2,\cdots,x_n) &=
+        &(2\pi\sigma_0^2)^{-n/2} \exp\left\{ - \frac{1}{2\sigma_0^2} \sum_{i=1}^n (x_i-\mu)^2\right\}\\
+        &=&(2\pi\sigma_0^2)^{-n/2}  \exp\left\{ - \frac{1}{2\sigma_0^2} \left(\sum_{i=1}^n x_i^2 - 2n \bar{x}\mu + n\mu^2\right)\right\}\\
+        &=& (2\pi\sigma_0^2)^{-n/2}  \exp\left\{ - \frac{1}{2\sigma_0^2} \sum_{i=1}^n x_i^2 + \frac{n}{\sigma_0^2} \bar{x}\mu -\frac{n}{2\sigma_0^2}\mu^2\right\}
+    \end{eqnarray*}
+令$t = \bar{x}$，$$g(t,\mu) = \exp\{n\bar{x}\mu / \sigma_0^2 - n\mu^2/(2\sigma_0^2)\},$$
+和$$h(x_1,x_2,\cdots,x_n) = (2\pi\sigma_0^2)^{-n/2} \exp\{ -\sum_{i=1}^n x_i^2/(2\sigma_0^2)\}.$$根据因子分解定理，$t=\bar{x}$是充分统计量。
+\item 若$\mu = 0$。$x_1,x_2,\cdots,x_n$的概率函数为
+\begin{eqnarray*}
+     p(x_1,x_2,\cdots,x_n) &=
+        &(2\pi\sigma^2)^{-n/2} \exp\left\{ - \frac{1}{2\sigma^2} \sum_{i=1}^n (x_i)^2\right\}
+\end{eqnarray*}
+令$$
+t = \sum_{i=1}^n x_i^2,
+$$
+$$g(t,\sigma^2) = (2\pi\sigma^2)^{-n/2} \exp\left\{ - \frac{1}{2\sigma^2} \sum_{i=1}^n (x_i)^2\right\}$$
+和
+$$
+h(x_1,x_2,\cdots,x_n) = 1.
+$$
+根据因子分解定理，$t = \sum_{i=1}^n x_i^2$是充分统计量。
+
+\item 令$\theta = (\mu,\sigma_0^2)'$。$x_1,x_2,\cdots,x_n$的概率函数为
+    \begin{eqnarray*}
+        p(x_1,x_2,\cdots,x_n) &=
+        &(2\pi\sigma^2)^{-n/2} \exp\left\{ - \frac{1}{2\sigma^2} \sum_{i=1}^n (x_i-\mu)^2\right\}\\
+        &=&(2\pi\sigma^2)^{-n/2}  \exp\left\{ - \frac{1}{2\sigma^2} \left(\sum_{i=1}^n x_i^2 - 2n \bar{x}\mu + n\mu^2\right)\right\}\\
+        &=& (2\pi\sigma^2)^{-n/2}  \exp\left\{ - \frac{1}{2\sigma^2} \sum_{i=1}^n x_i^2 + \frac{n}{\sigma^2} \bar{x}\mu -\frac{n}{2\sigma^2}\mu^2\right\}
+    \end{eqnarray*}
+令$$
+\bm{t} = (t_1,t_2)' = (\bar{x},\sum_{i=1}^n x_i^2)',
+$$
+$$
+g(t,\mu,\sigma^2) = (2\pi\sigma^2)^{-n/2}  \exp\left\{ - \frac{1}{2\sigma^2} \sum_{i=1}^n x_i^2 + \frac{n}{\sigma^2} \bar{x}\mu -\frac{n}{2\sigma^2}\mu^2\right\}
+$$
+和
+$$
+h(x_1,x_2,\cdots,x_n) = 1.
+$$
+根据因子分解定理，$\bm{t} = (t_1,t_2)' = (\bar{x},\sum_{i=1}^n x_i^2)'$是充分统计量。
+\end{enumerate}
+\end{example}
+
+以下例子是一个拓展。
+
+\begin{example}
+    总体分布为指数型分布族，即其概率函数为
+    $$
+    p(x;\theta) = C(\theta) \exp\left\{g(\theta) t(x)\right\}h(x).
+    $$
+    如果$x_1,x_2,\cdots,x_n$是样本，则$\sum_{i=1}^n t(x_i)$是充分统计量。
+\end{example}
+\begin{remark}
+    $\sum_{i=1}^n t(x_i)$ 不仅是充分统计量，还是充分完备统计量。
+\end{remark}
+
+已经证明某个统计量是充分的。如果我们想要论证另一个统计量也是充分的，那么并不需要从定义或因子分解定理直接出发，我们有以下定理来解决这个问题。
+\begin{theorem}
+设统计量$T$是充分统计量，而$S$也是一个统计量。如果$T$可以表示为$S$的函数，即$T=\varphi(S)$，那么$S$也是充分统计量。
+\end{theorem}
+
+\section{习题}
+\begin{enumerate}
+    \item 设$x_1,x_2,\cdots,x_n$是来自几何分布
+$$P(X=x) = \theta(1-\theta)^{x}$$
+的样本，证明$T = \sum_{i=1}^n x_i$是充分统计量。
+
+\item  设$x_1,x_2,\cdots,x_n$来自以下分布的样本，试给出充分统计量。
+\begin{enumerate}
+    \item 均匀分布$U(0,\theta)$；
+    \item 均匀分布$U(\theta_1,\theta_2)$。
+\end{enumerate}
+
+\item 设$x_1,x_2,\cdots,x_n$是来自正态总体$N(\mu,\sigma^2_1)$的样本，$y_1,y_2,\cdots,y_m$是来自于另一正态总体$N(\mu,\sigma^2_2)$的样本，这两个样本相互独立，试给出$(\mu,\sigma_1^2,\sigma_2^2)$的充分统计量。
+
+\item 设$x_1,x_2,\cdots,x_n$是来自帕累托（Pareto）分布
+$$
+p(x;\theta) = \theta \cdot a^{\theta} x^{-(\theta+1)}, x>a, \theta>0
+$$
+的样本（$a>0$已知），试给出一个充分统计量。
+\end{enumerate}

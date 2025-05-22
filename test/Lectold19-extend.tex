@@ -1,0 +1,159 @@
+
+\chapter{点估计的评价方法$II$}
+\begin{introduction}
+  \item Prob$\&$Stat\quad 6.4
+\end{introduction}
+\section{均方误差}
+参数真值$\theta$，点估计值$\hat{\theta}=\hat{\theta}(x_{1},x_{2},\cdots,x_{n})$，称$E(\hat{\theta}-\theta)^{2}$为$\theta$的均方误差（$Mean \quad Squared \quad Error$），记作$MSE(\hat{\theta})$.均方误差的分解如下：
+$$\begin{aligned}
+\operatorname{MSE}(\hat{\theta})=& E(\hat{\theta}-\theta)^{2} \\
+=& E(\hat{\theta}-E(\hat{\theta})+E(\hat{\theta})-\theta)^{2} \\
+=& E(\hat{\theta}-E(\hat{\theta}))^{2}+2 E(\hat{\theta}-E(\hat{\theta})) \cdot(E(\hat{\theta})-\theta) +E(E(\hat{\theta})-\theta)^{2} \\
+=& \operatorname{Var}(\hat{\theta})+\operatorname{bias}^{2}(\hat{\theta})
+\end{aligned}
+$$其中，交叉项$E(\hat{\theta}-E(\hat{\theta})) \cdot(E(\hat{\theta})-\theta) =0$\\
+\begin{remark}
+\begin{itemize}
+    \item 我们通常希望得到估计的均方误差越小越好
+    \item 对于无偏估计而言，我们比较方差的大小
+    \item 对于有偏估计而言，我们比较均方误差
+    \item 以上两种准则是统一的
+    \item 在均方误差的意义下，可能存在一个有偏估计优于无偏估计\\
+\end{itemize}
+\end{remark}
+问题：对于$\forall \theta \in \Theta $，我们能否找到$\hat{\theta}$使得一致最小均方误差估计$\hat{\theta}=\underset{\tilde{\theta}  }{\arg \min } \quad MSE(\tilde{\theta} )$？\\
+答案：不存在。\\
+例：$X\sim N(0,1),\theta\in\Theta=R,x_{1},x_{2},\cdots,x_{n}$是样本
+\begin{enumerate}
+    \item $\hat{\theta}_{1}=\frac{1}{n} \sum_{i=1}^{n} x_{i} \sim N\left(\theta, \frac{1}{n}\right)\quad \operatorname{MSE}\left(\hat{\theta}_{1}\right)=\operatorname{Var}\left(\hat{\theta}_{1}\right)=\frac{1}{n}$
+    
+    \item $\hat{\theta}_{2}\equiv 0 $
+\end{enumerate}
+在$\theta=0$时，$\operatorname{MSE}\left(\hat{\theta}_{2}\right)=0$，而在$\theta>\frac{1}{2}$时，$\operatorname{MSE}\left(\hat{\theta}_{2}\right)$很大。\\
+解决方案：对估计提合理的要求。
+
+\section{一致最小方差无偏估计$UMVUE$}
+\begin{definition}
+对参数估计问题，设$\hat{\theta}$是$\theta$的一个无偏估计，如果对另外任意一个$\theta$的无偏估计$\tilde{\theta}$，在参数空间$\Theta$上都有$$Var(\hat{\theta})\le Var(\tilde{\theta})$$则称$\hat{\theta}$是$\theta$的一致最小方差无偏估计。
+\end{definition}
+\begin{theorem}[充要条件]
+设$\vec{x} =(x_{1},x_{2},\cdots,x_{n})$是来自某总体的一个样本，$\hat{\theta}=\hat{\theta}(\vec{x})$是$\theta$的一个无偏估计，$Var(\hat{\theta})<\infty$，则$\hat{\theta}$是$\theta$的$UMVUE$的充要条件是，对任意一个满足$E(\varphi (\vec{x} ))=0$和$Var(\varphi (\vec{x} ))<\infty$的$\varphi (\vec{x} )$，都有$$Cov(\hat{\theta,\varphi})=0,\forall\theta\in\Theta$$
+这个定理说明：$\theta$的$UMVUE$必与任一零的无偏估计不相关。
+\end{theorem}
+例:$X\sim e^{\frac{1}{\theta}},x_{1},x_{2},\cdots,x_{n}$是样本。可知，据因子分解定理，$\sum_{i=1}^{n}x_{i}  $是充分统计量。于是，$\bar{x}=\frac{1}{n}\sum_{i=1}^{n}x_{i}  $是$\theta$的无偏估计。设$\varphi=\varphi(x_{1},x_{2},\cdots,x_{n})$是$\theta$的任一无偏估计，则
+$$\begin{array}{l}
+0=E\left(\varphi\left(x_{1}, \cdots, x_{n}\right)\right)=\int_{0}^{+\infty} \cdots \int_{0}^{+\infty} \varphi\left(x_{1}, \cdots, x_{n}\right) \cdot p\left(x_{1}, \cdots, x_{n}\right) d x_{1} \cdots d x_{n} \\
+\int_{0}^{+\infty} \cdots \int_{0}^{+\infty} \varphi\left(x_{1}, \cdots, x_{n}\right) \cdot \exp \left\{-\frac{1}{\theta} \sum_{i=1}^{n} x_{i}\right\} d x_{1} \cdots d x_{n}=0 
+\end{array}$$
+等式两端对$\theta$求导得
+$$\begin{aligned}
+& \int \cdots \int \varphi \cdot \exp \left\{-\frac{1}{\theta} \sum_{i=1}^{n} x_{i}\right\}\left(\frac{1}{\theta^{2}} \sum_{i=1}^{n} x_{i}\right) d x_{1} \cdots d x_{n}=0 \\
+\Rightarrow & \int \cdots \int \bar{x} \cdot \varphi \cdot \frac{1}{\theta^{n}} \exp \left\{-\frac{1}{\theta} \sum_{i=1}^{n} x_{i}\right\} d x_{1} \cdots d x_{n}=0 \\
+\Rightarrow & E(\bar{x} \cdot \varphi)=0 .
+\end{aligned}$$
+因为$Cov(\bar{x},\varphi)=E(\bar{x}\cdot\varphi)-E(\bar{x})\cdot E(\varphi)=0$\\
+所以，由上述定理可知，$\bar{x}$是$\theta$的$UMVUE$.
+
+\section{充分性原则（$Rao-Blackwell \quad Theorem$）}
+设$X\sim p(x;\theta),x_{1},x_{2},\cdots,x_{n}$是样本，$T=T(x_{1},x_{2},\cdots,x_{n})$是$\theta$的充分统计量。若$\hat{\theta}=\hat{\theta}(x_{1},x_{2},\cdots,x_{n})$是$\theta$的一个无偏估计，令$\tilde{\theta}=(\hat{\theta}\mid T)$，则$\tilde{\theta}$也是一个统计量且
+\begin{enumerate}
+    \item $E(\tilde{\theta})=\theta$，即$\tilde{\theta}$也是$\theta$的无偏估计
+    \item $Var(\tilde{\theta})\le Var(\hat{\theta}),\forall\theta$
+\end{enumerate}
+证明：
+\begin{enumerate}
+    \item 根据重期望公式$E(\tilde{\theta})=E(E(\hat{\theta}\mid T))=E(\hat{\theta})=\theta$
+    \item $$\begin{aligned}
+\operatorname{Var}(\hat{\theta}) &=E(\hat{\theta}-E \hat{\theta})^{2} \\
+&=E(\hat{\theta}-\tilde{\theta}+\tilde{\theta}-E \tilde{\theta})^{2},E(\hat{\theta } )=E(\tilde{\theta }) \\
+&=E(\hat{\theta}-\tilde{\theta})^{2}+E(\tilde{\theta}-E(\tilde{\theta}))^{2} +2 E((\hat{\theta}-\tilde{\theta}) \cdot(\tilde{\theta}-E(\tilde{\theta}))) \\
+&=E(\hat{\theta}-\tilde{\theta})^{2}+\operatorname{Var}(\tilde{\theta})
+\end{aligned}$$交叉项$$\begin{aligned}
+& E((\hat{\theta}-\tilde{\theta}) \cdot(\tilde{\theta}-E(\tilde{\theta}))\\
+=& E(E((\hat{\theta}-\tilde{\theta}) \cdot(\tilde{\theta}-E(\tilde{\theta}) \mid T))\\
+=& E((\tilde{\theta}-E(\tilde{\theta})) E((\hat{\theta}-\tilde{\theta}) \mid T)) \\
+=& 0
+\end{aligned}$$
+\end{enumerate}
+
+\section{$Cramer-Rao$不等式}
+\begin{definition}[$Cramer-Rao$正则族]
+概率函数$p(x;\theta),\theta\in\Theta.$
+\begin{enumerate}
+    \item $\Theta$是一个开区间
+    \item 支撑$S_{\theta}(x)=\left \{ x:p(x;\theta)>0 \right \} $与$\theta$无关
+    \item 导数$\frac{\partial }{\partial \theta } p(x;\theta )$对一切$\theta\in\Theta$都存在
+    \item 对$p(x;\theta)$积分与微分运算可交换次序，即$$\frac{\partial}{\partial \theta} \int_{-\infty}^{\infty} p(x ; \theta) d x=\int_{-\infty}^{+\infty} \frac{\partial}{\partial \theta} p(x ; \theta) d x$$
+    \item 期望$E\left [ \frac{\partial }{\partial \theta } \ln p(x;\theta ) \right ] ^{2} $存在
+\end{enumerate}
+则称$I(\theta)=E\left [ \frac{\partial }{\partial \theta } \ln p(x;\theta ) \right ] ^{2} $为总体分布的费希尔信息量（$Fisher \quad Information$）\\
+\begin{remark}
+\begin{itemize}
+    \item $$\begin{aligned}
+E\left[\frac{\partial}{\partial \theta} \ln p(x ; \theta)\right] &=\int_{-\infty}^{+\infty}\left(\frac{\partial}{\partial \theta} \ln p(x ; \theta)\right) \cdot p(x ; \theta) d x \\
+&=\int_{-\infty}^{+\infty} \frac{\frac{\partial}{\partial \theta} p(x ; \theta)}{p(x ; \theta)} \cdot p(x ; \theta) d x \\
+&=\frac{\partial}{\partial \theta} \int_{-\infty}^{+\infty} p(x ; \theta) d x \\
+&=\frac{\partial}{\partial \theta}(1)\\
+&=0 
+\end{aligned}$$
+$$I(\theta)=\operatorname{Var}\left(\frac{\partial}{\partial \theta} \ln p(x ; \theta)\right)$$
+     \item 若$X\sim p(x;\theta)$，其$Fisher$信息量为$I(\theta)$.$x_{1},x_{2},\cdots,x_{n}$是样本，其$Fisher$信息量为$I_{n}(\theta).$
+     \begin{enumerate}
+         \item $I_{n}(\theta)=n\cdot I(\theta)$
+         \item $T$是充分统计量$\Leftrightarrow I_{T}(\theta)=I_{n}(\theta)$
+     \end{enumerate}
+\end{itemize}
+\end{remark}
+\end{definition}
+例：$$\begin{array}{l}
+x \sim b(1, \theta) \\
+p(x ; \theta)=\theta^{x}(1-\theta)^{1-x} \quad \theta \in(0,1) \quad x=0,1 \\
+\ln p(x ; \theta)=x \ln \theta+(1-x) \ln (1-\theta) \\
+\frac{\partial}{\partial \theta} \ln p(x ; \theta)=\frac{x}{\theta}-\frac{1-x}{1-\theta}=\frac{x-\theta}{\theta(1-\theta)}
+\end{array}$$
+\begin{enumerate}
+    \item 验证$E(\frac{\partial }{\partial \theta } \ln p(x;\theta ))=0$
+    \item $I(\theta)=E(\frac{\partial }{\partial \theta } \ln p(x;\theta ))^{2}=E(\frac{x-\theta}{\theta(1-\theta)})^{2}=\frac{1}{\theta^{2}(1-\theta)^{2}}\cdot\theta(1-\theta)=\frac{1}{\theta(1-\theta)}$\\
+    $x_{1},x_{2},\cdots,x_{n}$是样本.
+    $$\begin{aligned}
+    \frac{\partial}{\partial \theta} \ln p\left(x_{1}, \cdots, x_{n} ; \theta\right) &=\frac{\partial}{\partial \theta}\left[\left(\sum_{i=1}^{n} x_{i}\right) \ln \theta+\left(n-\sum_{i=1}^{n} x_{i}\right) \ln (1-\theta)\right] \\
+    &=\frac{\sum x_{i}}{\theta}-\frac{n-\sum x_{i}}{1-\theta}\\
+    &=\frac{\sum x_{i}-n \theta}{\theta(1-\theta)}
+    \end{aligned}$$
+    \item $I_{n}(\theta)=\frac{n}{\theta(1-\theta)}$\\
+    充分统计量$T=\sum_{i=1}^{n} x_{i}\sim b(n,\theta)$
+    $$\begin{array}{l}
+    p(t ; \theta)=C_{n}^{t} \theta^{t}(1-\theta)^{n-t} \\
+    \begin{aligned}
+    \frac{\partial}{\partial \theta} \ln p(t ; \theta) &=\frac{\partial}{\partial \theta}[t \ln \theta+(n-t) \ln (1-\theta)] \\
+    &=\frac{t}{\theta}-\frac{n-t}{1-\theta}\\
+    &=\frac{t-n \theta}{\theta(1-\theta)}
+    \end{aligned} \\
+    I_{T}(\theta)=\frac{n}{\theta(1-\theta)}
+    \end{array}$$
+\end{enumerate}
+\begin{theorem}[$C-R$不等式]
+设$p(x;\theta)$是$C-R$正则族，$x_{1},x_{2},\cdots,x_{n}$是来自$p(x;\theta)$总体的样本，$T=T(x_{1},x_{2},\cdots,x_{n})$是$g(\theta)$的任一个无偏估计，$g'(\theta )=\frac{\partial }{\partial \theta } g(\theta )$存在，且对$\Theta$中一切$\theta$有
+$$g(\theta )=\int_{-\infty }^{+\infty } \cdots \int_{-\infty }^{+\infty }T(x_{1},\cdots ,x_{n})\prod_{i=1}^{n}p(x_{i};\theta )dx_{1}\cdots dx_{n} $$
+积分微分可交换次序，即
+$$\begin{aligned}
+g^{\prime}(\theta) &=\frac{\partial}{\partial \theta} g(\theta)\\
+&=\int_{-\infty}^{+\infty} \cdots \int_{-\infty}^{+\infty} T\left(x_{1}, \cdots, x_{n}\right) \frac{\partial}{\partial \theta}\left(\prod_{i=1}^{n} p\left(x_{i} ; \theta\right)\right) d x_{1}\cdots d x_{n} \\
+&=\int_{-\infty}^{+\infty} \cdots \int_{-\infty}^{+\infty} T\left(x_{1}, \cdots, x_{n}\right) \cdot\left(\frac{\partial}{\partial \theta} \ln \prod_{i=1}^{n} p\left(x_{i} ; \theta\right)\right) \prod_{i=1}^{n} p\left(x_{i}; \theta\right) d x_{1} \cdots d x_{n}
+\end{aligned}$$
+则有$$Var(T)\ge \frac{\left  [ g'(\theta ) \right ] ^{2}}{nI(\theta )} $$
+其中，$\frac{\left  [ g'(\theta ) \right ] ^{2}}{nI(\theta )}$为$C-R$下界，特别地，$g(\theta)=\theta,Var(\hat{\theta})\ge \frac{1}{nI(\theta)}$
+\end{theorem}
+例：$X\sim b(1,\theta),x_{1}, \cdots, x_{n}$是样本，则$$I_{n}(\theta)=nI(\theta)=\frac{n}{\theta(1-\theta)}$$
+则$\theta$的$C-R$下界为$$(I_{n}(\theta))^{-1}=\frac{\theta(1-\theta)}{n}$$
+而$\hat{\theta}=\bar{x}$是$\theta$的无偏估计，且$Var(\bar{x})=\frac{\theta(1-\theta)}{n}$,所以，$\bar{x}$为有效估计，也是$UMVUE$.\\
+\begin{remark}
+\begin{itemize}
+    \item 只有在指数型分布族存在有效估计
+    \item 只有$E(T(x))$的线性函数存在有效估计
+\end{itemize}
+\end{remark}
+\section{$Fisher$信息量的应用$2$}
+\begin{theorem}
+在总体分布$p(x;\theta)$满足正则化条件下，若$x_{1},x_{2},\cdots,x_{n}$是来自该总体的样本，则存在未知参数$\theta$的最大似然估计$\hat{\theta}=\hat{\theta}(x_{1},x_{2},\cdots,x_{n})$且$\hat{\theta}$具有相合性和渐进正态性，即$$\hat{\theta}\sim AN(\theta,\frac{1}{nI(\theta)})$$其中，$\frac{1}{nI(\theta)}$为渐进方差。
+\end{theorem}

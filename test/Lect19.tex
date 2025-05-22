@@ -1,0 +1,419 @@
+\chapter{频率学派的常见点估计方法}
+\begin{introduction}
+  \item Prob $\&$ Stat\quad 6.2 6.3
+\end{introduction}
+从本讲开始，我们介绍统计学中最关键的两个任务——估计和检验。有以下的四个观点：
+\begin{itemize}
+    \item 点估计是灵魂；
+    \item 区间估计是工具；
+    \item 假设检验是核心；
+    \item 统计量是基础。
+\end{itemize}
+
+\section{引导问题}
+在参数模型中，假定总体分布$X\sim p(x;\bm{\theta}),\bm{\theta}\in \bm{\Theta}$。这里$\bm{\theta}$是总体分布中的未知参数，可以是一维的，也可以是多维的。
+\begin{example}
+考虑以下两个总体分布：
+\begin{enumerate}
+\item 若$X \sim P(\lambda)$。这里总体分布存在一个泊松分布族，即
+    $$
+    \mathcal{P} = \left\{\frac{\lambda^x}{x!}e^{-\lambda}: \lambda > 0\right\},
+    $$
+    其中参数是$\bm{\theta} = \lambda, \bm{\Theta} = R^{+}$。一旦$\lambda = \lambda_0$确定后，总体分布就唯一确定。
+    \item 若$X \sim N(\mu,\sigma^2)$。这里总体分布存在一个正态分布族，即
+    $$
+    \mathcal{P} = \left\{\frac{1}{\sqrt{2\pi \sigma^2}}\exp\left\{-\frac{1}{2\sigma^2}(x-\mu)^2\right\}: \mu \in R, \sigma^2 > 0\right\},
+    $$
+    其中参数是$\bm{\theta} = (\mu,\sigma^2)', \bm{\Theta} = R\times R^{+}$。一旦$(\mu,\sigma^2) = (\mu_0,\sigma_0^2)$确定后，总体分布就唯一确定。
+\end{enumerate}
+\end{example}
+
+实际中，参数模型中的参数都是未知的，而我们需要通过样本$x_1,x_2,\cdots,x_n$来推断$\bm{\theta}$（或其函数$g(\bm{\theta})$）。
+
+\begin{definition}{估计}
+设$x_1,x_2,\cdots,x_n$是来自总体的一个样本，称用于估计未知参数$\bm{\theta}$的统计量
+$$
+\hat{\bm{\theta}} = \hat{\bm{\theta}}(x_1,x_2,\cdots,x_n)
+$$
+为$\bm{\theta}$的估计量，或称为$\bm{\theta}$的点估计，简称估计。
+\end{definition}
+
+
+在本讲中，我们讲介绍三种频率学派的点估计思想：替换、拟合、似然及其对应的估计方法。
+
+\section{替换思想}
+\subsection{矩法}
+替换的本质思想是：利用经验分布函数$F_n(x)$来替换总体分布函数$F(x)$。这里因为我们假定了参数模型，由参数唯一能够决定分布函数，于是记为$F_{\theta}(x)$。比较一下这两个“分布”函数是不同的。
+\begin{itemize}
+    \item $F_n(x)$：基于样本可计算而得，是完全已知的；
+\item $F_{\theta}(x)$：一定存在未知的信息，完全未知或部分未知；
+\end{itemize}
+
+替换原理，是有卡尔·皮尔逊教授于1900年提出的，也被称为\textbf{矩法}。简单可以概括为
+\begin{itemize}
+    \item 用样本矩替换总体矩（既可以是原点矩，也可以是中心矩）；
+    \item 用样本矩的函数去替换相应的总体矩的函数；
+\end{itemize}
+这个替换原理也可以应用于分布未知的场合，对参数作出估计，即
+\begin{itemize}
+    \item 用样本均值$\bar{x}$估计总体均值$E(X)$；
+    \item 用样本方差$s^2$估计总体方差$\text{Var}(X)$；
+    \item 用事件$A$出现的频率估计事件$A$发生的概率；
+    \item 用样本的$p$分位数估计总体的$p$分位数。
+\end{itemize}
+\subsection{矩估计}
+基于替换原理，以下我们给出得到矩估计的具体步骤：
+ \begin{enumerate}
+        \item 设总体具有已知的概率函数$p(x;\theta_{1},\theta_{2},\cdots,\theta_{k}),(\theta_{1},\cdots,\theta_{k})\in \Theta$是未知参数（向量）；
+        \item 得到样本$x_{1},x_{2},\cdots,x_{n}$；
+        \item 假设总体分布的$k$阶原点矩$\mu_{k}$存在（对所有的$0<j\leq k$，各低阶矩$\mu_{j}$均存在）；
+        \item 若假设$\theta_{1},\theta_{2},\cdots,\theta_{k}$能表示成总体矩$\mu_{1},\mu_{2},\cdots,\mu_{k}$的函数，即$$\theta_{j}=\theta_{j}(\mu_{1},\mu_{2},\cdots,\mu_{k})$$则可给出诸$\theta_{j}$的矩估计$$\hat{\theta}_{j}=\theta_{j}(a_{1},a_{2},\cdots,a_{k}),j=1,2,\cdots,k$$其中，$a_{j}=\frac{1}{n}\sum_{i=1}^{n}x_{i}^{j}$，是$j$阶样本原点矩，$j=1,2,\cdots,k.$
+        \item 另外，我们要估计参数的函数$\eta  =\eta (\theta _{1} ,\theta _{2} ,\cdots ,\theta _{k})$，则$\eta$的矩估计为
+        $$\hat{\eta  } =\eta (\hat{\theta}_{1} ,\hat{\theta }_{2} ,\cdots ,\hat{\theta}_{k}).$$
+    \end{enumerate}
+
+\begin{example}
+设总体为指数分布，即
+$$
+p(x;\lambda) = \lambda e^{-\lambda}, x\geq 0.
+$$
+$x_1,x_2,\cdots,x_n$是样本。
+
+一方面，注意到$E(X) = 1/\lambda$，即$\lambda= 1/E(X)$。故$\lambda$的矩估计为
+    $$
+    \hat{\lambda}_1 = \frac{1}{\bar{x}}.
+    $$
+
+另一方面，由于$\text{Var}(X) = 1/\lambda^2$，即$\lambda = 1/\sqrt{\text{Var}(X)}$。故$\lambda$的矩估计为
+    $$
+    \hat{\lambda}_2 = \frac{1}{s}.
+    $$
+\end{example}
+\begin{remark}
+    这表明了矩估计不唯一，但通常应该尽量采用\textbf{低阶矩}给出未知参数的估计。
+\end{remark}
+
+\begin{example}
+    设一个实验有三种可能结果，其发生的概率分别为$$p_{1}=\theta^{2},\quad p_{2}=2\theta(1-\theta) ,\quad p_{3}=(1-\theta)^{2}$$
+    现在估了$n$次试验，观测到三种结果发生的次数分别为$n_{1},n_{2},n_{3}$。如何估计$\theta$？
+\end{example}
+\begin{solution}
+    设该实验的三种结果分别是$a_1,a_2,a_3$。于是，分布列如表\ref{tab:lecture18_1}。
+    \begin{table}[ht]
+        \centering
+        \caption{三种结果的实验}\label{tab:lecture18_1}
+    \begin{tabular}{cccc}
+    \toprule
+    结果 & $a_{1}$ & $a_{2}$ & $a_{3}$\\
+    \midrule
+    概率 &  $\theta^{2}$&$2\theta(1-\theta)$  &$(1-\theta)^{2}$ \\
+    \midrule
+    频率 &  $\frac{n_{1}}{n}$& $\frac{n_{2}}{n}$ & $\frac{n_{3}}{n}$\\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+为估计$\theta$，我们可以构建三个矩估计，即
+\begin{enumerate}
+    \item 可以用$n_1/n$来估计$\theta^2$，则
+    $$\hat{\theta}_1 = \sqrt{\frac{n_1}{n}}.$$
+    \item 可以用$n_3/n$来估计$(1-\theta)^2$，则
+    $$\hat{\theta}_2 = 1 - \sqrt{\frac{n_3}{n}}.$$
+   \item 可以用$n_1/n + n_2/(2n)$来估计$\theta$，则
+    $$\hat{\theta}_3 = \frac{2n_1 + n_2}{2n}.$$
+\end{enumerate}
+\end{solution}
+\begin{problem}
+    都是针对$\theta$的估计，三种估计$\hat{\theta}_1,\hat{\theta}_2,\hat{\theta}_3$有无好坏差异？
+\end{problem}
+\section{拟合思想}
+拟合思想是目前大部分机器学习模型，乃至深度学习模型，参数（或权重）的学习本质上就是给定一个复杂的模型框架，使其尽可能贴合数据，这就是拟合。在数理统计中，最小二乘估计是利用拟合思想来构造的估计方法。在后续的课程中，我们将详细地介绍最小二乘估计。这里我们介绍一个简单的例子。
+\begin{example}
+总体分布$X\sim N(\mu,1)$，而$x_1,x_2,\cdots,x_n$是样本。我们想要估计$\mu$。因为$\mu$是总体分布的期望，每一个样本$x_1,x_2,\cdots,x_n$都在$\mu$附近波动。我们想要找到一个实数$c$与这些样本最\textbf{接近}。于是，我们需要定义一个损失函数
+$$
+l(c) = \sum_{i=1}^n g(|x_i - c|) = \sum_{i=1}^n |x_i - c|^{k} =\left\{
+\begin{aligned}
+&\sum_{i=1}^n |x_i - c|^2 , &\text{如果$k=2$};\\
+&\sum_{i=1}^n |x_i - c| , &\text{如果$k=1$}.
+\end{aligned}
+\right.
+$$
+拟合思想促使我们所得到的估计为
+$$
+\hat{\mu} = \arg\min_{c} l(c).
+$$
+当$k=2$时，则损失函数定义为$l(c) = \sum_{i=1}^n (x_i-c)^2$。我们需要求$l(c)$的最小值点，则对$l(c)$求导，即
+$$
+\frac{\partial l(c)}{\partial c} = -2 \sum_{i=1}^n (x_i-c).
+$$
+令$\frac{\partial l(c)}{\partial c} = 0$。所以，
+$$
+c = \frac{1}{n} \sum_{i=1}^n x_i = \bar{x}.
+$$
+因此，我们通常称$\bar{x}$为$\mu$的最小二乘估计。
+\end{example}
+\begin{problem}
+ 当$k=1$时，则损失函数定义为$l(c) = \sum_{i=1}^n |x_i-c|$。通过最小化$l(c)$可以得到最小一乘估计。这个最小一乘估计是什么？
+\end{problem}
+\begin{note}
+    \vspace{5cm}
+\end{note}
+
+\section{似然思想}
+\begin{problem}
+ 考虑有两个盒子各有100个球，记为A盒和B盒。A盒中有99个白球，1个黑球；B盒中有1个白球，99个黑球。我们从某个盒子中抽出了一个球，发现这个球是白球。请问：我们是从哪个盒子中抽出球的？   
+\end{problem}
+\begin{remark}
+    似然思想的本质是“以成败论英雄”。
+\end{remark}
+
+最大似然估计，顾名思义就是使得似然函数的最大值点。
+\begin{problem}
+    什么是似然函数？
+\end{problem}
+
+\begin{definition}{似然函数}
+    设总体分布的概率分布列或概率密度函数为$p(x;\theta)$，其中$\theta$是未知参数。而$x_1,x_2,\cdots,x_n$是样本。$x_1,x_2,\cdots,x_n$的联合分布列或联合密度函数为
+    $$
+    p(x_1,x_2,\cdots,x_n;\theta) = \prod_{i=1}^n p(x_i;\theta).
+    $$
+    对于未知参数$\theta$而言，称$p(x_1,x_2,\cdots,x_n;\theta)$为似然函数，记为$L(\theta)$.
+\end{definition}
+既然我们明确了，似然函数本质上就是样本的联合概率（质量/密度）函数。将其看成参数的函数，这个函数就是似然函数。于是，我们给出最大似然估计明确的定义。
+\begin{definition}{最大似然估计}
+    设$\theta$是待估参数，$L(\theta)$是似然函数。如果统计量$\hat{\theta} = \hat{\theta}(x_1,x_2,\cdots,x_n)$满足
+    $$
+    L(\hat{\theta}) = \sup_{\theta\in \overline{\Theta}} L(\theta).
+    $$
+    那么称$\hat{\theta}$是$\theta$的最大似然估计，记为MLE(maximum likelihood estimate)。
+\end{definition}
+\begin{remark}
+这里$\overline{\Theta}$包括 $\theta$的定义域$\Theta$及其边界。
+\end{remark}
+\begin{problem}
+    最大似然估计怎么求？
+\end{problem}
+求最大似然估计的一般步骤为
+\begin{enumerate}
+    \item 求对数似然函数，即$l(\theta) = \ln L(\theta)$.
+    \item 求对数似然函数的驻点$\hat{\theta}$，即$\hat{\theta}$满足
+    $$
+    \frac{\partial l(\theta)}{\partial \theta} = 0.
+    $$
+    \item 验证$\hat{\theta}$是$L(\theta)$或$l(\theta)$的最大值点。
+\end{enumerate}
+\begin{remark}
+    从上述步骤来看，就是找似然函数或者对数似然函数的最大值点，这才是本质问题。
+\end{remark}
+
+\begin{example}
+    设总体分布$X\sim b(1,\theta)$，而$x_1,x_2,\cdots,x_n$是样本。于是，$x_1,x_2,\cdots,x_n$的联合分布列为
+    $$
+    p(x_1,x_2,\cdots,x_n) = (\theta)^{\sum_{i=1}^n x_i} (1-\theta)^{n-\sum_{i=1}^n x_i}
+    $$
+    这也是似然函数，记为$L(\theta)$。然后，对数似然函数为
+    $$
+    l(\theta) = \ln L(\theta) = \sum_{i=1}^n x_i \ln (\theta) + (n-\sum_{i=1}^n x_i) \ln (1-\theta).
+    $$
+    对$l(\theta)$关于$\theta$求导，即
+    $$
+    0=\frac{\partial l(\theta)}{\partial \theta} = \frac{\sum_{i=1}^n x_i}{\theta} - \frac{n-\sum_{i=1}^n x_i}{1-\theta}.
+    $$
+    由此可得
+    $$
+    \hat{\theta} = \frac{1}{n} \sum_{i=1}^n x_i = \bar{x}.
+    $$
+    我们还可以验证
+    $$
+   \left. \frac{\partial^2 l(\theta)}{\partial \theta^2}\right|_{\theta = \hat{\theta}} = \left.-\frac{\sum_{i=1}^n x_i}{\theta^2} - \frac{n-\sum_{i=1}^n x_i}{(1-\theta)^2} \right|_{\theta = \hat{\theta}} < 0
+    $$
+    所以，$\hat{\theta}$是$l(\theta)$最大值点。因此，$\theta$的最大似然估计为$\bar{x}$.
+\end{example}
+    
+
+\begin{example}
+ 设该实验的三种结果分别是$a_1,a_2,a_3$。于是，分布列如表\ref{tab:lecture18_2}。
+这里我们介绍$\theta$的最大似然估计。
+
+ 
+    \begin{table}[ht]
+        \centering
+        \caption{三种结果的实验}\label{tab:lecture18_2}
+    \begin{tabular}{cccc}
+    \toprule
+    结果 & $a_{1}$ & $a_{2}$ & $a_{3}$\\
+    \midrule
+    概率 &  $\theta^{2}$&$2\theta(1-\theta)$  &$(1-\theta)^{2}$ \\
+    \midrule
+    频率 &  $\frac{n_{1}}{n}$& $\frac{n_{2}}{n}$ & $\frac{n_{3}}{n}$\\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+首先，似然函数为
+$$
+L(\theta) = \frac{n!}{n_1!n_2!n_3!} (\theta^2)^{n_1} (2\theta (1-\theta))^{n_2}((1-\theta)^2)^{n_3} = \frac{n!}{n_1!n_2!n_3!} 2^{n_2}\theta^{2n_1+n_2}(1-\theta)^{n_2+2n_3}.
+$$
+而对数似然函数为
+$$
+l(\theta) = \ln L(\theta) = \ln \left(\frac{n!}{n_1!n_2!n_3!} 2^{n_2} \right) + (2n_1+n_2) \ln (\theta) + (n_2+2n_3) \ln (1-\theta).
+$$
+然后对$l(\theta)$关于$\theta$求导，即
+$$
+\frac{\partial l(\theta)}{\partial \theta} = \frac{2n_1+n_2}{\theta}  - \frac{n_2+2n_3}{1-\theta}.
+$$
+可以解得
+$$
+\hat{\theta} = \frac{2n_1 + n_2}{2n_1 + n_2 + n_2 + 2n_3} = \frac{2n_1 + n_2}{2n}.
+$$
+\end{example}
+\begin{remark}
+“求导”是求最大似然估计最常用的方法，但并不是在所有场合求导都有效。
+\end{remark}
+
+\begin{example}
+    设总体分布$U(0,\theta)$，而$x_1,x_2,\cdots,x_n$是样本。
+    $\theta$的似然函数为
+\begin{eqnarray*}
+    L(\theta) &=& \prod_{i=1}^n \frac{1}{\theta} I(0 < x_i < \theta)\\
+    &=&\frac{1}{\theta^n} I( 0 < x_1,x_2,\cdots,x_n < \theta)\\
+    &=&\frac{1}{\theta^n} I( 0 < x_{(1)}\leq x_{(n)} < \theta)
+\end{eqnarray*}
+要使得$L(\theta)$达到最大。对于示性函数取值应为1，而$1/(\theta^n)$是$\theta$的减函数。所以，$\theta$的取值应尽可能小，而$\theta$要大于$x_{(n)}$，所以$\Theta = (x_{(n)},\infty)$，而$\overline{\Theta} = [x_{(n)},\infty)$。因此，$\theta$的最大似然估计为
+$$
+\hat{\theta} = x_{(n)}.
+$$
+\end{example}
+以上的例子都是一维参数的情况，以下我们举一个二维参数的例子。
+\begin{example}
+设总体分布$X\sim N(\mu,\sigma^2)$，$\theta = (\mu,\sigma^2)$是二维参数。而$x_1,x_2,\cdots,x_n$是样本。于是，似然函数为
+$$
+L(\mu,\sigma^2) = \prod_{i=1}^n p(x_i) = (2\pi \sigma^2)^{-n/2} \exp\left\{ - \frac{1}{2\sigma^2} \sum_{i=1}^n (x_i-\mu)^2\right\}.
+$$
+而其对数似然函数为
+$$
+l(\mu,\sigma^2) = \ln L(\mu,\sigma^2) = -(n/2)\ln (2\pi ) - (n/2) \ln (\sigma^2) -  \frac{1}{2\sigma^2} \sum_{i=1}^n (x_i-\mu)^2.
+$$
+对$l(\mu,\sigma^2)$分别关于$\mu$和$\sigma^2$求导，即
+\begin{eqnarray*}
+    \frac{\partial l(\mu,\sigma^2)}{\partial \mu} &=& \frac{1}{\sigma^2} \sum_{i=1}^n (x_i - \mu)  = 0\\
+    \frac{\partial l(\mu,\sigma^2)}{\partial \sigma^2} &=& -\frac{n}{2\sigma^2} + \frac{1}{2(\sigma^2)^2} \sum_{i=1}^n (x_i-\mu)^2 =0
+\end{eqnarray*}
+由此解得
+$$
+\left\{
+\begin{aligned}
+   & \hat{\mu} = \bar{x},\\
+   & \hat{\sigma}^2 = s_n^2.
+\end{aligned}
+\right.
+$$
+\end{example}
+\begin{problem}
+    如何求$\sigma$的最大似然估计？
+\end{problem}
+    
+\begin{property}{（最大似然估计的不变性）}
+    如果$\hat{\theta}$是$\theta$的最大似然估计， 则对任一函数$g(\theta)$，$g(\hat{\theta})$是其最大似然估计。
+\end{property}
+
+\section{EM算法（选修）}
+最大似然估计是一种非常有效的参数估计方法，但是当分布里有多余参数或数据为截尾或缺失时，求最大似然估计就变得困难。EM算法由Dempster等人于1977年提出的，最初可以解决缺失数据场景下的最大似然估计求解问题。EM算法的核心想法是分两步骤：E步求期望；M步求最值。这里我们仅用一个例子来演示一下如何利用EM算法来求最大似然估计。
+\begin{example}
+    设一次试验可能有四个结果，其发生的概率分别为$\frac{1}{2}-\frac{\theta}{4}, \frac{1-\theta}{4},\frac{1+\theta}{4},\frac{\theta}{4}$，其中$\theta \in (0,1)$。现进行了197次试验，四种结果发生的次数分别为75，18，70，34。求$\theta$的最大似然估计。
+\end{example}
+\begin{solution}
+设$y_1,y_2,y_3,y_4$表示四种结果发生的次数。这个总体分布是一个多项分布，故其似然函数为
+\begin{eqnarray*}
+L(y_1,y_2,y_3,y_4;\theta) &=& \frac{(y_1+y_2+y_3+y_4)!}{y_1!y_2!y_3!y_4!} \left(\frac{1}{2}-\frac{\theta}{4}\right)^{y_1} \left(\frac{1-\theta}{4}\right)^{y_{2}}\left(\frac{1+\theta}{4}\right)^{y_{3}}\left(\frac{\theta}{4}\right)^{y_{4}}\\
+&\propto& (2-\theta)^{y_1} (1-\theta)^{y_2} (1+\theta)^{y_3} \theta^{y_4}.
+\end{eqnarray*}
+其对数似然函数为
+$$
+l(\theta) \propto y_1 \ln(2-\theta) + y_2 \ln (1-\theta) + y_3 \ln(1+\theta) + y_4 \ln \theta.
+$$
+我们可以对$l(\theta)$关于$\theta$求导，即
+$$
+\frac{\partial l(\theta)}{\partial \theta} = - \frac{y_1}{2-\theta} - \frac{y_2}{1-\theta} + \frac{y_3}{1+\theta} + \frac{y_4}{\theta}.
+$$
+方程$\frac{\partial l(\theta)}{\partial \theta} = 0$的求解是相对复杂的。于是，这里介绍EM算法的一般形式。我们引入两个潜变量$z_1,z_2$。假设第一种结果可以分为两部分，其发生的概率分别为$\frac{1-\theta}{4}$和$\frac{1}{4}$，令$z_1$和$y_1-z_1$分别表示落入这两部分的次数。再假设第三种结果分为两部分，其发生的概率分别为$\frac{\theta}{4}$和$\frac{1}{4}$，令$z_2$和$y_3-z_2$分别表示落入这两部分的次数。这里$z_1,z_2$是我们虚构的，它们具体的数值是不可观测的。
+
+数据$(y_1,y_2,y_3,y_4,z_1,z_2)$，称为完全数据，而数据$(y_1,y_2,y_3,y_4)$，称为不完全数据。考虑我们可以观测到完全数据，其似然函数为
+\begin{eqnarray*}
+    &&L(\theta;y_1,y_2,y_3,y_4,z_1,z_2) \\
+    &=& \frac{n!}{z_1!(y_1-z_1)!y_2!z_2!(y_3-z_2)!y_4!} \left(\frac{1}{4}\right)^{y_{1}-z_{1}}\left(\frac{1-\theta}{4}\right)^{z_{1}+y_{2}}\left(\frac{1}{4}\right)^{y_{3}-z_{2}}\left(\frac{\theta}{4}\right)^{z_{2}+y_{4}} \\
+    &\propto& (1-\theta)^{z_1+y_2} (\theta)^{z_2+y_4}.
+\end{eqnarray*}
+其对数似然函数为
+$$
+l(\theta;y_1,y_2,y_3,y_4,z_1,z_2) = (z_1+y_2)\ln (1-\theta) + (z_2 + y_4) \ln \theta.
+$$
+基于此，可以解得其最大似然估计为
+$$
+\hat{\theta} = \frac{z_2 + y_4}{z_1 + y_2 + z_2 + y_4}.
+$$
+遗憾的是，我们并没有观测到$z_1,z_2$。但是我们知道，当$y_1,y_2,y_3,y_4$及$\theta$已知时，$$
+z_1 \sim b\left(y_1, \frac{1-\theta}{2-\theta}\right),\quad z_{2} \sim b\left(y_3,\frac{\theta}{1+\theta}\right).
+$$
+EM算法具体如下：
+\begin{itemize}
+    \item E步：在观测数据$y_1,y_2,y_3,y_4$和已知$\theta = \theta^{(i)}$的条件下，我们求基于完全数据的对数似然函数的期望
+    \begin{eqnarray*}
+        Q(\theta | y_1,y_2,y_3,y_4,\theta^{(i)}) &=& E_{z_1,z_2} l(\theta;y_1,y_2,y_3,y_4,z_1,z_2) \\
+        &=& (E_{\theta^{(i)}}(z_1|y_1) + y_2)\ln (1-\theta) + (E_{\theta^{(i)}}(z_2|y_3) + y_4) \ln(\theta)\\
+        &=& \left( \frac{1-\theta^{(i)}}{2-\theta^{(i)}} y_1 + y_2 \right) \ln (1-\theta)  + \left( \frac{\theta^{(i)}}{1+\theta^{(i)}} y_3 + y_4 \right) \ln \theta.
+    \end{eqnarray*}
+    \item M步：求$ Q(\theta | y_1,y_2,y_3,y_4,\theta^{(i)})$关于$\theta$的最大值$\theta^{(i+1)}$，即
+    $$
+    \theta^{(i+1)} = \arg\max_{\theta} Q(\theta | y_1,y_2,y_3,y_4,\theta^{(i)})
+    $$
+    也就是说，对$Q(\theta | y_1,y_2,y_3,y_4,\theta^{(i)}) $关于$\theta$求导，即
+    $$
+    \frac{\frac{\theta^{(i)}}{1+\theta^{(i)}} y_3 + y_4 }{\theta^{(i+1)}} - \frac{\frac{1-\theta^{(i)}}{2-\theta^{(i)}} y_1 + y_2 }{1-\theta^{(i+1)}} =0
+    $$
+    由此可得
+    $$
+    \theta^{(i+1)} = \frac{\frac{\theta^{(i)}}{1+\theta^{(i)}} y_3 + y_4 }{ \frac{\theta^{(i)}}{1+\theta^{(i)}} y_3 + y_4 
+ + \frac{1-\theta^{(i)}}{2-\theta^{(i)}} y_1 + y_2}.
+    $$
+    
+\end{itemize}
+\end{solution}
+
+\begin{problem}
+    EM算法是一个迭代算法。我们仍有以下三个问题：
+    \begin{itemize}
+    \item EM算法在什么条件下是收敛？
+    \item EM算法如何才能停止？
+    \item 如何选择EM算法的初始值？
+    \end{itemize}
+\end{problem}
+\begin{note}
+    \vspace{5cm}
+\end{note}
+
+\section{习题}
+\begin{enumerate}
+    \item 1. 设总体分布列/密度函数如下，$x_1,x_2,\cdots,x_n$是样本，试求未知参数的矩估计：
+\begin{enumerate}
+    \item $P(X = x) = (x-1)\theta^{2} (1-\theta)^{x-2},x=2,3,\cdots, 0<\theta<1$.
+\item  $p(x;\theta) = (\theta+1) x^{\theta}, 0<x<1, \theta>0$.
+\end{enumerate}
+
+\item  设总体为$N(\mu,1)$，现对该总体观测$n$次，发现有$k$次观测值为正，使用频率替换方法求$\mu$的估计。
+
+\item  设总体的概率密度函数如下，$x_1,x_2,\cdots,x_n$是样本，试求未知参数的最大似然估计：
+\begin{enumerate}
+    \item $p(x;\theta) = \frac{1}{2\theta} e^{-|x|/\theta}, \theta> 0$;
+\item $p(x;\theta_1,\theta_2) = \frac{1}{\theta_2-\theta_1}, \theta_1 < x < \theta_2$
+\end{enumerate}
+
+\item （选做）
+    众所周知，双胞胎可分为同卵双胞胎与异卵双胞胎。在一项针对双胞胎的研究中，研究者关心的是一对双胞胎是同卵双胞胎的概率，记为$p$，而且研究者也关心一个孩子是男孩的概率，记为$q$. 在这项研究中，研究者招募到了$n$对双胞胎（包括龙凤胎），其中$n_1$是两个男孩的双胞胎，$n_2$是两个女孩的双胞胎，$n_3= n-(n_1+n_2)$是龙凤胎（一个男孩一个女孩）。另外，研究者虽然知道不同性别的双胞胎一定不是同卵双胞胎，但并不知道其中哪些相同性别的双胞胎为同卵双胞胎。
+    \begin{enumerate}
+        \item 利用EM算法，写出$\bm{\theta} = (p,q)$的最大似然估计的形式。（提示：构造合适的潜变量，定义似然函数，写出EM算法中的E步和M步）
+        \item 在$n = 1000, n_1 = 432, n_2 = 232, n_3 = 336$时，利用Python计算出$\bm{\theta}$的最大似然估计。
+    \end{enumerate}
+
+
+\end{enumerate}
+

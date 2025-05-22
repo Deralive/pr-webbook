@@ -1,0 +1,236 @@
+\chapter{贝叶斯学派下的统计方法}
+\begin{introduction}
+  \item Intro to Prob\quad8.1  
+  \item Prob $\&$ Stat\quad6.5
+\end{introduction}
+\section{引导问题}
+\begin{example}
+     某工厂生产了一种产品，想要知道该产品的合格率$\theta$。为了估计参数$\theta$，我们从工厂生产的产品中进行了抽样，样本为$x_1,x_2,\cdots,x_n$。一个很自然的估计为
+    $$
+    \hat{\theta} = \frac{1}{n}\sum_{i=1}^n x_i.
+    $$
+    这个估计既是矩估计，又是最大似然估计。
+    如果这一天抽出的所有样本均是合格品，那么$\theta$的估计为$\hat{\theta} = 1$。
+\end{example}
+  \begin{problem}
+   我们能够认为产品的合格率为$100\%$吗？ 如果样本量$n$比较小，而且产品真实的合格率比较高。很有可能抽中合格品，于是这样仅仅通过数据来推断，是否合理？
+    \end{problem}    
+
+\section{贝叶斯方法的思想}
+本讲中，我们将介绍贝叶斯学派一些统计方法。与频率学派不同，贝叶斯学派是一类全新的统计思想，可以概括为以下四句话：
+\begin{enumerate}
+    \item 待估参数$\theta$是一个随机变量；
+    \item 在得到样本前，对$\theta$有一个认识。
+这个认识可用一个分布来描述，记为$\pi(\theta)$，
+ 称为先验分布（Prior Distribution）或验前分布。
+    \item 样本是用来调整对$\theta$的认识。
+    调整的方法要用Bayes公式。调整后的认识，也用一个分布来刻画，该分布称为后验分布（Posterior  distribution），记为$\pi(\theta \mid x)$。
+    \item 所有的统计推断是基于后验分布进行。
+\end{enumerate}
+\section{点估计}
+\begin{example}
+回顾工厂生产产品的例子。我们想要估计产品的合格率$\theta$。
+\begin{enumerate}
+    \item 现有样本$x_1,x_2,\cdots,x_n$。每一个样本表示所抽中的产品是合格品还是不合格品。如果该产品是合格品，记$x_i$为1；如果该产品是不合格品，记$x_i$为0。用伯努利分布来刻画该数据分布，即$x_i|\theta \sim b(1,\theta),i=1,2,\cdots,n$。
+    \item 在估计之前，我们需要对参数$\theta$有一个认识，即认为$\theta$有一个先验分布。如何假定$\theta$的先验分布？
+
+    $\theta$表示$(0,1)$之间的一个实数。根据我们所掌握的分布，可以采用贝塔分布$Be(a,b)$来刻画这个分布。称$a,b$为超参数。如何估计这两个超参数呢？
+    \begin{itemize}
+    \item 倘若有$m$天的历史数据$(n_1,x_1),\cdots,(n_m,x_m)$，可以得到$\theta$的一个分布$\pi(\theta)$。假定$\pi(\theta) = Be(a,b)$，这里两个超参数$a$和$b$可以通过矩估计来获得。
+    \item 倘若没有历史数据，我们认为$\theta$在$(0,1)$区间上的取值是等可能的，也就是说，可以用$U(0,1) = Be(1,1)$来刻画这个先验分布。这就是“\textbf{同等无知}”的假定。
+\end{itemize}
+无论有无历史数据，我们可以得到先验分布$Be(a,b)$。
+\item  我们需要求出$\theta$的后验分布。贝叶斯公式就是其中所需要使用的关键。
+
+设样本分布为$p(x_1,x_2,\cdots,x_n|\theta)$。于是
+$(x_1,x_2,\cdots,x_n,\theta)$的联合概率函数为
+$$
+ h(x_1,x_2,\cdots,x_n,\theta) = \pi(\theta) p(x_1,x_2,\cdots,x_n|\theta)
+$$
+令
+$$
+m(x_1,x_2,\cdots,x_n) = \int h(x_1,x_2,\cdots,x_n,\theta)\text{d}\theta = 
+\int  \pi(\theta) p(x_1,x_2,\cdots,x_n|\theta)\text{d}\theta.
+$$
+于是，
+\begin{eqnarray*}
+    p(\theta|x_1,x_2,\cdots,x_n) &=& \frac{h(x_1,x_2,\cdots,x_n,\theta)}{m(x_1,x_2,\cdots,x_n) }\\
+    &=& \frac{\pi(\theta) p(x_1,x_2,\cdots,x_n|\theta)}{\int  \pi(\theta) p(x_1,x_2,\cdots,x_n|\theta)\text{d}\theta }\\
+    &=& \frac{\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\theta^{a-1}(1-\theta)^{b-1} 
+    \theta^{\sum_{i=1}^n x_i} (1-\theta)^{n-\sum_{i=1}^n x_i}}{\int  \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\theta^{a-1}(1-\theta)^{b-1} 
+    \theta^{\sum_{i=1}^n x_i} (1-\theta)^{n-\sum_{i=1}^n x_i}\text{d}\theta }\\
+    &=&\frac{\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\theta^{a+\sum_{i=1}^n x_i -1}(1-\theta)^{b+n-\sum_{i=1}^n x_i-1}}
+    {\int  \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\theta^{a+\sum_{i=1}^n x_i -1}(1-\theta)^{b+n-\sum_{i=1}^n x_i-1}\text{d}\theta }\\
+    &=& \frac{\Gamma(a+b+n)}{\Gamma(a+\sum_{i=1}^n x_i)\Gamma(b+n-\sum_{i=1}^n x_i)} \theta^{a+\sum_{i=1}^n x_i -1}(1-\theta)^{b+n-\sum_{i=1}^n x_i-1}
+\end{eqnarray*}
+因此，$\theta|x_1,x_2,\cdots,x_n \sim Be(a+\sum_{i=1}^n x_i,b+n-\sum_{i=1}^n x_i)$，这就是$\theta$的后验分布。
+\item 基于后验分布，我们如何得到$\theta$的点估计呢？
+\begin{itemize}
+    \item MAP估计，指的是求最大后验概率估计（ Maximum a Posteriori Probability estimator）。令
+    \begin{eqnarray*}
+        l(\theta|x_1,x_2,\cdots,x_n) = \left(a+\sum_{i=1}^n x_i -1\right) \ln \theta + \left(b+n-\sum_{i=1}^n x_i-1\right) \ln (1-\theta)
+    \end{eqnarray*}
+    该函数只有唯一最大值。我们可以对$l(\theta)$关于$\theta$求导，即
+    $$
+    \frac{\partial l(\theta)}{\partial \theta}= \frac{a+\sum_{i=1}^n x_i -1}{\theta} - \frac{b+n-\sum_{i=1}^n x_i-1}{1-\theta} =0
+    $$
+    解得
+    $$
+    \hat{\theta}_{\text{MAP}} = \frac{a+\sum_{i=1}^n x_i -1}{a+b+n-2}
+    $$
+    \item 后验期望估计，指的是求后验分布的期望，又称为贝叶斯估计。
+    我们取后验分布的均值，即
+$$
+\hat{\theta}_{\text{Bayes}} = \frac{a+\sum_{i=1}^n x_i}{a+b+n} = \frac{a+b}{a+b+n} \cdot \frac{a}{a+b} + \frac{n}{a+b+n} \cdot\frac{\sum_{i=1}^n x_i}{n}. 
+$$
+\end{itemize}
+\end{enumerate}
+\end{example}
+
+以下我们介绍一个例子。
+\begin{example}
+样本$x_1,x_2,\cdots,x_n$来自于正态分布$N(\mu,\sigma_0^2)$。$\mu$的先验分布为$N(\mu_0,\tau^2)$。求$\mu$的贝叶斯估计。
+\end{example}
+\begin{solution}
+    $\mu$的先验分布为
+    $$
+    \pi(\mu) = \frac{1}{\sqrt{2\pi \tau^2}} \exp\left\{
+    - \frac{1}{2\tau^2} (\mu-\mu_0)^2
+    \right\}.
+    $$
+    而样本$(x_1,x_2,\cdots,x_n)$的联合密度函数为
+    \begin{eqnarray*}
+        p\left(x_{1}, \cdots, x_{n} |\mu\right) &=& \prod_{i=1}^n \frac{1}{\sqrt{2\pi \sigma_0^2}} \exp\left\{-\frac{1}{2\sigma_0^2} (x_i-\mu)^2\right\}\\
+        &=& (2\pi \sigma_0^2)^{-n/2} \exp\left\{ -\frac{1}{2\sigma_0^2}\sum_{i=1}^n (x_i-\mu)^2 \right\}\\
+        &=&(2\pi \sigma_0^2)^{-n/2} \exp\left\{ -\frac{1}{2\sigma_0^2}\sum_{i=1}^n (x_i -\bar{x} + \bar{x}-\mu)^2 \right\}\\
+        &=&(2\pi \sigma_0^2)^{-n/2} \exp\left\{ -\frac{1}{2\sigma_0^2}\sum_{i=1}^n \left((x_i -\bar{x})^2 + (\bar{x}-\mu)^2 \right)\right\}\\
+        &=& (2\pi \sigma_0^2)^{-n/2}\exp\left\{ -\frac{1}{2\sigma_0^2}\sum_{i=1}^n (x_i -\bar{x})^2 \right\} \cdot \exp\left\{ -\frac{n}{2\sigma_0^2}(\bar{x}-\mu)^2  \right\}.
+    \end{eqnarray*}
+    于是，$\mu$的后验分布为
+    \begin{eqnarray*}
+        \pi(\mu|x_1,x_2,\cdots,x_n) &=& \frac{\pi(\mu) p(x_1,x_2,\cdots,x_n|\mu)}{m(x_1,x_2,\cdots,x_n)}\\
+        &\propto&  \pi(\mu) p(x_1,x_2,\cdots,x_n|\mu)\\
+        &\propto&  \exp\left\{
+    - \frac{1}{2\tau^2} (\mu-\mu_0)^2 
+    \right\} \cdot  \exp\left\{ -\frac{n}{2\sigma_0^2}(\mu- \bar{x})^2  \right\}\\
+    &\propto& \exp\left\{ -\frac{1}{2} \left( \left( \frac{1}{\tau^2}  + \frac{1}{\sigma_0^2/n}\right) \mu^2  - 2 \left( \frac{\mu_0}{\tau^2}  + \frac{\bar{x}}{\sigma_0^2/n}\right)\mu \right)\right\}\\
+    &=& \exp\left\{ -\frac{1}{2} \left( A \mu^2  - 2 B\mu \right)\right\}.
+    \end{eqnarray*}
+    其中，$A = \left( \frac{1}{\tau^2}  + \frac{1}{\sigma_0^2/n}\right)$和$B = \left( \frac{\mu_0}{\tau^2}  + \frac{\bar{x}}{\sigma_0^2/n}\right)$。
+    这里利用配方公式，我们可知，
+    $$
+    A\mu^2 - 2B\mu = A \left(\mu - \frac{B}{A}\right)^2 - \frac{B^2}{A}.
+    $$
+    从分布核中可以发现，$\mu$的后验分布是正态分布$N\left(\frac{B}{A},A^{-1}\right)$，即
+    $$
+    N\left(\frac{\frac{\mu_0}{\tau^2}  + \frac{\bar{x}}{\sigma_0^2/n}}{\frac{1}{\tau^2}  + \frac{1}{\sigma_0^2}}, \frac{1}{\frac{1}{\tau^2}  + \frac{1}{\sigma_0^2/n}}\right).
+    $$
+    基于后验分布，MAP估计和后验期望估计一致的，即
+    $$
+    \hat{\mu}_{\text{MAP}} = \hat{\mu}_{\text{Bayes}} = \frac{\frac{\mu_0}{\tau^2}  + \frac{\bar{x}}{\sigma_0^2/n}}{\frac{1}{\tau^2}  + \frac{1}{\sigma_0^2/n}} = \frac{1/\tau^2}{1/\tau^2+1/(\sigma_0^2/n)} \mu_0 + \frac{1/(\sigma_0^2)}{1/\tau^2+1/(\sigma_0^2/n)} \bar{x}
+    $$
+\end{solution}
+\begin{remark}
+\begin{enumerate}
+    \item 在正态分布的例子中，均值$\mu$的贝叶斯估计本质上是先验分布均值$\mu_0$和样本均值$\bar{x}$的加权平均数，其权重本质上是该分布的方差的倒数，也称为该分布的精度。
+    \item 所求的后验分布与先验分布的分布都是正态分布，这是贝叶斯估计里一种特殊且具有一定普遍性的现象。
+\end{enumerate}
+\end{remark}
+
+
+\begin{definition}
+若后验分布$\pi \left(\theta \mid x_{1}, \cdots, x_{n}\right)$与先验分布属于同一分布族，则称该分布族是$\theta$的共轭先验分布（族）。
+\end{definition}
+
+这里我们针对贝叶斯估计做一些更为深入的讨论。
+
+\begin{remark}
+\begin{enumerate}
+    \item \textbf{充分性原则体现在贝叶斯估计之中}。
+
+    由于贝叶斯估计是根据参数的后验分布求得的，而参数的后验分布为
+    \begin{eqnarray*}
+        \pi(\theta | x_1,x_2,\cdots,x_n) &\propto&  \pi(\theta) \cdot p(x_1,x_2,\cdots,x_n|\theta)\\
+        &=& \pi(\theta) \cdot g(t(x_1,x_2,\cdots,x_n),\theta) h(x_1,x_2,\cdots,x_n)\\
+        &\propto&  \pi(\theta) \cdot g(t(x_1,x_2,\cdots,x_n),\theta)
+    \end{eqnarray*}
+    其中第二个等式成立是根据因子分解定理，$t(x_1,x_2,\cdots,x_n)$是$\theta$的充分统计量。
+
+    \item  \textbf{贝叶斯估计是一种整体最优的估计方法}。
+    
+    对于$\theta$的任意一种估计$\hat{\theta}(x_1,x_2,\cdots,x_n)$，我们之前介绍过可以通过均方误差来进行评价，即
+    \begin{eqnarray*}
+        \text{MSE}_{\theta}(\hat{\theta}) &=& E_{x_1,x_2,\cdots,x_n}(\hat{\theta}-\theta)^2\\
+        &=& \int_{x_n \in R} \cdots \int_{x_1 \in R} (\hat{\theta}-\theta)^2 p(x_1,x_2,\cdots,x_n|\theta) \text{d}x_1\cdots\text{d}x_n\\
+        &=& \int_{\bm{x} \in R^{n}} (\hat{\theta}-\theta)^2  p(\bm{x}|\theta) \text{d} \bm{x}.
+    \end{eqnarray*}
+    这里$\bm{x} = (x_1,x_2,\cdots,x_n)'$。我们之前在介绍均方误差时，参数$\theta$认为是一个未知常数，但在贝叶斯学派中，$\theta$认为是一个随机变量，所以$MSE(\hat{\theta})$也被认为是一个随机变量，其依赖于$\theta$。我们可以整体来比较估计的均方误差，于是计算均方误差的期望，即
+    \begin{eqnarray*}
+        E_\theta(\text{MSE}_{\theta}(\hat{\theta})) &=& \int_{\theta \in \Theta} \int_{\bm{x} \in R^{n}} \left( \int (\hat{\theta}-\theta)^2  p(\bm{x}|\theta) \text{d} \bm{x} \right)\cdot  \pi(\theta) \text{d} \theta\\
+        &=& \int_{\theta \in \Theta} \int_{\bm{x} \in R^{n}}   (\hat{\theta}-\theta)^2  p(\bm{x}|\theta)  \cdot  \pi(\theta) \text{d} \bm{x} \text{d} \theta\\
+        &=& \int_{\theta \in \Theta} \int_{\bm{x} \in R^{n}}   (\hat{\theta}-\theta)^2  \pi(\theta|\bm{x}) m(\bm{x})\text{d} \bm{x} \text{d} \theta\\
+        &=&\int_{\bm{x} \in R^{n}}   \int_{\theta \in \Theta}  (\hat{\theta}-\theta)^2  \pi(\theta|\bm{x}) \text{d} \theta  m(\bm{x}) \text{d} \bm{x}
+    \end{eqnarray*}
+    令$\int_{\theta \in \Theta}  (\hat{\theta}-\theta)^2  \pi(\theta|\bm{x}) \text{d} \theta$为$R(\hat{\theta}|\bm{x})$，称其为条件风险函数。对于给定的样本$\bm{x} = (x_1,x_2,\cdots,x_n)'$，我们所求的贝叶斯估计是使得条件风险函数最小的估计，即
+    $$
+    \hat{\theta}_{\text{Bayes}} = \arg\min_{\hat{\theta}} R(\hat{\theta}|\bm{x}).
+    $$
+    我们对$R(\hat{\theta}|\bm{x})$关于$\hat{\theta}$求导，即
+    \begin{eqnarray*}
+        \frac{\partial R(\hat{\theta}|\bm{x})}{\partial \hat{\theta}} &=& \frac{\partial }{\partial \hat{\theta}} \int_{\theta \in \Theta}  (\hat{\theta}-\theta)^2  \pi(\theta|\bm{x}) \text{d} \theta\\
+        & = & \int_{\theta \in \Theta}  \frac{\partial }{\partial \hat{\theta}}  \left((\hat{\theta}-\theta)^2  \pi(\theta|\bm{x}) \right)\text{d} \theta \\
+        &=& \int_{\theta \in \Theta}  \left( 2(\hat{\theta} - \theta) \pi(\theta|\bm{x}) \right)\text{d} \theta
+    \end{eqnarray*}
+    其中第二个等式成立是有条件的。如果感兴趣的同学可以参考华东师范大学数学系编写的《数学分析（下册）》第187页定理19.3。
+    令
+    $$\int_{\theta \in \Theta}  \left( 2(\hat{\theta} - \theta) \pi(\theta|\bm{x}) \right)\text{d} \theta = 0$$
+    即
+    $$
+    \hat{\theta} = \int_{\theta \in \Theta} \theta  \pi(\theta|\bm{x})\text{d} \theta = E(\theta|\bm{x})
+    $$
+    这就是我们定义的贝叶斯估计。
+\end{enumerate}
+\end{remark}
+
+\section*{参考书目}
+对贝叶斯学派感兴趣的同学，这里提供了一些贝叶斯统计方面的学习资料列表。
+\begin{enumerate}
+    \item Gelman A, Carlin J B, Stern H S, et al. Bayesian data analysis[M]. CRC press, 2013.
+    \item B站：《贝叶斯统计 梅长林 西安交通大学》系列视频.
+    \item 茆诗松，汤银才.贝叶斯统计. 中国统计出版社.
+\end{enumerate}
+
+\section{习题}
+\begin{enumerate}
+\item 设一页书上的错别字个数服从泊松分布$P(\lambda)$，$\lambda$有两个可能取值：1.5和1.8，且先验分布为
+$$
+P(\lambda = 1.5) = 0.45, \quad P(\lambda = 1.8) = 0.55
+$$
+现检查了一页，发现有$3$个错别字，试求$\lambda$的后验分布。
+
+\item 验证：正态分布方差（均值已知）的共轭先验分布是倒伽玛分布。（提示：若$X$服从伽玛分布，那么称随机变量$1/X$的分布为倒伽玛分布。）
+
+\item 设$x_1,x_2,\cdots,x_n$为来自如下幂级数分布的样本，总体分布密度为
+$$
+p(x;c,\theta) = cx^{c-1}\theta^{-c} I_{\{ 0\leq x \leq \theta \}}, c> 0, \theta >0.
+$$
+证明：
+\begin{enumerate}
+    \item 若$c$已知，则$\theta$的共轭先验分布为帕雷托分布；
+\item 若$\theta$已知，则$c$的共轭先验分布为伽玛分布。
+\end{enumerate}
+
+\item  设$x_1,x_2,\cdots,x_n$是来自参数为$\lambda$的泊松分布$P(\lambda)$的样本. 假定$\lambda$的先验分布为伽玛分布$Ga(\alpha,\beta)$.
+\begin{enumerate}
+    \item 计算$\lambda$的后验分布。
+\item 求$\lambda$的贝叶斯估计$\hat{\lambda}_1$。
+\item 求$\lambda$的极大似然估计$\hat{\lambda}_2$。
+\end{enumerate}
+
+
+\item 设随机变量$X$服从负二项分布，其概率分布为
+$$
+p(x|\theta)  =  C_{x-1}^{k-1}\theta^k (1-\theta)^{x-k}, x= k,k+1,\cdots
+$$
+证明其成功概率$\theta$的共轭先验分布族为贝塔分布族。
+\end{enumerate}

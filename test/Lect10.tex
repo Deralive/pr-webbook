@@ -1,0 +1,585 @@
+\chapter{多维随机变量函数的分布}
+\begin{introduction}
+  \item Intro to Prob \quad4.1 \quad 4.3 \quad 4.5 
+  \item Prob $\&$ Stat\quad3.3
+\end{introduction}
+\section{引导问题}
+\begin{problem}
+设$\bm{X} = \left(X_{1}, X_{2}, \cdots, X_{n}\right)'$为$n$维随机变量，且已知其联合分布的信息。已知多元函数$\bm{g}: R^{n} \rightarrow R^{k}$。则$\bm{Y} = \bm{g}(X_1,X_2,\cdots,X_n)$也是一个$k$维随机变量。求$\bm{Y}$的联合分布是什么？
+\end{problem}
+这里我们将介绍$\bm{g}$三种的常见函数形式。
+\section{可加性（卷积公式）}
+“加法”是一种最为常见的运算方法。对多个随机变量进行求和是实际场景中具有广泛应用。例如：我们考虑学生每个月在衣、食、行及其他的预算，其中每一项均可以看作一个随机变量，而这四个随机变量的和可以表示该生每个月的消费预算，具有实际意义。因此，如何求多个随机变量的和的分布这里将会给出一般的计算方法。首先，我们先看一个例子。
+
+\begin{example}\label{ex:lect9_1}
+有两个服从泊松分布且相互独立的随机变量，其和仍旧服从泊松分布。即设$X \sim P\left(\lambda_{1}\right), Y \sim P\left(\lambda_{2}\right)$且$X$与$Y$独立，则$X+Y \sim P(\lambda_{1}+\lambda_{2})$。
+\end{example}
+ \begin{proof}
+  令这两个随机变量的和为$Z$，即$Z=X+Y$。可以注意到$Z$的取值范围为$0,1,2,\cdots$，即所有非负整数。而事件${Z=k}$可看作一些互不相容事件的并，即，$\{Z=k\}=\cup_{i=0}^{k}\{X=i, Y=k-i\}$。
+  于是，对于任意非负整数$k$，有\begin{eqnarray*}
+P(Z=k) &=&P\left(\cup_{i=0}^{k}\{X=i, Y=k-i\}\right) =\sum_{i=0}^{k} P\left(X=i, Y=k-i\right) \\
+&=& \sum_{i=0}^{k} P(X=i) \cdot P(Y=k-i) \\
+&=&\sum_{i=0}^{k} \frac{\lambda_{1}^{i}}{i !} e^{-\lambda_{1}} \cdot \frac{\lambda_{2}^{k-i}}{(k-i)!} e^{-\lambda_{2}} \\
+&=&\frac{\left(\lambda_{1}+\lambda_{2}\right)^{k}}{k !} e^{-\left(\lambda_{1}+\lambda_{2}\right)} \sum_{i=0}^{k} \frac{k !}{i !(k-i) !}\left(\frac{\lambda_{1}}{\lambda_{1}+\lambda_{2}}\right)^{i} \cdot\left(\frac{\lambda_{2}}{\lambda_{1}+\lambda_{2}}\right)^{k-i} \\
+&=&\frac{\left(\lambda_{1}+\lambda_{2}\right)^{k}}{k !} e^{-\left(\lambda_{1}+\lambda_{2}\right)}
+\end{eqnarray*}
+这表明$X+Y \sim P(\lambda_{1}+\lambda_{2})$。
+ \end{proof}
+
+\vspace{1cm}
+\begin{remark}
+\begin{enumerate}
+    \item 上述这个性质也可以推广到有限个独立的泊松分布的和。
+    \item 上述例子表明：两个独立且服从同一类随机变量的和仍服从该分布。由此，我们需要用一个专有名词来表述分布所独有的一种性质。
+\end{enumerate}
+\end{remark}
+
+  \begin{definition}{可加性}
+  如果某个分布满足服从该分布的多个独立随机变量的和仍服从该类分布，那么称该分布具有可加性。
+  \end{definition}
+
+对于更为一般的求两个随机变量和的形式，我们这里提供以下定理来解决。
+\begin{theorem}{卷积公式}\label{def:convolution}
+设$X$与$Y$是两个相互独立的连续随机变量，其密度函数分别为$p_X(x)$和$p_Y(y)$，则其和$Z = X+Y$的密度函数为
+\begin{eqnarray*}
+    p_Z(z) = \int_{-\infty}^{\infty} p_{X}(z-y) p_{Y}(y) \text{d} y  \\
+    = \int_{-\infty}^{\infty} p_{X}(x) p_{Y}(z-x) \text{d} x
+\end{eqnarray*}
+\end{theorem}
+\begin{proof}
+     考虑到$Z = X+Y$的分布函数为
+    \begin{eqnarray*}
+         F_Z(z) &=& P(Z \leq z) = \iint_{x+y\leq z} p_{X}(x) p_Y(y) \text{d}x \text{d}y\\
+         & = &\int_{-\infty}^{\infty} \left(\int_{-\infty}^{z-y} p_X(x)\text{d}x\right)p_Y(y)\text{d}y\\
+         &=&\int_{-\infty}^{\infty} \left(\int_{-\infty}^{z} p_X(t-y)\text{d}t\right)p_Y(y)\text{d}y\\
+         &=& \int_{-\infty}^{z} \left(\int_{-\infty}^{\infty} p_X(t-y) p_Y(y)\text{d}y\right)\text{d}t
+    \end{eqnarray*}
+   由此可得，$Z$的密度函数为
+   $$
+   p_Z(z) = \int_{-\infty}^{\infty} p_X(z-y) p_{Y}(y)\text{d}y.
+   $$
+   令$z-y=x$，则可得
+   $$
+    p_Z(z) = \int_{-\infty}^{\infty} p_{X}(x) p_{Y}(z-x) \text{d}x.
+   $$
+\end{proof}
+
+  \begin{remark}
+  \begin{enumerate}
+      \item \textbf{卷积}名称的由来：在泛函分析中，卷积指的是通过两个可积函数$f$和$g$，利用积分运算来生成一个新的函数，即
+      $$
+      \int_{-\infty}^{\infty} f(\tau)g(x-\tau)\text{d} \tau.
+      $$
+      \item 在上述定理中假定两个随机变量$X$和$Y$是相互独立的。但是，对于不独立的$X$和$Y$，只需要把边际密度函数的乘积改为联合密度函数即可。
+       \item 上述定理给出的是连续场合的卷积公式，在离散场合同样适用。值得注意的是，连续场合下的密度函数应被替换为分布列，而求积分运算应被替换为求和。
+  \end{enumerate}
+ \end{remark}
+
+根据卷积公式，我们应用于两个例子中。
+\begin{example}{正态分布的可加性}
+设随机变量$X \sim N\left(\mu_{1}, \sigma_{1}^{2}\right), Y \sim N\left(\mu_{2}, \sigma_{2}^{2}\right)$,且$X$与$Y$独立。证明$$Z=X+Y \sim N\left(\mu_{1}+\mu_{2}, \sigma_{1}^{2}+\sigma_{2}^{2}\right).$$
+\end{example}
+\begin{proof}
+首先，$Z=X+Y$仍在$(-\infty,+\infty)$上取值。
+其次，利用连续场合下的卷积公式，可得
+$$p_{Z}(z)=\frac{1}{2 \pi \sqrt{\sigma_{1}^{2} \sigma_{2}^{2}}} \int_{-\infty}^{+\infty} \exp \left\{-\frac{1}{2 \sigma_{1}^{2}}\left(z-y-\mu_{1}\right)^{2}\right\} \exp \left\{-\frac{1}{2 \sigma_{2}^{2}}\left(y-\mu_{2}\right)^{2}\right\} \text{d} y .$$
+ 
+ 注意到
+ \begin{eqnarray*}
+& &\frac{1}{\sigma_{1}^{2}}\left(z-y-\mu_{1}\right)^{2}+\frac{1}{\sigma_{2}^{2}}\left(y-\mu_{2}\right)^{2} \\
+&=& \frac{1}{\sigma_{1}^{2}} y^{2}-\frac{2}{\sigma_{1}^{2}}\left(z-\mu_{1}\right) y+\frac{1}{\sigma_{1}^{2}}\left(z-\mu_{1}\right)^{2}+\frac{1}{\sigma_{1}^{2}} y^{2}-\frac{2}{\sigma_{2}^{2}} \mu_{2} z+\frac{1}{\sigma_{2}^{2}} \mu_{2}^{2} \\
+&=&\left(\frac{1}{\sigma_{1}^{2}}+\frac{1}{\sigma_{2}^{2}}\right) y^{2}-2 y\left(\frac{z-\mu_{1}}{\sigma_{1}^{2}}+\frac{\mu_{2}}{\sigma_{2}^{2}}\right)+\frac{1}{\sigma_{1}^{2}}\left(z-\mu_{1}\right)^{2}+\frac{1}{\sigma_{2}^{2}} \mu_{2}^{2} \\
+&=&\left(\frac{1}{\sigma_{1}^{2}}+\frac{1}{\sigma_{2}^{2}}\right)\left(y-\frac{\frac{z-\mu_{1}}{\sigma_{1}^{2}}+\frac{\mu_{2}}{\sigma_{2}^{2}}}{\frac{1}{\sigma_{1}^{2}}+\frac{1}{\sigma_{2}^{2}}}\right)^{2}-\frac{\left(\frac{z-\mu_{1}}{\sigma_{1}^{2}}+\frac{\mu_{2}}{\sigma_{2}^{2}}\right)^{2}}{\frac{1}{\sigma_{1}^{2}}+\frac{1}{\sigma_{2}^{2}}}+\frac{1}{\sigma_{2}^{2}}\left(z-\mu_{1}^{2}\right)+\frac{1}{\sigma_{2}^{2}} \mu_{2}^{2} \\
+&=& A\left(y-\frac{B}{A}\right)^{2}-\frac{\frac{\sigma_{2}^{2}}{\sigma_{1}^{2}}}{\sigma_{1}^{2}+\sigma_{2}^{2}}\left(z-\mu_{1}\right)^{2}-\frac{\frac{\sigma_{1}^{2}}{\sigma_{2}^{2}}}{\sigma_{1}^{2}+\sigma_{2}^{2}} \mu_{2}^{2} 
+-\frac{2}{\sigma_{1}^{2}+\sigma_{2}^{2}} \cdot\left(z-\mu_{1}\right) \mu_{2}+\frac{1}{\sigma_{1}^{2}}\left(z-\mu_{1}\right)^{2}+\frac{1}{\sigma_{2}^{2}} \mu_{2}^{2} \\
+&=& A\left(y-\frac{B}{A}\right)^{2}+\frac{1}{\sigma_{1}^{2}+\sigma_{2}^{2}}\left(z-\mu_{1}-\mu_{2}\right)^{2},
+ \end{eqnarray*}
+ 其中，
+ $$
+ A = \frac{1}{\sigma_1^2} + \frac{1}{\sigma_2^2}, \quad \text{且}\quad 
+ B = \frac{z-\mu_1}{\sigma_1^2} + \frac{\mu_2}{\sigma_2^2}.
+ $$
+于是，我们有
+\begin{eqnarray*}
+    p_{Z}(z)&=&\frac{1}{2 \pi \sqrt{\sigma_{1}^{2} \sigma_{2}^{2}}} \int_{-\infty}^{+\infty} \exp \left\{-\frac{1}{2}\left(\frac{1}{ \sigma_{1}^{2}}\left(z-y-\mu_{1}\right)^{2} -\frac{1}{\sigma_{2}^{2}}\left(y-\mu_{2}\right)^{2}\right)\right\} \text{d} y
+    \\
+    &=&\frac{1}{2 \pi \sqrt{\sigma_{1}^{2} \sigma_{2}^{2}}} \exp \left\{-\frac{1}{2} \cdot\frac{\left(z-\mu_{1}-\mu_{2}\right)^{2}}{\sigma_{1}^{2}+\sigma_{2}^{2}}\right\} \cdot \int_{-\infty}^{+\infty} \exp \left\{-\frac{A}{2}\left(y-\frac{B}{A}\right)^{2}\right\} \text{d} y \\
+    &=&\frac{1}{\sqrt{2 \pi (\sigma_{1}^{2} +\sigma_{2}^{2})}} \exp \left\{-\frac{1}{2} \cdot \frac{\left(z-\mu_{1}-\mu_{2}\right)^{2}}{\sigma_{1}^{2}+\sigma_{2}^{2}}\right\}
+\end{eqnarray*}
+其中$\int_{-\infty}^{+\infty} \exp \left\{-\frac{A}{2}\left(y-\frac{B}{A}\right)^{2}\right\} \text{d} y$看成一个正态随机变量的核，即$N\left(\frac{B}{A}, \frac{1}{A}\right)$。
+
+因此，$Z$的密度函数为
+\begin{eqnarray*}
+P_{Z}(z) =\frac{1}{\sqrt{2 \pi\left(\sigma_{1}^{2}+\sigma_{2}^{2}\right)}} \exp \left\{-\frac{1}{2} \cdot \frac{\left(z-\mu_{1}-\mu_{2}\right)^{2}}{\sigma_{1}^{2}+\sigma_{2}^{2}}\right\}.
+\end{eqnarray*}
+也就是说，$Z \sim N\left(\mu_{1}+\mu_{2}, \sigma_{1}^{2}+\sigma_{2}^{2}\right)$。
+\end{proof}
+\begin{remark}
+ 这个结论也可推广至有限个独立的正态分布随机变量的线性组合。也就是说，若$X_i\sim N(\mu_i,\sigma_i^2),i=1,2,\cdots,n$，诸$X_i$之间相互独立且$a_1,a_2,\cdots,a_n$为$n$个非零常数，则
+    $$
+    \sum_{i=1}^n a_i X_i = a_1X_1+a_2X_2+\cdots+a_nX_n\sim N(\mu_0,\sigma_0^2),
+    $$
+    其中，$\mu_0 = \sum_{i=1}^n a_i \mu_i$，$\sigma_0^2 = \sum_{i=1}^n a_i^2 \sigma_0^2$。
+\end{remark}
+
+\begin{problem}
+    如果$(X_1,X_2)'$服从二元正态分布随机变量，且$\text{Corr}(X_1,X_2) = \rho \neq 0$，那么$X-Y$的分布是什么？
+\end{problem}
+\begin{note}
+留给学生课后思考。
+\vspace{5cm}
+\end{note}
+
+\begin{example}
+    设随机变量$X \sim Ga\left(\alpha_{1}, \lambda\right), Y \sim Ga\left(\alpha_{2}, \lambda\right) $且$X$与$Y$独立。证明$$ X+Y \sim Ga\left(\alpha_{1}+\alpha_{2}, \lambda\right).$$
+\end{example}
+\begin{proof}
+ 首先，$Z=X+Y$仍在$(0,+\infty)$上取值，所以当$z \leqslant 0$时，$p_Z(z)=0$。而当$z>0$时，
+ \begin{eqnarray*}
+     p_{z}(z) &=&\int_{0}^{z} \frac{\lambda^{\alpha_{1}+\alpha_{2}}}{\Gamma\left(\alpha_{1}\right) P\left(\alpha_{2}\right)}(z-y)^{\alpha_{1}-1} e^{-\lambda(\lambda-y)} y^{\alpha_{2}-1} e^{-\lambda y} \text{d} y \\
+&=&\frac{\lambda^{\alpha_{1}+\alpha_{2}} e^{-\lambda z}}{\Gamma\left(\alpha_{1}\right) \Gamma\left(\alpha_{2}\right)} \int_{0}^{z}(z-y)^{\alpha_{1}-1} y^{\alpha_{2}-1} \text{d} y \\
+&=&\frac{\lambda^{\alpha_{1}+\alpha_{2}} z^{\alpha_{1}+\alpha_{2}-2} e^{-\lambda z}}{\Gamma\left(\alpha_{1}\right) \Gamma\left(\alpha_{2}\right)} \int_{0}^{z}\left(1-\frac{y}{z}\right)^{\alpha_{1}-1}\left(\frac{y}{z}\right)^{\alpha_{2}-1} \text{d} y \\
+&=&\frac{\lambda^{\alpha_{1}+\alpha_{2}}}{\Gamma\left(\alpha_{1}+\alpha_{2}\right)} z^{\alpha_{1}+\alpha_{2}-1} e^{-\lambda z}
+ \end{eqnarray*}
+因此，$Z \sim \operatorname{Ga}\left(\alpha_{1}+\alpha_{2}, \lambda\right)$。
+\end{proof}
+
+\begin{remark}
+    \begin{enumerate}
+        \item 这个结论也可以推广至有限个独立的伽马分布随机变量的和。
+        \item 由于指数分布是一种特殊的伽马分布，即 $Exp(\lambda) = Ga(1,\lambda)$。那么$m$个独立同分布的指数分布随机变量之和为伽马分布。
+        \item 由于卡方分布是一种特殊的伽马分布，
+        即 $\chi^2(n) = Ga\left(\frac{n}{2},\frac{1}{2}\right)$。那么$m$个独立的卡方分布随机变量之和仍为卡方分布。
+    \end{enumerate}
+\end{remark}
+
+\begin{conclusion}
+    这里我们总结一下，具有可加性的常见分布。
+    \begin{enumerate}
+    \item 二项分布：$b(n,p) * b(m,p) = b(n+m,p)$.（留作学生课后自学内容）
+    \item 泊松分布：$P(\lambda_1)*P(\lambda_2) = P(\lambda_1+\lambda_2)$.
+     \item 正态分布：
+    $N(\mu_1,\sigma_1^2) * N(\mu_2,\sigma_2^2) = N(\mu_1+\mu_2, \sigma_1^2 + \sigma_2^2) $.
+    \item 伽马分布：
+    $Ga(\alpha_1,\lambda) * Ga(\alpha_2,\lambda) = Ga(\alpha_1+\alpha_2,\lambda) $.
+    \end{enumerate}
+\end{conclusion}
+    
+\section{极值分布}
+$\max$和$\min$是两种常见的运算，其广泛的应用于风险管理问题中。比如：上海地区今年最高气温达到40摄氏度的概率有多大？这里我们利用两个例题来阐述在不同的条件下如何计算极值的分布。
+
+\begin{example}
+    设$X_1,X_2,\cdots,X_n$是相互独立的$n$个随机变量，若$Y=\max\{X_1,X_2,\cdots,X_n\}$，在以下情况下求$Y$的分布。
+    \begin{enumerate}
+        \item 若$X_i \sim F_i(x),i=1,2,\cdots,n$，则$Y=\max\{X_1,X_2,\cdots,X_n\}$的分布函数为
+        \begin{eqnarray*}
+            F_Y(y) &=& P(Y\leq y)\\
+            &=& P(\max\{X_1,X_2,\cdots,X_n\}\leq y)\\
+            &=& P(X_1\leq y,X_2\leq y,\cdots,X_n \leq y)\\
+            &=& P(X_1\leq y) P(X_2\leq y) \cdots P(X_n \leq y)\\
+            &=& \prod_{i=1}^n F_{i}(y).
+        \end{eqnarray*}
+        \item 若诸$X_i$同分布，即$X \sim F(x), i=1,2,\cdots,n$，则
+        $Y$的分布函数为
+        $$
+        F_Y(y) = \left(F(y)\right)^n.
+        $$
+        \item 若诸$X_i$为连续随机变量，且诸$X_i$同分布，即$X_i$的密度函数为$p(x),i=1,2,\cdots,n$，则$Y$的分布函数仍为
+        $$
+        F_Y(y) = \left(F(y)\right)^n.
+        $$
+        而$Y$的密度函数为
+        \begin{eqnarray*}
+            p_Y(y) &=& \frac{\text{d}}{\text{d}y}F_Y(y) \\
+            &=& n \left(F(y)\right)^{n-1} p(y).
+        \end{eqnarray*}
+        \item 若 $X_i \sim Exp(\lambda),i=1,2,\cdots,n$，则
+        $Y$的分布函数为
+        $$
+        F_Y(y) = \left\{
+        \begin{aligned}
+            & (1-e^{-\lambda y})^n, & y\geq 0\\
+            & 0, & y < 0\\
+        \end{aligned}
+        \right.
+        $$
+        而$Y$的密度函数为
+          $$
+        p_Y(y) = \left\{
+        \begin{aligned}
+            & n(1-e^{-\lambda y})^{n-1}\cdot \lambda e^{-\lambda y} , & y\geq 0\\
+            & 0, & y < 0\\
+        \end{aligned}
+        \right.
+        $$
+    \end{enumerate}
+\end{example}
+\begin{example}
+    设$X_1,X_2,\cdots,X_n$是相互独立的$n$个随机变量，若$Z=\min\{X_1,X_2,\cdots,X_n\}$，在以下情况下求$Z$的分布。
+    \begin{enumerate}
+        \item 若$X_i \sim F_i(x),i=1,2,\cdots,n$，则$Z=\min\{X_1,X_2,\cdots,X_n\}$的分布函数为
+        \begin{eqnarray*}
+            F_Z(z) &=& P(Z\leq z)\\
+            &=& P(\min\{X_1,X_2,\cdots,X_n\}\leq z)\\
+            &=&1 - P(\min\{X_1,X_2,\cdots,X_n\} > z)\\
+            &=& 1- P(X_1> z,X_2> y,\cdots,X_n >z)\\
+            &=& 1-P(X_1>z) P(X_2>z) \cdots P(X_n>z)\\
+            &=& 1- \prod_{i=1}^n\left( 1-F_{i}(z)\right).
+        \end{eqnarray*}
+        \item 若诸$X_i$同分布，即$X \sim F(x), i=1,2,\cdots,n$，则
+        $Z$的分布函数为
+        $$
+        F_Z(z) = 1-\left(1-F(z)\right)^n.
+        $$
+        \item 若诸$X_i$为连续随机变量，且诸$X_i$同分布，即$X_i$的密度函数为$p(x),i=1,2,\cdots,n$，则$Z$的分布函数仍为
+        $$
+        F_Z(z) =1- \left(1-F(z)\right)^n.
+        $$
+        而$Z$的密度函数为
+        \begin{eqnarray*}
+            p_Z(z) &=& \frac{\text{d}}{\text{d}z}F_Z(z) \\
+            &=& n \left(1-F(z)\right)^{n-1} p(z).
+        \end{eqnarray*}
+        \item 若 $X_i \sim Exp(\lambda),i=1,2,\cdots,n$，则
+        $Z$的分布函数为
+        $$
+        F_Z(z) = \left\{
+        \begin{aligned}
+            & 1-e^{-n\lambda z}, & z\geq 0\\
+            & 0, & z < 0\\
+        \end{aligned}
+        \right.
+        $$
+        而$Z$的密度函数为
+          $$
+        p_Y(y) = \left\{
+        \begin{aligned}
+            & n\lambda e^{-n\lambda z}, & z\geq 0\\
+            & 0, & z < 0\\
+        \end{aligned}
+        \right.
+        $$
+    \end{enumerate}
+\end{example}
+
+
+\section{变量变换法}
+\subsection{二维情况}
+设二维随机变量$(X,Y)$的联合密度函数为$p(x,y)$，如果函数
+$$\left\{\begin{aligned}
+&u=g_{1}(x, y) \\
+&v=g_{2}(x, y)
+\end{aligned}\right.$$
+有连续偏导数，且存在唯一的反函数
+$$\left\{\begin{aligned}
+x=x(u, v) \\
+y=y(u, v)
+\end{aligned}\right.$$
+其变换的雅克比行列式
+$$J=\frac{\partial(x, y)}{\partial(u, v)}=\left|\begin{array}{ll}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+\end{array}\right|=\left(\frac{\partial(u, v)}{\partial(x, y)}\right)^{-1}=\left|\begin{array}{ll}
+\frac{\partial u}{\partial x} & \frac{\partial u}{\partial y} \\
+\frac{\partial v}{\partial x} & \frac{\partial v}{\partial y}
+\end{array}\right|^{-1} \neq 0$$
+
+若$$\left\{\begin{array}{l}
+U=g_{1}(X, Y) \\
+V=g_{2}(X, Y)
+\end{array}\right.$$
+则$(U,V)'$的联合密度函数为
+$$p(u, v)=p(x(u, v), y(u, v)) \cdot|J|.$$
+\begin{remark}
+    这个方法实际上就是二重积分的变量变换法。
+\end{remark}
+
+\begin{example}\label{ex:lect9_3}
+    设随机变量$X$与$Y$独立同分布，都服从正态分布$N(\mu,\sigma^2)$。记
+    $$
+    \left\{\begin{aligned}
+        & U = X+Y\\
+        & V = X-Y
+    \end{aligned}
+    \right.
+    $$
+    试求$(U,V)'$的联合密度函数，且问$U$与$Y$是否独立？
+\end{example}
+\begin{solution}
+因为
+$$
+ \left\{\begin{aligned}
+        & u = x + y,\\
+        & v = x - y
+    \end{aligned}
+    \right.
+$$
+的反函数为
+$$
+ \left\{\begin{aligned}
+        & x = \frac{u+v}{2},\\
+        & y =  \frac{u-v}{2},
+    \end{aligned}
+    \right.
+$$
+则
+$$
+J = \left|\begin{matrix}
+    \frac{\partial x}{\partial u} &  \frac{\partial x}{\partial v}\\
+    \frac{\partial y}{\partial u} &  \frac{\partial y}{\partial v}\\
+\end{matrix}
+\right|=
+\left|\begin{matrix}
+    \frac{1}{2} &  \frac{1}{2}\\
+    \frac{1}{2} &  -\frac{1}{2}\\
+\end{matrix}
+\right| = -\frac{1}{2}.
+$$
+所以，$(U,V)'$的联合密度函数为
+\begin{eqnarray*}
+    p(u,v) &=& p(x(u,v),y(u,v)) |J| \\
+    &=& p_X\left(\frac{u+v}{2}\right)p_Y\left(\frac{u-v}{2}\right)\left|-\frac{1}{2}\right|\\
+    &=& \frac{1}{2\sqrt{2\pi\sigma^2}} \exp\left\{-\frac{((u+v)/2 - \mu)^2}{2}\right\} \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left\{
+    -\frac{((u-v)/2-\mu)^2}{2\sigma^2}
+    \right\}\\
+    &=& \frac{1}{4\pi \sigma^2} \exp\left\{
+   -\frac{(u-2\mu)^2 + v^2}{4\sigma^2} \right\}\\
+   &=& \frac{1}{\sqrt{2\pi (2\sigma^2)}} \exp\left\{-\frac{(u-2\mu)^2}{2 \cdot (2\sigma^2)}\right\}\cdot \frac{1}{\sqrt{2\pi \cdot (2\sigma^2)}} \exp\left\{-\frac{v^2}{2 \cdot (2\sigma^2)}\right\}.
+\end{eqnarray*}
+根据联合密度函数可知，$U\sim N(2\mu,2\sigma^2)$，$V\sim N(0,2\sigma^2)$。同时，由$p(u,v) = p_U(u)p_V(v)$可知，$U$与$V$相互独立。
+\end{solution}
+\begin{remark}
+作为变量变换法的一种变形，\textbf{增补变量法}也是常用的方法，为求出二维随机变量$(X,Y)$的函数$$U=g(X,Y)$$的密度函数，需要增补一个新的随机变量$$V = h(X,Y).$$如何增补这个随机变量是该方法中的难点，通常令$V = X$或$Y$可以解决大部分的问题。
+
+其基本解法是
+\begin{itemize}
+    \item 利用变量变换法求出$(U,V)'$的联合密度函数$p(u,v)$；
+    \item 对$p(u,v)$关于$v$积分，从而得到$U$的边际密度函数。
+\end{itemize}
+\end{remark}
+以下我们给出两个常用的公式，请同学们课后自行学习增补变量法后将证明过程不全。
+\begin{example}{积的公式}
+    设随机变量$X$与$Y$相互独立，其密度函数分别为$p_X(x)$和$p_{Y}(y)$。则$U= XY$的密度函数为
+    $$
+    p_U(u) = \int_{-\infty}^{\infty} p_{X}(u/v)p_{Y}(v)\frac{1}{|v|} \text{d}v.
+    $$
+\end{example}
+\begin{proof}
+    \vspace{5cm}
+\end{proof}
+
+\begin{example}{商的公式}
+    设随机变量$X$与$Y$相互独立，其密度函数分别为$p_X(x)$和$p_{Y}(y)$。则$U= X/Y$的密度函数为
+    $$
+    p_U(u) = \int_{-\infty}^{\infty} p_{X}(uv)p_{Y}(v)|v| \text{d}v.
+    $$
+\end{example}
+\begin{proof}
+    \vspace{5cm}
+\end{proof}
+
+\subsection{$n$维情况（选修）}
+设$n$维随机变量$\bm{X}=\left(X_{1}, X_{2}, \cdots, X_{n}\right)'$的联合密度函数为$p(x_1,x_2,\cdots,x_n)$。如果变换
+$$\left\{\begin{aligned}
+&y_{1}=g_{1}\left(x_{1}, x_{2}, \cdots, x_{n}\right) \\
+&y_{2}=g_{2}\left(x_{1}, x_{2}, \cdots, x_{n}\right) \\
+&\vdots \\
+&y_{n}=g_{n}\left(x_{1}, x_{2}, \cdots, x_{n}\right)
+\end{aligned} \right.$$
+有连续偏导数，且存在唯一的逆变换
+$$\left\{\begin{aligned}
+&x_{1}=h_{1}\left(y_{1}, y_{2}, \cdots, y_{n}\right) \\
+&x_{2}=h_{2}\left(y_{1}, y_{2}, \cdots, y_{n}\right) \\
+&\vdots \\
+&x_{n}=h_{n}\left(y_{1}, y_{2}, \cdots, y_{n}\right)
+\end{aligned}\right.
+$$
+其变换的雅克比行列式$$
+J=\left|\frac{\partial\left(x_{1}, \cdots, x_{n}\right)}{\partial\left(y_{1}, \cdots, y_{n}\right)}\right|=\left|\left(\frac{\partial x_{i}}{\partial y_{j}}\right)\right|$$
+
+则 $$\bm{Y}=\begin{pmatrix}
+Y_1\\
+Y_2\\
+\vdots\\
+Y_n
+\end{pmatrix}=
+\begin{pmatrix}
+g_1(X_1,X_2,\cdots,X_n)\\
+g_2(X_1,X_2,\cdots,X_n)\\
+\vdots\\
+g_n(X_1,X_2,\cdots,X_n) 
+\end{pmatrix}$$
+的联合密度函数为
+$$p_{\bm{Y}}\left(\bm{y}\right)=p_{\bm{X}}\left(
+g_1(\bm{y}),g_2(\bm{y}),\cdots,g_n(\bm{y})\right) \cdot|J|$$
+
+\begin{example}
+利用矩阵的技巧，我们重新来看一下例\ref{ex:lect9_3}。从矩阵的角度来看，
+$$
+\begin{pmatrix}
+    u\\
+    v
+\end{pmatrix}
+=\begin{pmatrix}
+    1& 1\\
+    1 & -1\\
+\end{pmatrix}
+\begin{pmatrix}
+    x\\
+    y
+\end{pmatrix}
+$$
+记$$A = \begin{pmatrix}
+    1& 1\\
+    1 & -1\\
+\end{pmatrix}$$
+可以计算其逆矩阵为
+$$
+A^{-1} = \begin{pmatrix}
+    1/2 & 1/2\\
+    1/2 & -1/2\\
+\end{pmatrix}
+$$
+于是，雅可比行列式为
+$$
+|J| = |A^{-1}| = -\frac{1}{2}.
+$$
+因为$$(X,Y)'\sim N_2\left(
+\begin{pmatrix}
+\mu \\ \mu    
+\end{pmatrix},
+\begin{pmatrix}
+\sigma^2 & 0 \\ 0 & \sigma^2\\    
+\end{pmatrix}
+\right),$$其联合密度函数为
+\begin{eqnarray*}
+    p(x,y) &=& (2\pi)^{-2/2} |\sigma^2 I_2|^{-1/2}\exp\left\{-\frac{1}{2} \left(\begin{pmatrix}
+    x \\y
+\end{pmatrix} - \begin{pmatrix}
+    \mu \\ \mu
+\end{pmatrix}\right)' (\sigma^2 I_2)^{-1}\left(\begin{pmatrix}
+    x \\y
+\end{pmatrix} - \begin{pmatrix}
+    \mu \\ \mu
+\end{pmatrix}\right) \right\}\\
+&=& (2\pi\sigma^2)^{-1}\exp\left\{
+-\frac{1}{2\sigma^2} \left(\begin{pmatrix}
+    x \\y
+\end{pmatrix} - \begin{pmatrix}
+    \mu \\ \mu
+\end{pmatrix}\right)' \left(\begin{pmatrix}
+    x \\y
+\end{pmatrix} - \begin{pmatrix}
+    \mu \\ \mu
+\end{pmatrix}\right)
+\right\}
+\end{eqnarray*}
+所以，$(U,V)$的联合密度函数为
+\begin{eqnarray*}
+    p(u,v) &=& (2\pi\sigma^2)^{-1}\exp\left\{
+-\frac{1}{2\sigma^2} \left(A^{-1}\begin{pmatrix}
+    u \\v
+\end{pmatrix} - \begin{pmatrix}
+    \mu \\ \mu
+\end{pmatrix}\right)' \left(A^{-1}\begin{pmatrix}
+    u \\v
+\end{pmatrix} - \begin{pmatrix}
+    \mu \\ \mu
+\end{pmatrix}\right)
+\right\}\cdot |J|\\
+&=& (2\pi\sigma^2)^{-1}\exp\left\{
+-\frac{1}{2\sigma^2} \left(\begin{pmatrix}
+    u \\v
+\end{pmatrix} - A\begin{pmatrix}
+    \mu \\ \mu
+\end{pmatrix}\right)'(A^{-1})' (A^{-1}) \left(\begin{pmatrix}
+    u \\v
+\end{pmatrix} - A\begin{pmatrix}
+    \mu \\ \mu
+\end{pmatrix}\right)
+\right\}\cdot \frac{1}{2}\\
+&=& (2\pi\sigma^2)^{-1}\exp\left\{
+-\frac{1}{2\sigma^2} \left(\begin{pmatrix}
+    u \\v
+\end{pmatrix} - A\begin{pmatrix}
+    \mu \\ \mu
+\end{pmatrix}\right)' (A I_2 A')^{-1}\left(\begin{pmatrix}
+    u \\v
+\end{pmatrix} - A\begin{pmatrix}
+    \mu \\ \mu
+\end{pmatrix}\right)
+\right\}\cdot \frac{1}{2}\\
+&=& (4\pi\sigma^2)^{-1}\exp\left\{
+-\frac{1}{2} \left(\begin{pmatrix}
+    u \\v
+\end{pmatrix} - \begin{pmatrix}
+    2\mu \\ 0
+\end{pmatrix}\right)' \begin{pmatrix}
+    2\sigma^2&0\\
+    0 & 2\sigma^2\\
+\end{pmatrix}^{-1}\left(\begin{pmatrix}
+    u \\v
+\end{pmatrix} - \begin{pmatrix}
+    2\mu \\ 0
+\end{pmatrix}\right)
+\right\}
+\end{eqnarray*}
+所以，$$
+\begin{pmatrix}
+    U\\V
+\end{pmatrix}\sim N_2\left(
+\begin{pmatrix}
+    2\mu\\0
+\end{pmatrix},
+\begin{pmatrix}
+    2\sigma^2 & 0 \\
+0 & 2\sigma^2\\
+\end{pmatrix}
+\right)
+$$
+\end{example}
+\begin{conclusion}
+    若$\bm{X}\sim N_{n}\left(\bm{\mu},\Sigma\right)$，对于任意常数矩阵$A_{m,n}$，有$\bm{Y} = A \bm{X} \sim N_m(A\bm{\mu}, A\Sigma A') $。
+\end{conclusion}
+
+\section{习题}
+
+\begin{enumerate}
+\item 设$X$和$Y$是相互独立的随机变量，且$X \sim Exp(\lambda),Y \sim Exp(\mu)$.如果定义随机变量$Z$如下
+$$
+Z = \left\{\begin{aligned}
+    1, &  \text{当}X\leq Y,\\
+	 0, &  \text{当}X > Y.
+\end{aligned}
+\right.
+$$
+求$Z$的分布列。
+
+\item 设随机变量$X$和$Y$独立同分布，其密度函数为
+$$
+ p(x) = \left\{\begin{aligned}
+      &e^{-x}, &  x > 0,\\
+	 &0, &  x\leq0.
+ \end{aligned}\right.
+	$$
+\begin{enumerate}
+    \item 求 $U = X + Y$ 与 $V = X/(X + Y)$ 的联合密度函数 $p(u,v)$。
+    \item 以上的 $U$ 与 $V$ 独立吗？
+\end{enumerate}
+
+\item 设随机变量$X_1,X_2,\cdots,X_n$相互独立，且$X_i\sim Exp(\lambda_i)$,试证：
+$$P(X_i = \min\{X_1,X_2,\cdots,X_n\}) = \frac{\lambda_i}{\lambda_1 + \lambda_2 +\cdots+ \lambda_n}
+$$
+
+\item 在某一天，你的高尔夫球得分介于101到110之间，且取各个值的概率相等，均为0.1。不同的日子里，你的高尔夫球得分是相互独立的。为了提高自己的分数，你决定在三个不同的日子里进行比赛，并取这三天的最低分数作为最终得分。设$X_1,X_2,X_3$为三天的高尔夫球得分，而$X$为最终的得分。
+\begin{enumerate}
+    \item 计算$X$的概率质量函数；
+    \item 三天的比赛让你的期望成绩改变了多少？ 
+\end{enumerate}
+
+\item （选做）设$X_i$都是独立同分布的随机变量，且服从均匀分布$U(0,1),i=1,2,\cdots,$。令$S_n = \sum_{i=1}^n X_i$。
+\begin{enumerate}
+    \item 求$S_1,S_2,S_3,S_4$的分布；
+    \item 当$n\rightarrow\infty$，$S_n$分布是怎样的？
+\end{enumerate}
+\end{enumerate}

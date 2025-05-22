@@ -1,0 +1,504 @@
+\chapter{条件概率}
+\begin{introduction}
+  \item Intro to Prob\quad 1.3 / 1.4 / 1.5 
+  \item Prob $\&$ Stat\quad 1.4 / 1.5
+\end{introduction}
+
+\section{引导问题：有条件概率 vs 无条件概率}
+\begin{instance}
+    在谈“阳”色变的时间段，当我核酸检测出现“阳性”之后，为什么社区人员带着医护人员到我家再给我做一次检测？
+
+首先我们需要有一个共识：“所有检测都不是一定正确的”。这个共识的基本逻辑是，检测为阳性，我可能得了新冠，也可能没有得新冠；检测为阴性，我可能没得新冠，也可能得了新冠。于是，我们定义两个随机事件
+\begin{itemize}
+\item 随机事件$A$ = “我感染了新冠”；
+\item 随机事件$B$ = “我的核酸是阳性”。
+\end{itemize}
+\begin{problem}
+  \begin{itemize}
+    \item {\bf 在核酸检测为阳性的情况下}，我感染新冠的可能性有多大？
+    \item 如果我未进行核酸检测，我感染新冠的可能性有多大？
+    \item 这两个概率的计算有什么差异？
+\end{itemize}  
+\end{problem}
+\begin{remark}
+    第一个问题和第二个问题中，差异在于“核酸检测为阳性”这个条件。
+\end{remark}
+\end{instance}
+
+
+
+\section{条件概率的定义}
+在上述两个问题中，差异在于有无“核酸检测为阳性”这个条件。于是，我们需要定义一个新概念——条件概率。
+\begin{definition}[条件概率] \label{def:int} 
+设$A$与$B$是样本空间$\Omega$中的两个事件，若$P(B)> 0$，则称
+$$P(A|B)=\frac{P(AB)}{P(B)} $$
+为“在事件$B$条件下，事件$A$的条件概率”，简称条件概率，记作$P(A|B)$。
+\end{definition}
+\begin{example}
+投掷一颗公平的四面骰子两次。令$X$表示第一次投掷的结果，$Y$表示第二次投掷的结果。若
+$$
+A_m = \{\max\{X,Y\} = m\}, B=\{\min\{X,Y\}=2\}.
+$$
+求条件概率$P(A_m|B)$，其中$m=1,2,3,4$。
+\end{example}
+\begin{solution}
+    根据条件概率的定义可知，
+    $$
+    P(A|B) = \frac{P(AB)}{P(B)}
+    $$
+在图中，蓝色的点表示16种结果，黄色的区域表示事件$B = \{\min\{X,Y\}=2\}$，红色虚线框住的点分别表示事件$A_m = \{\max{X,Y} = m\}$。$A_1$与$B$的交集为空，$A_2$与$B$的交集只有一个元素，而当$m=3,4$时，$A_m$与$B$的交集有两个元素。
+于是，我们有
+$$
+P(A_m|B) = \left\{
+\begin{aligned}
+    2/5 , m= 3 \text{ 或 } 4,\\
+    1/5, m=2,\\
+    0, m=1.
+\end{aligned}
+\right.
+$$
+
+\end{solution}
+\begin{problem}
+条件概率$P(A|B)$本质上是给定$B$的条件下事件$A$的概率。那么$P(\cdot|B)$是否满足概率的性质？
+\end{problem}
+\begin{theorem}
+    条件概率是概率，即若设$P(B)>0$，则
+    \begin{itemize}
+        \item $P(A|B)\geq 0, A\in \mathcal{F}$；
+        \item $P(\Omega|B)=1$；
+        \item 若$\mathcal{F}$中的一列互不相容的随机事件$A_1,A_2,\cdots,A_n,\cdots$，则
+        $$
+        P(\cup_{n=1}^\infty A_n|B) = \sum_{n=1}^\infty P(A_n|B).
+        $$
+    \end{itemize}
+\end{theorem}
+
+\begin{proof}
+    在条件概率的定义中，假定存在一个概率空间$(\Omega,\mathcal{F},P)$。给定随机事件$B$，$P(B)>0$。
+根据概率的公理化定义，需要论证条件概率满足非负性、正则性和可列可加性。
+\begin{itemize}
+    \item 对于任意一个随机事件$A\in \mathcal{F}$，$P(AB)\geq 0$，则$P(A|B)\geq 0$。
+    \item 对于必然事件$\Omega$，有
+    $$
+    P(\Omega ) = \frac{P(\Omega \cap B)}{P(B)} = \frac{P(B)}{P(B)} = 1.
+    $$
+    \item 对于一列互不相容的随机事件$A_1,A_2,\cdots,A_n,\cdots \in  \mathcal{F}$，有
+    \begin{eqnarray*}
+        P\left( \cup_{i=1}^{\infty} A_i | B\right) &=& \frac{P\left( \left(\cup_{i=1}^{\infty} A_i\right) \cap B \right)}{P(B)} \\
+        &=& \frac{P\left( \cup_{i=1}^{\infty}\left( A_i \cap B \right)  \right)}{P(B)} \\
+        &=& \frac{ \sum_{i=1}^{\infty} P\left(\left( A_i \cap B \right)  \right)}{P(B)} \\
+        &=&  \sum_{i=1}^{\infty} P\left(A_i | B  \right) .
+    \end{eqnarray*}
+\end{itemize}
+\end{proof}
+
+\section{乘法公式}
+\begin{theorem}[乘法公式] \label{thm: multiplication_theorem_of_probability} 
+若$P(B)>0$，则$$P(AB)=P(B)\cdot P(A|B) $$
+\end{theorem}
+\begin{proof}
+乘法公式可由条件概率的定义直接推出。
+\end{proof}
+
+\begin{corollary}
+若$P(A_{1}A_{2}\cdots A_{n-1} )>0$，则$$P(A_{1}A_{2}\cdots A_{n} )=P(A_{1})\cdot P(A_{2}|A_{1})\cdot P(A_{3}|A_{1}A_{2})\cdots P(A_{n}|A_{1}A_{2}\cdots A_{n-1})$$
+\end{corollary}
+
+\begin{proof}
+令 $B_{i}=A_{1}A_{2}\cdots A_{i},i=1,2,\cdots,n$。
+
+一方面，我们想要证明所定义的$P(B_i)$均大于零。因为
+$P(B_{n-1}) = P(A_{1}A_{2}\cdots A_{n-1})>0$而且
+\begin{eqnarray*}
+    P(B_{i}) &=& P(A_1A_2\cdots A_i)\\
+    &\ge& P(A_1A_2\cdots A_i \cap A_{i+1}\cdot A_{n-1}) \\
+    & = &  P(B_{n-1}) >0, i=1,2,\cdots,n-1.
+\end{eqnarray*}
+
+另一方面，我们证明$P(A_{1}A_{2}\cdots A_{n}) = P(A_{1}A_{2}\cdots A_{n-1})\cdot P(A_n|A_{1}A_{2}\cdots A_{n-1})$.
+因为 $P(B_{n-1}) = P(A_{1}A_{2}\cdots A_{n-1})>0$，所以
+\begin{eqnarray*}
+P(B_{n})&=&P((A_{1}A_{2}\cdots A_{n-1})\cap A_{n})\\
+&=&P(B_{n-1}\cap A_{n})\\
+&=&P(B_{n-1})\cdot P(A_{n}|B_{n-1})\\
+&=&P(B_{n-1})\cdot P(A_{n}|A_{1}A_{2}\cdots A_{n-1}).
+\end{eqnarray*}
+
+类似地，我们有$P(B_{i}) = P(B_{i-1}) P(A_{i}|B_{i-1}),i=2,3,\cdots,n-2.$
+由此得证。
+\end{proof}
+\newpage
+\begin{example}[（罐子模型）]
+设罐子里有$b$个黑球，$r$个红球。每次随机取出一个球，取出后将原球放回，同时放入$c$个同色球和$d$个异色球。若连续从罐子里取出三个球，求三个球中有两个红球、一个黑球的概率。
+\end{example}
+\begin{solution}
+记$B_{i}$为“第$i$次取出的是黑球”，$R_{j}$为“第$j$次取出的是红球”。由乘法公式，可知所求的概率为
+\begin{eqnarray*}
+    P(B_{1} R_{2}R_{3})&=&P(B_{1})P(R_{2}|B_{1})P(R_{3}|B_{1}R_{2})=\frac{b}{b+r} \cdot \frac{r+d}{b+r+c+d}\cdot \frac{r+d+c}{b+r+2c+2d}, \\
+P(R_{1} B_{2}R_{3})&=&P(R_{1})P(B_{2}|R_{1})P(R_{3}|R_{1}B_{2})=\frac{r}{b+r} \cdot \frac{b+d}{b+r+c+d}\cdot \frac{r+d+c}{b+r+2c+2d},  \\
+P(R_{1} R_{2}B_{3})&=&P(R_{1})P(R_{2}|R_{1})P(B_{3}|R_{1}R_{2})=\frac{r}{b+r} \cdot \frac{r+c}{b+r+c+d}\cdot \frac{b+2d}{b+r+2c+2d}.
+\end{eqnarray*}
+\end{solution}
+
+\textbf{罐子模型的四种变形}
+\begin{enumerate}
+    \item \textbf{不放回抽样}：$c = -1$且$d = 0$.
+    $$P(B_{1} R_{2}R_{3})=P(R_{1} B_{2}R_{3})=P(R_{1} R_{2}B_{3})=\frac{br(r-1)}{(b+r)(b+r-1)(b+r-2)} $$
+    前次抽样结果会影响后次抽样结果；抽取的黑、红球个数确定，概率不依赖其抽球次序。
+    \item \textbf{放回抽样}：$c = 0$且$d = 0$.
+    $$P(B_{1} R_{2}R_{3})=P(R_{1} B_{2}R_{3})=P(R_{1} R_{2}B_{3})=\frac{br^{2} }{(b+r)^{3} } $$
+    前次抽样结果不会影响后次抽样结果；抽取的概率相等。
+    \item \textbf{传染病抽样}：$c > 0$且$d = 0$.
+    $$P(B_{1} R_{2}R_{3})=P(R_{1} B_{2}R_{3})=P(R_{1} R_{2}B_{3})=\frac{br(r+c) }{(b+r)(b+r+c)(b+r+2c) } $$
+    每次取出球后会增加下一次取到同色球的概率；每次发现一个传染病患者，以后都会增加再传染的概率
+    \item \textbf{安全抽样}：$c = 0$且$d > 0$.
+    \begin{eqnarray*}
+    P(B_{1} R_{2}R_{3})&=&\frac{b }{b+r } \cdot \frac{r+d }{b+r+d }\cdot \frac{r+d }{b+r+2d }\\
+    P(R_{1} B_{2}R_{3})&=&\frac{r }{b+r } \cdot \frac{b+d }{b+r+d }\cdot \frac{r+d }{b+r+2d }\\
+    P(R_{1} R_{2}B_{3})&=&\frac{r }{b+r } \cdot \frac{r}{b+r+d }\cdot \frac{b+2d }{b+r+2d }
+    \end{eqnarray*}
+    每当事故发生，安全工作就抓紧，下次再发生事故的概率就会减少；反之，没有事故，发生事故的概率增大。
+\end{enumerate}
+
+
+
+\begin{remark}
+\begin{itemize}
+    \item 只要$d=0$且抽取的黑球和红球个数确定，则所求的概率不依赖抽球的次序；
+    \item 当$d>0$时，则所求的概率与抽球的次序有关。
+\end{itemize}
+\end{remark}
+
+\section{全概率公式}
+\begin{definition}[样本空间的分割] \label{def: partition} 
+对样本空间$\Omega$，如果有$n$个事件$D_{1},D_{2} ,\cdots ,D_{n} $满足：
+\begin{enumerate}
+    \item 诸$D_{i}$互不相容：$\forall i\ne j,D_{i}\cap  D_{j}=\phi $；
+    \item $\bigcup_{i=1}^{n} D_{i}=\Omega $；
+\end{enumerate}
+则称$\{D_{1},D_{2},\cdots,D_{n}\}$为样本空间$\Omega$的一组分割。
+\end{definition}
+
+\begin{example}
+设样本空间为$R$。设两个已知的正常数$\mu>0,\sigma>0$。令
+\begin{itemize}
+    \item $D_{1}=\left \{ \left | x-m \right | \le a \right \} $代表一等品；
+    \item $D_{2}=\left \{ a< \left | x-m \right | \le 2a \right \} $代表二等品；
+    \item $D_{3}=\left \{ 2a< \left | x-m \right | \le 3a \right \} $代表三等品；
+    \item $D_{4}=\left \{ \left | x-m \right |>  3a \right \} $代表不合格品。
+    \item $\mathcal{D} =\left \{ D_{1} ,D_{2} ,D_{3} ,D_{4}  \right \} $是一组分割。
+\end{itemize}
+\end{example}
+
+
+\begin{theorem}[全概率公式] \label{thm:total_probability_theorem} 
+设$B_{1},B_{2},\cdots,B_{n}$为样本空间$\Omega$的一个分割，即$B_{1},B_{2},\cdots,B_{n}$互不相容，且$\bigcup_{i=1}^{n} B_{i}=\Omega $。如果$P(B_{i})>0$，则对任一事件$A$，有$$P(A)=\sum_{i=1}^{n} P(B_{i})P(A|B_{i})$$
+\end{theorem}
+
+\begin{proof}
+因为$$A=A\Omega =A\left(\bigcup_{i=1}^{n} B_{i} \right)=\bigcup_{i=1}^{n}\left(AB_{i} \right)$$
+因为$B_{1},B_{2},\cdots,B_{n}$互不相容，因此，$AB_{1},AB_{2},\cdots,AB_{n}$互不相容.\\
+由可加性知，$$P(A)=P\left(\bigcup_{i=1}^{n}\left(AB_{i} \right)\right)=\sum_{i=1}^{n} P\left(AB_{i} \right)=\sum_{i=1}^{n}P(B_{i} )P(A|B_{i} ).$$
+于是，定理得证。
+\end{proof}
+
+\begin{remark}
+\begin{enumerate}
+    \item 最简单的情况：如果$0<P(B)<1$，那么$P(A)=P(B)P(A|B)+P(\overline{B} )P(A|\overline{B} )$。
+    \item 在定理中，“$B_{1},B_{2},\cdots,B_{n}$为样本空间$\Omega$的一个分割”可改为“$B_{1},B_{2},\cdots,B_{n}$互不相容，且$A\subset \bigcup_{i=1}^{n} B_{i} $”，全概率公式仍成立。
+    \item 若$B_{1},B_{2},\cdots$可列个事件互不相容，且$A\subset \bigcup_{i=1}^{\infty} B_{i} $，则全概率公式仍成立。
+\end{enumerate}
+\end{remark}
+
+\begin{example}[（摸彩模型）]
+    设在$n$张彩票中有一张可中大奖，求第二个人摸出中奖彩票的概率是多少？
+\end{example}
+\begin{solution}
+设$A_{i}=${“第$i$个人摸到中奖彩票”}$,i=1,2,\cdots,n$。
+第一个人模出中奖彩票的概率为$$P(A_1) = \frac{1}{n},$$而
+其未摸出中奖彩票的概率为$$P(\overline{A_{1}  } )=\frac{n-1}{n}.$$
+在第一个人是否模出中奖彩票的条件下，第二个人能否摸出中奖彩票$A_{2}$的条件概率是不同的，即
+\begin{itemize}
+\item 如果第一个人中奖，第二个人一定不会中奖，即$$P(A_{2} |A_{1} )=0.$$
+\item 如果第一个人未中奖，第二个人中奖的机会更大，即$$P(A_{2} |\overline{A_{1} } )=\frac{1}{n-1} ;$$
+\end{itemize}
+由全概率公式可知$$P(A_{2})=P(A_{1}  )P(A_{2}| A_{1} )+P(\overline{A_{1}  } )P(A_{2}| \overline{A_{1}}  )=\frac{1}{n} \cdot 0+\frac{n-1}{n}\cdot\frac{1}{n-1}=\frac{1}{n} .$$
+\end{solution}
+
+\begin{remark}
+    类似地，可以推导出$$P(A_{i})=\frac{1}{n} ,i=1,2,\cdots ,n.$$
+    这表明，摸到中奖彩票的机会与先后次序无关。
+\end{remark}
+
+\begin{example}[（敏感性问题调查）]
+    敏感性问题调查是社会调查之一。常见的敏感性问题调查包括是否参加赌博？是否浏览过黄色书刊或影像？是否吸毒？是否偷税漏税？是否在考试中作弊？等。对敏感性问题的调查方案，关键要使被调查者作出真实回答优能保守个人隐私。一旦调查方案设计有误，被调查者就会拒绝配合，所得调查数据将失去真实性。经过多年研究和实践，一些心理学家和统计学家设计了一种调查方案。在这个方案中，被调查者只需要回答以下两个问题中的一个问题，而且只需要回答“是”或“否”。
+    \begin{itemize}
+        \item {\bf 问题 A}：你的生日是否在7月1日之前？
+        \item {\bf 问题 B}：你是否在考试中作弊？
+    \end{itemize}
+    这个调查方案看似简单，但为了消除被调查者的顾虑，使被调查者确信其参加这次调查不会泄露个人秘密，在操作中有以下关键点：
+    \begin{enumerate}
+        \item 被调查者在没有旁人的情况下，独自一人在一个房间内操作并回答问题；
+        \item 被调查者从一个罐子（罐子里只有白球和红球）里随机抽一个球，确认颜色后即放回。若抽到的是白球，则回答问题A；若抽到的是红球，则回答问题B。
+\end{enumerate}
+
+被调查者无论回答问题A或问题B，只需要在答卷上认可的方框内搭够，然后把答卷放入一个密封的投票箱内。
+
+设我们有$n$张答卷，其中有$k$张答卷回答“是”。但是我们并不知道此$n$张答卷中有多少张是回答问题B的，同样无法知道$k$张回答“是”的答卷中有多少张是回答问题B得。但有两个信息我们是预先知道的，即
+\begin{enumerate}
+    \item 当$n$较大时，任选一人的生日在7月1日之前的概率为0.5。
+    \item 罐中红球的比率$\pi$已知。
+\end{enumerate}
+
+根据$(n,k,0.5,\pi)$求出问题B回答“是”的比例$p$。由全概率公式可知，
+$$
+P(\text{是}) = P(\text{白球})P(\text{是}|\text{白球})+ P(\text{红球})P(\text{是}|\text{红球}).
+$$
+将$P(\text{红球})=\pi,P(\text{白球})=1-\pi, P(\text{是}|\text{白球})=0.5,P(\text{是}|\text{红球})=p$代入上式，而$P(\text{是})$用频率$k/n$代替，得
+$$
+\frac{k}{n} = 0.5(1-\pi) + p\pi
+$$
+由此得
+$$
+p = \frac{k/n - 0.5(1-\pi)}{\pi}.
+$$
+\end{example}
+\section{贝叶斯公式}
+\begin{theorem}[贝叶斯公式] \label{thm:Bayes_Rule} 
+设$B_{1},B_{2},\cdots,B_{n}$为样本空间$\Omega$的一个分割，即$B_{1},B_{2},\cdots,B_{n}$互不相容，且$\bigcup_{i=1}^{n} B_{i}=\Omega $.如果$P(A)>0,P(B_{i})>0,i=1,2,\cdots,n$，则$$P(B_{i} |A)=\frac{P(B_{i} )P(A|B_{i} )}{\sum_{j=1}^{n} P(B_{j} )P(A|B_{j} )} ,i=1,2,\cdots ,n$$
+\end{theorem}
+
+\begin{proof}
+由条件概率的定义可知$$P(B_{i} |A)=\frac{P(AB_{i} )}{P(A)} =\frac{P(B_{i} )P(A|B_{i} )}{\sum_{j=1}^{n} P(B_{j} )P(A|B_{j} )}.$$
+于是定理得证。
+\end{proof}
+
+\begin{example}\label{ex:chap01_bayes_formula_liver_cancer}
+某地区居民的肝癌发病率为$0.0004$，现用甲胎蛋白法进行普查。医学研究表明，化验结果是可能存在错误的。已知患有肝癌的人其化验结果$99\%$呈阳性，而没患肝癌的人其化验结果$99.9\%$呈阴性。现某人的检查结果呈阳性，问他真的患肝癌的概率是多少？
+\end{example}
+\begin{solution}
+记$B$为事件“被检查者患有肝癌”，$A$为事件“检查结果呈阳性”。根据题目可知，
+\begin{eqnarray*}
+    P(B) &=& 0.0004, \quad P(\overline{B}) = 1- 0.0004 = 0.9996\\
+    P(A|B) &=& 0.99, \quad P(A|\overline{B}) = 1- 0.999 = 0.001
+\end{eqnarray*}
+我们关心的问题是求$P(B|A)$。由贝叶斯公式得
+\begin{eqnarray*}
+    P(B|A) &=& \frac{P(B)P(A|B)}{P(B)P(A|B)+P(\overline{B})P(A|\overline{B}}\\
+    &=& \frac{0.0004 \times 0.99}{0.0004\times 0.99 + 0.9996 \times 0.001} = 0.2837.
+\end{eqnarray*}
+这表明了，在检查结果呈阳性的人中，真患肝癌的人约为$28.37\%$。
+\end{solution}
+\begin{remark}
+    分析原因：肝癌的发病率很低。在10000个人中约有4人患肝癌，而约有9996人不患肝癌。对10000个人用甲胎蛋白法进行检查，按其错检的概率可知，99996个不患肝癌的人约有$9996\times 0.001 = 9.996$个呈阳性。另外4个真患肝癌者的检查报告中约为$4\times 0.99 = 3.96$个呈阳性。从13.956个呈阳性者中，真患肝癌的3.96人约占28.37\%。
+\end{remark}
+\begin{example}[(例\ref{ex:chap01_bayes_formula_liver_cancer}续)]
+对首次检查呈阳性的人群再进行复查。此时$P(B)=0.2837$，再次使用贝叶斯公式可得
+\begin{eqnarray*}
+    P(B|A) &=& \frac{P(B)P(A|B)}{P(B)P(A|B)+P(\overline{B})P(A|\overline{B}}\\
+    &=& \frac{0.2847 \times 0.99}{0.2847\times 0.99 + 0.7153 \times 0.001} = 0.9975.
+\end{eqnarray*}
+\end{example}
+接下来，我们用数学方式来讲一个寓言故事“狼来了”。
+\begin{example}[（狼来了）]
+设事件$A$为“小孩说谎”，事件$B$为“小孩可信”。
+
+不妨设村民过去对这个小孩的印象为$$P(B)=0.8 \quad P(\overline{B} )=0.2.$$
+第一次说谎后，村民对他的信任程度有所改变。我们假设可信的孩子说谎的概率为$P(A|B)=0.1$，不可信的孩子说谎的概率为$P(A|\overline{B})=0.4$.
+
+利用贝叶斯公式，计算小孩第一次说谎后，其可信的概率为$$P(B|A)=\frac{P(B)P(A|B)}{P(B)P(A|B)+P(\overline{B} )P(A|\overline{B})} =\frac{0.8\times 0.1}{0.8\times 0.1+0.2\times 0.4}=0.5.$$
+在一次说谎后，村民对小孩的信任程度由0.8变为0.5.即$$P(B)=0.5 \quad P(\overline{B} )=0.5.$$
+
+第二次说谎后，村民对他的信任程度为$$P(B|A)=\frac{0.5\times 0.1}{0.5\times 0.1+0.5\times 0.4}=0.25.$$
+\end{example}
+\section{独立性}
+\begin{example}[（有回放机制 VS 无回放机制）] 假设罐子里有$r$个红球，有$b$个黑球。令$R_1$为事件“第一个人抽到红球”，$R_2$为事件“第二个人抽到红球”。
+
+在\textbf{有回放}机制下，“第二个人是否能够抽到红球”不受到“第一个人是否抽到红球”结果的影响。于是，
+\begin{eqnarray*}
+    P(R_1) &=& \frac{r}{r+b}\\
+    P(R_2) &=& \frac{r}{r+b}\\
+    P(R_1R_2) &=& \frac{r^2}{(r+b)^2} = \frac{r}{r+b} \cdot \frac{r}{r+b}  = P(R_1)\cdot P(R_2). 
+\end{eqnarray*}
+
+
+在\textbf{无回放}机制下，“第二个人是否能够抽到红球”会受到“第一个人是否抽到红球”结果的影响。
+\begin{eqnarray*}
+    P(R_1) &=& \frac{r}{r+b}\\
+    P(R_2) &=& P(R_1) P(R_2|R_1) + P(\overline{R_1}) P(R_2|\overline{R_1}) \\
+    & = & \frac{r}{r+b} \cdot \frac{r-1}{r+b-1} + \frac{b}{r+b}\cdot \frac{r}{r+b-1} = \frac{r}{r+b}\\
+    P(R_1R_2) &=& \frac{C_r^2}{C_{r+b}^2} = \frac{r!/(2!(r-2)!)}{(r+b)!/(2!(r+b-2)!)} = \frac{r(r-1)}{(r+b)(r+b-1)}\neq P(R_1)\cdot P(R_2). 
+\end{eqnarray*}
+\end{example}
+
+比较上述两个例子，我们可以定义“独立性”的概念。\textbf{独立性}指的是一个事件的发生（与否）不影响另一个事件的发生（与否）。
+
+\begin{definition}[独立性]
+    如果
+    $$P(AB) = P(A)P(B)$$
+    成立，则称事件$A$与$B$相互独立，简称$A$与$B$独立。否则，称$A$与$B$不独立或相依。
+\end{definition}
+
+\begin{property}
+若事件$A$与$B$独立，则
+\begin{enumerate}
+    \item $A$与$\overline{B}$独立；
+     \item $\overline{A}$与$B$独立；
+    \item $\overline{A}$与$\overline{B}$独立；
+\end{enumerate}
+\end{property}
+\begin{proof}
+    这里我们仅证明第一个性质，另外两条性质供学生课后自行证明。由于概率的性质可知，
+    $$P(A\overline{B}) = P(A) - P(AB) = P(A)- P(A)P(B) = P(A)(1-P(B)) = P(A)P(\overline{B}).$$
+    于是，性质得证。
+\end{proof}
+
+\vspace{8cm}
+
+\begin{definition}[两两独立性vs相互独立]
+    设有三个事件$A,B,C$。如果
+    \begin{equation}
+        \left\{
+        \begin{aligned}
+       &    P(AB)=P(A)P(B)\\
+       & P(AC)=P(A)P(C)\\
+       & P(BC)=P(B)P(C)
+        \end{aligned}
+        \right.\label{eq: Lect2_pairwise_independence}
+    \end{equation}
+    则称$A,B,C$两两独立。若还有
+    \begin{equation}
+          P(ABC)=P(A)P(B)P(C),\label{eq: Lect2_triple_independence}
+    \end{equation}
+    则称$A,B,C$相互独立。
+\end{definition}
+\begin{remark}
+ 
+\end{remark}
+\begin{example}[（等式(\ref{eq: Lect2_pairwise_independence} )$\nRightarrow$ 等式(\ref{eq: Lect2_triple_independence})）]
+        设又一个均匀的正四面体，其第一面染成红色，第二面染成白色，第三面染成黑色，而第四面染成有红、白、黑三种颜色。现在以$A,B,C$分别记为投一次四面体出现红、白、黑颜色的事件，则由于四面体种有两面染有红色，因此，$P(A)= P(B) = P(C) = 1/2$。另外，容易算出
+        $$P(AB) = P(BC) = P(AC)=1/4.$$
+        所以，$A,B,C$两两独立。但是，
+        $$P(ABC) = 1/4 \neq 1/8 = P(A)P(B)P(C).$$
+        因而，$A,B,C$不相互独立。
+    \end{example}
+    \begin{example}[（等式(\ref{eq: Lect2_triple_independence} )$\nRightarrow$ 等式(\ref{eq: Lect2_pairwise_independence})）]
+    由一个均匀正八面体，其第一、二、三、四面染上红色；第一、二、三、五面染上白色；第一、六、七、八面染上黑色。令$A = \{\text{抛一次正八面体，朝下的一面出现红色}\}$，$B = \{\text{抛一次正八面体，朝下的一面出现白色}\}$，$C = \{\text{抛一次正八面体，朝下的一面出现黑色}\}$。则
+    \begin{eqnarray*}
+        P(A)=P(B) = P(C) &=& \frac{1}{2},\\
+        P(ABC) &=& \frac{1}{8} = P(A) P(B)P(C).
+    \end{eqnarray*}
+    但是，
+    $$P(AB) = \frac{3}{8} \neq P(A)P(B).$$
+    所以，事件$A,B,C$不两两独立。
+    \end{example}
+
+    
+\begin{example}
+    设$A,B,C$三个事件相互独立，那么事件$A\cup B$与$C$相互独立。
+\end{example}
+\begin{proof}
+    因为$P(A\cup B) C = AC \cup BC$. 所以，
+    \begin{eqnarray*}
+        P((A\cup B)C) &=& P(AC \cup BC) \\
+        &=& P(AC) + P(BC) - P(AC \cap BC)\\
+        &=& P(A)P(C) + P(B)P(C) - P(A)P(B)P(C)\\
+        &=& \left(P(A) + P(B) -P(A)P(B)\right)\cdot P(C)\\
+        &=& P(A\cup B) P(C).
+    \end{eqnarray*}
+    因此，$A\cup B$与$C$相互独立。
+\end{proof}
+
+\begin{definition}[$n$个事件的独立性]
+    设有$n$个事件$A_1,A_2,\cdots,A_n$，对任意的$1\leq i<j<k<\cdots\leq n $，如果
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+       &    P(A_iA_j) = P(A_i)P(A_j)\\
+       & P(A_iA_jA_k) = P(A_i)P(A_j)P(A_k)\\
+       &\vdots\\
+       & P(A_1A_2\cdots A_n) = \prod_{i=1}^n P(A_i) 
+        \end{aligned}
+        \right.
+    \end{equation*}
+    则称此$n$个事件$A_1,A_2,\cdots,A_n$相互独立。
+\end{definition}
+
+\begin{definition}[条件独立性]
+    设有三个事件$A,B,C$，且$P(C)>0$。如果
+    $$
+    P(AB|C) = P(A|C) P(B|C)
+    $$
+    则称在给定事件$C$，$A$与$B$是条件独立的。
+\end{definition}
+\begin{remark}
+    \begin{itemize}
+        \item 若$P(B\cap C)>0$, 给定$C$，$A$与$B$是条件独立的等价于$P(A|B\cap C) = P(A|C)$.
+        \item 独立性无法推导出条件独立性；反之亦然。
+    \end{itemize}
+\end{remark}
+\begin{example}
+    考虑独立地投掷两枚公平的硬币，即所有结果都是等可能的。令
+    \begin{eqnarray*}
+        H_1 &=& \{\text{第一枚硬币正面}\}\\
+        H_2 &=& \{\text{第二枚硬币正面}\}\\
+        D &=&  \{\text{两枚硬币的结果不一致}\}
+    \end{eqnarray*}
+    于是，$H_1$和$H_2$是独立的。但是，
+    $$
+    P(H_1|D) = \frac{1}{2},\quad P(H_2|D) = \frac{1}{2},\quad P(H_1\cap H_2|D) =0.
+    $$
+    所以，$P(H_1\cap H_2|D) \neq P(H_1|D) P(H_2|D)$。这意味着$H_1$和$H_2$不是条件独立的。
+\end{example}
+\begin{example}
+    有两枚硬币，一红一蓝。我们从中等概率地随机选择一枚，并独立地进行两次投掷。假定这两枚硬币是有偏的。蓝色的硬币正面朝上的概率为0.99，而红色的硬币正面朝上的概率为0.01.
+
+    令$B$为事件“蓝色的硬币被选中”，$H_i$为事件“第$i$次投掷的结果为正面朝上”。在选定硬币后，$H_1$和$H_2$是独立的。于是，
+    $$
+    P(H_1 \cap H_2 | B) = P(H_1|B) P(H_2|B) = 0.99^2.
+    $$
+
+    另一方面，$H_1$和$H_2$不是独立的。这是因为，如果第一次投掷的结果为正面朝上，者导致我们会猜测，选中的是蓝色硬币，这样第二次投掷正面朝上的概率就更大。从数学公式中，我们可以计算
+    \begin{eqnarray*}
+        P(H_1) &=& P(H_2) = P(B)P(H_1|B) + P(\overline{B})P(H_1|\overline{B}) = 0.5 \cdot 0.99 + 0.5 \cdot 0.01 = 0.5.\\
+        P(H_1\cap H_2) &=& P(B) P(H_1\cap H_2|B) + P(\overline{B})P(H_1\cap H_2|\overline{B}) = 0.5 \cdot 0.99^2 + 0.5 \cdot 0.01^2 = 0.4901.
+    \end{eqnarray*}
+    因此，$P(H_1\cap H_2) \neq P(H_1)P(H_2)$，即$H_1$和$H_2$不独立。
+\end{example}
+\section{习题}
+
+
+    \begin{enumerate}
+        \item 口袋中有一个球，不知其颜色是黑还是白。现再往口袋中放入一个白球，然后从口袋中任意取出一个，发现取出的是白球，试问口袋中原来那个球是白球的可能性为多少？
+
+\item 假设只考虑天气的两种情况：有雨或者无雨。若已知今天的天气情况，明天的天气相同的概率为$p$，不同的概率为$1-p$。设第一天无雨，试求第$n$天也无雨的概率。
+
+\item 设$P(A) > 0$,试证：
+$$
+P(B|A) \geq 1-\frac{P(\bar{B})}{P(A)}.
+$$
+
+\item 甲、乙两选手进行乒乓球单打比赛，已知在每局中甲胜的概率为$0.6$,乙胜的概率为$0.4$。比赛可采用三局两胜制或五局三胜制，试问哪一种比赛制度对甲更有利？
+
+\item 对于事件$A$与事件$B$,假设$P(B) > 0$，证明$P(A\cap B|B) = P(A|B)$。
+
+\item 现用噪声通信信道进行通信。信源通过噪声通信信道发送消息（一串符号），如图\ref{fig:L2Ex6}所示。每个符号为 0 或 1，概率分别为$p$和$1−p$，且分别以概率$\epsilon_0$和$\epsilon_1$被错误接收，不同符号被错误接收的概率是独立的。
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[scale=2]{image_ex/Lect2_Ex6.png}
+    \caption{第(6)道习题示意图}
+    \label{fig:L2Ex6}
+\end{figure}
+请回答以下问题：
+\begin{enumerate}
+    \item 正确接收第$k$个符号的概率是多少？
+    \item 符号串1011被正确接收的概率是多少？
+    \item 为了提高传输可靠性，每个符号将被传输三次，接收的字符串按多数规则进行解码。这种方式被称为“三次传输”。比如，要发送的符号为0，则发送的符号串为000。在接收器处要解码为0，当且仅当，所接收到的三个符号串中包含两个及以上的0。0被正确解码的概率是多少？
+    \item 当$\epsilon_0$取值为多少时，相较于单次传输，三次传输能够提高0被正确解码的概率？
+    \item 在三次传输中，已知接收到的符号串为101时，所发送的符号为0的概率是多少？
+\end{enumerate}
+    \end{enumerate}
+% \begin{exercise}    
+% \end{exercise}
+
