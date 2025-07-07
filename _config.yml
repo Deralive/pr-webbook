@@ -30,6 +30,11 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  launch_buttons:
+    thebe: true
+#    binderhub_url: "[https://mybinder.org](https://mybinder.org)"
+#    colab_url: "[https://colab.research.google.com](https://colab.research.google.com)" # 可选，添加 Colab 打开按钮
+
 
 
 parse:
@@ -51,16 +56,11 @@ parse:
     # - substitution
     - tasklist
 
-  
+
 sphinx:
   config:
     mathjax_path: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
   extra_extensions:
+    - sphinx_thebe
     - sphinx_proof
     - sphinx_togglebutton
-
-launch_buttons:
-   thebe: true
-
-
-
