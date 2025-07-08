@@ -1,13 +1,17 @@
 # 假设检验的基本概念
 这里我们先给出假设检验的一些基础概念。
 
-设有来自某一个参数分布族 $\{F(x,\theta)|\theta \in \Theta\}$ 的样本 $x_1,x_2,\cdots,x_n$ ，其中 $\Theta$ 为参数空间。设 $\Theta_0 \subset \Theta$ 且 $\Theta_0 \neq \emptyset$ 。则称命题
+假设
+: 设有来自某一个参数分布族 $\{F(x,\theta)|\theta \in \Theta\}$ 的样本 $x_1,x_2,\cdots,x_n$ ，其中 $\Theta$ 为参数空间。设 $\Theta_0 \subset \Theta$ 且 $\Theta_0 \neq \emptyset$ 。则称命题
 
 $$
 H_0 : \theta \in \Theta_0
 $$
 
-为一个假设，或原假设，或零假设（null hypothesis）。若有另一个 $\Theta_1 (\Theta_1 \subset \Theta, \Theta_1 \cap \Theta_0 = \emptyset)$ ，则称命题
+为一个假设，或原假设，或零假设（null hypothesis）。
+
+对立假设或备择假设
+: 若有另一个 $\Theta_1 (\Theta_1 \subset \Theta, \Theta_1 \cap \Theta_0 = \emptyset)$ ，则称命题
 
 $$
 H_1 : \theta \in \Theta_1
@@ -47,7 +51,8 @@ $$
 
 在提出一个假设检验问题（给出一对假设）之后，我们需要给出一个具体的判断规则，称这个判断规则为该假设的一个检验或者检验法则。
 
-给定样本 $x_1,x_2,\cdots,x_n$ 。对于其样本空间 $\Omega$ ，我们可以确定一组划分
+接受域
+: 给定样本 $x_1,x_2,\cdots,x_n$ 。对于其样本空间 $\Omega$ ，我们可以确定一组划分
 
 $$
 W \cap \overline{W} = \emptyset, \quad W \cup \overline{W} = \Omega.
@@ -55,7 +60,8 @@ $$
 
 当 $(x_1,x_2,\cdots,x_n) \in W$ 时，拒绝 $H_0$ ；否则接受 $H_0$ 。于是，称 $W$ 为该检验的拒绝域，而称 $\overline{W}$ 为接受域。
 
-```{admonition} Remark 一旦拒绝域确定了，检验的判断准则也就确定了。
+```{admonition} Remark
+一旦拒绝域确定了，检验的判断准则也就确定了。
 ```
 
 因为我们的检验是基于样本而确定的，所以，对于任何的检验而言，我们所作出的判断都可能犯错。检验有常见的两类错误，如表 {numref}`tab:lect22_1` 所示。
@@ -90,7 +96,8 @@ $$
 事实上，第一类错误发生概率和第二类错误发生概率无法同时降低，那么哪一种错误值得我们在意呢？
 ```
 
-为统一地表示第一类错误发生的概率和第二类错误发生的概率，我们引入势函数或功效函数（power function）。
+势函数
+: 为统一地表示第一类错误发生的概率和第二类错误发生的概率，我们引入势函数或功效函数（power function）。
 
 设检验问题
 

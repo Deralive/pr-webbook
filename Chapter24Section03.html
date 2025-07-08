@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -723,7 +723,10 @@ N\left(\frac{\frac{\mu_0}{\tau^2} + \frac{\bar{x}}{\sigma_0^2/n}}{\frac{1}{\tau^
 <li><p>所求的后验分布与先验分布的分布都是正态分布，这是贝叶斯估计里一种特殊且具有一定普遍性的现象。</p></li>
 </ul>
 </div>
-<p>若后验分布 <span class="math notranslate nohighlight">\(\pi \left(\theta \mid x_{1}, \cdots, x_{n}\right)\)</span> 与先验分布属于同一分布族，则称该分布族是 <span class="math notranslate nohighlight">\(\theta\)</span> 的共轭先验分布（族）。</p>
+<dl class="simple myst">
+<dt>共轭先验分布（族）</dt><dd><p>若后验分布 <span class="math notranslate nohighlight">\(\pi \left(\theta \mid x_{1}, \cdots, x_{n}\right)\)</span> 与先验分布属于同一分布族，则称该分布族是 <span class="math notranslate nohighlight">\(\theta\)</span> 的共轭先验分布（族）。</p>
+</dd>
+</dl>
 <p>这里我们针对贝叶斯估计做一些更为深入的讨论。</p>
 <div class="admonition-remark admonition">
 <p class="admonition-title">Remark</p>
@@ -749,14 +752,14 @@ N\left(\frac{\frac{\mu_0}{\tau^2} + \frac{\bar{x}}{\sigma_0^2/n}}{\frac{1}{\tau^
 \begin{eqnarray*}
 \text{MSE}_{\theta}(\hat{\theta}) &amp;=&amp; E_{x_1,x_2,\cdots,x_n}(\hat{\theta}-\theta)^2\\
 &amp;=&amp; \int_{x_n \in R} \cdots \int_{x_1 \in R} (\hat{\theta}-\theta)^2 p(x_1,x_2,\cdots,x_n|\theta) \text{d}x_1\cdots\text{d}x_n\\
-&amp;=&amp; \int_{\mathbf{x} \in R^{n}} (\hat{\theta}-\theta)^2 p(\mathbf{x}|\theta) \text{d} \mathbf{x}.
+&amp;=&amp; \int_{\boldsymbol{x} \in R^{n}} (\hat{\theta}-\theta)^2 p(\boldsymbol{x}|\theta) \text{d} \boldsymbol{x}.
 \end{eqnarray*}
 \end{split}\]</div>
-<p>这里 <span class="math notranslate nohighlight">\(\mathbf{x} = (x_1,x_2,\cdots,x_n)'\)</span> 。我们之前在介绍均方误差时，参数 <span class="math notranslate nohighlight">\(\theta\)</span> 认为是一个未知常数，但在贝叶斯学派中， <span class="math notranslate nohighlight">\(\theta\)</span> 认为是一个随机变量，所以 <span class="math notranslate nohighlight">\(MSE(\hat{\theta})\)</span> 也被认为是一个随机变量，其依赖于 <span class="math notranslate nohighlight">\(\theta\)</span> 。我们可以整体来比较估计的均方误差，于是计算均方误差的期望，即</p>
+<p>这里 <span class="math notranslate nohighlight">\(\boldsymbol{x} = (x_1,x_2,\cdots,x_n)'\)</span> 。我们之前在介绍均方误差时，参数 <span class="math notranslate nohighlight">\(\theta\)</span> 认为是一个未知常数，但在贝叶斯学派中， <span class="math notranslate nohighlight">\(\theta\)</span> 认为是一个随机变量，所以 <span class="math notranslate nohighlight">\(MSE(\hat{\theta})\)</span> 也被认为是一个随机变量，其依赖于 <span class="math notranslate nohighlight">\(\theta\)</span> 。我们可以整体来比较估计的均方误差，于是计算均方误差的期望，即</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
-E_\theta(\text{MSE}_{\theta}(\hat{\theta})) &amp;=&amp; \int_{\theta \in \Theta} \int_{\mathbf{x} \in R^{n}} \left( \int (\hat{\theta}-\theta)^2 p(\mathbf{x}|\theta) \text{d} \mathbf{x} \right)\cdot \pi(\theta) \text{d} \theta\\
+E_\theta(\text{MSE}_{\theta}(\hat{\theta})) &amp;=&amp; \int_{\theta \in \Theta} \int_{\boldsymbol{x} \in R^{n}} \left( \int (\hat{\theta}-\theta)^2 p(\boldsymbol{x}|\theta) \text{d} \mathbf{x} \right)\cdot \pi(\theta) \text{d} \theta\\
 &amp;=&amp; \int_{\theta \in \Theta} \int_{\mathbf{x} \in R^{n}} (\hat{\theta}-\theta)^2 p(\mathbf{x}|\theta) \cdot \pi(\theta) \text{d} \mathbf{x} \text{d} \theta\\
 &amp;=&amp; \int_{\theta \in \Theta} \int_{\mathbf{x} \in R^{n}} (\hat{\theta}-\theta)^2 \pi(\theta|\mathbf{x}) m(\mathbf{x})\text{d} \mathbf{x} \text{d} \theta\\
 &amp;=&amp;\int_{\mathbf{x} \in R^{n}} \int_{\theta \in \Theta} (\hat{\theta}-\theta)^2 \pi(\theta|\mathbf{x}) \text{d} \theta m(\mathbf{x}) \text{d} \mathbf{x}

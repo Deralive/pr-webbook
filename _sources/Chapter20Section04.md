@@ -1,6 +1,7 @@
 # 大样本的评估方式 2——渐近正态性
 
-若 $\hat{\theta}_n$ 是 $\theta$ 的相合估计。若存在趋于 $0$ 的非负常数序列 $\sigma_n(\theta)$ ，使得
+渐近方差
+: 若 $\hat{\theta}_n$ 是 $\theta$ 的相合估计。若存在趋于 $0$ 的非负常数序列 $\sigma_n(\theta)$ ，使得
 
 $$
 \frac{\hat{\theta}-n \theta}{\sigma_n(\theta)}

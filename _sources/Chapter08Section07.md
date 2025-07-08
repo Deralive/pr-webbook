@@ -100,7 +100,7 @@ $$P((X, Y) \in G)=\iint_{G} p(x, y) d x d y=\iint_{G} \frac{1}{S_{D}} d x d y=\f
 
 ## 多维正态分布
 
-若 $\mathbf{X}=\left(x_{1}, x_{2}, \cdots, x_{n}\right)'$ 为一个 $n$ 维随机变量，其密度函数为
+若 $\boldsymbol{X}=\left(x_{1}, x_{2}, \cdots, x_{n}\right)'$ 为一个 $n$ 维随机变量，其密度函数为
 
 $$p\left(x_{1}, x_{2}, \cdots, x_{n}\right)=p(\mathbf{x})=(2 \pi)^{-\frac{n}{2}}|\Sigma|^{-\frac{1}{2}} \exp \left\{-\frac{1}{2}(\mathbf{x}-\mathbf{\mu})' \Sigma^{-1}(\mathbf{x}-\mathbf{\mu})\right\}$$
 

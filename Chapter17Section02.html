@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -593,7 +593,10 @@ document.write(`
 <p>在本讲中，首先我们介绍三种“新”的分布，这些分布都来自于用于估计和检验任务中常见的统计量。与之前学习思路不同，这些分布并不是来自于伯努利实验，也并不是通过数学推导而得的。这些分布是构造出来的，我们需要关注于这三个分布的构造方式。</p>
 <section id="id2">
 <h2><span class="section-number">17.2.1. </span>卡方分布<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>在第 6 讲中，我们已经证明了一个命题：标准正态分布 <span class="math notranslate nohighlight">\(X\sim N(0,1)\)</span> ，则 <span class="math notranslate nohighlight">\(X^2 \sim Ga(1/2,1/2)\)</span> 。我们将 <span class="math notranslate nohighlight">\(Ga(1/2,1/2)\)</span> 命名为卡方分布 <span class="math notranslate nohighlight">\(\chi^2(1)\)</span> 。另外，在第 9 讲中，我们也已经证明了一个命题：伽马分布具有可加性。于是，如果 <span class="math notranslate nohighlight">\(Y_1,Y_2,\cdots,Y_n\)</span> 独立同分布于 <span class="math notranslate nohighlight">\(Ga(1/2,1/2)\)</span> ，那么</p>
+<dl class="simple myst">
+<dt>卡方分布</dt><dd><p>在第 6 讲中，我们已经证明了一个命题：标准正态分布 <span class="math notranslate nohighlight">\(X\sim N(0,1)\)</span> ，则 <span class="math notranslate nohighlight">\(X^2 \sim Ga(1/2,1/2)\)</span> 。我们将 <span class="math notranslate nohighlight">\(Ga(1/2,1/2)\)</span> 命名为卡方分布 <span class="math notranslate nohighlight">\(\chi^2(1)\)</span> 。另外，在第 9 讲中，我们也已经证明了一个命题：伽马分布具有可加性。于是，如果 <span class="math notranslate nohighlight">\(Y_1,Y_2,\cdots,Y_n\)</span> 独立同分布于 <span class="math notranslate nohighlight">\(Ga(1/2,1/2)\)</span> ，那么</p>
+</dd>
+</dl>
 <div class="math notranslate nohighlight">
 \[
 \sum_{i=1}^n Y_i \sim Ga(n/2,1/2).

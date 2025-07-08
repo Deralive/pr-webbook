@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -578,7 +578,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">19.1. </span>引导问题<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>在参数模型中，假定总体分布 <span class="math notranslate nohighlight">\(X\sim p(x;\mathbf{\theta}),\mathbf{\theta}\in \mathbf{\Theta}\)</span> 。这里 <span class="math notranslate nohighlight">\(\mathbf{\theta}\)</span> 是总体分布中的未知参数，可以是一维的，也可以是多维的。</p>
+<p>在参数模型中，假定总体分布 <span class="math notranslate nohighlight">\(X\sim p(x;\boldsymbol{\theta}),\boldsymbol{\theta}\in \boldsymbol{\Theta}\)</span> 。这里 <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> 是总体分布中的未知参数，可以是一维的，也可以是多维的。</p>
 <div class="proof example admonition" id="example-0">
 <p class="admonition-title"><span class="caption-number">Example 19.1 </span></p>
 <section class="example-content" id="proof-content">
@@ -590,7 +590,7 @@ document.write(`
 \[
 \mathcal{P} = \left\{\frac{\lambda^x}{x!}e^{-\lambda}: \lambda &gt; 0\right\},
 \]</div>
-<p>其中参数是 <span class="math notranslate nohighlight">\(\mathbf{\theta} = \lambda, \mathbf{\Theta} = R^{+}\)</span> 。一旦 <span class="math notranslate nohighlight">\(\lambda = \lambda_0\)</span> 确定后，总体分布就唯一确定。</p>
+<p>其中参数是 <span class="math notranslate nohighlight">\(\boldsymbol{\theta} = \lambda, \boldsymbol{\Theta} = R^{+}\)</span> 。一旦 <span class="math notranslate nohighlight">\(\lambda = \lambda_0\)</span> 确定后，总体分布就唯一确定。</p>
 <ul class="simple">
 <li><p>若 <span class="math notranslate nohighlight">\(X \sim N(\mu,\sigma^2)\)</span> 。这里总体分布存在一个正态分布族，即</p></li>
 </ul>
@@ -598,18 +598,18 @@ document.write(`
 \[
 \mathcal{P} = \left\{\frac{1}{\sqrt{2\pi \sigma^2}}\exp\left\{-\frac{1}{2\sigma^2}(x-\mu)^2\right\}: \mu \in R, \sigma^2 &gt; 0\right\},
 \]</div>
-<p>其中参数是 <span class="math notranslate nohighlight">\(\mathbf{\theta} = (\mu,\sigma^2)', \mathbf{\Theta} = R\times R^{+}\)</span> 。一旦 <span class="math notranslate nohighlight">\((\mu,\sigma^2) = (\mu_0,\sigma_0^2)\)</span> 确定后，总体分布就唯一确定。</p>
+<p>其中参数是 <span class="math notranslate nohighlight">\(\boldsymbol{\theta} = (\mu,\sigma^2)', \boldsymbol{\Theta} = R\times R^{+}\)</span> 。一旦 <span class="math notranslate nohighlight">\((\mu,\sigma^2) = (\mu_0,\sigma_0^2)\)</span> 确定后，总体分布就唯一确定。</p>
 </section>
-</div><p>实际中，参数模型中的参数都是未知的，而我们需要通过样本 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 来推断 <span class="math notranslate nohighlight">\(\mathbf{\theta}\)</span> （或其函数 <span class="math notranslate nohighlight">\(g(\mathbf{\theta})\)</span> ）。</p>
+</div><p>实际中，参数模型中的参数都是未知的，而我们需要通过样本 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 来推断 <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> （或其函数 <span class="math notranslate nohighlight">\(g(\boldsymbol{\theta})\)</span> ）。</p>
 <dl class="simple myst">
-<dt>估计</dt><dd><p>设 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 是来自总体的一个样本，称用于估计未知参数 <span class="math notranslate nohighlight">\(\mathbf{\theta}\)</span> 的统计量</p>
+<dt>估计</dt><dd><p>设 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 是来自总体的一个样本，称用于估计未知参数 <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> 的统计量</p>
 </dd>
 </dl>
 <div class="math notranslate nohighlight">
 \[
-\hat{\mathbf{\theta}} = \hat{\mathbf{\theta}}(x_1,x_2,\cdots,x_n)
+\hat{\boldsymbol{\theta}} = \hat{\boldsymbol{\theta}}(x_1,x_2,\cdots,x_n)
 \]</div>
-<p>为 <span class="math notranslate nohighlight">\(\mathbf{\theta}\)</span> 的估计量，或称为 <span class="math notranslate nohighlight">\(\mathbf{\theta}\)</span> 的点估计，简称估计。</p>
+<p>为 <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> 的估计量，或称为 <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> 的点估计，简称估计。</p>
 <p>在本讲中，我们讲介绍三种频率学派的点估计思想：替换、拟合、似然及其对应的估计方法。</p>
 </section>
 

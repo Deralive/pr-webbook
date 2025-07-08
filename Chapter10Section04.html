@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -626,7 +626,7 @@ V=g_{2}(X, Y)
 <p>这个方法实际上就是二重积分的变量变换法。</p>
 </div>
 <div class="proof example admonition" id="ex:lect9_3">
-<p class="admonition-title"><span class="caption-number">Example 10.5 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 10.6 </span></p>
 <section class="example-content" id="proof-content">
 <p>设随机变量 <span class="math notranslate nohighlight">\(X\)</span> 与 <span class="math notranslate nohighlight">\(Y\)</span> 独立同分布，都服从正态分布 <span class="math notranslate nohighlight">\(N(\mu,\sigma^2)\)</span> 。记</p>
 <div class="math notranslate nohighlight">
@@ -707,7 +707,7 @@ p(u,v) &amp;=&amp; p(x(u,v),y(u,v)) |J| \\
 </div>
 <p>以下我们给出两个常用的公式，请同学们课后自行学习增补变量法后将证明过程不全。</p>
 <div class="proof example admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">Example 10.6 </span> (积的公式)</p>
+<p class="admonition-title"><span class="caption-number">Example 10.7 </span> (积的公式)</p>
 <section class="example-content" id="proof-content">
 <p>设随机变量 <span class="math notranslate nohighlight">\(X\)</span> 与 <span class="math notranslate nohighlight">\(Y\)</span> 相互独立，其密度函数分别为 <span class="math notranslate nohighlight">\(p_X(x)\)</span> 和 <span class="math notranslate nohighlight">\(p_{Y}(y)\)</span> 。则 <span class="math notranslate nohighlight">\(U= XY\)</span> 的密度函数为</p>
 <div class="math notranslate nohighlight">
@@ -720,7 +720,7 @@ p_U(u) = \int_{-\infty}^{\infty} p_{X}(u/v)p_{Y}(v)\frac{1}{|v|} \text{d}v.
 </div>
 </details></section>
 </div><div class="proof example admonition" id="example-2">
-<p class="admonition-title"><span class="caption-number">Example 10.7 </span> (商的公式)</p>
+<p class="admonition-title"><span class="caption-number">Example 10.8 </span> (商的公式)</p>
 <section class="example-content" id="proof-content">
 <p>设随机变量 <span class="math notranslate nohighlight">\(X\)</span> 与 <span class="math notranslate nohighlight">\(Y\)</span> 相互独立，其密度函数分别为 <span class="math notranslate nohighlight">\(p_X(x)\)</span> 和 <span class="math notranslate nohighlight">\(p_{Y}(y)\)</span> 。则 <span class="math notranslate nohighlight">\(U= X/Y\)</span> 的密度函数为</p>
 <div class="math notranslate nohighlight">
@@ -735,7 +735,7 @@ p_U(u) = \int_{-\infty}^{\infty} p_{X}(uv)p_{Y}(v)|v| \text{d}v.
 </div></section>
 <section id="n">
 <h2><span class="section-number">10.4.2. </span><span class="math notranslate nohighlight">\(n\)</span> 维情况（选修）<a class="headerlink" href="#n" title="Link to this heading">#</a></h2>
-<p>设 <span class="math notranslate nohighlight">\(n\)</span> 维随机变量 <span class="math notranslate nohighlight">\(\mathbf{X}=\left(X_{1}, X_{2}, \cdots, X_{n}\right)'\)</span> 的联合密度函数为 <span class="math notranslate nohighlight">\(p(x_1,x_2,\cdots,x_n)\)</span> 。如果变换</p>
+<p>设 <span class="math notranslate nohighlight">\(n\)</span> 维随机变量 <span class="math notranslate nohighlight">\(\boldsymbol{X}=\left(X_{1}, X_{2}, \cdots, X_{n}\right)'\)</span> 的联合密度函数为 <span class="math notranslate nohighlight">\(p(x_1,x_2,\cdots,x_n)\)</span> 。如果变换</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\left\{\begin{aligned}
 &amp;y_{1}=g_{1}\left(x_{1}, x_{2}, \cdots, x_{n}\right) \\
@@ -775,9 +775,9 @@ g_n(X_1,X_2,\cdots,X_n)
 \[p_{\mathbf{Y}}\left(\mathbf{y}\right)=p_{\mathbf{X}}\left(
 g_1(\mathbf{y}),g_2(\mathbf{y}),\cdots,g_n(\mathbf{y})\right) \cdot|J|\]</div>
 <div class="proof example admonition" id="example-3">
-<p class="admonition-title"><span class="caption-number">Example 10.8 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 10.9 </span></p>
 <section class="example-content" id="proof-content">
-<p>利用矩阵的技巧，我们重新来看一下例 <a class="reference internal" href="#ex:lect9_3">Example 10.5</a> 。从矩阵的角度来看，</p>
+<p>利用矩阵的技巧，我们重新来看一下例 <a class="reference internal" href="#ex:lect9_3">Example 10.6</a> 。从矩阵的角度来看，</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{pmatrix}

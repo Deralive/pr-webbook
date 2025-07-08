@@ -8,7 +8,7 @@ $$\lim _{n \rightarrow \infty} P\left(\left|\hat{\theta}_{n}-\theta\right| \geqs
 则称 $\hat{\theta}_{n}$ 为参数 $\theta$ 的相合估计。
 
 ```{admonition} Remark
-相合性的本质是 $\hat{\theta}_{n}$ 依概率收敛于 $\mathbf{\theta}$ 。
+相合性的本质是 $\hat{\theta}_{n}$ 依概率收敛于 $\boldsymbol{\theta}$ 。
 ```
 
 `````{prf:example}

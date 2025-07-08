@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -578,13 +578,13 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">9.4. </span>期望向量与协方差矩阵<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>记 <span class="math notranslate nohighlight">\(n\)</span> 维随机向量 <span class="math notranslate nohighlight">\(\mathbf{X}=\left(X_{1}, X_{2}, \cdots, X_{n}\right)'\)</span> ，若其每个分量的数学期望都存在，则称</p>
+<p>记 <span class="math notranslate nohighlight">\(n\)</span> 维随机向量 <span class="math notranslate nohighlight">\(\boldsymbol{X}=\left(X_{1}, X_{2}, \cdots, X_{n}\right)'\)</span> ，若其每个分量的数学期望都存在，则称</p>
 <div class="math notranslate nohighlight">
-\[E(\mathbf{X})=\left(E\left(X_{1}\right), E\left(X_{2}\right), \cdots, E\left(X_{n}\right)\right)'\]</div>
+\[E(\boldsymbol{X})=\left(E\left(X_{1}\right), E\left(X_{2}\right), \cdots, E\left(X_{n}\right)\right)'\]</div>
 <p>为 <span class="math notranslate nohighlight">\(n\)</span> 维随机向量的数学期望向量，而称</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-E(\mathbf{X}-E(\mathbf{X}))(\mathbf{X}-E(\mathbf{X}))'\\
+E(\boldsymbol{X}-E(\boldsymbol{X}))(\boldsymbol{X}-E(\boldsymbol{X}))'
 =\left(\begin{matrix}
 \text{Var}\left(X_{1}\right) &amp; \text{Cov}\left(X_{1}, X_{2}\right) &amp; \cdots &amp; \text{Cov}\left(X_{1}, X_{n}\right) \\
 \text{Cov}\left(X_{2}, X_{1}\right) &amp; \text{Var}\left(X_{2}\right) &amp; \cdots &amp; \text{Cov}\left(X_{2}, X_{n}\right) \\
@@ -592,11 +592,11 @@ E(\mathbf{X}-E(\mathbf{X}))(\mathbf{X}-E(\mathbf{X}))'\\
 \text{Cov}\left(X_{n}, X_{1}\right) &amp; \text{Cov}\left(X_{n}, X_{2}\right) &amp; \cdots &amp; \text{Var}\left(X_{n}\right)
 \end{matrix}\right)
 \end{split}\]</div>
-<p>为该随机向量的方差—协方差矩阵，记为 <span class="math notranslate nohighlight">\(\text{Cov}(\mathbf{X})\)</span></p>
+<p>为该随机向量的方差—协方差矩阵，记为 <span class="math notranslate nohighlight">\(\text{Cov}(\boldsymbol{X})\)</span></p>
 <div class="proof theorem admonition" id="theorem-0">
 <p class="admonition-title"><span class="caption-number">Theorem 9.4 </span></p>
 <section class="theorem-content" id="proof-content">
-<p><span class="math notranslate nohighlight">\(n\)</span> 维随机向量的协方差矩阵 <span class="math notranslate nohighlight">\(\text{Cov}(\mathbf{X})=\left\{\text{Cov}\left(X_{i}, X_{j}\right)\right\}_{n\times n}\)</span> 是一个对称非负定矩阵。</p>
+<p><span class="math notranslate nohighlight">\(n\)</span> 维随机向量的协方差矩阵 <span class="math notranslate nohighlight">\(\text{Cov}(\boldsymbol{X})=\left\{\text{Cov}\left(X_{i}, X_{j}\right)\right\}_{n\times n}\)</span> 是一个对称非负定矩阵。</p>
 </section>
 </div></section>
 

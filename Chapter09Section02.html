@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -582,12 +582,12 @@ document.write(`
 <div class="proof theorem admonition" id="theorem-0">
 <p class="admonition-title"><span class="caption-number">Theorem 9.1 </span></p>
 <section class="theorem-content" id="proof-content">
-<p>若多维随机变量 <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> 的分布用联合分布列 <span class="math notranslate nohighlight">\(P(\mathbf{X}=\mathbf{x})\)</span> 或用联合密度函数 <span class="math notranslate nohighlight">\(p(\mathbf{x})\)</span> 表示，则 <span class="math notranslate nohighlight">\(Z=g(\mathbf{X})\)</span> 的数学期望为</p>
+<p>若多维随机变量 <span class="math notranslate nohighlight">\(\boldsymbol{X}\)</span> 的分布用联合分布列 <span class="math notranslate nohighlight">\(P(\boldsymbol{X}=\boldsymbol{x})\)</span> 或用联合密度函数 <span class="math notranslate nohighlight">\(p(\boldsymbol{x})\)</span> 表示，则 <span class="math notranslate nohighlight">\(Z=g(\boldsymbol{X})\)</span> 的数学期望为</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}E(Z)=\left\{
 \begin{aligned}
-&amp;\sum_{\mathbf{x}} g\left(\mathbf{x}\right) P\left(\mathbf{X}=\mathbf{x}\right), &amp; \text{在离散场合} \\
-&amp;\int_{R^n} g(\mathbf{x}) p(\mathbf{x}) \text{d} \mathbf{x} , &amp; \text{在连续场合}
+&amp;\sum_{\boldsymbol{x}} g\left(\boldsymbol{x}\right) P\left(\boldsymbol{X}=\boldsymbol{x}\right), &amp; \text{在离散场合} \\
+&amp;\int_{R^n} g(\boldsymbol{x}) p(\boldsymbol{x}) \text{d} \boldsymbol{x} , &amp; \text{在连续场合}
 \end{aligned}\right.\end{split}\]</div>
 </section>
 </div><p>特别地，对于二维随机变量，我们定义其函数的期望如下。</p>
@@ -683,6 +683,14 @@ E(|X-Y|) &amp;=&amp;\int_{0}^{a} \int_{0}^{a}|x-y| \cdot \frac{1}{a^{2}} \text{d
 </ul>
 <div class="math notranslate nohighlight">
 \[E(X+Y) = E(X) + E(Y).\]</div>
+<div class="admonition-remark admonition">
+<p class="admonition-title">Remark</p>
+<p><span class="math notranslate nohighlight">\(n\)</span> 个随机变量和的期望等于 <span class="math notranslate nohighlight">\(n\)</span> 个随机变量期望的和，即</p>
+<div class="math notranslate nohighlight">
+\[
+E\left(\sum_{i=1}^{n} X_i\right) = \sum_{i=1}^{n} E(X_i)
+\]</div>
+</div>
 <ul class="simple">
 <li><p>多个独立随机变量的期望与方差的简便计算公式。</p></li>
 <li><p>若随机变量 <span class="math notranslate nohighlight">\(X\)</span> 和 <span class="math notranslate nohighlight">\(Y\)</span> 相互独立，则有</p></li>

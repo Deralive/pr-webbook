@@ -1,7 +1,12 @@
 # 极值分布
  $\max$ 和 $\min$ 是两种常见的运算，其广泛的应用于风险管理问题中。比如：上海地区今年最高气温达到 40 摄氏度的概率有多大？这里我们利用两个例题来阐述在不同的条件下如何计算极值的分布。
 
-`````{prf:example}
+`````{prf:example} 例题组合
+````{prf:example} 例题一
+:class: dropdown
+
+```{dropdown} Solution
+
 设 $X_1,X_2,\cdots,X_n$ 是相互独立的 $n$ 个随机变量，若 $Y=\max\{X_1,X_2,\cdots,X_n\}$ ，在以下情况下求 $Y$ 的分布。
 
 - 若 $X_i \sim F_i(x),i=1,2,\cdots,n$ ，则 $Y=\max\{X_1,X_2,\cdots,X_n\}$ 的分布函数为
@@ -60,10 +65,13 @@ p_Y(y) = \left\{
 \end{aligned}
 \right.
 $$
+```
+````
 
-`````
+````{prf:example} 例题二
+:class: dropdown
 
-`````{prf:example}
+```{dropdown} Solution
 设 $X_1,X_2,\cdots,X_n$ 是相互独立的 $n$ 个随机变量，若 $Z=\min\{X_1,X_2,\cdots,X_n\}$ ，在以下情况下求 $Z$ 的分布。
 
 - 若 $X_i \sim F_i(x),i=1,2,\cdots,n$ ，则 $Z=\min\{X_1,X_2,\cdots,X_n\}$ 的分布函数为
@@ -124,4 +132,6 @@ p_Y(y) = \left\{
 \right.
 $$
 
+```
+````
 `````

@@ -145,7 +145,7 @@ $$
 令
 
 $$
-\mathbf{t} = (t_1,t_2)' = (\bar{x},\sum_{i=1}^n x_i^2)',
+\boldsymbol{t} = (t_1,t_2)' = (\bar{x},\sum_{i=1}^n x_i^2)',
 $$
 
 $$

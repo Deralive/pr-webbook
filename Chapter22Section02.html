@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -579,12 +579,19 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">22.2. </span>假设检验的基本概念<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p>这里我们先给出假设检验的一些基础概念。</p>
-<p>设有来自某一个参数分布族 <span class="math notranslate nohighlight">\(\{F(x,\theta)|\theta \in \Theta\}\)</span> 的样本 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> ，其中 <span class="math notranslate nohighlight">\(\Theta\)</span> 为参数空间。设 <span class="math notranslate nohighlight">\(\Theta_0 \subset \Theta\)</span> 且 <span class="math notranslate nohighlight">\(\Theta_0 \neq \emptyset\)</span> 。则称命题</p>
+<dl class="simple myst">
+<dt>假设</dt><dd><p>设有来自某一个参数分布族 <span class="math notranslate nohighlight">\(\{F(x,\theta)|\theta \in \Theta\}\)</span> 的样本 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> ，其中 <span class="math notranslate nohighlight">\(\Theta\)</span> 为参数空间。设 <span class="math notranslate nohighlight">\(\Theta_0 \subset \Theta\)</span> 且 <span class="math notranslate nohighlight">\(\Theta_0 \neq \emptyset\)</span> 。则称命题</p>
+</dd>
+</dl>
 <div class="math notranslate nohighlight">
 \[
 H_0 : \theta \in \Theta_0
 \]</div>
-<p>为一个假设，或原假设，或零假设（null hypothesis）。若有另一个 <span class="math notranslate nohighlight">\(\Theta_1 (\Theta_1 \subset \Theta, \Theta_1 \cap \Theta_0 = \emptyset)\)</span> ，则称命题</p>
+<p>为一个假设，或原假设，或零假设（null hypothesis）。</p>
+<dl class="simple myst">
+<dt>对立假设或备择假设</dt><dd><p>若有另一个 <span class="math notranslate nohighlight">\(\Theta_1 (\Theta_1 \subset \Theta, \Theta_1 \cap \Theta_0 = \emptyset)\)</span> ，则称命题</p>
+</dd>
+</dl>
 <div class="math notranslate nohighlight">
 \[
 H_1 : \theta \in \Theta_1
@@ -618,12 +625,19 @@ H_0: p = 0.5 \quad \text{vs} \quad H_1: p&gt;0.5.
 <p>原假设时简单的，备择假设是复杂的；而且这是一个单边假设检验问题。</p>
 </section>
 </div><p>在提出一个假设检验问题（给出一对假设）之后，我们需要给出一个具体的判断规则，称这个判断规则为该假设的一个检验或者检验法则。</p>
-<p>给定样本 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 。对于其样本空间 <span class="math notranslate nohighlight">\(\Omega\)</span> ，我们可以确定一组划分</p>
+<dl class="simple myst">
+<dt>接受域</dt><dd><p>给定样本 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 。对于其样本空间 <span class="math notranslate nohighlight">\(\Omega\)</span> ，我们可以确定一组划分</p>
+</dd>
+</dl>
 <div class="math notranslate nohighlight">
 \[
 W \cap \overline{W} = \emptyset, \quad W \cup \overline{W} = \Omega.
 \]</div>
 <p>当 <span class="math notranslate nohighlight">\((x_1,x_2,\cdots,x_n) \in W\)</span> 时，拒绝 <span class="math notranslate nohighlight">\(H_0\)</span> ；否则接受 <span class="math notranslate nohighlight">\(H_0\)</span> 。于是，称 <span class="math notranslate nohighlight">\(W\)</span> 为该检验的拒绝域，而称 <span class="math notranslate nohighlight">\(\overline{W}\)</span> 为接受域。</p>
+<div class="admonition-remark admonition">
+<p class="admonition-title">Remark</p>
+<p>一旦拒绝域确定了，检验的判断准则也就确定了。</p>
+</div>
 <p>因为我们的检验是基于样本而确定的，所以，对于任何的检验而言，我们所作出的判断都可能犯错。检验有常见的两类错误，如表 <a class="reference internal" href="#tab-lect22-1"><span class="std std-numref">Table 22.1</span></a> 所示。</p>
 <div class="pst-scrollable-table-container"><table class="table" id="tab-lect22-1">
 <caption><span class="caption-number">Table 22.1 </span><span class="caption-text">检验的两种错误</span><a class="headerlink" href="#tab-lect22-1" title="Link to this table">#</a></caption>
@@ -661,7 +675,10 @@ W \cap \overline{W} = \emptyset, \quad W \cup \overline{W} = \Omega.
 <p class="admonition-title">Question</p>
 <p>事实上，第一类错误发生概率和第二类错误发生概率无法同时降低，那么哪一种错误值得我们在意呢？</p>
 </div>
-<p>为统一地表示第一类错误发生的概率和第二类错误发生的概率，我们引入势函数或功效函数（power function）。</p>
+<dl class="simple myst">
+<dt>势函数</dt><dd><p>为统一地表示第一类错误发生的概率和第二类错误发生的概率，我们引入势函数或功效函数（power function）。</p>
+</dd>
+</dl>
 <p>设检验问题</p>
 <div class="math notranslate nohighlight">
 \[

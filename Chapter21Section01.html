@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -589,7 +589,10 @@ document.write(`
 P(\hat{\theta}_{L}\leq \theta\leq \hat{\theta}_{U})=P\left ( \left \{ \hat{\theta}_{L}\le \theta \right \}\cap \left \{ \hat{\theta}_{U}\le \theta \right \} \right )
 \]</div>
 <p>尽可能大。</p>
-<p>设 <span class="math notranslate nohighlight">\(\theta\)</span> 是总体的一个参数，其参数空间为 <span class="math notranslate nohighlight">\(\Theta\)</span> ， <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 是来自该总体的样本，对给定的一个 <span class="math notranslate nohighlight">\(\alpha(0&lt;\alpha&lt;1)\)</span> ，假设有两个统计量 <span class="math notranslate nohighlight">\(\hat{\theta}_L = \hat{\theta}_L(x_1,x_2,\cdots,x_n)\)</span> 和 <span class="math notranslate nohighlight">\(\hat{\theta}_U = \hat{\theta}_U(x_1,x_2,\cdots,x_n)\)</span> ，若对任意的 <span class="math notranslate nohighlight">\(\theta \in \Theta\)</span> ，有</p>
+<dl class="simple myst">
+<dt>置信区间</dt><dd><p>设 <span class="math notranslate nohighlight">\(\theta\)</span> 是总体的一个参数，其参数空间为 <span class="math notranslate nohighlight">\(\Theta\)</span> ， <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 是来自该总体的样本，对给定的一个 <span class="math notranslate nohighlight">\(\alpha(0&lt;\alpha&lt;1)\)</span> ，假设有两个统计量 <span class="math notranslate nohighlight">\(\hat{\theta}_L = \hat{\theta}_L(x_1,x_2,\cdots,x_n)\)</span> 和 <span class="math notranslate nohighlight">\(\hat{\theta}_U = \hat{\theta}_U(x_1,x_2,\cdots,x_n)\)</span> ，若对任意的 <span class="math notranslate nohighlight">\(\theta \in \Theta\)</span> ，有</p>
+</dd>
+</dl>
 <div class="math notranslate nohighlight">
 \[
 P(\hat{\theta}_{L}\le \theta\le \hat{\theta}_{U}) \geq 1-\alpha

@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -593,7 +593,7 @@ document.write(`
 <section id="id2">
 <h2><span class="section-number">23.3.1. </span>概述<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <div class="proof example admonition" id="ex:chap23_pea_experiment">
-<p class="admonition-title"><span class="caption-number">Example 23.3 </span> (孟德尔豌豆实验)</p>
+<p class="admonition-title"><span class="caption-number">Example 23.4 </span> (孟德尔豌豆实验)</p>
 <section class="example-content" id="proof-content">
 <p>在 19 世纪，孟德尔按颜色与形状把豌豆分为四类：黄圆、绿圆、黄皱、绿皱。孟德尔根据遗传学原理判断这四类的比例应为 <span class="math notranslate nohighlight">\(9:3:3:1\)</span> 。为做验证，孟德尔在一次豌豆实验中收获了 <span class="math notranslate nohighlight">\(n=556\)</span> 个豌豆，其中这四类豌豆的个数分别为 <span class="math notranslate nohighlight">\(315,108,101,32\)</span> 。该数据是否与孟德尔提出的比例吻合？
 这个问题可以转化为分类数据的检验问题。总体被分为 <span class="math notranslate nohighlight">\(r\)</span> 类： <span class="math notranslate nohighlight">\(A_1,A_2,\cdots,A_r\)</span> 。我们提出假设：</p>
@@ -631,9 +631,9 @@ W = \{\chi^2 \geq \chi^2_{1-\alpha}(r-1)\}.
 <p>这个检验通常称为皮尔逊 <span class="math notranslate nohighlight">\(\chi^2\)</span> 拟合优度检验。</p>
 </div>
 <div class="proof example admonition" id="example-2">
-<p class="admonition-title"><span class="caption-number">Example 23.4 </span> (例题续)</p>
+<p class="admonition-title"><span class="caption-number">Example 23.5 </span> (例题续)</p>
 <section class="example-content" id="proof-content">
-<p>（例 <a class="reference internal" href="#ex:chap23_pea_experiment">Example 23.3</a> 续）：</p>
+<p>（例 <a class="reference internal" href="#ex:chap23_pea_experiment">Example 23.4</a> 续）：</p>
 <p>根据题意，我们有：</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -731,7 +731,7 @@ H_0: F(x) = F_0(x)
 <p>其中， <span class="math notranslate nohighlight">\(F_0(x)\)</span> 称为理论分布，可以是一个完全已知的分布，也可以是一个依赖于有限个实参数且分布形式已知的分布函数。这类问题可以用 <span class="math notranslate nohighlight">\(\chi^2\)</span> 拟合优度来解决。
 设总体 <span class="math notranslate nohighlight">\(X\)</span> 为取有限或可列个值 <span class="math notranslate nohighlight">\(a_1,a_2,\cdots\)</span> 的离散随机变量。如有需要，可以将相邻的取值进行合并，最后分为有限个类 <span class="math notranslate nohighlight">\(A_1,A_2,\cdots,A_r\)</span> ，并使得样本观测值 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 落入每个 <span class="math notranslate nohighlight">\(A_i\)</span> 内的个数 <span class="math notranslate nohighlight">\(n_i\)</span> 不少于 5。记 <span class="math notranslate nohighlight">\(P(X\in A_i) = p_i (i=1,2,\cdots,r)\)</span> 。</p>
 <div class="proof example admonition" id="example-3">
-<p class="admonition-title"><span class="caption-number">Example 23.5 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 23.6 </span></p>
 <section class="example-content" id="proof-content">
 <p>考虑卢瑟福实验的数据。表 <a class="reference internal" href="#tab-chap23-discrete-distribution-chi2-test"><span class="std std-numref">Table 23.1</span></a> 是卢瑟福以 7.5 秒为时间单位做的 2608 次观测得到的数据，观测的是一枚放射性 <span class="math notranslate nohighlight">\(\alpha\)</span> 物质在单位时间点放射的质点数。</p>
 <div class="pst-scrollable-table-container"><table class="table" id="tab-chap23-discrete-distribution-chi2-test">
@@ -815,7 +815,7 @@ H_0: \text{数据服从泊松分布}P(\lambda)
 \[p_i = P(a_{i-1} &lt; X \leq a_i ) = F_0(a_i) - F_0(a_{i-1}) ,i=1,2,\cdots,r \]</div>
 <p>其中， <span class="math notranslate nohighlight">\(a_0 = -\infty\)</span> , <span class="math notranslate nohighlight">\(a_{r} = \infty\)</span> ， 以 <span class="math notranslate nohighlight">\(n_i\)</span> 表示样本的观测值 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 落入区间 <span class="math notranslate nohighlight">\((a_{i-1},a_i]\)</span> 内的个数。</p>
 <div class="proof example admonition" id="example-4">
-<p class="admonition-title"><span class="caption-number">Example 23.6 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 23.7 </span></p>
 <section class="example-content" id="proof-content">
 <p>某工厂生产一种滚珠，现随机地抽取了 50 件产品，测得其直径为</p>
 <div class="math notranslate nohighlight">

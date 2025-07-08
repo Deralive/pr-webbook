@@ -13,7 +13,8 @@ $$
 
 尽可能大。
 
-设 $\theta$ 是总体的一个参数，其参数空间为 $\Theta$ ， $x_1,x_2,\cdots,x_n$ 是来自该总体的样本，对给定的一个 $\alpha(0<\alpha<1)$ ，假设有两个统计量 $\hat{\theta}_L = \hat{\theta}_L(x_1,x_2,\cdots,x_n)$ 和 $\hat{\theta}_U = \hat{\theta}_U(x_1,x_2,\cdots,x_n)$ ，若对任意的 $\theta \in \Theta$ ，有
+置信区间
+: 设 $\theta$ 是总体的一个参数，其参数空间为 $\Theta$ ， $x_1,x_2,\cdots,x_n$ 是来自该总体的样本，对给定的一个 $\alpha(0<\alpha<1)$ ，假设有两个统计量 $\hat{\theta}_L = \hat{\theta}_L(x_1,x_2,\cdots,x_n)$ 和 $\hat{\theta}_U = \hat{\theta}_U(x_1,x_2,\cdots,x_n)$ ，若对任意的 $\theta \in \Theta$ ，有
 
 $$
 P(\hat{\theta}_{L}\le \theta\le \hat{\theta}_{U}) \geq 1-\alpha

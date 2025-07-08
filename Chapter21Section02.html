@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -581,6 +581,123 @@ document.write(`
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>如何求 <span class="math notranslate nohighlight">\(1-\alpha\)</span> 置信区间？</p>
+</div>
+<dl class="simple myst">
+<dt>枢轴量</dt><dd><p>若 <span class="math notranslate nohighlight">\(G(x_1,x_2,\cdots,x_n,\theta)\)</span> 是样本和待估参数 <span class="math notranslate nohighlight">\(\theta\)</span> 的函数，而 <span class="math notranslate nohighlight">\(G\)</span> 的分布不依赖于未知参数，则称 <span class="math notranslate nohighlight">\(G\)</span> 为枢轴量。</p>
+</dd>
+<dt>枢轴量法</dt><dd><p>以下我们介绍一种构造 <span class="math notranslate nohighlight">\(1-\alpha\)</span> 置信区间的通法——枢轴量法。</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>构造一个枢轴量 <span class="math notranslate nohighlight">\(G\)</span> ；</p></li>
+<li><p>适当地选择两个常数 <span class="math notranslate nohighlight">\(c\)</span> 和 <span class="math notranslate nohighlight">\(d\)</span> ，使对给定的 <span class="math notranslate nohighlight">\(\alpha(0&lt;\alpha&lt;1)\)</span> ，有
+$<span class="math notranslate nohighlight">\(
+P(c\leq G\leq d) = 1-\alpha.
+\)</span><span class="math notranslate nohighlight">\(
+如果 \)</span>G$ 是一个离散型分布，取大于等于号。</p></li>
+<li><p>假如能将 <span class="math notranslate nohighlight">\(c\leq G\leq d\)</span> 进行不等式变形化为 <span class="math notranslate nohighlight">\(\hat{\theta}_L\leq \theta\leq \hat{\theta}_U\)</span> ，则有
+$<span class="math notranslate nohighlight">\(
+P(\hat{\theta}_L\leq \theta\leq \hat{\theta}_U) = 1-\alpha.
+\)</span>$</p></li>
+<li><p>由此， <span class="math notranslate nohighlight">\(\left[\hat{\theta}_L,\hat{\theta}_U\right]\)</span> 是 <span class="math notranslate nohighlight">\(\theta\)</span> 的 <span class="math notranslate nohighlight">\(1-\alpha\)</span> 同等置信区间。</p></li>
+</ul>
+<div class="proof example admonition" id="example-0">
+<p class="admonition-title"><span class="caption-number">Example 21.1 </span></p>
+<section class="example-content" id="proof-content">
+<p>若总体分布为 <span class="math notranslate nohighlight">\(N(\mu,\sigma_0^2)\)</span> ，其中 <span class="math notranslate nohighlight">\(\mu\)</span> 是待估参数，而 <span class="math notranslate nohighlight">\(\sigma_0^2\)</span> 是已知的。 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 是样本。于是，我们介绍如何利用枢轴量法来构造 <span class="math notranslate nohighlight">\(\mu\)</span> 的区间估计。因为 <span class="math notranslate nohighlight">\(\mu\)</span> 的点估计为</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\mu} = \bar{x} = \frac{1}{n}\sum_{i=1}^n x_i.
+\]</div>
+<p>我们知道， <span class="math notranslate nohighlight">\(\bar{x}\)</span> 的分布是 <span class="math notranslate nohighlight">\(N(\mu,\sigma_0^2/n)\)</span> 。对其进行标准化，</p>
+<div class="math notranslate nohighlight">
+\[
+G = \frac{\bar{x}-\mu}{\sqrt{\sigma_0^2/n}} \sim N(0,1).
+\]</div>
+<p>于是， <span class="math notranslate nohighlight">\(G\)</span> 就是我们所构造的枢轴量。于是，存在两个常数 <span class="math notranslate nohighlight">\(c_1\)</span> 和 <span class="math notranslate nohighlight">\(c_2\)</span> ，满足</p>
+<div class="math notranslate nohighlight">
+\[
+P(c_1\leq G\leq c_2) = 1-\alpha.
+\]</div>
+<p>虽然 <span class="math notranslate nohighlight">\((c_1,c_2)\)</span> 的取法有无数种，但是最简单的取法为 <span class="math notranslate nohighlight">\(c_1= z_{\alpha/2}\)</span> 和 <span class="math notranslate nohighlight">\(c_2 = z_{1-\alpha/2}\)</span> 。所以，</p>
+<div class="math notranslate nohighlight">
+\[
+z_{\alpha/2} \leq \frac{\bar{x}-\mu}{\sqrt{\sigma_0^2/n}}\leq z_{1-\alpha/2},
+\]</div>
+<p>可以变形为</p>
+<div class="math notranslate nohighlight">
+\[
+\bar{x}- \frac{\sigma_0}{\sqrt{n}}u_{1-\alpha/2} \leq \mu \leq \bar{x}- \frac{\sigma_0}{\sqrt{n}}u_{\alpha/2} = \bar{x} + \frac{\sigma_0}{\sqrt{n}}u_{1-\alpha/2}
+\]</div>
+<p>因此， <span class="math notranslate nohighlight">\(\mu\)</span> 的 <span class="math notranslate nohighlight">\(1-\alpha\)</span> 同等置信区间为</p>
+<div class="math notranslate nohighlight">
+\[
+\left[\bar{x}- \frac{\sigma_0}{\sqrt{n}}u_{1-\alpha/2},\bar{x} + \frac{\sigma_0}{\sqrt{n}}u_{1-\alpha/2} \right].
+\]</div>
+<div class="proof remark admonition" id="remark-1">
+<p class="admonition-title"><span class="caption-number">Remark 21.1 </span></p>
+<section class="remark-content" id="proof-content">
+<p>区间 <span class="math notranslate nohighlight">\(\left[\bar{x}- \frac{\sigma_0}{\sqrt{n}}u_{1-\alpha/2},\bar{x} + \frac{\sigma_0}{\sqrt{n}}u_{1-\alpha/2} \right]\)</span> 是最短的。</p>
+</section>
+</div></section>
+</div><div class="proof example admonition" id="example-2">
+<p class="admonition-title"><span class="caption-number">Example 21.2 </span></p>
+<section class="example-content" id="proof-content">
+<p>若总体分布为 <span class="math notranslate nohighlight">\(N(\mu,\sigma^2)\)</span> ，其中 <span class="math notranslate nohighlight">\(\mu\)</span> 是待估参数，而 <span class="math notranslate nohighlight">\(\sigma^2\)</span> 也是未知的。 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 是样本。于是，我们介绍如何利用枢轴量法来构造 <span class="math notranslate nohighlight">\(\mu\)</span> 的区间估计。因为 <span class="math notranslate nohighlight">\(\mu\)</span> 的点估计为</p>
+<div class="math notranslate nohighlight">
+\[\hat{\mu} = \bar{x} = \frac{1}{n}\sum_{i=1}^n x_i.\]</div>
+<p>我们知道， <span class="math notranslate nohighlight">\(\bar{x}\)</span> 的分布是 <span class="math notranslate nohighlight">\(N(\mu,\sigma^2/n)\)</span> 。对其进行标准化，</p>
+<div class="math notranslate nohighlight">
+\[
+ \frac{\bar{x}-\mu}{\sqrt{\sigma^2/n}} \sim N(0,1).
+\]</div>
+<p>除了待估计的参数之外，还有一个未知参数 <span class="math notranslate nohighlight">\(\sigma^2\)</span> ，称其为冗余参数。对于冗余参数 <span class="math notranslate nohighlight">\(\sigma^2\)</span> ，我们用其估计代替参数，即</p>
+<div class="math notranslate nohighlight">
+\[
+ G = \frac{\bar{x}-\mu}{\sqrt{\hat{\sigma}^2/n}} = \frac{\frac{\bar{x}-\mu}{\sqrt{\sigma^2/n}}}{\sqrt{\frac{(n-1)\hat{\sigma}^2}{\sigma^2}/(n-1)}} \sim t(n-1).
+\]</div>
+<p>于是， <span class="math notranslate nohighlight">\(G\)</span> 就是我们所构造的枢轴量。于是，存在两个常数 <span class="math notranslate nohighlight">\(c_1\)</span> 和 <span class="math notranslate nohighlight">\(c_2\)</span> ，满足</p>
+<div class="math notranslate nohighlight">
+\[
+P(c_1\leq G\leq c_2) = 1-\alpha.
+\]</div>
+<p>取 <span class="math notranslate nohighlight">\(c_1 = t_{\alpha/2}(n-1)\)</span> 和 <span class="math notranslate nohighlight">\(c_2 = t_{1-\alpha/2}(n-1)\)</span> 。所以，</p>
+<div class="math notranslate nohighlight">
+\[
+t_{\alpha/2}(n-1) \leq \frac{\bar{x}-\mu}{\sqrt{\hat{\sigma}^2/n}}\leq t_{1-\alpha/2}(n-1),
+\]</div>
+<p>可以变形为</p>
+<div class="math notranslate nohighlight">
+\[
+\bar{x}- \frac{\hat{\sigma}}{\sqrt{n}}t_{1-\alpha/2}(n-1) \leq \mu \leq \bar{x} + \frac{\hat{\sigma}}{\sqrt{n}}t_{1-\alpha/2}(n-1) 
+\]</div>
+<p>因此， <span class="math notranslate nohighlight">\(\mu\)</span> 的 <span class="math notranslate nohighlight">\(1-\alpha\)</span> 同等置信区间为</p>
+<div class="math notranslate nohighlight">
+\[
+\left[\bar{x}- \frac{\hat{\sigma}}{\sqrt{n}}t_{1-\alpha/2}(n-1),\bar{x} + \frac{\hat{\sigma}}{\sqrt{n}}t_{1-\alpha/2}(n-1) \right].
+\]</div>
+</section>
+</div><div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>置信水平为 <span class="math notranslate nohighlight">\(1-\alpha\)</span> 指的是什么？</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Remark</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">在《概率论与数理统计教程》第300页例6.6.1中，我们取 <span class="math notranslate nohighlight">\(\alpha = 0.1\)</span> 以及 <span class="math notranslate nohighlight">\(n=10\)</span> 的情形。假定真实的分布为正态分布 <span class="math notranslate nohighlight">\(N(\mu,\sigma^2)\)</span> ，其中 <span class="math notranslate nohighlight">\(\mu = 15\)</span> ，方差 <span class="math notranslate nohighlight">\(\sigma^2 = 4\)</span> 。我们从这个正态分布里抽一组样本量为 <span class="math notranslate nohighlight">\(10\)</span> 的样本，记为 <span class="math notranslate nohighlight">\(x_{m,1},x_{m,2},\cdots,x_{m,10}\)</span> 。基于样本，我们可以计算样本均值 <span class="math notranslate nohighlight">\(\bar{x}_m = \frac{1}{n}\sum_{i=1}^n x_{m,i}\)</span> ，样本方差
+<span class="math notranslate nohighlight">\(s_{m}^2 = \frac{1}{n-1}\sum_{i=1}^n (x_{m,i}-\bar{x}_m)^2\)</span> 。同时，根据置信水平为 <span class="math notranslate nohighlight">\(1-\alpha=0.9\)</span> 和样本量 <span class="math notranslate nohighlight">\(n=10\)</span> ，来确定分位数</p>
+<div class="math notranslate nohighlight">
+\[
+t_{1-\alpha/2}(n-1) = t_{0.95}(9)=1.8331.
+\]</div>
+<p class="sd-card-text">根据这组样本，我们可以构造一个置信区间。重复这个行为 <span class="math notranslate nohighlight">\(100\)</span> 次，于是可以得到 <span class="math notranslate nohighlight">\(100\)</span> 个区间。
+对这 <span class="math notranslate nohighlight">\(100\)</span> 个区间进行统计，可以发现其中 <span class="math notranslate nohighlight">\(91\)</span> 个区间是包含真值 <span class="math notranslate nohighlight">\(\mu=15\)</span> 的，而这个比例 <span class="math notranslate nohighlight">\(91\%\)</span> 与我们所构造的置信水平差不多。</p>
+<p class="sd-card-text">这就是置信水平的一种理解。</p>
+</div>
+</details></div>
+<div class="proof example admonition" id="example-3">
+<p class="admonition-title"><span class="caption-number">Example 21.3 </span></p>
+<section class="example-content" id="proof-content">
+<p>若总体分布为 <span class="math notranslate nohighlight">\(U(0,\theta)\)</span> ，其中 <span class="math notranslate nohighlight">\(\theta\)</span> 是待估参数。现有 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 是样本。我们想要得到 <span class="math notranslate nohighlight">\(\theta\)</span> 的 <span class="math notranslate nohighlight">\(1-\alpha\)</span> 置信区间。</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
@@ -592,7 +709,7 @@ document.write(`
 <p class="sd-card-text">于是， <span class="math notranslate nohighlight">\(x_{(n)}/\theta\)</span> 就是我们所构造的枢轴量。我们希望找到两个常数 <span class="math notranslate nohighlight">\(c_!\)</span> 和 <span class="math notranslate nohighlight">\(c_2\)</span> 使得</p>
 <div class="math notranslate nohighlight">
 \[
-P(c_1 \leq \frac{x_{(n)}}{\theta} \leq c_2) = 1-\alpha.
+P(c_1 \leq \frac{x_{(n)}}{\theta} \leq c_2) = 1-\alpha. 
 \]</div>
 <p class="sd-card-text">一旦可以确定 <span class="math notranslate nohighlight">\(c_1\)</span> 和 <span class="math notranslate nohighlight">\(c_2\)</span> ，我们可以得到 <span class="math notranslate nohighlight">\(\theta\)</span> 的 <span class="math notranslate nohighlight">\(1-\alpha\)</span> 置信区间为</p>
 <div class="math notranslate nohighlight">
@@ -614,8 +731,8 @@ P(X\leq c) = \int_{0}^c nx^{n-1}\text{d}x = c^{n}.
 \[
 \frac{1}{c_1} - \frac{1}{c_2}
 \]</div>
-<p class="sd-card-text">达到最小。
-所以，我们构造了一个函数</p>
+<p class="sd-card-text">达到最小。</p>
+<p class="sd-card-text">所以，我们构造了一个函数</p>
 <div class="math notranslate nohighlight">
 \[
 l(\alpha_1) = \alpha_1^{-1/n} - (1-\alpha+\alpha_1)^{-1/n}, 0&lt;\alpha_1&lt;\alpha
@@ -631,9 +748,9 @@ c_1 = \alpha^{1/n},\quad c_2 = 1.
 \left[ x_{(n)}, x_{(n)} \cdot \alpha^{-1/n} \right].
 \]</div>
 </div>
-</details></div>
-<div class="proof example admonition" id="example-0">
-<p class="admonition-title"><span class="caption-number">Example 21.1 </span></p>
+</details></section>
+</div><div class="proof example admonition" id="example-4">
+<p class="admonition-title"><span class="caption-number">Example 21.4 </span></p>
 <section class="example-content" id="proof-content">
 <p>若总体分布为 <span class="math notranslate nohighlight">\(N(\mu,\sigma^2)\)</span> ，其中 <span class="math notranslate nohighlight">\(\sigma^2\)</span> 是待估参数，而 <span class="math notranslate nohighlight">\(\mu\)</span> 也是未知的。 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 是样本。这里我们考虑 <span class="math notranslate nohighlight">\(\sigma^2\)</span> 的 <span class="math notranslate nohighlight">\(1-\alpha\)</span> 置信区间。首先考虑 <span class="math notranslate nohighlight">\(\sigma^2\)</span> 的点估计为</p>
 <div class="math notranslate nohighlight">
@@ -663,8 +780,8 @@ c_1 = \chi_{\alpha/2}^{2}(n-1), \quad c_2 = \chi_{1-\alpha/2}^{2}(n-1).
 <p>这个区间被称为等尾置信区间。</p>
 </section>
 </div><p>以上介绍例子大多都是在正态总体假定下的置信区间估计的构造方法。这些方法还可以应用于大样本的情形中。</p>
-<div class="proof example admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">Example 21.2 </span></p>
+<div class="proof example admonition" id="example-5">
+<p class="admonition-title"><span class="caption-number">Example 21.5 </span></p>
 <section class="example-content" id="proof-content">
 <p>若总体分布为 <span class="math notranslate nohighlight">\(b(1,\theta)\)</span> ，其中 <span class="math notranslate nohighlight">\(\theta\)</span> 是待估参数。 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 是样本。当样本量 <span class="math notranslate nohighlight">\(n\)</span> 比较大时，我们想要得到 <span class="math notranslate nohighlight">\(\theta\)</span> 的 <span class="math notranslate nohighlight">\(1-\alpha\)</span> 置信区间。
 首先考虑 <span class="math notranslate nohighlight">\(\theta\)</span> 的点估计，即</p>
@@ -703,8 +820,8 @@ P\left( - z_{1-\alpha/2} \leq \frac{\bar{x} - \theta}{\sqrt{\theta(1-\theta)/n}}
 \left [ \bar{x}-z_{1-\frac{\alpha }{2} }\sqrt{\frac{\bar{x}(1-\bar{x})}{n} } ,\bar{x}+z_{1-\frac{\alpha }{2} }\sqrt{\frac{\bar{x}(1-\bar{x})}{n} } \right ] .
 \]</div>
 </section>
-</div><div class="proof example admonition" id="example-2">
-<p class="admonition-title"><span class="caption-number">Example 21.3 </span></p>
+</div><div class="proof example admonition" id="example-6">
+<p class="admonition-title"><span class="caption-number">Example 21.6 </span></p>
 <section class="example-content" id="proof-content">
 <p>现有两个独立总体 <span class="math notranslate nohighlight">\(N(\mu_1,\sigma_1^2)\)</span> 和 <span class="math notranslate nohighlight">\(N(\mu_2,\sigma_2^2)\)</span> 。设 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_m\)</span> 是来自 <span class="math notranslate nohighlight">\(N(\mu_1,\sigma_1^2)\)</span> 的样本，而 <span class="math notranslate nohighlight">\(y_1,y_2,\cdots,y_n\)</span> 是来自 <span class="math notranslate nohighlight">\(N(\mu_2,\sigma_2^2)\)</span> 的样本。
 考虑不同 <span class="math notranslate nohighlight">\(\theta\)</span> 以及它们的 <span class="math notranslate nohighlight">\(1-\alpha\)</span> 置信区间。</p>

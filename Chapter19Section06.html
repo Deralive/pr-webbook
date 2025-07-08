@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -588,8 +588,8 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(p(x;\theta_1,\theta_2) = \frac{1}{\theta_2-\theta_1}, \theta_1 &lt; x &lt; \theta_2\)</span></p></li>
 <li><p>（选做）
 众所周知，双胞胎可分为同卵双胞胎与异卵双胞胎。在一项针对双胞胎的研究中，研究者关心的是一对双胞胎是同卵双胞胎的概率，记为 <span class="math notranslate nohighlight">\(p\)</span> ，而且研究者也关心一个孩子是男孩的概率，记为 <span class="math notranslate nohighlight">\(q\)</span> . 在这项研究中，研究者招募到了 <span class="math notranslate nohighlight">\(n\)</span> 对双胞胎（包括龙凤胎），其中 <span class="math notranslate nohighlight">\(n_1\)</span> 是两个男孩的双胞胎， <span class="math notranslate nohighlight">\(n_2\)</span> 是两个女孩的双胞胎， <span class="math notranslate nohighlight">\(n_3= n-(n_1+n_2)\)</span> 是龙凤胎（一个男孩一个女孩）。另外，研究者虽然知道不同性别的双胞胎一定不是同卵双胞胎，但并不知道其中哪些相同性别的双胞胎为同卵双胞胎。</p></li>
-<li><p>利用 EM 算法，写出 <span class="math notranslate nohighlight">\(\mathbf{\theta} = (p,q)\)</span> 的最大似然估计的形式。（提示：构造合适的潜变量，定义似然函数，写出 EM 算法中的 E 步和 M 步）</p></li>
-<li><p>在 <span class="math notranslate nohighlight">\(n = 1000, n_1 = 432, n_2 = 232, n_3 = 336\)</span> 时，利用 Python 计算出 <span class="math notranslate nohighlight">\(\mathbf{\theta}\)</span> 的最大似然估计。</p></li>
+<li><p>利用 EM 算法，写出 <span class="math notranslate nohighlight">\(\boldsymbol{\theta} = (p,q)\)</span> 的最大似然估计的形式。（提示：构造合适的潜变量，定义似然函数，写出 EM 算法中的 E 步和 M 步）</p></li>
+<li><p>在 <span class="math notranslate nohighlight">\(n = 1000, n_1 = 432, n_2 = 232, n_3 = 336\)</span> 时，利用 Python 计算出 <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> 的最大似然估计。</p></li>
 </ul>
 </section>
 

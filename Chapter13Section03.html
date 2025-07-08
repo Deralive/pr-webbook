@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -593,9 +593,11 @@ p = E\left( \frac{1}{n} \sum_{i=1}^n X_i\right) =\frac{1}{n} \sum_{i=1}^n E(X_i)
 \[
 \lim_{n\rightarrow \infty} P\left( \left| \frac{1}{n} \sum_{i=1}^n X_i - \frac{1}{n} \sum_{i=1}^n E(X_i)\right| &gt;\varepsilon \right) =1.
 \]</div>
-<p>注意到的是，伯努利大数定律给了一个<strong>很强</strong>的条件——不仅约束了随机变量序列中每一个随机变量的分布类型，还约束了随机变量序列中每一个随机变量之间都是相互独立的。于是，我们可以给出以下这个定义。
-[弱大数定律]
-设有一随机变量序列 <span class="math notranslate nohighlight">\(\{X_{n}\}\)</span> ，如果其具有形如</p>
+<p>注意到的是，伯努利大数定律给了一个<strong>很强</strong>的条件——不仅约束了随机变量序列中每一个随机变量的分布类型，还约束了随机变量序列中每一个随机变量之间都是相互独立的。于是，我们可以给出以下这个定义。</p>
+<dl class="simple myst">
+<dt>弱大数定律</dt><dd><p>设有一随机变量序列 <span class="math notranslate nohighlight">\(\{X_{n}\}\)</span> ，如果其具有形如</p>
+</dd>
+</dl>
 <div class="math notranslate nohighlight">
 \[P\left( \left | \frac{1}{n}\sum_{i=1}^{n}X_{i}-\frac{1}{n}\sum_{i=1}^{n}E(X_{i}) \right | &lt; \varepsilon \right)\rightarrow 1\]</div>
 <p>的性质，则称该随机变量序列 <span class="math notranslate nohighlight">\({X_{n}}\)</span> 服从（弱）大数定律。</p>
