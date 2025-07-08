@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -379,6 +379,10 @@
 <li class="toctree-l2"><a class="reference internal" href="Chapter24Section04.html">24.4. 习题</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="TestChapter.html">25. 本章节用于测试附加内容</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="TestVideoSection.html">25.1. 测试视频添加</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -601,9 +605,10 @@ p(x_1,x_2,\cdots,x_n;\theta) = \prod_{i=1}^n p(x_i;\theta).
 \]</div>
 <p>对于未知参数 <span class="math notranslate nohighlight">\(\theta\)</span> 而言，称 <span class="math notranslate nohighlight">\(p(x_1,x_2,\cdots,x_n;\theta)\)</span> 为似然函数，记为 <span class="math notranslate nohighlight">\(L(\theta)\)</span> .</p>
 <p>既然我们明确了，似然函数本质上就是样本的联合概率（质量/密度）函数。将其看成参数的函数，这个函数就是似然函数。于是，我们给出最大似然估计明确的定义。</p>
-<p>最大似然估计
-:
-设 <span class="math notranslate nohighlight">\(\theta\)</span> 是待估参数， <span class="math notranslate nohighlight">\(L(\theta)\)</span> 是似然函数。如果统计量 <span class="math notranslate nohighlight">\(\hat{\theta} = \hat{\theta}(x_1,x_2,\cdots,x_n)\)</span> 满足</p>
+<dl class="simple myst">
+<dt>最大似然估计</dt><dd><p>设 <span class="math notranslate nohighlight">\(\theta\)</span> 是待估参数， <span class="math notranslate nohighlight">\(L(\theta)\)</span> 是似然函数。如果统计量 <span class="math notranslate nohighlight">\(\hat{\theta} = \hat{\theta}(x_1,x_2,\cdots,x_n)\)</span> 满足</p>
+</dd>
+</dl>
 <div class="math notranslate nohighlight">
 \[
 L(\hat{\theta}) = \sup_{\theta\in \overline{\Theta}} L(\theta).

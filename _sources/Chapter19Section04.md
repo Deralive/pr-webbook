@@ -26,8 +26,7 @@ $$
 既然我们明确了，似然函数本质上就是样本的联合概率（质量/密度）函数。将其看成参数的函数，这个函数就是似然函数。于是，我们给出最大似然估计明确的定义。
 
 最大似然估计
-: 
-设 $\theta$ 是待估参数， $L(\theta)$ 是似然函数。如果统计量 $\hat{\theta} = \hat{\theta}(x_1,x_2,\cdots,x_n)$ 满足
+: 设 $\theta$ 是待估参数， $L(\theta)$ 是似然函数。如果统计量 $\hat{\theta} = \hat{\theta}(x_1,x_2,\cdots,x_n)$ 满足
 
 $$
 L(\hat{\theta}) = \sup_{\theta\in \overline{\Theta}} L(\theta).
