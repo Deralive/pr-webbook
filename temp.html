@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1.2. 随机事件 &#8212; “概率论与数理统计”课程笔记</title>
+    <title>&lt;no title&gt; &#8212; “概率论与数理统计”课程笔记</title>
   
   
   
@@ -58,14 +58,10 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter01Section02';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'temp';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1.3. 概率公理化定义" href="Chapter01Section03.html" />
-    <link rel="prev" title="1.1. 引导问题：盲盒为什么受欢迎？" href="Chapter01Section01.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -128,6 +124,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -184,10 +182,10 @@
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">概率部分</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="Chapter01.html">1. 概率</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter01.html">1. 概率</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Chapter01Section01.html">1.1. 引导问题：盲盒为什么受欢迎？</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.2. 随机事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter01Section02.html">1.2. 随机事件</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Chapter01Section03.html">1.3. 概率公理化定义</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Chapter01Section04.html">1.4. 确定概率的方法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Chapter01Section05.html">1.5. 概率的性质</a></li>
@@ -457,7 +455,7 @@
       
       
       
-      <li><a href="https://deralive.github.io/pr-webbook/intro.html/issues/new?title=Issue%20on%20page%20%2FChapter01Section02.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://deralive.github.io/pr-webbook/intro.html/issues/new?title=Issue%20on%20page%20%2Ftemp.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -487,7 +485,7 @@
       
       
       
-      <li><a href="_sources/Chapter01Section02.md" target="_blank"
+      <li><a href="_sources/temp.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -571,7 +569,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>随机事件</h1>
+    <h1><no title></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -580,10 +578,9 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.2.1. 定义</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1.2.2. 事件的关系、运算及运算性质</a></li>
+                <ul class="simple visible nav section-nav flex-column">
 </ul>
+
             </nav>
         </div>
     </div>
@@ -594,155 +591,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">1.2. </span>随机事件<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<section id="id2">
-<h2><span class="section-number">1.2.1. </span>定义<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<dl class="simple myst">
-<dt>样本空间</dt><dd><p>称随机现象的一切可能基本结果组成的集合，记为</p>
-</dd>
-</dl>
-<p><span class="math notranslate nohighlight">\(
-\Omega=\{ \omega \}.
-\)</span>。</p>
-<dl class="simple myst">
-<dt>样本点</dt><dd><p>样本空间中的元素，又称<strong>基本结果</strong>。</p>
-</dd>
-</dl>
-<p>举一些例子来帮助理解样本空间。</p>
-<div class="proof example admonition" id="ex01-a">
-<p class="admonition-title"><span class="caption-number">Example 1.1 </span> (样本空间)</p>
-<section class="example-content" id="proof-content">
-<p>场景一：投掷一枚硬币</p>
-<p>投掷一枚硬币的结果样本空间为 <span class="math notranslate nohighlight">\(\{\text{正,反}\}\)</span> 。</p>
-<hr class="docutils" />
-<p>场景二：投掷一个六面骰子</p>
-<p>投掷一个六面骰子的结果样本空间为 <span class="math notranslate nohighlight">\(\{1,2,3,4,5,6\}\)</span> 。</p>
-<hr class="docutils" />
-<p>场景三：在一天内使用手机的时间</p>
-<p>学生在未来的一天内使用手机的时间所构成的样本空间为 <span class="math notranslate nohighlight">\(\{t:0 \leq t \leq 24\}\)</span> 。</p>
-<hr class="docutils" />
-<p>场景四：一名学生在罚球线进行定点投篮</p>
-<ul class="simple">
-<li><p>只允许该学生投掷10个球。</p></li>
-</ul>
-<p>在10次投球过程中投中球数量的样本空间为 <span class="math notranslate nohighlight">\(\{0,1,\cdots ,10\}\)</span> 。</p>
-<ul class="simple">
-<li><p>允许该学生投掷任意数量的球。</p></li>
-</ul>
-<p>投中5个球时所花费时间的样本空间为 <span class="math notranslate nohighlight">\(\{t:t\geq 0\}\)</span> 。</p>
-<ul class="simple">
-<li><p>允许该学生投掷任意数量的球。</p></li>
-</ul>
-<p>投中5个球时所投出球数的样本空间为 <span class="math notranslate nohighlight">\(\{k:k=5,\cdots\}\)</span> 。</p>
-</section>
-</div><div class="admonition-question admonition">
-<p class="admonition-title">Question</p>
-<p>从集合论的角度来看，<a class="reference internal" href="#ex01-a">Example 1.1</a> 中所定义的样本空间有什么差异？</p>
-</div>
-<dl class="simple myst">
-<dt>随机事件</dt><dd><p>称随机现象的某些样本点组成的集合为随机事件，简称事件。常用英文大写字母表示。</p>
-</dd>
-</dl>
-<div class="proof example admonition" id="ex01-b">
-<p class="admonition-title"><span class="caption-number">Example 1.2 </span> (随机事件)</p>
-<section class="example-content" id="proof-content">
-<p>考虑投掷一颗六面骰子，样本空间为 <span class="math notranslate nohighlight">\(\Omega = \{1,2,3,4,5,6\}\)</span> 。</p>
-<p>若我们感兴趣的是“骰子出现奇数点”，那么随机事件为 <span class="math notranslate nohighlight">\(A=\{1,3,5\}\)</span> 。</p>
-</section>
-</div><dl class="simple myst">
-<dt>基本事件</dt><dd><p>由样本空间中单个元素组成的子集。</p>
-</dd>
-<dt>必然事件</dt><dd><p>样本空间的最大子集，也即是样本空间本身。</p>
-</dd>
-<dt>不可能事件</dt><dd><p>样本空间的最小子集，也就是空集。</p>
-</dd>
-</dl>
-</section>
-<section id="id3">
-<h2><span class="section-number">1.2.2. </span>事件的关系、运算及运算性质<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table" id="tab1-2">
-<caption><span class="caption-number">Table 1.2 </span><span class="caption-text">事件间的关系</span><a class="headerlink" href="#tab1-2" title="Link to this table">#</a></caption>
-<thead>
-<tr class="row-odd"><th class="head"><p>文字描述</p></th>
-<th class="head"><p>数学表示</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>事件 <span class="math notranslate nohighlight">\(A\)</span> 发生必然导致事件 <span class="math notranslate nohighlight">\(B\)</span> 发生</p></td>
-<td><p><span class="math notranslate nohighlight">\(A\subset B\)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p>事件 <span class="math notranslate nohighlight">\(A\)</span> 与事件 <span class="math notranslate nohighlight">\(B\)</span> 相等</p></td>
-<td><p><span class="math notranslate nohighlight">\(A = B\)</span></p></td>
-</tr>
-<tr class="row-even"><td><p>事件 <span class="math notranslate nohighlight">\(A\)</span> 与事件 <span class="math notranslate nohighlight">\(B\)</span> 不可能同时发生（ <span class="math notranslate nohighlight">\(A\)</span> 与 <span class="math notranslate nohighlight">\(B\)</span> 互不相容）</p></td>
-<td><p><span class="math notranslate nohighlight">\(AB=\emptyset\)</span></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="pst-scrollable-table-container"><table class="table" id="tab1-3">
-<caption><span class="caption-number">Table 1.3 </span><span class="caption-text">事件间的运算</span><a class="headerlink" href="#tab1-3" title="Link to this table">#</a></caption>
-<thead>
-<tr class="row-odd"><th class="head"><p>文字描述</p></th>
-<th class="head"><p>数学表示</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>事件 <span class="math notranslate nohighlight">\(A\)</span> 与 <span class="math notranslate nohighlight">\(B\)</span> 中至少有一个发生</p></td>
-<td><p><span class="math notranslate nohighlight">\(A\cup B\)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p>事件 <span class="math notranslate nohighlight">\(A\)</span> 与 <span class="math notranslate nohighlight">\(B\)</span> 同时发生</p></td>
-<td><p><span class="math notranslate nohighlight">\(A\cap B\)</span> 或 <span class="math notranslate nohighlight">\(AB\)</span></p></td>
-</tr>
-<tr class="row-even"><td><p>事件 <span class="math notranslate nohighlight">\(A\)</span> 发生而 <span class="math notranslate nohighlight">\(B\)</span> 不发生</p></td>
-<td><p><span class="math notranslate nohighlight">\(A-B\)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p>事件 <span class="math notranslate nohighlight">\(A\)</span> 不发生</p></td>
-<td><p><span class="math notranslate nohighlight">\(\overline{A}\)</span> 或 <span class="math notranslate nohighlight">\(A^{c}\)</span></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="pst-scrollable-table-container"><table class="table" id="tab1-4">
-<caption><span class="caption-number">Table 1.4 </span><span class="caption-text">事件间的运算性质</span><a class="headerlink" href="#tab1-4" title="Link to this table">#</a></caption>
-<thead>
-<tr class="row-odd"><th class="head"><p>运算性质</p></th>
-<th class="head"><p>数学表示</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>交换律</p></td>
-<td><p><span class="math notranslate nohighlight">\(A\cup B =B \cup A, \quad AB =BA\)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p>结合律</p></td>
-<td><p><span class="math notranslate nohighlight">\(\left ( A\cup B \right )\cup C =A\cup \left ( B \cup C \right ),\quad \left ( A B \right ) C =A \left ( B C \right )\)</span></p></td>
-</tr>
-<tr class="row-even"><td><p>分配律</p></td>
-<td><p><span class="math notranslate nohighlight">\((A\cup B)\cap C=AC\cup BC,\quad (A\cap B)\cup C=(A\cup C)\cap (B\cup C)\)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p>对偶律</p></td>
-<td><p><span class="math notranslate nohighlight">\(\overline{A \cup B } =\overline{A} \cap \overline{B},\quad \overline{A \cap B } =\overline{A} \cup \overline{B}\)</span></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>在实际应用中，<strong>对偶律</strong>是最为常用的运算性质，并且可以推广至有限个和可列个随机变量的情形。</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-&amp;\text{有限个的情形：} &amp;\overline{\bigcup_{i=1}^{n} A_{i} } =\bigcap_{i=1}^{n} \overline{A_{i} }, \quad \overline{\bigcap_{i=1}^{n} A_{i} } =\bigcup_{i=1}^{n} \overline{A_{i} } \\
-&amp;\text{可列个的情形：} &amp; \overline{\bigcup_{i=1}^{\infty } A_{i} } =\bigcap_{i=1}^{\infty } \overline{A_{i} }, \quad 
- \overline{\bigcap_{i=1}^{\infty } A_{i} } =\bigcup_{i=1}^{\infty } \overline{A_{i} }
-\end{aligned}
-\end{split}\]</div>
-<div class="caution admonition">
-<p class="admonition-title">Summary</p>
-<p>样本空间本质上是一个<strong>集合</strong>。随机事件是样本空间的一个子集，本身也是一个<strong>集合</strong>。事件间的关系、运算以及运算性质本质上都是<strong>集合</strong>间的关系、运算及运算性质。</p>
-</div>
-</section>
-</section>
-
+  
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -773,24 +622,6 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="Chapter01Section01.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1.1. </span>引导问题：盲盒为什么受欢迎？</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="Chapter01Section03.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1.3. </span>概率公理化定义</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -806,10 +637,9 @@ document.write(`
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.2.1. 定义</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1.2.2. 事件的关系、运算及运算性质</a></li>
+    <ul class="simple visible nav section-nav flex-column">
 </ul>
+
   </nav></div>
 
 </div></div>

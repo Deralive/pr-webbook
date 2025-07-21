@@ -1,10 +1,14 @@
 # 期望向量与协方差矩阵
 
-记 $n$ 维随机向量 $\boldsymbol{X}=\left(X_{1}, X_{2}, \cdots, X_{n}\right)'$ ，若其每个分量的数学期望都存在，则称
+数学期望向量
+: 记 $n$ 维随机向量 $\boldsymbol{X}=\left(X_{1}, X_{2}, \cdots, X_{n}\right)'$ ，若其每个分量的数学期望都存在，则称
 
 $$E(\boldsymbol{X})=\left(E\left(X_{1}\right), E\left(X_{2}\right), \cdots, E\left(X_{n}\right)\right)'$$
 
-为 $n$ 维随机向量的数学期望向量，而称
+为 $n$ 维随机向量的数学期望向量。
+
+协方差矩阵
+: 而称
 
 $$
 E(\boldsymbol{X}-E(\boldsymbol{X}))(\boldsymbol{X}-E(\boldsymbol{X}))'

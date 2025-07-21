@@ -382,7 +382,8 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="TestChapter.html">25. 本章节用于测试附加内容</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="TestVideoSection.html">25.1. 测试视频添加</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TestCodeRunnerSection.html">25.2. Sample Code-Runner Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TestBeamerSection.html">25.2. Google PPT Test Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TestCodeRunnerSection.html">25.3. Sample Code-Runner Section</a></li>
 </ul>
 </details></li>
 </ul>
@@ -693,6 +694,7 @@ p_{Y}(y)&amp;=&amp;p_{X}\left ( h(y) \right )\left | h'(y) \right | \\
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">因为 <span class="math notranslate nohighlight">\(y=g(x)=e^{x}\)</span> 是严格单调递增函数，它仅在 <span class="math notranslate nohighlight">\((0,+\infty)\)</span> 上取值，其反函数 <span class="math notranslate nohighlight">\(x=h(y)=lny\)</span>，而 <span class="math notranslate nohighlight">\(h'(y)=\frac{1}{y}\)</span>，根据定理可知，</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -702,12 +704,12 @@ p_{Y}(y)&amp;=&amp;p_{X}\left ( h(y) \right )\left | h'(y) \right | \\
 \end{eqnarray*}
 \end{split}\]</div>
 </div>
-</details></section>
-</div><div class="admonition-remark admonition">
+</details><div class="dropdown admonition">
 <p class="admonition-title">Remark</p>
 <p>这个分布称为对数正态分布 <span class="math notranslate nohighlight">\(\omega \left(\mu, \sigma^{2}\right)\)</span> 。</p>
 </div>
-<div class="proof example admonition" id="example-4">
+</section>
+</div><div class="proof example admonition" id="example-4">
 <p class="admonition-title"><span class="caption-number">Example 7.5 </span></p>
 <section class="example-content" id="proof-content">
 <p>设 <span class="math notranslate nohighlight">\(X\sim Ga(\alpha,r)\)</span> ，则当 <span class="math notranslate nohighlight">\(k&gt;0\)</span> 时，有 <span class="math notranslate nohighlight">\(Y=kX\sim Ga(\alpha,\frac{r}{k})\)</span> 。</p>
@@ -765,8 +767,7 @@ F_{Y}(y) &amp;=&amp;P(Y \leqslant y) \\
 \end{aligned}\right.\end{split}\]</div>
 <p class="sd-card-text">因此， <span class="math notranslate nohighlight">\(Y\sim U(0,1)\)</span> 。</p>
 </div>
-</details></section>
-</div><div class="admonition-remark admonition">
+</details><div class="dropdown admonition">
 <p class="admonition-title">Remark</p>
 <ul class="simple">
 <li><p>任一个连续随机变量 <span class="math notranslate nohighlight">\(X\)</span> 都可通过其分布函数 <span class="math notranslate nohighlight">\(F(x)\)</span> 与均匀分布随机变量 <span class="math notranslate nohighlight">\(U\)</span> 有关联。</p></li>
@@ -780,6 +781,7 @@ F_{Y}(y) &amp;=&amp;P(Y \leqslant y) \\
 <p>这是 Monte Carlo 法的基础。</p>
 </div>
 </section>
+</div></section>
 <section id="id2">
 <h2><span class="section-number">7.3.3. </span><span class="math notranslate nohighlight">\(g(\cdot)\)</span> 是其他特殊形式<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <div class="proof example admonition" id="example-6">
@@ -810,12 +812,12 @@ F_{Y}(y) &amp;=&amp;P(Y \leqslant y) \\
 \end{array}\right.\right.\end{split}\]</div>
 <p class="sd-card-text">称 <span class="math notranslate nohighlight">\(Y\)</span> 服从自由度为 <span class="math notranslate nohighlight">\(1\)</span> 的卡方分布，记 <span class="math notranslate nohighlight">\(\chi ^{2}(1)\)</span> 。</p>
 </div>
-</details></section>
-</div><div class="admonition-remark admonition">
+</details><div class="dropdown admonition">
 <p class="admonition-title">Remark</p>
 <p>可以发现，这个分布也是伽马分布，即 <span class="math notranslate nohighlight">\(Ga(\frac{n}{2},\frac{1}{2})=\chi ^{2}(n)\)</span> 。</p>
 </div>
 </section>
+</div></section>
 </section>
 
     <script type="text/x-thebe-config">

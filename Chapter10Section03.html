@@ -382,7 +382,8 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="TestChapter.html">25. 本章节用于测试附加内容</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="TestVideoSection.html">25.1. 测试视频添加</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TestCodeRunnerSection.html">25.2. Sample Code-Runner Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TestBeamerSection.html">25.2. Google PPT Test Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TestCodeRunnerSection.html">25.3. Sample Code-Runner Section</a></li>
 </ul>
 </details></li>
 </ul>
@@ -586,18 +587,20 @@ document.write(`
 <h1><span class="section-number">10.3. </span>极值分布<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p><span class="math notranslate nohighlight">\(\max\)</span> 和 <span class="math notranslate nohighlight">\(\min\)</span> 是两种常见的运算，其广泛的应用于风险管理问题中。比如：上海地区今年最高气温达到 40 摄氏度的概率有多大？这里我们利用两个例题来阐述在不同的条件下如何计算极值的分布。</p>
 <div class="proof example admonition" id="example-0">
-<p class="admonition-title"><span class="caption-number">Example 10.3 </span> (例题组合)</p>
+<p class="admonition-title"><span class="caption-number">Example 10.4 </span> (最大值分布)</p>
 <section class="example-content" id="proof-content">
-<div class="proof example dropdown admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">Example 10.4 </span> (例题一)</p>
+<p>设 <span class="math notranslate nohighlight">\(X_1,X_2,\cdots,X_n\)</span> 是相互独立的 <span class="math notranslate nohighlight">\(n\)</span> 个随机变量，若 <span class="math notranslate nohighlight">\(Y=\max\{X_1,X_2,\cdots,X_n\}\)</span> ，在以下情况下求 <span class="math notranslate nohighlight">\(Y\)</span> 的分布。</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+独立</label><div class="sd-tab-content docutils">
+<div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">Example 10.5 </span></p>
 <section class="example-content" id="proof-content">
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">设 <span class="math notranslate nohighlight">\(X_1,X_2,\cdots,X_n\)</span> 是相互独立的 <span class="math notranslate nohighlight">\(n\)</span> 个随机变量，若 <span class="math notranslate nohighlight">\(Y=\max\{X_1,X_2,\cdots,X_n\}\)</span> ，在以下情况下求 <span class="math notranslate nohighlight">\(Y\)</span> 的分布。</p>
-<ul class="simple">
-<li><p class="sd-card-text">若 <span class="math notranslate nohighlight">\(X_i \sim F_i(x),i=1,2,\cdots,n\)</span> ，则 <span class="math notranslate nohighlight">\(Y=\max\{X_1,X_2,\cdots,X_n\}\)</span> 的分布函数为</p></li>
-</ul>
+<p>若 <span class="math notranslate nohighlight">\(X_i \sim F_i(x),i=1,2,\cdots,n\)</span> ，则 <span class="math notranslate nohighlight">\(Y=\max\{X_1,X_2,\cdots,X_n\}\)</span> 的分布函数为</p>
+</section>
+</div><div class="admonition-solution admonition">
+<p class="admonition-title">Solution</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -608,22 +611,31 @@ F_Y(y) &amp;=&amp; P(Y\leq y)\\
 &amp;=&amp; \prod_{i=1}^n F_{i}(y).
 \end{eqnarray*}
 \end{split}\]</div>
-<ul class="simple">
-<li><p class="sd-card-text">若诸 <span class="math notranslate nohighlight">\(X_i\)</span> 同分布，即 <span class="math notranslate nohighlight">\(X \sim F(x), i=1,2,\cdots,n\)</span> ，则
-<span class="math notranslate nohighlight">\(Y\)</span> 的分布函数为</p></li>
-</ul>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+独立同分布</label><div class="sd-tab-content docutils">
+<p>若诸 <span class="math notranslate nohighlight">\(X_i\)</span> 同分布，即 <span class="math notranslate nohighlight">\(X \sim F(x), i=1,2,\cdots,n\)</span> ，则 <span class="math notranslate nohighlight">\(Y\)</span> 的分布函数为</p>
+<div class="admonition-solution admonition">
+<p class="admonition-title">Solution</p>
 <div class="math notranslate nohighlight">
 \[
 F_Y(y) = \left(F(y)\right)^n.
 \]</div>
-<ul class="simple">
-<li><p class="sd-card-text">若诸 <span class="math notranslate nohighlight">\(X_i\)</span> 为连续随机变量，且诸 <span class="math notranslate nohighlight">\(X_i\)</span> 同分布，即 <span class="math notranslate nohighlight">\(X_i\)</span> 的密度函数为 <span class="math notranslate nohighlight">\(p(x),i=1,2,\cdots,n\)</span> ，则 <span class="math notranslate nohighlight">\(Y\)</span> 的分布函数仍为</p></li>
-</ul>
+</div>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+连续且独立同分布</label><div class="sd-tab-content docutils">
+<p>若诸 <span class="math notranslate nohighlight">\(X_i\)</span> 为连续随机变量，且诸 <span class="math notranslate nohighlight">\(X_i\)</span> 同分布，即 <span class="math notranslate nohighlight">\(X_i\)</span> 的密度函数为 <span class="math notranslate nohighlight">\(p(x),i=1,2,\cdots,n\)</span> ，则 <span class="math notranslate nohighlight">\(Y\)</span> 的分布函数仍为</p>
+<div class="admonition-solution admonition">
+<p class="admonition-title">Solution</p>
 <div class="math notranslate nohighlight">
 \[
 F_Y(y) = \left(F(y)\right)^n.
 \]</div>
-<p class="sd-card-text">而 <span class="math notranslate nohighlight">\(Y\)</span> 的密度函数为</p>
+<p>而 <span class="math notranslate nohighlight">\(Y\)</span> 的密度函数为</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -631,10 +643,14 @@ p_Y(y) &amp;=&amp; \frac{\text{d}}{\text{d}y}F_Y(y) \\
 &amp;=&amp; n \left(F(y)\right)^{n-1} p(y).
 \end{eqnarray*}
 \end{split}\]</div>
-<ul class="simple">
-<li><p class="sd-card-text">若 <span class="math notranslate nohighlight">\(X_i \sim Exp(\lambda),i=1,2,\cdots,n\)</span> ，则
-<span class="math notranslate nohighlight">\(Y\)</span> 的分布函数为</p></li>
-</ul>
+</div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+指数分布</label><div class="sd-tab-content docutils">
+<p>若 <span class="math notranslate nohighlight">\(X_i \sim Exp(\lambda),i=1,2,\cdots,n\)</span> ，则 <span class="math notranslate nohighlight">\(Y\)</span> 的分布函数为</p>
+<div class="admonition-solution admonition">
+<p class="admonition-title">Solution</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 F_Y(y) = \left\{
@@ -644,7 +660,7 @@ F_Y(y) = \left\{
 \end{aligned}
 \right.
 \end{split}\]</div>
-<p class="sd-card-text">而 <span class="math notranslate nohighlight">\(Y\)</span> 的密度函数为</p>
+<p>而 <span class="math notranslate nohighlight">\(Y\)</span> 的密度函数为</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 p_Y(y) = \left\{
@@ -655,17 +671,24 @@ p_Y(y) = \left\{
 \right.
 \end{split}\]</div>
 </div>
-</details></section>
-</div><div class="proof example dropdown admonition" id="example-2">
-<p class="admonition-title"><span class="caption-number">Example 10.5 </span> (例题二)</p>
+</div>
+</div>
+</section>
+</div><div class="proof example admonition" id="example-2">
+<p class="admonition-title"><span class="caption-number">Example 10.6 </span> (最小值分布)</p>
 <section class="example-content" id="proof-content">
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">设 <span class="math notranslate nohighlight">\(X_1,X_2,\cdots,X_n\)</span> 是相互独立的 <span class="math notranslate nohighlight">\(n\)</span> 个随机变量，若 <span class="math notranslate nohighlight">\(Z=\min\{X_1,X_2,\cdots,X_n\}\)</span> ，在以下情况下求 <span class="math notranslate nohighlight">\(Z\)</span> 的分布。</p>
-<ul class="simple">
-<li><p class="sd-card-text">若 <span class="math notranslate nohighlight">\(X_i \sim F_i(x),i=1,2,\cdots,n\)</span> ，则 <span class="math notranslate nohighlight">\(Z=\min\{X_1,X_2,\cdots,X_n\}\)</span> 的分布函数为</p></li>
-</ul>
+<p>设 <span class="math notranslate nohighlight">\(X_1,X_2,\cdots,X_n\)</span> 是相互独立的 <span class="math notranslate nohighlight">\(n\)</span> 个随机变量，若 <span class="math notranslate nohighlight">\(Z=\min\{X_1,X_2,\cdots,X_n\}\)</span> ，在以下情况下求 <span class="math notranslate nohighlight">\(Z\)</span> 的分布。</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
+独立</label><div class="sd-tab-content docutils">
+<div class="proof example admonition" id="example-3">
+<p class="admonition-title"><span class="caption-number">Example 10.7 </span></p>
+<section class="example-content" id="proof-content">
+<p>若 <span class="math notranslate nohighlight">\(X_i \sim F_i(x),i=1,2,\cdots,n\)</span> ，则 <span class="math notranslate nohighlight">\(Y=\min\{X_1,X_2,\cdots,X_n\}\)</span> 的分布函数为</p>
+</section>
+</div><div class="admonition-solution admonition">
+<p class="admonition-title">Solution</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -677,22 +700,31 @@ F_Z(z) &amp;=&amp; P(Z\leq z)\\
 &amp;=&amp; 1- \prod_{i=1}^n\left( 1-F_{i}(z)\right).
 \end{eqnarray*}
 \end{split}\]</div>
-<ul class="simple">
-<li><p class="sd-card-text">若诸 <span class="math notranslate nohighlight">\(X_i\)</span> 同分布，即 <span class="math notranslate nohighlight">\(X \sim F(x), i=1,2,\cdots,n\)</span> ，则
-<span class="math notranslate nohighlight">\(Z\)</span> 的分布函数为</p></li>
-</ul>
+</div>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-5">
+独立同分布</label><div class="sd-tab-content docutils">
+<p>若诸 <span class="math notranslate nohighlight">\(X_i\)</span> 同分布，即 <span class="math notranslate nohighlight">\(X \sim F(x), i=1,2,\cdots,n\)</span> ，则 <span class="math notranslate nohighlight">\(Z\)</span> 的分布函数为</p>
+<div class="admonition-solution admonition">
+<p class="admonition-title">Solution</p>
 <div class="math notranslate nohighlight">
 \[
 F_Z(z) = 1-\left(1-F(z)\right)^n.
 \]</div>
-<ul class="simple">
-<li><p class="sd-card-text">若诸 <span class="math notranslate nohighlight">\(X_i\)</span> 为连续随机变量，且诸 <span class="math notranslate nohighlight">\(X_i\)</span> 同分布，即 <span class="math notranslate nohighlight">\(X_i\)</span> 的密度函数为 <span class="math notranslate nohighlight">\(p(x),i=1,2,\cdots,n\)</span> ，则 <span class="math notranslate nohighlight">\(Z\)</span> 的分布函数仍为</p></li>
-</ul>
+</div>
+</div>
+<input id="sd-tab-item-6" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-6">
+连续且独立同分布</label><div class="sd-tab-content docutils">
+<p>若诸 <span class="math notranslate nohighlight">\(X_i\)</span> 为连续随机变量，且诸 <span class="math notranslate nohighlight">\(X_i\)</span> 同分布，即 <span class="math notranslate nohighlight">\(X_i\)</span> 的密度函数为 <span class="math notranslate nohighlight">\(p(x),i=1,2,\cdots,n\)</span> ，则 <span class="math notranslate nohighlight">\(Z\)</span> 的分布函数仍为</p>
+<div class="admonition-solution admonition">
+<p class="admonition-title">Solution</p>
 <div class="math notranslate nohighlight">
 \[
 F_Z(z) =1- \left(1-F(z)\right)^n.
 \]</div>
-<p class="sd-card-text">而 <span class="math notranslate nohighlight">\(Z\)</span> 的密度函数为</p>
+<p>而 <span class="math notranslate nohighlight">\(Z\)</span> 的密度函数为</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -700,10 +732,14 @@ p_Z(z) &amp;=&amp; \frac{\text{d}}{\text{d}z}F_Z(z) \\
 &amp;=&amp; n \left(1-F(z)\right)^{n-1} p(z).
 \end{eqnarray*}
 \end{split}\]</div>
-<ul class="simple">
-<li><p class="sd-card-text">若 <span class="math notranslate nohighlight">\(X_i \sim Exp(\lambda),i=1,2,\cdots,n\)</span> ，则
-<span class="math notranslate nohighlight">\(Z\)</span> 的分布函数为</p></li>
-</ul>
+</div>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-7">
+指数分布</label><div class="sd-tab-content docutils">
+<p>若 <span class="math notranslate nohighlight">\(X_i \sim Exp(\lambda),i=1,2,\cdots,n\)</span> ，则 <span class="math notranslate nohighlight">\(Z\)</span> 的分布函数为</p>
+<div class="admonition-solution admonition">
+<p class="admonition-title">Solution</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 F_Z(z) = \left\{
@@ -713,7 +749,7 @@ F_Z(z) = \left\{
 \end{aligned}
 \right.
 \end{split}\]</div>
-<p class="sd-card-text">而 <span class="math notranslate nohighlight">\(Z\)</span> 的密度函数为</p>
+<p>而 <span class="math notranslate nohighlight">\(Z\)</span> 的密度函数为</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 p_Y(y) = \left\{
@@ -724,8 +760,9 @@ p_Y(y) = \left\{
 \right.
 \end{split}\]</div>
 </div>
-</details></section>
-</div></section>
+</div>
+</div>
+</section>
 </div></section>
 
     <script type="text/x-thebe-config">

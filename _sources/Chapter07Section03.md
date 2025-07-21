@@ -93,7 +93,7 @@ $$p_{Y}(y)=\left\{\begin{matrix}
 \end{matrix}\right.$$
 
 ```{dropdown} Solution
-
+因为 $y=g(x)=e^{x}$ 是严格单调递增函数，它仅在 $(0,+\infty)$ 上取值，其反函数 $x=h(y)=lny$，而 $h'(y)=\frac{1}{y}$，根据定理可知，
 
 $$
 \begin{eqnarray*}
@@ -104,11 +104,15 @@ p_{Y}(y)&=&p_{X}\left ( h(y) \right )\left | h'(y) \right | \\
 $$
 
 ```
-`````
+
 
 ```{admonition} Remark
+:class: dropdown
 这个分布称为对数正态分布 $\omega \left(\mu, \sigma^{2}\right)$ 。
 ```
+
+`````
+
 
 `````{prf:example}
 设 $X\sim Ga(\alpha,r)$ ，则当 $k>0$ 时，有 $Y=kX\sim Ga(\alpha,\frac{r}{k})$ 。
@@ -170,11 +174,8 @@ $$F_{Y}(y)=\left\{
 因此， $Y\sim U(0,1)$ 。
 ```
 
-````
-
-
 ```{admonition} Remark
-
+:class: dropdown
 - 任一个连续随机变量 $X$ 都可通过其分布函数 $F(x)$ 与均匀分布随机变量 $U$ 有关联。
 - $X\sim {Exp}(\lambda)$ ，其分布函数 $F(x)=1-e^{-\lambda x}$ 。于是，
 
@@ -188,10 +189,13 @@ $$x_{i}=\frac{1}{\lambda} \cdot \ln \frac{1}{1-u_{i}} \quad i=1,2, \cdots, n, \c
 
 ```
 
+````
+
 ## $g(\cdot)$ 是其他特殊形式
 
 `````{prf:example}
  $X\sim N(0,1)$ ，求 $Y=X^{2}$ 的密度函数。
+ 
 ```{dropdown} Solution
 
 先求 $Y$ 的分布函数 $F_{Y}(y)$ 。由于 $Y=X^{2}\ge 0$ ，故当 $y\leq 0$ 时，有 $F_{Y}(y)=0$ ，从而 $P_{Y}(y)=0$ .
@@ -218,8 +222,10 @@ $$p_{Y}(y)=\left\{\begin{array}{cc}
 
 称 $Y$ 服从自由度为 $1$ 的卡方分布，记 $\chi ^{2}(1)$ 。
 ```
-`````
 
 ```{admonition} Remark
+:class: dropdown
 可以发现，这个分布也是伽马分布，即 $Ga(\frac{n}{2},\frac{1}{2})=\chi ^{2}(n)$ 。
 ```
+
+`````

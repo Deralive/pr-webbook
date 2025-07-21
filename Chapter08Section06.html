@@ -382,7 +382,8 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="TestChapter.html">25. 本章节用于测试附加内容</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="TestVideoSection.html">25.1. 测试视频添加</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TestCodeRunnerSection.html">25.2. Sample Code-Runner Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TestBeamerSection.html">25.2. Google PPT Test Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TestCodeRunnerSection.html">25.3. Sample Code-Runner Section</a></li>
 </ul>
 </details></li>
 </ul>
@@ -587,6 +588,40 @@ document.write(`
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>请同学们回顾一下 <span class="math notranslate nohighlight">\(n\)</span> 个随机事件相互独立是如何定义的？</p>
+</div>
+<dl class="simple myst">
+<dt>独立性</dt><dd><p>设 <span class="math notranslate nohighlight">\(n\)</span> 维随机变量 <span class="math notranslate nohighlight">\(\left(X_{1}, X_{2}, \cdots, X_{n}\right)'\)</span> 的联合分布函数 <span class="math notranslate nohighlight">\(F(x_{1}, x_{2}, \cdots, x_{n})\)</span> ， <span class="math notranslate nohighlight">\(F_{i}\left(x_{i}\right)\)</span> 为 <span class="math notranslate nohighlight">\(X_{i}\)</span> 的边际分布函数。如果对任意 <span class="math notranslate nohighlight">\(n\)</span> 个实数 <span class="math notranslate nohighlight">\(x_{1}, x_{2}, \cdots, x_{n}\)</span> 有</p>
+</dd>
+</dl>
+<div class="math notranslate nohighlight">
+\[F\left(x_{1}, x_{2}, \cdots, x_{n}\right)=\prod_{i=1}^{n} F_{i}(x_{i})\]</div>
+<p>则称 <span class="math notranslate nohighlight">\(X_{1}, X_{2}, \cdots, X_{n}\)</span> 相互独立。</p>
+<ul class="simple">
+<li><p>在离散随机变量场合，如果对其任意 <span class="math notranslate nohighlight">\(n\)</span> 个取值 <span class="math notranslate nohighlight">\(x_{1}, x_{2}, \cdots, x_{n}\)</span> 有</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[P\left(X_{1}=x_{1}, X_{2}=x_{2}, \ldots, X_{n}=x_{n}\right)=\prod_{i=1}^{n} P\left(X_{i}=x_{i}\right)\]</div>
+<p>则称 <span class="math notranslate nohighlight">\(X_{1}, X_{2}, \cdots, X_{n}\)</span> 相互独立。</p>
+<ul class="simple">
+<li><p>在连续随机变量场合，如果对其任意 <span class="math notranslate nohighlight">\(n\)</span> 个实数 <span class="math notranslate nohighlight">\(x_{1}, x_{2}, \cdots, x_{n},\)</span> 有</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[p\left(x_{1}, x_{2}, \cdots, x_{n}\right)=\prod_{i=1}^{n} p_{i}\left(x_{i}\right)\]</div>
+<p>则称 <span class="math notranslate nohighlight">\(X_{1}, X_{2}, \cdots, X_{n}\)</span> 相互独立。</p>
+<div class="proof example admonition" id="example-0">
+<p class="admonition-title"><span class="caption-number">Example 8.6 </span></p>
+<section class="example-content" id="proof-content">
+<p>若二维随机变量 <span class="math notranslate nohighlight">\((X,Y)\)</span> 的联合密度函数为</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+p(x,y) = \left\{
+\begin{aligned}
+&amp; 8xy, &amp; 0\leq x \leq y \leq 1 \\
+&amp; 0, &amp; \text{其他}
+\end{aligned}
+\right.
+\end{split}\]</div>
+<p>问 <span class="math notranslate nohighlight">\(X\)</span> 和 <span class="math notranslate nohighlight">\(Y\)</span> 是否相互独立？</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
@@ -602,8 +637,8 @@ p_Y(y) = \int_{-\infty}^{\infty} p(x,y)\text{d}x = \int_{0}^{y} 8xy \text{d}y = 
 \]</div>
 <p class="sd-card-text">因为 <span class="math notranslate nohighlight">\((X,Y)\)</span> 联合密度函数不等于 <span class="math notranslate nohighlight">\(X\)</span> 和 <span class="math notranslate nohighlight">\(Y\)</span> 边际密度函数的乘积，所以 <span class="math notranslate nohighlight">\(X\)</span> 和 <span class="math notranslate nohighlight">\(Y\)</span> 不独立。</p>
 </div>
-</details></div>
-<div class="admonition-question admonition">
+</details></section>
+</div><div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>为什么我们常常假定变量是满足独立性？</p>
 </div>

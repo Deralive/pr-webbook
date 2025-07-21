@@ -29,7 +29,7 @@
   - 反面
   - 反面
 ```
-于是，根据抛硬不的结果，随机变量序列 $\{X_i\}$ 的取值为 $x_i$ ，见表 {numref}`tab:Lect11_cointossing10_frequency` 
+于是，根据抛硬币的结果，随机变量序列 $\{X_i\}$ 的取值为 $x_i$ ，见表 {numref}`tab:Lect11_cointossing10_frequency` 
 ```{list-table} 随机变量序列的取值情况
 :header-rows: 1
 :name: tab:Lect11_cointossing10_frequency

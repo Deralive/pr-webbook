@@ -3,7 +3,8 @@
 
 $$p_{i j}=P\left(X=x_{i}, Y=y_{j}\right), i=1,2, \cdots;\quad j=1,2, \cdots.$$
 
-对一切使 $P\left(Y=y_{j}\right)=p_{\cdot j}=\sum_{i=1}^{\infty} p_{i j}>0$ 的 $y_{j}$ ，称
+条件分布列
+: 对一切使 $P\left(Y=y_{j}\right)=p_{\cdot j}=\sum_{i=1}^{\infty} p_{i j}>0$ 的 $y_{j}$ ，称
 
 $$
 \begin{eqnarray*}
@@ -13,7 +14,8 @@ p_{i | j} &=&P\left(X=x_{i} | Y=y_{j}\right) \\
 \end{eqnarray*}
 $$
 
-为给定 $Y=y_{j}$ 条件下 $X$ 的条件分布列， $i=1,2,\cdots$ 。
+条件分布函数
+: 为给定 $Y=y_{j}$ 条件下 $X$ 的条件分布列， $i=1,2,\cdots$ 。
 
 给定 $Y=y_{j}$ 条件下 $X$ 的条件分布函数为
 

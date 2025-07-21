@@ -61,8 +61,7 @@ $$\text{Cov}(X+Y, Z)=\text{Cov}(X, Z)+\text{Cov}(Y, Z)$$
 ## 相关系数
 
 相关系数
-: 
-设 $(X,Y)$ 是一个二维随机变量，且 $\text{Var}(X)=\sigma _{X} ^{2} >0, \text{Var}(Y)=\sigma _{Y} ^{2} >0$ ，则称
+: 设 $(X,Y)$ 是一个二维随机变量，且 $\text{Var}(X)=\sigma _{X} ^{2} >0, \text{Var}(Y)=\sigma _{Y} ^{2} >0$ ，则称
 
 $$
 \text{Corr}(X, Y)=\frac{\text{Cov}(X, Y)}{\sqrt{\text{Var}(X) \cdot \text{Var}(Y)}}=\frac{\text{Cov}(X, Y)}{\sigma_{X} \sigma_{Y}}$$

@@ -382,7 +382,8 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="TestChapter.html">25. 本章节用于测试附加内容</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="TestVideoSection.html">25.1. 测试视频添加</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TestCodeRunnerSection.html">25.2. Sample Code-Runner Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TestBeamerSection.html">25.2. Google PPT Test Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TestCodeRunnerSection.html">25.3. Sample Code-Runner Section</a></li>
 </ul>
 </details></li>
 </ul>
@@ -587,7 +588,10 @@ document.write(`
 <p>设二维离散随机变量 <span class="math notranslate nohighlight">\((X,Y)\)</span> 的联合分布列为</p>
 <div class="math notranslate nohighlight">
 \[p_{i j}=P\left(X=x_{i}, Y=y_{j}\right), i=1,2, \cdots;\quad j=1,2, \cdots.\]</div>
-<p>对一切使 <span class="math notranslate nohighlight">\(P\left(Y=y_{j}\right)=p_{\cdot j}=\sum_{i=1}^{\infty} p_{i j}&gt;0\)</span> 的 <span class="math notranslate nohighlight">\(y_{j}\)</span> ，称</p>
+<dl class="simple myst">
+<dt>条件分布列</dt><dd><p>对一切使 <span class="math notranslate nohighlight">\(P\left(Y=y_{j}\right)=p_{\cdot j}=\sum_{i=1}^{\infty} p_{i j}&gt;0\)</span> 的 <span class="math notranslate nohighlight">\(y_{j}\)</span> ，称</p>
+</dd>
+</dl>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -596,7 +600,10 @@ p_{i | j} &amp;=&amp;P\left(X=x_{i} | Y=y_{j}\right) \\
 &amp;=&amp;\frac{p_{i j}}{p_{\cdot j} }
 \end{eqnarray*}
 \end{split}\]</div>
-<p>为给定 <span class="math notranslate nohighlight">\(Y=y_{j}\)</span> 条件下 <span class="math notranslate nohighlight">\(X\)</span> 的条件分布列， <span class="math notranslate nohighlight">\(i=1,2,\cdots\)</span> 。</p>
+<dl class="simple myst">
+<dt>条件分布函数</dt><dd><p>为给定 <span class="math notranslate nohighlight">\(Y=y_{j}\)</span> 条件下 <span class="math notranslate nohighlight">\(X\)</span> 的条件分布列， <span class="math notranslate nohighlight">\(i=1,2,\cdots\)</span> 。</p>
+</dd>
+</dl>
 <p>给定 <span class="math notranslate nohighlight">\(Y=y_{j}\)</span> 条件下 <span class="math notranslate nohighlight">\(X\)</span> 的条件分布函数为</p>
 <div class="math notranslate nohighlight">
 \[F\left(x | y_{j}\right)=\sum_{x_{i} \leq x} P\left(X=x_{i} | Y=y_{j}\right)=\sum_{x_{i} \leq x} p_{i | j}\]</div>

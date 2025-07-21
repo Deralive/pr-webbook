@@ -1,7 +1,8 @@
 # 常见的多维随机变量的分布
 ## 多项分布
 
-进行 $n$ 次独立重复实验，如果每次实验有 $r$ 个互不相容的结果： $A_1,A_2,\cdots,A_r$ 之一发生，且每次是试验中 $A_i$ 发生的概率为 $p_i = P(A_i),i=1,2,\cdots,r$ ，且 $p_{1}+p_{2}+ \cdots +p_{r}=1$ 。记 $X_{i}$ 为 $n$ 次独立重复试验中 $A_{i}$ 出现的次数， $i=1,2, \cdots ,r$ ，则 $(X_{1}, X_{2}, \cdots, X_{r})$ 取值 $(x_{1}, x_{2}, \cdots, x_{r})$ 的概率，即 $A_{1}$ 出现 $x_{1}$ 次， $A_{2}$ 出现 $x_{2}$ 次, $\cdots$ , $A_{r}$ 出现 $x_{r}$ 的概率为
+多项分布
+: 进行 $n$ 次独立重复实验，如果每次实验有 $r$ 个互不相容的结果： $A_1,A_2,\cdots,A_r$ 之一发生，且每次是试验中 $A_i$ 发生的概率为 $p_i = P(A_i),i=1,2,\cdots,r$ ，且 $p_{1}+p_{2}+ \cdots +p_{r}=1$ 。记 $X_{i}$ 为 $n$ 次独立重复试验中 $A_{i}$ 出现的次数， $i=1,2, \cdots ,r$ ，则 $(X_{1}, X_{2}, \cdots, X_{r})$ 取值 $(x_{1}, x_{2}, \cdots, x_{r})$ 的概率，即 $A_{1}$ 出现 $x_{1}$ 次， $A_{2}$ 出现 $x_{2}$ 次, $\cdots$ , $A_{r}$ 出现 $x_{r}$ 的概率为
 
 $$P\left(X_{1}=x_{1}, X_{2}=x_{2}, \cdots, X_{r}=x_{r}\right)=\frac{n!}{x_{1} ! x_{2} !\cdots x_{r} !} p_{1}^{x_{1}} p_{2}^{x_{2}} \ldots p_{r}^{x_{r}}$$
 
@@ -43,18 +44,21 @@ P(X=i) &=&\sum_{j=0}^{n-i} \frac{n !}{i ! j !(n-i-j) !} p_{1}^{i} p_{2}^{j}\left
 $$
 
 其中， $p_{2}^{\ast}=\frac{p_{2}}{1-p_{1}}$ 。因此， $X \sim b\left(n, p_{1}\right)$ 。
-`````
+
 
 ```{admonition} Remark
+:class: dropdown
 
 - 三项分布的一维边际分布为二项分布；
 - 多项分布的一维边际分布为二项分布；
 
 ```
+`````
 
 ## 多维超几何分布
 
-袋中有 $N$ 个球，其中有 $N_i$ 个 $i$ 号球， $i=1,2,\cdots,r$ ，且 $N = N_1+N_2 + \cdots + N_r$ . 从中任意取出 $n(n\leq N)$ 个，若记 $X_i$ 为取出的 $n$ 个球中 $i$ 号球的个数， $i=1,2,\cdots,r$ ，则
+多维超几何分布
+: 袋中有 $N$ 个球，其中有 $N_i$ 个 $i$ 号球， $i=1,2,\cdots,r$ ，且 $N = N_1+N_2 + \cdots + N_r$ . 从中任意取出 $n(n\leq N)$ 个，若记 $X_i$ 为取出的 $n$ 个球中 $i$ 号球的个数， $i=1,2,\cdots,r$ ，则
 
 $$
 P(X_1=n_1,X_2=n_2,\cdots,X_r= n_r) = \frac{\begin{pmatrix}
@@ -79,7 +83,8 @@ $$
 
 ## 多维均匀分布
 
-设 $D$ 为 $R^n$ 中的一个有界区域，其度量为 $S_D$ 。如果多维随机变量 $(X_{1}, X_{2}, \cdots, X_{n})'$ 的联合密度函数为
+多维均匀分布
+: 设 $D$ 为 $R^n$ 中的一个有界区域，其度量为 $S_D$ 。如果多维随机变量 $(X_{1}, X_{2}, \cdots, X_{n})'$ 的联合密度函数为
 
 $$p\left(x_{1}, x_{2}, \cdots, x_{n}\right)=\left\{
 \begin{aligned}
@@ -100,7 +105,8 @@ $$P((X, Y) \in G)=\iint_{G} p(x, y) d x d y=\iint_{G} \frac{1}{S_{D}} d x d y=\f
 
 ## 多维正态分布
 
-若 $\boldsymbol{X}=\left(x_{1}, x_{2}, \cdots, x_{n}\right)'$ 为一个 $n$ 维随机变量，其密度函数为
+多维正态分布
+: 若 $\boldsymbol{X}=\left(x_{1}, x_{2}, \cdots, x_{n}\right)'$ 为一个 $n$ 维随机变量，其密度函数为
 
 $$p\left(x_{1}, x_{2}, \cdots, x_{n}\right)=p(\mathbf{x})=(2 \pi)^{-\frac{n}{2}}|\Sigma|^{-\frac{1}{2}} \exp \left\{-\frac{1}{2}(\mathbf{x}-\mathbf{\mu})' \Sigma^{-1}(\mathbf{x}-\mathbf{\mu})\right\}$$
 

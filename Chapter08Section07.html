@@ -382,7 +382,8 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="TestChapter.html">25. 本章节用于测试附加内容</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="TestVideoSection.html">25.1. 测试视频添加</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TestCodeRunnerSection.html">25.2. Sample Code-Runner Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TestBeamerSection.html">25.2. Google PPT Test Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TestCodeRunnerSection.html">25.3. Sample Code-Runner Section</a></li>
 </ul>
 </details></li>
 </ul>
@@ -599,7 +600,10 @@ document.write(`
 <h1><span class="section-number">8.7. </span>常见的多维随机变量的分布<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <section id="id2">
 <h2><span class="section-number">8.7.1. </span>多项分布<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>进行 <span class="math notranslate nohighlight">\(n\)</span> 次独立重复实验，如果每次实验有 <span class="math notranslate nohighlight">\(r\)</span> 个互不相容的结果： <span class="math notranslate nohighlight">\(A_1,A_2,\cdots,A_r\)</span> 之一发生，且每次是试验中 <span class="math notranslate nohighlight">\(A_i\)</span> 发生的概率为 <span class="math notranslate nohighlight">\(p_i = P(A_i),i=1,2,\cdots,r\)</span> ，且 <span class="math notranslate nohighlight">\(p_{1}+p_{2}+ \cdots +p_{r}=1\)</span> 。记 <span class="math notranslate nohighlight">\(X_{i}\)</span> 为 <span class="math notranslate nohighlight">\(n\)</span> 次独立重复试验中 <span class="math notranslate nohighlight">\(A_{i}\)</span> 出现的次数， <span class="math notranslate nohighlight">\(i=1,2, \cdots ,r\)</span> ，则 <span class="math notranslate nohighlight">\((X_{1}, X_{2}, \cdots, X_{r})\)</span> 取值 <span class="math notranslate nohighlight">\((x_{1}, x_{2}, \cdots, x_{r})\)</span> 的概率，即 <span class="math notranslate nohighlight">\(A_{1}\)</span> 出现 <span class="math notranslate nohighlight">\(x_{1}\)</span> 次， <span class="math notranslate nohighlight">\(A_{2}\)</span> 出现 <span class="math notranslate nohighlight">\(x_{2}\)</span> 次, <span class="math notranslate nohighlight">\(\cdots\)</span> , <span class="math notranslate nohighlight">\(A_{r}\)</span> 出现 <span class="math notranslate nohighlight">\(x_{r}\)</span> 的概率为</p>
+<dl class="simple myst">
+<dt>多项分布</dt><dd><p>进行 <span class="math notranslate nohighlight">\(n\)</span> 次独立重复实验，如果每次实验有 <span class="math notranslate nohighlight">\(r\)</span> 个互不相容的结果： <span class="math notranslate nohighlight">\(A_1,A_2,\cdots,A_r\)</span> 之一发生，且每次是试验中 <span class="math notranslate nohighlight">\(A_i\)</span> 发生的概率为 <span class="math notranslate nohighlight">\(p_i = P(A_i),i=1,2,\cdots,r\)</span> ，且 <span class="math notranslate nohighlight">\(p_{1}+p_{2}+ \cdots +p_{r}=1\)</span> 。记 <span class="math notranslate nohighlight">\(X_{i}\)</span> 为 <span class="math notranslate nohighlight">\(n\)</span> 次独立重复试验中 <span class="math notranslate nohighlight">\(A_{i}\)</span> 出现的次数， <span class="math notranslate nohighlight">\(i=1,2, \cdots ,r\)</span> ，则 <span class="math notranslate nohighlight">\((X_{1}, X_{2}, \cdots, X_{r})\)</span> 取值 <span class="math notranslate nohighlight">\((x_{1}, x_{2}, \cdots, x_{r})\)</span> 的概率，即 <span class="math notranslate nohighlight">\(A_{1}\)</span> 出现 <span class="math notranslate nohighlight">\(x_{1}\)</span> 次， <span class="math notranslate nohighlight">\(A_{2}\)</span> 出现 <span class="math notranslate nohighlight">\(x_{2}\)</span> 次, <span class="math notranslate nohighlight">\(\cdots\)</span> , <span class="math notranslate nohighlight">\(A_{r}\)</span> 出现 <span class="math notranslate nohighlight">\(x_{r}\)</span> 的概率为</p>
+</dd>
+</dl>
 <div class="math notranslate nohighlight">
 \[P\left(X_{1}=x_{1}, X_{2}=x_{2}, \cdots, X_{r}=x_{r}\right)=\frac{n!}{x_{1} ! x_{2} !\cdots x_{r} !} p_{1}^{x_{1}} p_{2}^{x_{2}} \ldots p_{r}^{x_{r}}\]</div>
 <p>其中 <span class="math notranslate nohighlight">\(n=n_{1}+n_{2}+ \cdots +n_{r}\)</span> 。
@@ -614,7 +618,7 @@ document.write(`
 </div>
 <p>接下来，我们用一个例子来讨论多项分布与二项分布之间的关系。</p>
 <div class="proof example admonition" id="example-0">
-<p class="admonition-title"><span class="caption-number">Example 8.6 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 8.7 </span></p>
 <section class="example-content" id="proof-content">
 <p>考虑三项分布 <span class="math notranslate nohighlight">\(M(n,p_{1}, p_{2}, p_{3})\)</span> 实质上是一个二维随机变量 <span class="math notranslate nohighlight">\((X,Y)\)</span> 的分布，其联合分布为</p>
 <div class="math notranslate nohighlight">
@@ -638,8 +642,7 @@ P(X=i) &amp;=&amp;\sum_{j=0}^{n-i} \frac{n !}{i ! j !(n-i-j) !} p_{1}^{i} p_{2}^
 \end{eqnarray*}
 \end{split}\]</div>
 <p>其中， <span class="math notranslate nohighlight">\(p_{2}^{\ast}=\frac{p_{2}}{1-p_{1}}\)</span> 。因此， <span class="math notranslate nohighlight">\(X \sim b\left(n, p_{1}\right)\)</span> 。</p>
-</section>
-</div><div class="admonition-remark admonition">
+<div class="dropdown admonition">
 <p class="admonition-title">Remark</p>
 <ul class="simple">
 <li><p>三项分布的一维边际分布为二项分布；</p></li>
@@ -647,9 +650,13 @@ P(X=i) &amp;=&amp;\sum_{j=0}^{n-i} \frac{n !}{i ! j !(n-i-j) !} p_{1}^{i} p_{2}^
 </ul>
 </div>
 </section>
+</div></section>
 <section id="id3">
 <h2><span class="section-number">8.7.2. </span>多维超几何分布<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>袋中有 <span class="math notranslate nohighlight">\(N\)</span> 个球，其中有 <span class="math notranslate nohighlight">\(N_i\)</span> 个 <span class="math notranslate nohighlight">\(i\)</span> 号球， <span class="math notranslate nohighlight">\(i=1,2,\cdots,r\)</span> ，且 <span class="math notranslate nohighlight">\(N = N_1+N_2 + \cdots + N_r\)</span> . 从中任意取出 <span class="math notranslate nohighlight">\(n(n\leq N)\)</span> 个，若记 <span class="math notranslate nohighlight">\(X_i\)</span> 为取出的 <span class="math notranslate nohighlight">\(n\)</span> 个球中 <span class="math notranslate nohighlight">\(i\)</span> 号球的个数， <span class="math notranslate nohighlight">\(i=1,2,\cdots,r\)</span> ，则</p>
+<dl class="simple myst">
+<dt>多维超几何分布</dt><dd><p>袋中有 <span class="math notranslate nohighlight">\(N\)</span> 个球，其中有 <span class="math notranslate nohighlight">\(N_i\)</span> 个 <span class="math notranslate nohighlight">\(i\)</span> 号球， <span class="math notranslate nohighlight">\(i=1,2,\cdots,r\)</span> ，且 <span class="math notranslate nohighlight">\(N = N_1+N_2 + \cdots + N_r\)</span> . 从中任意取出 <span class="math notranslate nohighlight">\(n(n\leq N)\)</span> 个，若记 <span class="math notranslate nohighlight">\(X_i\)</span> 为取出的 <span class="math notranslate nohighlight">\(n\)</span> 个球中 <span class="math notranslate nohighlight">\(i\)</span> 号球的个数， <span class="math notranslate nohighlight">\(i=1,2,\cdots,r\)</span> ，则</p>
+</dd>
+</dl>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 P(X_1=n_1,X_2=n_2,\cdots,X_r= n_r) = \frac{\begin{pmatrix}
@@ -673,7 +680,10 @@ N\\n
 </section>
 <section id="id4">
 <h2><span class="section-number">8.7.3. </span>多维均匀分布<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-<p>设 <span class="math notranslate nohighlight">\(D\)</span> 为 <span class="math notranslate nohighlight">\(R^n\)</span> 中的一个有界区域，其度量为 <span class="math notranslate nohighlight">\(S_D\)</span> 。如果多维随机变量 <span class="math notranslate nohighlight">\((X_{1}, X_{2}, \cdots, X_{n})'\)</span> 的联合密度函数为</p>
+<dl class="simple myst">
+<dt>多维均匀分布</dt><dd><p>设 <span class="math notranslate nohighlight">\(D\)</span> 为 <span class="math notranslate nohighlight">\(R^n\)</span> 中的一个有界区域，其度量为 <span class="math notranslate nohighlight">\(S_D\)</span> 。如果多维随机变量 <span class="math notranslate nohighlight">\((X_{1}, X_{2}, \cdots, X_{n})'\)</span> 的联合密度函数为</p>
+</dd>
+</dl>
 <div class="math notranslate nohighlight">
 \[\begin{split}p\left(x_{1}, x_{2}, \cdots, x_{n}\right)=\left\{
 \begin{aligned}
@@ -692,7 +702,10 @@ N\\n
 </section>
 <section id="id5">
 <h2><span class="section-number">8.7.4. </span>多维正态分布<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-<p>若 <span class="math notranslate nohighlight">\(\boldsymbol{X}=\left(x_{1}, x_{2}, \cdots, x_{n}\right)'\)</span> 为一个 <span class="math notranslate nohighlight">\(n\)</span> 维随机变量，其密度函数为</p>
+<dl class="simple myst">
+<dt>多维正态分布</dt><dd><p>若 <span class="math notranslate nohighlight">\(\boldsymbol{X}=\left(x_{1}, x_{2}, \cdots, x_{n}\right)'\)</span> 为一个 <span class="math notranslate nohighlight">\(n\)</span> 维随机变量，其密度函数为</p>
+</dd>
+</dl>
 <div class="math notranslate nohighlight">
 \[p\left(x_{1}, x_{2}, \cdots, x_{n}\right)=p(\mathbf{x})=(2 \pi)^{-\frac{n}{2}}|\Sigma|^{-\frac{1}{2}} \exp \left\{-\frac{1}{2}(\mathbf{x}-\mathbf{\mu})' \Sigma^{-1}(\mathbf{x}-\mathbf{\mu})\right\}\]</div>
 <p>称 <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> 满足 <span class="math notranslate nohighlight">\(n\)</span> 元正态分布，记 <span class="math notranslate nohighlight">\(X \sim N_{n}(\mathbf{\mu}, \Sigma)\)</span> 。</p>
@@ -756,7 +769,7 @@ p(\mathbf{x}) &amp;=&amp;p(x_1,x_2) = (2 \pi)^{-\frac{2}{2}}|\Sigma|^{-\frac{1}{
 \end{split}\]</div>
 </div>
 <div class="proof example admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">Example 8.7 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 8.8 </span></p>
 <section class="example-content" id="proof-content">
 <p>二维正态分布的边际分布为一元正态分布。</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
