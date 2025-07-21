@@ -729,9 +729,9 @@ document.write(`
 </tbody>
 </table>
 </div>
-<p>通过上述数据，你的直观感受是什么？
-我们重新定义一下这个问题。记 <span class="math notranslate nohighlight">\(x_{i,j}\)</span> 为第 <span class="math notranslate nohighlight">\(j\)</span> 个学生在第 <span class="math notranslate nohighlight">\(i\)</span> 道题目的结果，若正确， <span class="math notranslate nohighlight">\(x_{i,j}\)</span> 取值为 <span class="math notranslate nohighlight">\(1\)</span> ；否则为 <span class="math notranslate nohighlight">\(0\)</span> ， <span class="math notranslate nohighlight">\(i=1,2,\cdots,20,j=1,2,3,4\)</span> 。
-以学生 1 为例，可观测到一组样本</p>
+<p>通过上述数据，你的直观感受是什么？</p>
+<p>我们重新定义一下这个问题。记 <span class="math notranslate nohighlight">\(x_{i,j}\)</span> 为第 <span class="math notranslate nohighlight">\(j\)</span> 个学生在第 <span class="math notranslate nohighlight">\(i\)</span> 道题目的结果，若正确， <span class="math notranslate nohighlight">\(x_{i,j}\)</span> 取值为 <span class="math notranslate nohighlight">\(1\)</span> ；否则为 <span class="math notranslate nohighlight">\(0\)</span> ， <span class="math notranslate nohighlight">\(i=1,2,\cdots,20,j=1,2,3,4\)</span> 。</p>
+<p>以学生 1 为例，可观测到一组样本</p>
 <div class="math notranslate nohighlight">
 \[\{1,0,1,1,1,
 1,1,0,1,1,
@@ -754,6 +754,63 @@ document.write(`
 </div><div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>在构建统计量时，哪些信息可以丢失？哪些信息不可以丢失？</p>
+</div>
+<p>在参数模型中，我们使用参数化的概率质量函数或概率密度函数来刻画样本的信息。为了不区分概率质量函数和概率密度函数，我们这里统称为<strong>概率函数</strong>，记为 <span class="math notranslate nohighlight">\(p(x;\mathbf{\theta})\)</span> ，其中 <span class="math notranslate nohighlight">\(\mathbf{\theta}\)</span> 是未知参数。一旦参数确定，参数模型是唯一确定的。因此，参数模型中的未知参数包含的就是“有用信息”。
+如果我们希望统计量不损失信息，本质上就要求了统计量囊括了未知参数的一切信息。</p>
+<div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">Example 18.2 </span></p>
+<section class="example-content" id="proof-content">
+<p>对于每一个学生，其以一定概率能够回答正确任意一道口算题，假定其总体分布为 <span class="math notranslate nohighlight">\(b(1,p)\)</span> 。每一道口算可以看作独立同分布的样本。于是，样本的符号可记为</p>
+<div class="math notranslate nohighlight">
+\[x_1,x_2,\cdots,x_n\]</div>
+<p>其中，这里样本量 <span class="math notranslate nohighlight">\(n\)</span> 取 20。这里用 <span class="math notranslate nohighlight">\(n\)</span> 表示只是为了更一般的情况。</p>
+<p>对于样本来说，其联合概率（质量）函数为</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+P(X_1 = x_1,X_2=x_2,\cdots,X_n=x_n) &amp;=&amp; p_{(X_1,X_2,\cdots,X_n)}(x_1,x_2,\cdots,x_n) \\
+&amp;=&amp; \prod_{i=1}^n p_{X_i}(x_i) \\
+&amp;=&amp; \prod_{i=1}^n P(X_i = x_i)\\ &amp;=&amp;\prod_{i=1}^n p^{x_i}(1-p)^{1-x_i}\\
+&amp;=&amp; p^{\sum_{i=1}^n x_i} (1-p)^{n - \sum_{i=1}^n x_i}.
+\end{eqnarray*}
+\end{split}\]</div>
+<p>这是样本所有的信息，可以看出其依赖于未知参数 <span class="math notranslate nohighlight">\(p\)</span> 。</p>
+<p>接下来，我们来考虑统计量</p>
+<div class="math notranslate nohighlight">
+\[
+T = \sum_{i=1}^n X_i
+\]</div>
+<p>的分布。
+根据所学习到的知识， <span class="math notranslate nohighlight">\(T\)</span> 的分布为 <span class="math notranslate nohighlight">\(b(n,p)\)</span> ，其概率（质量）函数为</p>
+<div class="math notranslate nohighlight">
+\[
+P(T = t) = p_T(t) = C_{n}^t p^{t} (1-p)^{n-t}.
+\]</div>
+<p>然后，在已知统计量的分布条件下，我们来考虑样本中剩余信息的分布，这里我们用条件概率（质量）函数来表示，即</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+P(X_1=x_1,X_2 = x_2,\cdots,X_n = x_n | T = t) &amp;=&amp; \frac{P((X_1=x_1,X_2 = x_2,\cdots,X_n = x_n ,T = t)}{P(T=t)}\\
+&amp;=&amp; \left\{
+\begin{aligned}
+&amp;\frac{1}{C_{n}^t}, &amp; \text{如果 $t = \sum_{i=1}^n x_i$ }.\\
+&amp;0 , &amp; \text{如果 $t \neq \sum_{i=1}^n x_i$ }.
+\end{aligned}
+\right.
+\end{eqnarray*}
+\end{split}\]</div>
+<p>我们发现这个条件分布竟然与未知参数 <span class="math notranslate nohighlight">\(p\)</span> 无关，这意味着，这个统计量已经囊括了样本中所有有用的信息，也就是数理统计里所定义的“充分的”。</p>
+</section>
+</div><dl class="simple myst">
+<dt>充分统计量</dt><dd><p>设 <span class="math notranslate nohighlight">\(X \sim F(x;\theta),x_1,\cdots,x_n\)</span> 是来自某个总体的样本，总体分布函数为 <span class="math notranslate nohighlight">\(F(x;\theta)\)</span> ，统计量 <span class="math notranslate nohighlight">\(T=T(x_1,x_2,\cdots,x_n)\)</span> 。
+如果在给定 <span class="math notranslate nohighlight">\(T\)</span> 的取值后， <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 的条件分布与 <span class="math notranslate nohighlight">\(\theta\)</span> 无关，则称 <span class="math notranslate nohighlight">\(T\)</span> 为 <span class="math notranslate nohighlight">\(\theta\)</span> 的充分统计量。</p>
+</dd>
+</dl>
+<p>接下来，我们来看另一个例子。</p>
+<div class="proof example admonition" id="example-2">
+<p class="admonition-title"><span class="caption-number">Example 18.3 </span></p>
+<section class="example-content" id="proof-content">
+<p>设 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 是来自正态分布 <span class="math notranslate nohighlight">\(N(\mu,1)\)</span> 的样本， <span class="math notranslate nohighlight">\(T = \bar{x}\)</span> ，则 <span class="math notranslate nohighlight">\(T\)</span> 是充分的。</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Proof</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
@@ -807,8 +864,8 @@ p(x_1,x_2,\cdots,x_n|t) &amp;=&amp; \frac{p(x_1,x_2,\cdots,x_n,t)}{p(t)} \\
 \end{split}\]</div>
 <p class="sd-card-text">这与参数 <span class="math notranslate nohighlight">\(\mu\)</span> 无关。由此得证。</p>
 </div>
-</details></div>
-</section>
+</details></section>
+</div></section>
 
     <script type="text/x-thebe-config">
     {

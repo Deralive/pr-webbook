@@ -585,8 +585,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">13.2. </span>伯努利大数定律<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>考虑抛硬币这个伯努利实验，记第 <span class="math notranslate nohighlight">\(i\)</span> 次抛硬币的结果为 <span class="math notranslate nohighlight">\(X_{i}\)</span> 。一般假定每次抛硬币的结果仅有两个：正面（感兴趣的）和反面（不感兴趣的）；而且每次的结果是相互独立的。正面朝上的概率记为 <span class="math notranslate nohighlight">\(p\)</span> 。所以， <span class="math notranslate nohighlight">\(X_i\)</span> 是服从伯努利分布或二点分布，即 <span class="math notranslate nohighlight">\(X_i\overset{iid}{\sim} b(1,p)\)</span> ，即 <span class="math notranslate nohighlight">\(P(X_{i}=1)=p\)</span> 。
-于是，在 <span class="math notranslate nohighlight">\(n\)</span> 次抛硬币的结果中，正面朝上的总次数为</p>
+<p>考虑抛硬币这个伯努利实验，记第 <span class="math notranslate nohighlight">\(i\)</span> 次抛硬币的结果为 <span class="math notranslate nohighlight">\(X_{i}\)</span> 。一般假定每次抛硬币的结果仅有两个：正面（感兴趣的）和反面（不感兴趣的）；而且每次的结果是相互独立的。正面朝上的概率记为 <span class="math notranslate nohighlight">\(p\)</span> 。所以， <span class="math notranslate nohighlight">\(X_i\)</span> 是服从伯努利分布或二点分布，即 <span class="math notranslate nohighlight">\(X_i\overset{iid}{\sim} b(1,p)\)</span> ，即 <span class="math notranslate nohighlight">\(P(X_{i}=1)=p\)</span> 。</p>
+<p>于是，在 <span class="math notranslate nohighlight">\(n\)</span> 次抛硬币的结果中，正面朝上的总次数为</p>
 <div class="math notranslate nohighlight">
 \[S_{n}=\sum_{i=1}^{n}X_{i},\]</div>
 <p>在 <span class="math notranslate nohighlight">\(n\)</span> 次结果中，正面朝上的频率为</p>
@@ -628,12 +628,12 @@ E\left(\frac{S_{n}}{n}\right) &amp;=&amp; \frac{1}{n} E(S_{n})=\frac{1}{n}\cdot 
 <div class="math notranslate nohighlight">
 \[P\left( \left | \frac{S_{n}}{n}-p \right | &lt; \varepsilon \right)\rightarrow 1.\]</div>
 </div>
-</details></section>
-</div><div class="admonition-remark admonition">
+</details><div class="dropdown admonition">
 <p class="admonition-title">Remark</p>
 <p>随着 <span class="math notranslate nohighlight">\(n\)</span> 的增大，事件 <span class="math notranslate nohighlight">\(A\)</span> 发生的频率 <span class="math notranslate nohighlight">\(\frac{S_{n}}{n}\)</span> 与其概率 <span class="math notranslate nohighlight">\(p\)</span> 的偏差 <span class="math notranslate nohighlight">\(\left | \frac{S_{n}}{n}-p \right |\)</span> 大于预先给定的精度 <span class="math notranslate nohighlight">\(\varepsilon\)</span> 的可能性越来越小，这就是频率稳定于概率的含义。</p>
 </div>
 </section>
+</div></section>
 
     <script type="text/x-thebe-config">
     {

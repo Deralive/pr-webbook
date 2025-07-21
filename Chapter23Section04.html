@@ -587,30 +587,58 @@ document.write(`
 <h1><span class="section-number">23.4. </span>习题<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p>设 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 为来自 <span class="math notranslate nohighlight">\(N(\mu,\sigma^2)\)</span> 的样本，试求假设 <span class="math notranslate nohighlight">\(H_0: \sigma^2 = \sigma^2_0\quad \text{vs}\quad H_1: \sigma^2 \neq \sigma_0^2\)</span> 的似然比检验。</p></li>
-<li><p>投掷一颗骰子 60 次，结果如下
-\begin{table}[ht]
-\centering
-\begin{tabular}{c cccccc}
-\hline
-点数 &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 \
-\hline
-次数 &amp; 7 &amp; 8 &amp; 12 &amp; 11 &amp; 9 &amp; 13 \
-\hline
-\end{tabular}
-\end{table}
-试在显著性水平 <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> 下检验这颗骰子是否均匀。</p></li>
-<li><p>在一批灯泡中抽取 300 只作寿命试验，结果如下：
-\begin{table}[ht]
-\centering
-\begin{tabular}{c cccc}
-\hline
-寿命（小时） &amp; <span class="math notranslate nohighlight">\(&lt;100\)</span> &amp; <span class="math notranslate nohighlight">\([100,200)\)</span> &amp; <span class="math notranslate nohighlight">\([200,300)\)</span> &amp; <span class="math notranslate nohighlight">\(\geq 300\)</span> \
-\hline
-灯泡数 &amp; 121 &amp; 78 &amp; 43 &amp; 58\
-\hline
-\end{tabular}
-\end{table}
-在显著性水平为 <span class="math notranslate nohighlight">\(0.05\)</span> 下，能否认为灯泡寿命服从指数分布 <span class="math notranslate nohighlight">\(Exp(0.005)\)</span> ？</p></li>
+<li><p>投掷一颗骰子 60 次，结果如下</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table" id="table-dice-results">
+<caption><span class="caption-number">Table 23.2 </span><span class="caption-text">骰子投掷结果</span><a class="headerlink" href="#table-dice-results" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>点数</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>次数</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td><p>12</p></td>
+<td><p>11</p></td>
+<td><p>9</p></td>
+<td><p>13</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>试在显著性水平 <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> 下检验这颗骰子是否均匀。</p>
+<ul class="simple">
+<li><p>在一批灯泡中抽取 300 只作寿命试验，结果如下：</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table" id="table-bulb-lifetime">
+<caption><span class="caption-number">Table 23.3 </span><span class="caption-text">灯泡寿命试验结果</span><a class="headerlink" href="#table-bulb-lifetime" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>寿命（小时）</p></th>
+<th class="head"><p>&lt;100</p></th>
+<th class="head"><p>[100,200)</p></th>
+<th class="head"><p>[200,300)</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\geq 300\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>灯泡数</p></td>
+<td><p>121</p></td>
+<td><p>78</p></td>
+<td><p>43</p></td>
+<td><p>58</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>在显著性水平为 <span class="math notranslate nohighlight">\(0.05\)</span> 下，能否认为灯泡寿命服从指数分布 <span class="math notranslate nohighlight">\(Exp(0.005)\)</span> ？</p>
+<ul class="simple">
 <li><p>某种配偶的后代按体格的属性分为三类，各类的数目分别是 10，53，46。按照某种遗传模型其频率之比应为 <span class="math notranslate nohighlight">\(p^2:2p(1-p):(1-p)^2\)</span> ，问数据与模型是否相符（ <span class="math notranslate nohighlight">\(\alpha=0.05\)</span> ）？</p></li>
 </ul>
 </section>

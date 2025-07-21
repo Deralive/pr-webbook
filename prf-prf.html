@@ -384,10 +384,15 @@
 <li class="toctree-l2"><a class="reference internal" href="Chapter24Section04.html">24.4. 习题</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="TestChapter.html">25. 本章节用于测试附加内容</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="TestVideoSection.html">25.1. 测试视频添加</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TestBeamerSection.html">25.2. Google PPT Test Section</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TestCodeRunnerSection.html">25.3. Sample Code-Runner Section</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ChapterAppendix.html">25. 随机过程简介与泊松过程</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ChapterAppendix01.html">25.1. 随机过程的基本概念</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ChapterAppendix02.html">25.2. 泊松过程的基本概念</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="TestChapter.html">26. 本章节用于测试附加内容</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="TestVideoSection.html">26.1. 测试视频添加</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TestBeamerSection.html">26.2. Google PPT Test Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TestCodeRunnerSection.html">26.3. Sample Code-Runner Section</a></li>
 </ul>
 </details></li>
 </ul>
@@ -577,6 +582,7 @@ document.write(`
    <a href="#cap-ex05-a"><strong>ex05-a</strong></a> | 
    <a href="#cap-ex06-a"><strong>ex06-a</strong></a> | 
    <a href="#cap-ex:chap06_discrete_rv_expectation"><strong>ex:chap06_discrete_rv_expectation</strong></a> | 
+   <a href="#cap-ex:chap20_UE_uniform_distribution"><strong>ex:chap20_UE_uniform_distribution</strong></a> | 
    <a href="#cap-ex:chap22_one_sample_mean_t"><strong>ex:chap22_one_sample_mean_t</strong></a> | 
    <a href="#cap-ex:chap22_one_sample_mean_z"><strong>ex:chap22_one_sample_mean_z</strong></a> | 
    <a href="#cap-ex:chap23_pea_experiment"><strong>ex:chap23_pea_experiment</strong></a> | 
@@ -586,6 +592,7 @@ document.write(`
    <a href="#cap-example-1"><strong>example-1</strong></a> | 
    <a href="#cap-example-2"><strong>example-2</strong></a> | 
    <a href="#cap-example-3"><strong>example-3</strong></a> | 
+   <a href="#cap-example-4"><strong>example-4</strong></a> | 
    <a href="#cap-example-5"><strong>example-5</strong></a> | 
    <a href="#cap-example-6"><strong>example-6</strong></a> | 
    <a href="#cap-example-8"><strong>example-8</strong></a> | 
@@ -593,6 +600,7 @@ document.write(`
    <a href="#cap-lem1.2"><strong>lem1.2</strong></a> | 
    <a href="#cap-lem1.3"><strong>lem1.3</strong></a> | 
    <a href="#cap-lem1.4"><strong>lem1.4</strong></a> | 
+   <a href="#cap-lemma-2"><strong>lemma-2</strong></a> | 
    <a href="#cap-lemma-3"><strong>lemma-3</strong></a> | 
    <a href="#cap-lemma04-a"><strong>lemma04-a</strong></a> | 
    <a href="#cap-property-0"><strong>property-0</strong></a> | 
@@ -625,6 +633,7 @@ document.write(`
    <a href="#cap-theorem-2"><strong>theorem-2</strong></a> | 
    <a href="#cap-theorem-3"><strong>theorem-3</strong></a> | 
    <a href="#cap-theorem-4"><strong>theorem-4</strong></a> | 
+   <a href="#cap-theorem-5"><strong>theorem-5</strong></a> | 
    <a href="#cap-thm02-a"><strong>thm02-a</strong></a> | 
    <a href="#cap-thm02-b"><strong>thm02-b</strong></a> | 
    <a href="#cap-thm02-c"><strong>thm02-c</strong></a> | 
@@ -922,6 +931,14 @@ document.write(`
        <a href="Chapter06Section02.html#ex:chap06_discrete_rv_expectation"><code class="xref">ex:chap06_discrete_rv_expectation</code></a> <em>(Chapter06Section02)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex:chap20_UE_uniform_distribution"><td></td><td>
+       <strong>ex:chap20_UE_uniform_distribution</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="Chapter20Section02.html#ex:chap20_UE_uniform_distribution"><code class="xref">ex:chap20_UE_uniform_distribution</code></a> <em>(Chapter20Section02)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-ex:chap22_one_sample_mean_t"><td></td><td>
        <strong>ex:chap22_one_sample_mean_t</strong></td><td></td></tr>
      <tr>
@@ -967,7 +984,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="Chapter10Section03.html#example-0"><code class="xref">example-0</code></a> <em>(Chapter10Section03)</em></td><td>
+       <a href="Chapter22Section04.html#example-0"><code class="xref">example-0</code></a> <em>(Chapter22Section04)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-1"><td></td><td>
@@ -975,7 +992,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="Chapter10Section03.html#example-1"><code class="xref">example-1</code></a> <em>(Chapter10Section03)</em></td><td>
+       <a href="Chapter22Section04.html#example-1"><code class="xref">example-1</code></a> <em>(Chapter22Section04)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-2"><td></td><td>
@@ -983,7 +1000,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="Chapter10Section03.html#example-2"><code class="xref">example-2</code></a> <em>(Chapter10Section03)</em></td><td>
+       <a href="Chapter22Section04.html#example-2"><code class="xref">example-2</code></a> <em>(Chapter22Section04)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-3"><td></td><td>
@@ -991,7 +1008,15 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="Chapter10Section03.html#example-3"><code class="xref">example-3</code></a> <em>(Chapter10Section03)</em></td><td>
+       <a href="Chapter22Section03.html#example-3"><code class="xref">example-3</code></a> <em>(Chapter22Section03)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-4"><td></td><td>
+       <strong>example-4</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="Chapter16Section05.html#example-4"><code class="xref">example-4</code></a> <em>(Chapter16Section05)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-5"><td></td><td>
@@ -999,7 +1024,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="Chapter21Section02.html#example-5"><code class="xref">example-5</code></a> <em>(Chapter21Section02)</em></td><td>
+       <a href="Chapter20Section02.html#example-5"><code class="xref">example-5</code></a> <em>(Chapter20Section02)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-6"><td></td><td>
@@ -1007,7 +1032,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="Chapter21Section02.html#example-6"><code class="xref">example-6</code></a> <em>(Chapter21Section02)</em></td><td>
+       <a href="Chapter20Section02.html#example-6"><code class="xref">example-6</code></a> <em>(Chapter20Section02)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-8"><td></td><td>
@@ -1050,6 +1075,14 @@ document.write(`
        <a href="Chapter01Section05.html#lem1.4"><code class="xref">lem1.4</code></a> <em>(Chapter01Section05)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lemma-2"><td></td><td>
+       <strong>lemma-2</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="Chapter16Section05.html#lemma-2"><code class="xref">lemma-2</code></a> <em>(Chapter16Section05)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lemma-3"><td></td><td>
        <strong>lemma-3</strong></td><td></td></tr>
      <tr>
@@ -1071,7 +1104,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="Chapter11Section05.html#property-0"><code class="xref">property-0</code></a> <em>(Chapter11Section05)</em></td><td>
+       <a href="ChapterAppendix01.html#property-0"><code class="xref">property-0</code></a> <em>(ChapterAppendix01)</em></td><td>
        <em>property</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-property-1"><td></td><td>
@@ -1271,7 +1304,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="Chapter20Section04.html#theorem-0"><code class="xref">theorem-0</code></a> <em>(Chapter20Section04)</em></td><td>
+       <a href="ChapterAppendix02.html#theorem-0"><code class="xref">theorem-0</code></a> <em>(ChapterAppendix02)</em></td><td>
        <em>theorem</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-theorem-1"><td></td><td>
@@ -1279,7 +1312,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="Chapter11Section05.html#theorem-1"><code class="xref">theorem-1</code></a> <em>(Chapter11Section05)</em></td><td>
+       <a href="ChapterAppendix01.html#theorem-1"><code class="xref">theorem-1</code></a> <em>(ChapterAppendix01)</em></td><td>
        <em>theorem</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-theorem-2"><td></td><td>
@@ -1287,7 +1320,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="Chapter16Section05.html#theorem-2"><code class="xref">theorem-2</code></a> <em>(Chapter16Section05)</em></td><td>
+       <a href="Chapter13Section04.html#theorem-2"><code class="xref">theorem-2</code></a> <em>(Chapter13Section04)</em></td><td>
        <em>theorem</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-theorem-3"><td></td><td>
@@ -1303,7 +1336,15 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="Chapter18Section03.html#theorem-4"><code class="xref">theorem-4</code></a> <em>(Chapter18Section03)</em></td><td>
+       <a href="Chapter20Section02.html#theorem-4"><code class="xref">theorem-4</code></a> <em>(Chapter20Section02)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-theorem-5"><td></td><td>
+       <strong>theorem-5</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="Chapter16Section05.html#theorem-5"><code class="xref">theorem-5</code></a> <em>(Chapter16Section05)</em></td><td>
        <em>theorem</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-thm02-a"><td></td><td>

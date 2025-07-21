@@ -600,7 +600,7 @@ document.write(`
 <section id="mu">
 <h2><span class="section-number">22.3.1. </span>方差已知时， <span class="math notranslate nohighlight">\(\mu\)</span> 的检验<a class="headerlink" href="#mu" title="Link to this heading">#</a></h2>
 <div class="proof example admonition" id="example-0">
-<p class="admonition-title"><span class="caption-number">Example 22.4 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 22.5 </span></p>
 <section class="example-content" id="proof-content">
 <p>设 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 是来自正态分布 <span class="math notranslate nohighlight">\(N(\mu,\sigma_0^2)\)</span> 的样本，其中 <span class="math notranslate nohighlight">\(\sigma_0^2\)</span> 是已知的。我们需要检验以下假设</p>
 <div class="math notranslate nohighlight">
@@ -651,7 +651,7 @@ H_0: \mu \leq \mu_0 \quad \text{vs} \quad H_0: \mu &gt; \mu_0\)</span>
 <section id="id2">
 <h2><span class="section-number">22.3.2. </span>方差未知时， <span class="math notranslate nohighlight">\(\mu\)</span> 的检验<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <div class="proof example admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">Example 22.5 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 22.6 </span></p>
 <section class="example-content" id="proof-content">
 <p>设 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 是来自正态分布 <span class="math notranslate nohighlight">\(N(\mu,\sigma)\)</span> 的样本，其中 <span class="math notranslate nohighlight">\(\sigma\)</span> 是未知的。我们需要检验以下假设</p>
 <div class="math notranslate nohighlight">
@@ -690,14 +690,14 @@ c = \mu_0 + t_{1-\alpha}(n-1)\sqrt{\hat{\sigma}^2/n}.
 W = \{(x_1,x_2,\cdots,x_n): \bar{x} \geq \mu_0 + t_{1-\alpha}(n-1)\sqrt{\hat{\sigma}^2/n}\}.
 \]</div>
 </div>
-</details></section>
-</div><div class="admonition-remark admonition">
+</details><div class="admonition-remark admonition">
 <p class="admonition-title">Remark</p>
 <p>这个检验是单样本的 <span class="math notranslate nohighlight">\(t\)</span> 检验，这是因为检验统计量服从 <span class="math notranslate nohighlight">\(t\)</span> 分布。</p>
 </div>
-<p>上述介绍的检验都是单边检验，以下我们给一个双边检验的例子。</p>
+</section>
+</div><p>上述介绍的检验都是单边检验，以下我们给一个双边检验的例子。</p>
 <div class="proof example admonition" id="ex:chap22_one_sample_mean_t">
-<p class="admonition-title"><span class="caption-number">Example 22.6 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 22.7 </span></p>
 <section class="example-content" id="proof-content">
 <p>设 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 是来自正态分布 <span class="math notranslate nohighlight">\(N(\mu,\sigma)\)</span> 的样本，其中 <span class="math notranslate nohighlight">\(\sigma\)</span> 是未知的。我们需要检验以下假设</p>
 <div class="math notranslate nohighlight">
@@ -750,7 +750,7 @@ W = \{(x_1,x_2,\cdots,x_n): \bar{x} \leq \mu_0 - t_{1-\alpha/2}(n-1)\sqrt{\hat{\
 </div></section>
 <section id="id3">
 <h2><span class="section-number">22.3.3. </span>假设检验与区间估计之间的关系<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>在例题 <a class="reference internal" href="#ex:chap22_one_sample_mean_t">Example 22.6</a> 中，我们构造的拒绝域为</p>
+<p>在例题 <a class="reference internal" href="#ex:chap22_one_sample_mean_t">Example 22.7</a> 中，我们构造的拒绝域为</p>
 <div class="math notranslate nohighlight">
 \[
 W = \{\bar{x} \leq \mu_0 - t_{1-\alpha/2}(n-1)\sqrt{\hat{\sigma}^2/n} \text{ 或 } \bar{x} \geq \mu_0 + t_{1-\alpha/2}(n-1)\sqrt{\hat{\sigma}^2/n}\}.
@@ -776,7 +776,7 @@ W = \{\bar{x} \leq \mu_0 - t_{1-\alpha/2}(n-1)\sqrt{\hat{\sigma}^2/n} \text{ 或
 [\bar{x} - t_{1-\alpha/2}(n-1)\sqrt{\hat{\sigma}^2/n},\bar{x} + t_{1-\alpha/2}(n-1)\sqrt{\hat{\sigma}^2/n}].
 \]</div>
 <div class="proof example admonition" id="example-3">
-<p class="admonition-title"><span class="caption-number">Example 22.7 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 22.8 </span></p>
 <section class="example-content" id="proof-content">
 <p>设 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 来自于一个正态分布 <span class="math notranslate nohighlight">\(N(\mu,\sigma^2)\)</span> ，其中 <span class="math notranslate nohighlight">\(\sigma^2\)</span> 未知。求 <span class="math notranslate nohighlight">\(\mu\)</span> 的置信水平为 <span class="math notranslate nohighlight">\(1-\alpha\)</span> 的置信区间。</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">

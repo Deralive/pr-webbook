@@ -1,7 +1,8 @@
 # 大样本的评估方式 1——相合性
 相合性是参数估计的必要条件。
-[相合估计]
-设 $\theta \in \theta$ 为未知参数， $\hat{\theta}_{n}=\hat{\theta}_{n}\left(x_{1}, x_{2}, \cdots, x_{n}\right)$ 是 $\theta$ 的一个估计， $n$ 为样本容量。若对任何一个 $\varepsilon>0$ ，有
+
+相合估计
+: 设 $\theta \in \theta$ 为未知参数， $\hat{\theta}_{n}=\hat{\theta}_{n}\left(x_{1}, x_{2}, \cdots, x_{n}\right)$ 是 $\theta$ 的一个估计， $n$ 为样本容量。若对任何一个 $\varepsilon>0$ ，有
 
 $$\lim _{n \rightarrow \infty} P\left(\left|\hat{\theta}_{n}-\theta\right| \geqslant \varepsilon\right)=0 $$
 

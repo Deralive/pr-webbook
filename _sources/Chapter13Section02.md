@@ -1,5 +1,6 @@
 # 伯努利大数定律
 考虑抛硬币这个伯努利实验，记第 $i$ 次抛硬币的结果为 $X_{i}$ 。一般假定每次抛硬币的结果仅有两个：正面（感兴趣的）和反面（不感兴趣的）；而且每次的结果是相互独立的。正面朝上的概率记为 $p$ 。所以， $X_i$ 是服从伯努利分布或二点分布，即 $X_i\overset{iid}{\sim} b(1,p)$ ，即 $P(X_{i}=1)=p$ 。
+
 于是，在 $n$ 次抛硬币的结果中，正面朝上的总次数为
 
 $$S_{n}=\sum_{i=1}^{n}X_{i},$$
@@ -47,8 +48,10 @@ $$1\ge P \left( \left | \frac{S_{n}}{n}-p \right | < \varepsilon \right )\ge 1-\
 $$P\left( \left | \frac{S_{n}}{n}-p \right | < \varepsilon \right)\rightarrow 1.$$
 
 ```
-``````
 
 ```{admonition} Remark
+:class: dropdown
 随着 $n$ 的增大，事件 $A$ 发生的频率 $\frac{S_{n}}{n}$ 与其概率 $p$ 的偏差 $\left | \frac{S_{n}}{n}-p \right |$ 大于预先给定的精度 $\varepsilon$ 的可能性越来越小，这就是频率稳定于概率的含义。
 ```
+
+``````

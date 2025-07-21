@@ -585,17 +585,20 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">12.4. </span>以概率 1 收敛（选修）<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>设 <span class="math notranslate nohighlight">\(\{X_n\}\)</span> 是一列随机变量，如果</p>
+<dl class="simple myst">
+<dt>以概率 1 收敛</dt><dd><p>设 <span class="math notranslate nohighlight">\(\{X_n\}\)</span> 是一列随机变量，如果</p>
+</dd>
+</dl>
 <div class="math notranslate nohighlight">
 \[P\left(\lim _{n \rightarrow \infty} X_{n}=X\right)=1\]</div>
 <p>则称序列 <span class="math notranslate nohighlight">\(\{X_n\}\)</span> 以概率 1 收敛于 <span class="math notranslate nohighlight">\(X\)</span> ，记 <span class="math notranslate nohighlight">\(X_{n} \stackrel{a \cdot s}{\rightarrow} X\)</span> 。</p>
 <div class="proof property admonition" id="property-0">
-<p class="admonition-title"><span class="caption-number">Property 12.2 </span></p>
+<p class="admonition-title"><span class="caption-number">Property 12.3 </span></p>
 <section class="property-content" id="proof-content">
 <p><span class="math notranslate nohighlight">\(X_{n} \stackrel{a \cdot s}{\rightarrow} X \Rightarrow X_{n} \stackrel{P}{\rightarrow} X\)</span> ，反之不然。</p>
 </section>
 </div><div class="proof example admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">Example 12.3 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 12.5 </span></p>
 <section class="example-content" id="proof-content">
 <p>考虑一个离散时间的到达过程。我们假定到达的时刻属于正整数集 <span class="math notranslate nohighlight">\({1,2,\cdots}\)</span> 。现将这个集合分割成若干个互不相交的集合， <span class="math notranslate nohighlight">\(I_{k}=\left\{2^{k}, 2^{k}+1, \cdots, 2^{k+1}-1\right\},k=0,1,\cdots\)</span> 。注意到集合 <span class="math notranslate nohighlight">\(I_k\)</span> 的元素个数为 <span class="math notranslate nohighlight">\(2^k\)</span> ，随着 <span class="math notranslate nohighlight">\(k\)</span> 的增大而增大。具体来说，</p>
 <div class="math notranslate nohighlight">
@@ -607,9 +610,9 @@ I_{2}&amp;=&amp;\{4,5,6,7\}\\
 \vdots
 \end{eqnarray*}
 \end{split}\]</div>
-<p>假设在每个区间 <span class="math notranslate nohighlight">\(I_k\)</span> 中只有唯一的一个到达时刻，且在区间内每个时刻到达是等可能的。同时假定在各个区间到达时刻是相互独立的。
-记第 <span class="math notranslate nohighlight">\(k\)</span> 个区间 <span class="math notranslate nohighlight">\(I_k\)</span> 内的到达时刻为 <span class="math notranslate nohighlight">\(n_k\)</span> ，则 <span class="math notranslate nohighlight">\(n_k\)</span> 是相互独立的随机变量序列， <span class="math notranslate nohighlight">\(k=1,2,\cdots\)</span> 。定义一个新的随机变量序列 <span class="math notranslate nohighlight">\(\{Y_n\}\)</span> ，如果时刻 <span class="math notranslate nohighlight">\(n\)</span> 到达了，则定义 <span class="math notranslate nohighlight">\(Y_n = 1\)</span> ；否则， <span class="math notranslate nohighlight">\(Y_n = 0\)</span> 。如果 <span class="math notranslate nohighlight">\(n \in I_k\)</span> ，则 <span class="math notranslate nohighlight">\(P(Y_n =1) = P(Y_n \neq 0) = \frac{1}{2^k}\)</span> 。
-接下来，我们来考虑随机变量序列 <span class="math notranslate nohighlight">\(\{Y_n\}\)</span> 的收敛性。</p>
+<p>假设在每个区间 <span class="math notranslate nohighlight">\(I_k\)</span> 中只有唯一的一个到达时刻，且在区间内每个时刻到达是等可能的。同时假定在各个区间到达时刻是相互独立的。</p>
+<p>记第 <span class="math notranslate nohighlight">\(k\)</span> 个区间 <span class="math notranslate nohighlight">\(I_k\)</span> 内的到达时刻为 <span class="math notranslate nohighlight">\(n_k\)</span> ，则 <span class="math notranslate nohighlight">\(n_k\)</span> 是相互独立的随机变量序列， <span class="math notranslate nohighlight">\(k=1,2,\cdots\)</span> 。定义一个新的随机变量序列 <span class="math notranslate nohighlight">\(\{Y_n\}\)</span> ，如果时刻 <span class="math notranslate nohighlight">\(n\)</span> 到达了，则定义 <span class="math notranslate nohighlight">\(Y_n = 1\)</span> ；否则， <span class="math notranslate nohighlight">\(Y_n = 0\)</span> 。如果 <span class="math notranslate nohighlight">\(n \in I_k\)</span> ，则 <span class="math notranslate nohighlight">\(P(Y_n =1) = P(Y_n \neq 0) = \frac{1}{2^k}\)</span> 。</p>
+<p>接下来，我们来考虑随机变量序列 <span class="math notranslate nohighlight">\(\{Y_n\}\)</span> 的收敛性。</p>
 <ul class="simple">
 <li><p>因为 <span class="math notranslate nohighlight">\(I_k\)</span> 互不相容，对于任意的 <span class="math notranslate nohighlight">\(n\)</span> ，存在唯一 <span class="math notranslate nohighlight">\(k\)</span> ，使得 <span class="math notranslate nohighlight">\(n \in I_k\)</span> 。当 <span class="math notranslate nohighlight">\(n\)</span> 越大，则 <span class="math notranslate nohighlight">\(k\)</span> 也越大，即</p></li>
 </ul>

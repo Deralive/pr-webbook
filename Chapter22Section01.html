@@ -585,11 +585,11 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">22.1. </span>引导案例<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<dl class="simple myst">
-<dt>（女士品茶）</dt><dd><p>在 20 世纪初期，英国人在午后会吃下午茶。在下午茶中，奶茶是一种常见的饮品。简单来说，奶茶是由茶和奶混合而成的。某位女士声称，她能够品尝得出这杯奶茶是先加奶，还是先加茶。前者记为“MT”，后者记为“TM”。为了确定这位女士的确具有这种“分辨能力”，R. A. Fisher 在这个问题中提出了一种实验方案：他请侍者制作了 10 杯奶茶，可能是 MT，也可能是 TM，请这位女士进行品尝，并让女士对每一杯奶茶进行甄别。令 <span class="math notranslate nohighlight">\(X\)</span> 表示该女士甄别正确的数量。如何度量出女士是否具有真实的分辨能力？
+<div class="proof example admonition" id="example-0">
+<p class="admonition-title"><span class="caption-number">Example 22.1 </span> (女士品茶)</p>
+<section class="example-content" id="proof-content">
+<p>在 20 世纪初期，英国人在午后会吃下午茶。在下午茶中，奶茶是一种常见的饮品。简单来说，奶茶是由茶和奶混合而成的。某位女士声称，她能够品尝得出这杯奶茶是先加奶，还是先加茶。前者记为“MT”，后者记为“TM”。为了确定这位女士的确具有这种“分辨能力”，R. A. Fisher 在这个问题中提出了一种实验方案：他请侍者制作了 10 杯奶茶，可能是 MT，也可能是 TM，请这位女士进行品尝，并让女士对每一杯奶茶进行甄别。令 <span class="math notranslate nohighlight">\(X\)</span> 表示该女士甄别正确的数量。如何度量出女士是否具有真实的分辨能力？
 这里， <span class="math notranslate nohighlight">\(X\)</span> 可以看作一个二项分布 <span class="math notranslate nohighlight">\(b(10,p)\)</span> 随机变量，用 <span class="math notranslate nohighlight">\(p\)</span> 来度量这位女士是否具有分辨能力。考虑一下两种情况：</p>
-</dd>
-</dl>
 <ul class="simple">
 <li><p>如果女士没有甄别能力，甄别正确和甄别错误时等可能的，那么 <span class="math notranslate nohighlight">\(p=0.5\)</span> 。</p></li>
 <li><p>如果女士有甄别能力，当然她仍可能犯错，那么 <span class="math notranslate nohighlight">\(0.5&lt;p\leq 1\)</span> 。</p></li>
@@ -599,7 +599,8 @@ document.write(`
 \[
 P(X= 10)= p^{10}.
 \]</div>
-<p>如何来看待这个概率值？</p>
+</section>
+</div><p>如何来看待这个概率值？</p>
 <ul class="simple">
 <li><p>解释一：这个女士是无这种能力的， 则 <span class="math notranslate nohighlight">\(p=0.5\)</span> 。但 <span class="math notranslate nohighlight">\(P(X=10) = {0.5}^{10} = (1024)^{-1} \approx 0.001\)</span> ，说明：这位女士今天超常发挥。</p></li>
 <li><p>解释二：这个女士是有这种能力的，则 <span class="math notranslate nohighlight">\(0.5&lt;p\leq1\)</span> 。这个情况下， <span class="math notranslate nohighlight">\(P(X=10) = p^{10}\)</span> ，说明：这个女士今天是正常发挥。</p></li>

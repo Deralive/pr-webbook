@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>26.3. Sample Code-Runner Section &#8212; “概率论与数理统计”课程笔记</title>
+    <title>25.2. 泊松过程的基本概念 &#8212; “概率论与数理统计”课程笔记</title>
   
   
   
@@ -58,11 +58,14 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'TestCodeRunnerSection';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ChapterAppendix02';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="26.2. Google PPT Test Section" href="TestBeamerSection.html" />
+    <link rel="next" title="26. 本章节用于测试附加内容" href="TestChapter.html" />
+    <link rel="prev" title="25.1. 随机过程的基本概念" href="ChapterAppendix01.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -377,15 +380,15 @@
 <li class="toctree-l2"><a class="reference internal" href="Chapter24Section04.html">24.4. 习题</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="ChapterAppendix.html">25. 随机过程简介与泊松过程</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="ChapterAppendix.html">25. 随机过程简介与泊松过程</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="ChapterAppendix01.html">25.1. 随机过程的基本概念</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ChapterAppendix02.html">25.2. 泊松过程的基本概念</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">25.2. 泊松过程的基本概念</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="TestChapter.html">26. 本章节用于测试附加内容</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="TestChapter.html">26. 本章节用于测试附加内容</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="TestVideoSection.html">26.1. 测试视频添加</a></li>
 <li class="toctree-l2"><a class="reference internal" href="TestBeamerSection.html">26.2. Google PPT Test Section</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">26.3. Sample Code-Runner Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TestCodeRunnerSection.html">26.3. Sample Code-Runner Section</a></li>
 </ul>
 </details></li>
 </ul>
@@ -459,7 +462,7 @@
       
       
       
-      <li><a href="https://deralive.github.io/pr-webbook/intro.html/issues/new?title=Issue%20on%20page%20%2FTestCodeRunnerSection.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://deralive.github.io/pr-webbook/intro.html/issues/new?title=Issue%20on%20page%20%2FChapterAppendix02.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -489,7 +492,7 @@
       
       
       
-      <li><a href="_sources/TestCodeRunnerSection.md" target="_blank"
+      <li><a href="_sources/ChapterAppendix02.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -560,9 +563,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -573,20 +574,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Sample Code-Runner Section</h1>
+    <h1>泊松过程的基本概念</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">26.3.1. 显示执行内容</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">26.3.2. 使用 Matplotlib 库绘制图表</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -596,127 +588,65 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="sample-code-runner-section">
-<h1><span class="section-number">26.3. </span>Sample Code-Runner Section<a class="headerlink" href="#sample-code-runner-section" title="Link to this heading">#</a></h1>
-<section id="id1">
-<h2><span class="section-number">26.3.1. </span>显示执行内容<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>此处使用 <code class="docutils literal notranslate"><span class="pre">Python</span></code> 构建 <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> 代码块，显示内容为 <code class="docutils literal notranslate"><span class="pre">Cache</span></code> 缓存。</p>
-<p>添加 <code class="docutils literal notranslate"><span class="pre">allow_errors</span></code> 标签，允许在单元级别出现错误。</p>
-<div class="cell tag_scroll-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A Python Cell&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">thisVariableDoesntExist</span><span class="p">)</span>
-</pre></div>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">25.2. </span>泊松过程的基本概念<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<dl class="simple myst">
+<dt>泊松过程（Poisson 过程）</dt><dd><p>如果一个整数值随机过程 <span class="math notranslate nohighlight">\(\{N(t),t\geq 0\}\)</span> 满足以下三个条件：</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(N(0) = 0\)</span> ；</p></li>
+<li><p><span class="math notranslate nohighlight">\(N(t)\)</span> 是独立增量过程；</p></li>
+<li><p>对任何 <span class="math notranslate nohighlight">\(t&gt;0, s\geq 0\)</span> 增量 <span class="math notranslate nohighlight">\(N(t+s) - N(s)\)</span> 服从参数为 <span class="math notranslate nohighlight">\(\lambda t\)</span> 的泊松分布，即</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+P(N(t+s) - N(s) = k) = \frac{(\lambda t)^k }{k!}e^{-\lambda t}, k=0,1,\cdots
+\]</div>
+<p>则称该随机过程为强度为 <span class="math notranslate nohighlight">\(\lambda &gt;0\)</span> 的泊松过程。</p>
+<div class="admonition-remark admonition">
+<p class="admonition-title">Remark</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(N(0)=0\)</span> 表明了泊松过程中随机事件从时刻 0 开始计数；</p></li>
+<li><p>重要性质： <span class="math notranslate nohighlight">\(E(N(t)) = \text{Var}(N(t)) = \lambda t\)</span> ；</p></li>
+<li><p>增量 <span class="math notranslate nohighlight">\(N(t+s) - N(t)\)</span> 表示在 <span class="math notranslate nohighlight">\((s,s+t]\)</span> 中发生的随机事件数。条件 2 和条件 3 确保了泊松过程是一个独立平稳增量过程。</p></li>
+</ul>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A Python Cell
-0
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="n">thisVariableDoesntExist</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;thisVariableDoesntExist&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
+<p>以下有一个泊松过程的等价定义。</p>
+<div class="proof theorem admonition" id="theorem-0">
+<p class="admonition-title"><span class="caption-number">Theorem 25.2 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>假设一个随机过程 <span class="math notranslate nohighlight">\(N(t)\)</span> 满足以下条件：</p>
+<ul class="simple">
+<li><p>在不相交区间中发生事件的数目相互独立，即对任何整数 <span class="math notranslate nohighlight">\(n=1,2,\cdots\)</span> ，设时刻 <span class="math notranslate nohighlight">\(t_0 = 0 &lt; t_1 &lt; t_2 &lt; \cdots &lt; t_n\)</span> ，增量 <span class="math notranslate nohighlight">\(N(t_1) - N(t_0), N(t_2)-N(t_1),\cdots,N(t_n) - N(t_{n-1})\)</span> 相互独立；</p></li>
+<li><p>对任何时刻 <span class="math notranslate nohighlight">\(t\)</span> 和正数 <span class="math notranslate nohighlight">\(h\)</span> ，随机变量增量 <span class="math notranslate nohighlight">\(N(t+h) - N(t)\)</span> 的分布只依赖于区间长度 <span class="math notranslate nohighlight">\(h\)</span> 而不依赖于时刻 <span class="math notranslate nohighlight">\(t\)</span> ；</p></li>
+<li><p>存在正常数 <span class="math notranslate nohighlight">\(\lambda\)</span> ，当 <span class="math notranslate nohighlight">\(h\rightarrow0\)</span> 时，使在长度为 <span class="math notranslate nohighlight">\(h\)</span> 的小区间中事件至少发生一次的概率</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+P(N(t+h) - N(t) \geq 1) = \lambda h + o(h).
+\]</div>
+<ul class="simple">
+<li><p>在小区间 <span class="math notranslate nohighlight">\((t,t+h]\)</span> 发生两个或两个以上事件的概率为 <span class="math notranslate nohighlight">\(o(h)\)</span> ，即当 <span class="math notranslate nohighlight">\(h\rightarrow0\)</span> 时，</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+P(N(t+h) - N(t) \geq 2) = o(h).
+\]</div>
+<p>则该随机过程 <span class="math notranslate nohighlight">\(N(t)\)</span> 为泊松过程。</p>
 </section>
-<section id="matplotlib">
-<h2><span class="section-number">26.3.2. </span>使用 Matplotlib 库绘制图表<a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SimHei&#39;</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.unicode_minus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-<span class="n">y_sin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">y_cos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_sin</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;正弦曲线 (sin)&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_cos</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;余弦曲线 (cos)&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;正弦与余弦函数图像&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X 轴 (弧度)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y 轴 (值)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
-
-<span class="n">peak_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span>
-<span class="n">peak_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">peak_x</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s1">&#39;峰值: (</span><span class="si">{</span><span class="n">peak_x</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">peak_y</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span>  <span class="c1"># 注解文本</span>
-    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">peak_x</span><span class="p">,</span> <span class="n">peak_y</span><span class="p">),</span>              <span class="c1"># 要标注的点</span>
-    <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">peak_x</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">peak_y</span> <span class="o">+</span> <span class="mf">0.3</span><span class="p">),</span> <span class="c1"># 文本放置的位置</span>
-    <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">headwidth</span><span class="o">=</span><span class="mi">8</span><span class="p">),</span> <span class="c1"># 箭头样式</span>
-    <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span>
-<span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
+</div><div class="admonition-remark admonition">
+<p class="admonition-title">Remark</p>
+<p>在上述定理的条件中，</p>
+<ul class="simple">
+<li><p>条件 1 表明前后增量是独立的；</p></li>
+<li><p>条件 2 表明前后增量是时齐的；</p></li>
+<li><p>条件 3 和条件 4 表明事件的概率与 <span class="math notranslate nohighlight">\(\lambda\)</span> 有关，且事件具有相继性，即事件是一件一件发生的，在同一瞬间同时发生多个时间的概率很小很小。</p></li>
+</ul>
 </div>
-</div>
-</div>
-</section>
+<ul class="simple">
+<li><p>方兆本，缪柏其《随机过程》科学出版社\quad 第 2 章</p></li>
+</ul>
 </section>
 
     <script type="text/x-thebe-config">
@@ -750,13 +680,22 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="TestBeamerSection.html"
+       href="ChapterAppendix01.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">26.2. </span>Google PPT Test Section</p>
+        <p class="prev-next-title"><span class="section-number">25.1. </span>随机过程的基本概念</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="TestChapter.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">26. </span>本章节用于测试附加内容</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -764,22 +703,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">26.3.1. 显示执行内容</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">26.3.2. 使用 Matplotlib 库绘制图表</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

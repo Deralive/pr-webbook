@@ -585,9 +585,11 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">20.3. </span>大样本的评估方式 1——相合性<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>相合性是参数估计的必要条件。
-[相合估计]
-设 <span class="math notranslate nohighlight">\(\theta \in \theta\)</span> 为未知参数， <span class="math notranslate nohighlight">\(\hat{\theta}_{n}=\hat{\theta}_{n}\left(x_{1}, x_{2}, \cdots, x_{n}\right)\)</span> 是 <span class="math notranslate nohighlight">\(\theta\)</span> 的一个估计， <span class="math notranslate nohighlight">\(n\)</span> 为样本容量。若对任何一个 <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span> ，有</p>
+<p>相合性是参数估计的必要条件。</p>
+<dl class="simple myst">
+<dt>相合估计</dt><dd><p>设 <span class="math notranslate nohighlight">\(\theta \in \theta\)</span> 为未知参数， <span class="math notranslate nohighlight">\(\hat{\theta}_{n}=\hat{\theta}_{n}\left(x_{1}, x_{2}, \cdots, x_{n}\right)\)</span> 是 <span class="math notranslate nohighlight">\(\theta\)</span> 的一个估计， <span class="math notranslate nohighlight">\(n\)</span> 为样本容量。若对任何一个 <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span> ，有</p>
+</dd>
+</dl>
 <div class="math notranslate nohighlight">
 \[\lim _{n \rightarrow \infty} P\left(\left|\hat{\theta}_{n}-\theta\right| \geqslant \varepsilon\right)=0 \]</div>
 <p>则称 <span class="math notranslate nohighlight">\(\hat{\theta}_{n}\)</span> 为参数 <span class="math notranslate nohighlight">\(\theta\)</span> 的相合估计。</p>
@@ -596,7 +598,7 @@ document.write(`
 <p>相合性的本质是 <span class="math notranslate nohighlight">\(\hat{\theta}_{n}\)</span> 依概率收敛于 <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> 。</p>
 </div>
 <div class="proof example admonition" id="example-0">
-<p class="admonition-title"><span class="caption-number">Example 20.4 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 20.7 </span></p>
 <section class="example-content" id="proof-content">
 <p>设 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots\)</span> 是来自正态总体 <span class="math notranslate nohighlight">\(N(\mu,\sigma^2)\)</span> 的样本序列。由中心极限定理（CLT）可知，</p>
 <ul class="simple">
@@ -606,7 +608,7 @@ document.write(`
 </ul>
 </section>
 </div><div class="proof theorem admonition" id="theorem-1">
-<p class="admonition-title"><span class="caption-number">Theorem 20.1 </span></p>
+<p class="admonition-title"><span class="caption-number">Theorem 20.2 </span></p>
 <section class="theorem-content" id="proof-content">
 <p>设 <span class="math notranslate nohighlight">\(\hat{\theta}_n = \hat{\theta}_n (x_1,x_2,\cdots,x_n)\)</span> 是 <span class="math notranslate nohighlight">\(\theta\)</span> 的一个估计，若</p>
 <div class="math notranslate nohighlight">
@@ -657,7 +659,7 @@ P\left( |\hat{\theta}_n - E(\hat{\theta}_n)| \geq \frac{\varepsilon}{2} \right)\
 </div>
 </details></section>
 </div><div class="proof example admonition" id="example-2">
-<p class="admonition-title"><span class="caption-number">Example 20.5 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 20.8 </span></p>
 <section class="example-content" id="proof-content">
 <p>设 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 是来自于均匀总体 <span class="math notranslate nohighlight">\(U(0,\theta)\)</span> 的样本。接下来我们考虑 <span class="math notranslate nohighlight">\(\theta\)</span> 的估计 <span class="math notranslate nohighlight">\(\hat{\theta}_1 = x_{(n)}\)</span> 。因为 <span class="math notranslate nohighlight">\(x_{(n)} \sim Be(n,1)\)</span> ，所以，当 <span class="math notranslate nohighlight">\(n\rightarrow \infty\)</span> 时，</p>
 <div class="math notranslate nohighlight">
@@ -670,7 +672,7 @@ E(\hat{\theta}_1) &amp;=&amp; \frac{n}{n+1}\theta \rightarrow \theta \\
 <p>由此可证， <span class="math notranslate nohighlight">\(x_{(n)}\)</span> 是 <span class="math notranslate nohighlight">\(\theta\)</span> 的相合估计。</p>
 </section>
 </div><div class="proof theorem admonition" id="theorem-3">
-<p class="admonition-title"><span class="caption-number">Theorem 20.2 </span></p>
+<p class="admonition-title"><span class="caption-number">Theorem 20.3 </span></p>
 <section class="theorem-content" id="proof-content">
 <p>若 <span class="math notranslate nohighlight">\(\hat{\theta}_{n1},\hat{\theta}_{n2},\cdots,\hat{\theta}_{nk}\)</span> 分别是 <span class="math notranslate nohighlight">\(\theta_1,\theta_2,\cdots,\theta_k\)</span> 的相合估计， <span class="math notranslate nohighlight">\(\eta = g(\theta_1,\theta_2,\cdots,\theta_k)\)</span> 是 <span class="math notranslate nohighlight">\(\theta_1,\theta_2,\cdots,\theta_k\)</span> 的连续函数，则 <span class="math notranslate nohighlight">\(\hat{\eta}_n =g(\hat{\theta}_{n1},\hat{\theta}_{n2},\cdots,\hat{\theta}_{nk})\)</span> 是 <span class="math notranslate nohighlight">\(\eta\)</span> 的相合估计。</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">

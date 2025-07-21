@@ -593,8 +593,8 @@ document.write(`
 \[
 x = \mu + \varepsilon
 \]</div>
-<p>这个式子是所有测量的最简单结构式，放之四海皆准。其中， <span class="math notranslate nohighlight">\(x\)</span> 表示观测值（可以观测到的）， <span class="math notranslate nohighlight">\(\mu\)</span> 表示真值（永远未知）， <span class="math notranslate nohighlight">\(\varepsilon\)</span> 表示误差（需要假定）。
-为了认识 <span class="math notranslate nohighlight">\(\mu\)</span> ，我们需要对误差进行一些假定，才能对 <span class="math notranslate nohighlight">\(\mu\)</span> 做出合理的推断。</p>
+<p>这个式子是所有测量的最简单结构式，放之四海皆准。其中， <span class="math notranslate nohighlight">\(x\)</span> 表示观测值（可以观测到的）， <span class="math notranslate nohighlight">\(\mu\)</span> 表示真值（永远未知）， <span class="math notranslate nohighlight">\(\varepsilon\)</span> 表示误差（需要假定）。</p>
+<p>为了认识 <span class="math notranslate nohighlight">\(\mu\)</span> ，我们需要对误差进行一些假定，才能对 <span class="math notranslate nohighlight">\(\mu\)</span> 做出合理的推断。</p>
 <ul class="simple">
 <li><p>假定一： <span class="math notranslate nohighlight">\(\varepsilon \sim N(0,\sigma^{2})\)</span> ，其中 <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> 是未知的。在这个假定中我们利用高斯分布（正态分布） <span class="math notranslate nohighlight">\(N(\mu,\sigma^{2})\)</span> 来刻画测量数据。高斯分布由两个参数唯一确定，其中， <span class="math notranslate nohighlight">\(\mu\)</span> 是我们感兴趣的参数，称为目标参数；而 <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> 是我们不感兴趣的参数，称为讨厌参数（或冗余参数）。</p></li>
 <li><p>假定二： <span class="math notranslate nohighlight">\(\varepsilon \sim N(0,\sigma^{2}_0)\)</span> ，其中 <span class="math notranslate nohighlight">\(\sigma^{2}_0\)</span> 是已知的。</p></li>
@@ -608,8 +608,8 @@ x = \mu + \varepsilon
 <div class="proof example admonition" id="example-1">
 <p class="admonition-title"><span class="caption-number">Example 15.5 </span></p>
 <section class="example-content" id="proof-content">
-<p><span class="math notranslate nohighlight">\(1979\)</span> 年 <span class="math notranslate nohighlight">\(4\)</span> 月 <span class="math notranslate nohighlight">\(17\)</span> 日，日本《朝日新闻》曾刊登过这样的一条消息：美国人喜欢购买日本索尼工厂生产的彩电，而不愿购买设在美国加州的索尼工厂生产的彩电。而美国本土生产的电视机出厂合格率为 <span class="math notranslate nohighlight">\(100\%\)</span> ，日本产的合格率只有 <span class="math notranslate nohighlight">\(99.73\%\)</span> .这究竟是什么原因呢？美国一家咨询公司采用统计抽样的方法，对此进行了专题调查分析。结果发现，两地生产彩电质量特征的概率分布不同。
-在美国的工厂中，采用门柱法来进行产品质量管理；而在日本的工厂中，采用 <span class="math notranslate nohighlight">\(3\)</span> - <span class="math notranslate nohighlight">\(\sigma\)</span> 质量管理策略：将产品划分优、良和合格三类，严格控制每一类产品在市场的占比。基于 <span class="math notranslate nohighlight">\(3\)</span> - <span class="math notranslate nohighlight">\(\sigma\)</span> 质量管理策略，日本产品的优良率明显高于美国本土生产的产品。所以更受到美国消费者的青睐。</p>
+<p><span class="math notranslate nohighlight">\(1979\)</span> 年 <span class="math notranslate nohighlight">\(4\)</span> 月 <span class="math notranslate nohighlight">\(17\)</span> 日，日本《朝日新闻》曾刊登过这样的一条消息：美国人喜欢购买日本索尼工厂生产的彩电，而不愿购买设在美国加州的索尼工厂生产的彩电。而美国本土生产的电视机出厂合格率为 <span class="math notranslate nohighlight">\(100\%\)</span> ，日本产的合格率只有 <span class="math notranslate nohighlight">\(99.73\%\)</span> .这究竟是什么原因呢？美国一家咨询公司采用统计抽样的方法，对此进行了专题调查分析。结果发现，两地生产彩电质量特征的概率分布不同。</p>
+<p>在美国的工厂中，采用门柱法来进行产品质量管理；而在日本的工厂中，采用 <span class="math notranslate nohighlight">\(3\)</span> - <span class="math notranslate nohighlight">\(\sigma\)</span> 质量管理策略：将产品划分优、良和合格三类，严格控制每一类产品在市场的占比。基于 <span class="math notranslate nohighlight">\(3\)</span> - <span class="math notranslate nohighlight">\(\sigma\)</span> 质量管理策略，日本产品的优良率明显高于美国本土生产的产品。所以更受到美国消费者的青睐。</p>
 </section>
 </div></section>
 

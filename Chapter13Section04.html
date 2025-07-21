@@ -628,17 +628,17 @@ P\left(\left| \frac{1}{n}\sum_{i=1}^n X_i - \frac{1}{n} \sum_{i=1}^n E(X_i) \rig
 \lim_{n\rightarrow \infty} P\left(\left| \frac{1}{n}\sum_{i=1}^n X_i - \frac{1}{n} \sum_{i=1}^n E(X_i) \right| &lt; \varepsilon \right) = 1.
 \]</div>
 </div>
-</details></section>
-</div><div class="admonition-remark admonition">
+</details><div class="dropdown admonition">
 <p class="admonition-title">Remark</p>
 <p>切比雪夫大数定律只要求 <span class="math notranslate nohighlight">\(\left \{ X_{n} \right \}\)</span> 互不相关，并不要求 <span class="math notranslate nohighlight">\(X_n\)</span> 是独立的，也不要求它们是同分布的。因此，如果 <span class="math notranslate nohighlight">\({X_{n}}\)</span> 是独立同分布的随机变量序列且方差有限，则 <span class="math notranslate nohighlight">\(\left \{ X_{n} \right \}\)</span> 必定服从大数定律。这表明了伯努利大数定律是切比雪夫大数定律的一个特例。</p>
 </div>
 </section>
+</div></section>
 <section id="id3">
 <h2><span class="section-number">13.4.2. </span>马尔可夫大数定律<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>在切比雪夫大数定律证明的过程中，我们不难发现，其核心在于使用了切比雪夫不等式。而切比雪夫不等式本质上证明的是大偏差存在的概率可以被其方差所约束。因此，我们只需要要求这些随机变量的算术平均数的方差不能过大。
-在切比雪夫大数定律中要求了随机变量序列中两两不相关，这样可以使得随机变量的算术平均数的方差可以由每一个随机变量的方差计算而得。切比雪夫大数定律中又约束了每一个随机变量的方差存在且存在共同上界。由此，解决了随机变量的算术平均数的方差不能过大的问题。
-事实上，切比雪夫大数定律的条件仍是比较严苛的，因为随机变量序列中仍需要它们是两两不相关的。但，这个条件并不是必要的。于是，我们考虑以下这个定理。</p>
+<p>在切比雪夫大数定律证明的过程中，我们不难发现，其核心在于使用了切比雪夫不等式。而切比雪夫不等式本质上证明的是大偏差存在的概率可以被其方差所约束。因此，我们只需要要求这些随机变量的算术平均数的方差不能过大。</p>
+<p>在切比雪夫大数定律中要求了随机变量序列中两两不相关，这样可以使得随机变量的算术平均数的方差可以由每一个随机变量的方差计算而得。切比雪夫大数定律中又约束了每一个随机变量的方差存在且存在共同上界。由此，解决了随机变量的算术平均数的方差不能过大的问题。</p>
+<p>事实上，切比雪夫大数定律的条件仍是比较严苛的，因为随机变量序列中仍需要它们是两两不相关的。但，这个条件并不是必要的。于是，我们考虑以下这个定理。</p>
 <div class="proof theorem admonition" id="theorem-1">
 <p class="admonition-title"><span class="caption-number">Theorem 13.3 </span> (马尔可夫大数定律)</p>
 <section class="theorem-content" id="proof-content">
@@ -654,7 +654,7 @@ P\left(\left| \frac{1}{n}\sum_{i=1}^n X_i - \frac{1}{n} \sum_{i=1}^n E(X_i) \rig
 </div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Proof(本定理的证明过程由学生课后自行补充)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<span class="sd-summary-text">Proof 本定理的证明过程由学生课后自行补充</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 </div>
 </details></section>
 <section id="id4">
@@ -664,8 +664,7 @@ P\left(\left| \frac{1}{n}\sum_{i=1}^n X_i - \frac{1}{n} \sum_{i=1}^n E(X_i) \rig
 <p class="admonition-title"><span class="caption-number">Theorem 13.4 </span> (辛钦大数定律)</p>
 <section class="theorem-content" id="proof-content">
 <p>设 <span class="math notranslate nohighlight">\(\left \{ X_{n} \right \}\)</span> 为一独立同分布的随机变量序列，若 <span class="math notranslate nohighlight">\(X_{i}\)</span> 的数学期望存在，则 <span class="math notranslate nohighlight">\(\left \{ X_{n} \right \}\)</span> 服从（弱）大数定律。</p>
-</section>
-</div><div class="admonition-remark admonition">
+<div class="dropdown admonition">
 <p class="admonition-title">Remark</p>
 <ul class="simple">
 <li><p>在辛钦大数定律中，可以放松对随机变量方差存在性的假定，但要求 <span class="math notranslate nohighlight">\(\left \{ X_{n} \right \}\)</span> 为独立同分布的随机变量序列。</p></li>
@@ -682,6 +681,7 @@ P\left(\left| \frac{1}{n}\sum_{i=1}^n X_i - \frac{1}{n} \sum_{i=1}^n E(X_i) \rig
 </ul>
 </div>
 </section>
+</div></section>
 </section>
 
     <script type="text/x-thebe-config">

@@ -677,6 +677,90 @@ document.write(`
 <li><p>从你运行的实验中，你发现了什么相似点？</p></li>
 <li><p>这些相似的结果是否普遍存在的？</p></li>
 </ul>
+</div>
+<div class="admonition-conclusion admonition">
+<p class="admonition-title">Conclusion</p>
+<ul class="simple">
+<li><p>概率是频率的稳定值；</p></li>
+<li><p>频率 <span class="math notranslate nohighlight">\(X_n\)</span> 与概率 <span class="math notranslate nohighlight">\(p\)</span> 的绝对偏差 <span class="math notranslate nohighlight">\(\left|x_{n}-p\right|\)</span> 将随 <span class="math notranslate nohighlight">\(n\)</span> 增大而呈现主键减小的趋势；</p></li>
+<li><p>由于随机性，绝对偏差 <span class="math notranslate nohighlight">\(\left|x_{n}-p\right|\)</span> 时大时小，虽然无法排除大偏差发生的可能性，但岁 <span class="math notranslate nohighlight">\(n\)</span> 不断增大，大偏差发生的可能性会越来越小。</p></li>
+</ul>
+</div>
+<p>由此，我们定义随机变量序列的一种收敛性。</p>
+<dl class="simple myst">
+<dt>收敛性</dt><dd><p>设 <span class="math notranslate nohighlight">\(\{X_n\}\)</span> 为一随机变量序列，而 <span class="math notranslate nohighlight">\(X\)</span> 为一随机变量。如果对任意的 <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span> ，有</p>
+</dd>
+</dl>
+<div class="math notranslate nohighlight">
+\[
+\lim _{n \rightarrow \infty} P\left(\left|X_{n}-X\right| \geqslant \varepsilon\right)=0\]</div>
+<p>则称序列 <span class="math notranslate nohighlight">\(\{X_n\}\)</span> <strong>依概率收敛</strong>于 <span class="math notranslate nohighlight">\(X\)</span> ,记作 <span class="math notranslate nohighlight">\(X_{n} \stackrel{P}{\longrightarrow} X\)</span> 。</p>
+<div class="admonition-remark admonition">
+<p class="admonition-title">Remark</p>
+<ul class="simple">
+<li><p>在定义中 <span class="math notranslate nohighlight">\(P\left(\left|X_{n}-X\right| \geqslant \varepsilon\right) \rightarrow 0\)</span> ，等价于 <span class="math notranslate nohighlight">\(P\left(\left|X_{n}-X\right|&lt;\varepsilon\right) \rightarrow 1\)</span> ；</p></li>
+<li><p>特别地， <span class="math notranslate nohighlight">\(P(X=c)=1\)</span> 时, 则 <span class="math notranslate nohighlight">\(X_{n}\stackrel{P}{\longrightarrow} c\)</span> 。</p></li>
+</ul>
+</div>
+<div class="proof property admonition" id="property-1">
+<p class="admonition-title"><span class="caption-number">Property 12.1 </span> (依概率收敛的四则运算)</p>
+<section class="property-content" id="proof-content">
+<p>设 <span class="math notranslate nohighlight">\(\{X_n\}, \{Y_n\}\)</span> 是两个随机变量序列， <span class="math notranslate nohighlight">\(a,b\)</span> 是两个常数。如果</p>
+<div class="math notranslate nohighlight">
+\[X_{n} \stackrel{P}{\longrightarrow} a, \quad Y_{n} \stackrel{P}{\longrightarrow} b,\]</div>
+<p>则有</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X_{n} \pm Y_{n} \stackrel{P}{\rightarrow} a \pm b\)</span> ；</p></li>
+<li><p><span class="math notranslate nohighlight">\(X_{n} \times Y_{n} \stackrel{P}{\rightarrow} a \times b\)</span> ；</p></li>
+<li><p><span class="math notranslate nohighlight">\(X_{n} / Y_{n} \stackrel{P}{\rightarrow} a / b, b \neq 0\)</span> 。</p></li>
+</ul>
+</section>
+</div><div class="proof example admonition" id="example-2">
+<p class="admonition-title"><span class="caption-number">Example 12.2 </span></p>
+<section class="example-content" id="proof-content">
+<p>设随机变量 <span class="math notranslate nohighlight">\(X_n\)</span> 服从柯西分布，其密度函数为</p>
+<div class="math notranslate nohighlight">
+\[p_{n}(x)=\frac{n}{\pi\left(1+n^{2} x^{2}\right)} \quad-\infty&lt;x&lt;\infty.\]</div>
+<p>试证 <span class="math notranslate nohighlight">\(X_{n} \stackrel{P}{\rightarrow} 0\)</span> 。</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Proof</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">我们考虑事件 <span class="math notranslate nohighlight">\(\{|X_n - 0|\geq \varepsilon\}\)</span> 发生的概率，即</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+P\left(\left|X_{n}-0\right| \geq \varepsilon\right) &amp;=&amp;P\left(\left|X_{n}\right| \geqslant \varepsilon\right) \\
+&amp;=&amp;\int_{-\infty}^{-\varepsilon} p_{n}(x) d x+\int_{\varepsilon}^{+\infty} p_{n}(x) d x \\
+&amp;=&amp;\int_{-\infty}^{-\varepsilon} \frac{n}{\pi\left(1+n^{2} x^{2}\right)} d x+\int_{\varepsilon}^{+\infty} \frac{n}{\pi\left(1+n^{2} x^{2}\right)} d x \\
+&amp;=&amp;\frac{2}{\pi} \int_{\varepsilon}^{+\infty} \frac{1}{\pi\left(1+n^{2} x^{2}\right)} d(n x) \\
+&amp;\overset{{n x=\tan u}}{=} &amp; \frac{2}{\pi}
+\int_{\operatorname{arctan}(n \varepsilon)}^{\frac{\pi}{2}} \frac{1}{1+\tan ^{2} u} \cdot d \operatorname{tan}u\\
+&amp;=&amp;\frac{2}{\pi}\left(\left.u\right|_{\arctan (n \varepsilon)} ^{\frac{\pi}{2}}\right) \\
+&amp;=&amp;\frac{2}{\pi}\left(\frac{\pi}{2}-\arctan (n \varepsilon)\right) \\
+&amp;=&amp; 1-\frac{2}{\pi} \cdot \arctan (n \varepsilon) \rightarrow 0
+\end{eqnarray*}
+\end{split}\]</div>
+</div>
+</details></section>
+</div><div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>比较一下，数列的收敛性与随机变量的收敛性。</p>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>如果 <span class="math notranslate nohighlight">\(X_{n} \stackrel{P}{\rightarrow} a\)</span> ,那么 <span class="math notranslate nohighlight">\(E\left(X_{n}\right) \rightarrow a\)</span> 成立吗？</p>
+</div>
+<p>接下来我们看下面一个例子。</p>
+<div class="proof example admonition" id="example-3">
+<p class="admonition-title"><span class="caption-number">Example 12.3 </span></p>
+<section class="example-content" id="proof-content">
+<p>考虑一个随机变量，其分布列为</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}P\left(X_{n}=x\right)=\left\{\begin{aligned}
+&amp;1-\frac{1}{n}, &amp; x=0 \\
+&amp;\frac{1}{n}, &amp; x=n^{2} \\
+&amp;0, &amp; \text{其他}.
+\end{aligned}\right.\end{split}\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
@@ -688,8 +772,8 @@ document.write(`
 \[E\left(X_{n}\right)=0 \cdot\left(1-\frac{1}{n}\right)+n^{2} \cdot \frac{1}{n}=n \rightarrow \infty. \]</div>
 <p class="sd-card-text">因此， <span class="math notranslate nohighlight">\(E\left(X_{n}\right) \rightarrow 0\)</span> 。</p>
 </div>
-</details></div>
-</section>
+</details></section>
+</div></section>
 
     <script type="text/x-thebe-config">
     {

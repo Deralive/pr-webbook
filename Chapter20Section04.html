@@ -601,7 +601,7 @@ document.write(`
 <p>其中称 <span class="math notranslate nohighlight">\(\sigma_n^2(\theta)\)</span> 为 <span class="math notranslate nohighlight">\(\hat{\theta}_n\)</span> 的渐近方差。</p>
 <p>在三种估计方法中，矩估计、最小二乘估计以及最大似然估计在现有理论中一般可以论证其的渐近正态性。其中，最大似然估计的渐近正态性的表现具有一定普遍性，有以下定理。</p>
 <div class="proof theorem admonition" id="theorem-0">
-<p class="admonition-title"><span class="caption-number">Theorem 20.3 </span></p>
+<p class="admonition-title"><span class="caption-number">Theorem 20.4 </span></p>
 <section class="theorem-content" id="proof-content">
 <p>设总体 <span class="math notranslate nohighlight">\(X\)</span> 有概率函数 <span class="math notranslate nohighlight">\(p(x;\theta),\theta\in \Theta\)</span> ， <span class="math notranslate nohighlight">\(\Theta\)</span> 为非退化区间，假定</p>
 <ul class="simple">
@@ -631,14 +631,14 @@ I(\theta) = \int_{-\infty}^{\infty} \left(\frac{\partial \ln p}{\partial \theta}
 \[
 \hat{\theta}_n \sim AN \left(\theta,\frac{1}{nI(\theta)}\right).
 \]</div>
-</section>
-</div><div class="admonition-remark admonition">
+<div class="admonition-remark admonition">
 <p class="admonition-title">Remark</p>
 <p>值得关注的是，最大似然估计的渐近方差为样本量为 <span class="math notranslate nohighlight">\(n\)</span> 的样本的 Fisher 信息量——这是参数 <span class="math notranslate nohighlight">\(\theta\)</span> 的无偏估计的方差的 CR 下界。如果一个参数的无偏估计的方差恰好达到了 CR 下界，那么这个估计被称为<strong>有效估计</strong>，认为其实所有无偏估计中方差最小的估计，也就是说，在无偏估计中最优的估计。虽然 MLE 不一定都是无偏的，但 MLE 通常是渐近无偏的，而且其渐近方差可达到无偏估计的方差的 CR 下界。
 因此，一般认为，在<strong>参数模型的假定正确</strong>时，最大似然估计通常是最优的估计。</p>
 </div>
-<div class="proof example admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">Example 20.6 </span></p>
+</section>
+</div><div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">Example 20.9 </span></p>
 <section class="example-content" id="proof-content">
 <p>设总体分布为泊松分布 <span class="math notranslate nohighlight">\(P(\lambda)\)</span> ，可以证明 <span class="math notranslate nohighlight">\({\lambda}\)</span> 的矩估计和最大似然估计为</p>
 <div class="math notranslate nohighlight">

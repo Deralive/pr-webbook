@@ -582,6 +582,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">20.2.1. 无偏性</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">20.2.2. 有效性</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">20.2.3. 充分性原则</a></li>
 </ul>
             </nav>
         </div>
@@ -668,8 +670,7 @@ E(s_n^2) = \frac{n-1}{n} \sigma^{2} \neq \sigma^2.
 \]</div>
 <p>于是， <span class="math notranslate nohighlight">\(s_n^2\)</span> 不是 <span class="math notranslate nohighlight">\(\sigma^2\)</span> 的无偏估计。
 因为 <span class="math notranslate nohighlight">\(E\left(s_{n}^{2}\right)=\frac{n-1}{n} \sigma^{2}\)</span> ， <span class="math notranslate nohighlight">\(S_{n}^{2}\)</span> 不是无偏估计。 但易于证明 <span class="math notranslate nohighlight">\(s^2 = \frac{1}{n-1}\sum_{i=1}^n (x_i-\bar{x})^2\)</span> 是 <span class="math notranslate nohighlight">\(\sigma^2\)</span> 的无偏估计。</p>
-</section>
-</div><div class="admonition-remark admonition">
+<div class="dropdown admonition">
 <p class="admonition-title">Remark</p>
 <p>回看样本方差 <span class="math notranslate nohighlight">\(s_n^2\)</span> ，这个估计量的偏差为</p>
 <div class="math notranslate nohighlight">
@@ -678,9 +679,167 @@ E(s_n^2) = \frac{n-1}{n} \sigma^{2} \neq \sigma^2.
 \]</div>
 <p>当样本量 <span class="math notranslate nohighlight">\(n\)</span> 越大时， <span class="math notranslate nohighlight">\(s_n^2\)</span> 的偏差越接近 0，而 <span class="math notranslate nohighlight">\(s_n^2\)</span> 的期望也越接近 <span class="math notranslate nohighlight">\(\sigma^2\)</span> 。于是，我们称 <span class="math notranslate nohighlight">\(s_n^2\)</span> 是 <span class="math notranslate nohighlight">\(\sigma^2\)</span> 的<strong>渐近无偏</strong>估计。</p>
 </div>
-<div class="admonition-question admonition">
+</section>
+</div><div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>总体标准差 <span class="math notranslate nohighlight">\(\sigma\)</span> 的无偏估计会是怎样的？样本标准差 <span class="math notranslate nohighlight">\(s\)</span> 是 <span class="math notranslate nohighlight">\(\sigma\)</span> 的无偏估计吗？</p>
+</div>
+<div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">Example 20.2 </span></p>
+<section class="example-content" id="proof-content">
+<p>考虑总体分布为 <span class="math notranslate nohighlight">\(N(\mu,\sigma^2)\)</span> ， <span class="math notranslate nohighlight">\(\mu\)</span> 和 <span class="math notranslate nohighlight">\(\sigma^2\)</span> 均是待估参数。现有样本 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 。已知样本方差 <span class="math notranslate nohighlight">\(s^2\)</span> 为</p>
+<div class="math notranslate nohighlight">
+\[
+s^2 = \frac{1}{n-1}\sum_{i=1}^n (x_i-\bar{x})^2.
+\]</div>
+<p>而样本标准差 <span class="math notranslate nohighlight">\(s = \sqrt{s^2}\)</span> 。
+为计算 <span class="math notranslate nohighlight">\(s\)</span> 的期望，我们先来回顾一下 <span class="math notranslate nohighlight">\(s^2\)</span> 的分布。我们知道在正态分布假定下，</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{(n-1)s^2}{\sigma^2} \sim \chi^2(n-1) = Ga((n-1)/2,1/2)。
+\]</div>
+<p>因为 <span class="math notranslate nohighlight">\(s = (s^2)^{1/2}\)</span> ，我们来看待一般的伽马分布 <span class="math notranslate nohighlight">\(Y \sim Ga(\alpha,\gamma)\)</span> 的 <span class="math notranslate nohighlight">\(k\)</span> 阶矩的期望。</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+E(Y^{k}) &amp;=&amp; \int_{0}^{\infty} y^{k} \frac{\lambda^{\alpha}}{\Gamma(\alpha)} y^{\alpha - 1} \exp\{-\lambda y\} \text{d} y\\
+&amp;=&amp; \int_{0}^{\infty} \frac{\lambda^{\alpha}}{\Gamma(\alpha)} y^{k+\alpha - 1} \exp\{-\lambda y\} \text{d} y\\
+&amp;=&amp;\frac{\lambda^{\alpha}}{\Gamma(\alpha)}\frac{\Gamma(\alpha + k)} {\lambda^{\alpha +k}} \int_{0}^{\infty} \frac{\lambda^{\alpha +k}}{\Gamma(\alpha + k)} y^{k+\alpha - 1} \exp\{-\lambda y\} \text{d} y\\
+&amp;=&amp; \frac{\Gamma(\alpha + k)}{\Gamma(\alpha)} \cdot \lambda^{-k}.
+\end{eqnarray*}
+\end{split}\]</div>
+<p>于是，</p>
+<div class="math notranslate nohighlight">
+\[
+E(s) = E\left((s^2)^{1/2}\right) = \frac{\Gamma\left(\frac{n-1}{2}+\frac{1}{2}\right)}{\Gamma(\frac{n-1}{2})} \cdot \left(\frac{1}{2}\right)^{-1/2}
+\]</div>
+<p>即</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\sqrt{n-1}}{\sigma} E(s) = \frac{\Gamma\left(\frac{n}{2}\right)}{\Gamma(\frac{n-1}{2})} \cdot \left(\frac{1}{2}\right)^{-1/2}
+\]</div>
+<p>因此，</p>
+<div class="math notranslate nohighlight">
+\[
+E(s) = \sqrt{\frac{2}{n-1}} \frac{\Gamma\left(\frac{n}{2}\right)}{\Gamma\left(\frac{n-1}{2}\right)} \sigma .
+\]</div>
+<p>而 <span class="math notranslate nohighlight">\(c_n = \left(\sqrt{\frac{2}{n-1}} \frac{\Gamma\left(\frac{n}{2}\right)}{\Gamma\left(\frac{n-1}{2}\right)}\right)^{-1}\)</span> 就是修偏系数。当 <span class="math notranslate nohighlight">\(n\)</span> 充分大时，这个修偏系数接近 1。于是在实际使用时，我们通常忽略这个修偏系数，直接用样本标准差来估计总体标准差。</p>
+</section>
+</div><div class="admonition-remark admonition">
+<p class="admonition-title">Remark</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(s\)</span> 是 <span class="math notranslate nohighlight">\(\sigma\)</span> 的有偏估计；</p></li>
+<li><p><span class="math notranslate nohighlight">\(s\)</span> 是 <span class="math notranslate nohighlight">\(\sigma\)</span> 的渐近无偏估计；</p></li>
+<li><p><span class="math notranslate nohighlight">\(c_n s\)</span> 是 <span class="math notranslate nohighlight">\(\sigma\)</span> 的无偏估计，但实际中我们不纠偏。</p></li>
+</ul>
+</div>
+<p>值得注意的是，不是所有的参数都有无偏估计。在本课程中，如果一个参数的任何估计都不是无偏的，那么称这个参数<strong>不可估</strong>。以下介绍一个例子，供同学们课后阅读。</p>
+<div class="proof example admonition" id="example-2">
+<p class="admonition-title"><span class="caption-number">Example 20.3 </span></p>
+<section class="example-content" id="proof-content">
+<p>设总体为二点分布 <span class="math notranslate nohighlight">\(b(1,p),0&lt;p&lt;1\)</span> 。 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 是样本，令参数为 <span class="math notranslate nohighlight">\(\theta = 1/p\)</span> 。以下说明 <span class="math notranslate nohighlight">\(\theta\)</span> 是不可估的。</p>
+<p>首先， <span class="math notranslate nohighlight">\(T = x_1+x_2+\cdots+x_n\)</span> 是充分统计量，则 <span class="math notranslate nohighlight">\(T\sim b(n,p)\)</span> 。若有一个 <span class="math notranslate nohighlight">\(\hat{\theta} = \hat{\theta}(t)\)</span> 是 <span class="math notranslate nohighlight">\(\theta\)</span> 的无偏估计，则有</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+E(\hat{\theta}) = \sum_{i=1}^n \begin{pmatrix}
+n\\i
+\end{pmatrix}
+\hat{\theta}(i) p^{i}(1-p)^{n-i} = \frac{1}{p}
+\end{split}\]</div>
+<p>也就是说，</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\sum_{i=1}^n \begin{pmatrix}
+n\\i
+\end{pmatrix}
+\hat{\theta}(i) p^{i+1}(1-p)^{n-i} -1 =0, \quad 0 &lt; p &lt; 1.
+\end{split}\]</div>
+<p>这是 <span class="math notranslate nohighlight">\(p\)</span> 的 <span class="math notranslate nohighlight">\(n+1\)</span> 次方程，最多有 <span class="math notranslate nohighlight">\(n+1\)</span> 个实根，要使它对 <span class="math notranslate nohighlight">\((0,1)\)</span> 中所有的 <span class="math notranslate nohighlight">\(p\)</span> 都成立是不可能的，故参数 <span class="math notranslate nohighlight">\(\theta = 1/p\)</span> 是不可估的。</p>
+<p>其次，若有某个 <span class="math notranslate nohighlight">\(h(x_1,x_2,\cdots,x_n)\)</span> 是 <span class="math notranslate nohighlight">\(\theta\)</span> 的无偏估计，则令 <span class="math notranslate nohighlight">\(\tilde{\theta} = E(h(x_1,x_2,\cdots,x_n)|T)\)</span> 。由重期望公式可知，</p>
+<div class="math notranslate nohighlight">
+\[
+E(\tilde{\theta}) = E(E(h(x_1,x_2,\cdots,x_n)|T)) = E(h(x_1,x_2,\cdots,x_n) = \theta.
+\]</div>
+<p>这说明 <span class="math notranslate nohighlight">\(\tilde{\theta}(T)\)</span> 是 <span class="math notranslate nohighlight">\(\theta\)</span> 的无偏估计。因此这是不可能的。</p>
+</section>
+</div></section>
+<section id="id3">
+<h2><span class="section-number">20.2.2. </span>有效性<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>对于同一个参数 <span class="math notranslate nohighlight">\(\theta\)</span> ，无偏估计仍有很多，如何在无偏估计中进行选择？</p>
+</div>
+<p>设 <span class="math notranslate nohighlight">\(\hat{\theta}_1,\hat{\theta}_2\)</span> 是 <span class="math notranslate nohighlight">\(\theta\)</span> 的两个无偏估计。如果对任意的 <span class="math notranslate nohighlight">\(\theta\in \Theta\)</span> 有</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Var}(\hat{\theta}_1) \leq \text{Var}(\hat{\theta}_2),
+\]</div>
+<p>且至少有一个 <span class="math notranslate nohighlight">\(\theta \in \Theta\)</span> 使得上述不等号严格成立，则称 <span class="math notranslate nohighlight">\(\hat{\theta}_1\)</span> 比 <span class="math notranslate nohighlight">\(\hat{\theta}_2\)</span> 更有效。</p>
+<div class="admonition-remark admonition">
+<p class="admonition-title">Remark</p>
+<p>对无偏估计而言，方差越小的无偏估计越有效。</p>
+</div>
+<div class="proof example admonition" id="ex:chap20_UE_uniform_distribution">
+<p class="admonition-title"><span class="caption-number">Example 20.4 </span></p>
+<section class="example-content" id="proof-content">
+<p>设 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 是来自均匀总体 <span class="math notranslate nohighlight">\(U(0,\theta)\)</span> 的样本，现有两个无偏估计。</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\theta\)</span> 的一个估计为 <span class="math notranslate nohighlight">\(\hat{\theta}_1 = \frac{n+1}{n}x_{(n)}\)</span> 。 因为 <span class="math notranslate nohighlight">\(x_{(n)}/\theta\sim Be(n,1)\)</span> ，所以 <span class="math notranslate nohighlight">\(E(x_{(n)}) = \frac{n}{n+1}\theta\)</span> ，而</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\text{Var}(x_{(n)}) = \frac{n}{(n+1)^2 (n+2)} \theta^2.
+\]</div>
+<p>于是， <span class="math notranslate nohighlight">\(\hat{\theta}_1\)</span> 是 <span class="math notranslate nohighlight">\(\theta\)</span> 的无偏估计，其方差为</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Var}(\hat{\theta}_1) = \frac{(n+1)^2}{n^2} \frac{n}{(n+1)^2 (n+2)} \theta^2 = \frac{\theta^2}{n(n+2)}.\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\theta\)</span> 的另一个估计为 <span class="math notranslate nohighlight">\(\hat{\theta}_2 = 2\bar{x}\)</span> 。可以计算</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+E(\hat{\theta}_2) = 2 E(\bar{x}) = 2 \cdot \frac{\theta}{2} = \theta.
+\]</div>
+<p>而</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Var}(\hat{\theta}_2)= 4 \text{Var}(\bar{x}) = \frac{4}{n} \cdot \frac{\theta^2}{12} = \frac{\theta^2}{3n}.
+\]</div>
+<p>根据比较可知，当 <span class="math notranslate nohighlight">\(n&gt;1\)</span> 时， <span class="math notranslate nohighlight">\(\hat{\theta}_1\)</span> 比 <span class="math notranslate nohighlight">\(\hat{\theta}_2\)</span> 更有效。</p>
+</section>
+</div><div class="admonition-remark admonition">
+<p class="admonition-title">Remark</p>
+<p>我们发现： <span class="math notranslate nohighlight">\(\hat{\theta}_1\)</span> 是 <span class="math notranslate nohighlight">\(x_{(n)}\)</span> 的函数，而 <span class="math notranslate nohighlight">\(x_{(n)}\)</span> 是 <span class="math notranslate nohighlight">\(\theta\)</span> 的充分统计量。</p>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>对于任意 <span class="math notranslate nohighlight">\(\theta \in \Theta\)</span> ，我们能否找到一致最小均方误差估计 <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> ，即</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\theta} = \arg\min_{\hat{\theta}} \text{MSE} (\hat{\theta})?
+\]</div>
+</div>
+<div class="admonition-remark admonition">
+<p class="admonition-title">Remark</p>
+<p>在<strong>无偏估计类</strong>中，存在一致最小均方误差估计，此时一致最小均方误差估计为一致最小方差无偏估计（Uniformly Minimum Variance Unbiased Estimate, UMVUE）。对于 UMVUE 这里不再深入探讨，感兴趣的同学可以自行阅读《概率论与数理统计教程》6.4 最小方差无偏估计这一节进行了解，属于选修内容。</p>
+</div>
+</section>
+<section id="id4">
+<h2><span class="section-number">20.2.3. </span>充分性原则<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>在例 <a class="reference internal" href="#ex:chap20_UE_uniform_distribution">Example 20.4</a> 中，我们发现在两个无偏估计 <span class="math notranslate nohighlight">\(\hat{\theta}_1 = \frac{n+1}{n}x_{(n)}\)</span> 和 <span class="math notranslate nohighlight">\(\hat{\theta}_2 = 2\bar{x}\)</span> 中，更优的估计是 <span class="math notranslate nohighlight">\(\hat{\theta}_1\)</span> ，其是充分统计量 <span class="math notranslate nohighlight">\(x_{(n)}\)</span> 的函数。</p>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>由充分统计量得到的估计更优，这是偶然吗？</p>
+</div>
+<div class="proof theorem admonition" id="theorem-4">
+<p class="admonition-title"><span class="caption-number">Theorem 20.1 </span> (Rao-Blackwell 定理)</p>
+<section class="theorem-content" id="proof-content">
+<p>设总体概率函数是 <span class="math notranslate nohighlight">\(p(x;\theta)\)</span> , <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 是其样本， <span class="math notranslate nohighlight">\(T = T(x_1,x_2,\cdots,x_n)\)</span> 是 <span class="math notranslate nohighlight">\(\theta\)</span> 的充分统计量。则对 <span class="math notranslate nohighlight">\(\theta\)</span> 的任一无偏估计 <span class="math notranslate nohighlight">\(\hat{\theta} = \hat{\theta}(x_1,x_2,\cdots,x_n)\)</span> ，令 <span class="math notranslate nohighlight">\(\tilde{\theta} = E(\hat{\theta}|T)\)</span> ，有 <span class="math notranslate nohighlight">\(\tilde{\theta}\)</span> 也是 <span class="math notranslate nohighlight">\(\theta\)</span> 的无偏估计，且</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Var}(\tilde{\theta}) \leq \text{Var}(\hat{\theta}).
+\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Proof</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
@@ -713,13 +872,13 @@ E((\hat{\theta}-\tilde{\theta}) \cdot(\tilde{\theta}-E(\tilde{\theta}))
 \end{eqnarray*}
 \end{split}\]</div>
 </div>
-</details></div>
-<div class="admonition-remark admonition">
+</details><div class="admonition-remark admonition">
 <p class="admonition-title">Remark</p>
 <p>Rao-Blackwell 定理表明，对于任何无偏估计，如果其不是充分统计量的函数，那么将其对充分统计量求条件期望可以得到一个新的无偏估计，而且该估计的方差比原来的估计方差要小。</p>
 </div>
-<div class="proof example admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">Example 20.2 </span></p>
+</section>
+</div><div class="proof example admonition" id="example-5">
+<p class="admonition-title"><span class="caption-number">Example 20.5 </span></p>
 <section class="example-content" id="proof-content">
 <p>总体分布为泊松分布 <span class="math notranslate nohighlight">\(P(\lambda)\)</span> ，其中参数 <span class="math notranslate nohighlight">\(\lambda &gt;0\)</span> 。先有两个样本 <span class="math notranslate nohighlight">\(x_1,x_2\)</span> 。
 <span class="math notranslate nohighlight">\(x_1,x_2\)</span> 的联合分布列为</p>
@@ -727,8 +886,8 @@ E((\hat{\theta}-\tilde{\theta}) \cdot(\tilde{\theta}-E(\tilde{\theta}))
 \[
 p(x_1,x_2;\lambda) = \frac{\lambda^{x_1}}{x_1!}e^{-\lambda} \cdot \frac{\lambda^{x_2}}{x_2!}e^{-\lambda} = \lambda^{(x_1+x_2)} e^{-2\lambda}\frac{1}{x_1!x_2!}.
 \]</div>
-<p>令 <span class="math notranslate nohighlight">\(T(x_1,x_2)=x_1+x_2\)</span> ， <span class="math notranslate nohighlight">\(g(t,\lambda) = \lambda^{t} e^{-2\lambda}\)</span> 和 <span class="math notranslate nohighlight">\(h(x_1,x_2) = \frac{1}{x_1!x_2!}\)</span> 。根据因子分解定理，有 <span class="math notranslate nohighlight">\(T(x_1,x_2) = x_1+x_2\)</span> 是充分的。而 <span class="math notranslate nohighlight">\(T(x_1,x_2)\sim P(2\lambda)\)</span> 。
-因为 <span class="math notranslate nohighlight">\(E(x_1) = \lambda\)</span> ，所以 <span class="math notranslate nohighlight">\(\hat{\lambda}= x_1\)</span> 是 <span class="math notranslate nohighlight">\(\lambda\)</span> 的无偏估计。令 <span class="math notranslate nohighlight">\(\tilde{\lambda} = E(\hat{\lambda}|T)\)</span> 。则</p>
+<p>令 <span class="math notranslate nohighlight">\(T(x_1,x_2)=x_1+x_2\)</span> ， <span class="math notranslate nohighlight">\(g(t,\lambda) = \lambda^{t} e^{-2\lambda}\)</span> 和 <span class="math notranslate nohighlight">\(h(x_1,x_2) = \frac{1}{x_1!x_2!}\)</span> 。根据因子分解定理，有 <span class="math notranslate nohighlight">\(T(x_1,x_2) = x_1+x_2\)</span> 是充分的。而 <span class="math notranslate nohighlight">\(T(x_1,x_2)\sim P(2\lambda)\)</span> 。</p>
+<p>因为 <span class="math notranslate nohighlight">\(E(x_1) = \lambda\)</span> ，所以 <span class="math notranslate nohighlight">\(\hat{\lambda}= x_1\)</span> 是 <span class="math notranslate nohighlight">\(\lambda\)</span> 的无偏估计。令 <span class="math notranslate nohighlight">\(\tilde{\lambda} = E(\hat{\lambda}|T)\)</span> 。则</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -756,8 +915,8 @@ E(X_1|X_1+X_2 = x_1+x_2) = \frac{x_1+x_2}{2}.
 <p>在考虑 <span class="math notranslate nohighlight">\(\theta\)</span> 的估计问题中，我们只需要基于充分统计量的函数来构造。这就是充分性原则，在所有统计推断的问题中都是成立的。</p>
 </div>
 <p>以下例子由同学课后自己自行理解。</p>
-<div class="proof example admonition" id="example-2">
-<p class="admonition-title"><span class="caption-number">Example 20.3 </span></p>
+<div class="proof example admonition" id="example-6">
+<p class="admonition-title"><span class="caption-number">Example 20.6 </span></p>
 <section class="example-content" id="proof-content">
 <p>设 <span class="math notranslate nohighlight">\(x_1,x_2,\cdots,x_n\)</span> 是来自 <span class="math notranslate nohighlight">\(b(1,p)\)</span> 的样本，则 <span class="math notranslate nohighlight">\(\bar{x}\)</span> （或 <span class="math notranslate nohighlight">\(T = n\bar{x}\)</span> ）是 <span class="math notranslate nohighlight">\(p\)</span> 的充分统计量。为估计 <span class="math notranslate nohighlight">\(\theta = p^2\)</span> ，可令</p>
 <div class="math notranslate nohighlight">
@@ -862,6 +1021,8 @@ n\\t
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">20.2.1. 无偏性</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">20.2.2. 有效性</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">20.2.3. 充分性原则</a></li>
 </ul>
   </nav></div>
 
