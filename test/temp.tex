@@ -1,0 +1,136 @@
+\chapter{随机过程简介与泊松过程}
+
+\begin{introduction}
+    \item Intro to Prob \quad 6.2
+\end{introduction}
+\section{随机过程的基本概念}
+\begin{definition}{随机过程（stochastic process）}
+    随机过程就是指一族随机变量$\{X(t),t\in \mathcal{T}\}$，其中$t$是参数，该参数属于某个指标集$\mathcal{T}$，称$\mathcal{T}$为参数集。
+\end{definition}
+\begin{remark}
+    \begin{enumerate}
+        \item 当$\mathcal{T} = \{1,2,\cdots\}$时，也称随机过程为随机序列。
+        \item 随机变量是样本点的函数。$X(t)$是随$t$和$\omega \in \Omega$而变化的，也可以记作$X(t,\omega)$。
+              \begin{enumerate}
+                  \item 固定$\omega_0$，$X(t,\omega_0)$是$t$的函数；
+                  \item 固定$t_0$，$X(t_0,\omega)$是一个随机变量。
+              \end{enumerate}
+        \item 随机过程在时刻$t$取的值称为过程所处的状态，状态的全体称为状态空间。
+        \item 根据状态空间可分为连续状态和离散状态；
+        \item 根据参数集$\mathcal{T}$，当$\mathcal{T}$为有限集或可列集时，该随机过程称为离散参数过程；否则称为连续参数过程；
+        \item 当$\bm{t}$是高维向量时，则称$X(\bm{t})$是随机场。
+    \end{enumerate}
+\end{remark}
+类似于随机变量的分布函数的定义，以下我们给出随机过程的分布定义。
+\begin{definition}
+    对于随机过程$\{N(t),t\in \mathcal{T}\}$，称
+    $$
+        F_t(x) = P(X(t)\leq x)
+    $$
+    为过程的一维分布。
+    对于任意$t_1,t_2,\cdots,t_n \in \mathcal{T}$，称
+    $$
+        F_{t_1,t_2,\cdots,t_n}(x_1,x_2,\cdots,x_n) = P(X(t_1)\leq x_1,X(t_2)\leq x_2,\cdots,X(t_n)\leq x_n)
+    $$
+    为过程的有限维分布族。
+
+\end{definition}
+随机过程的有限维分布族就是过程$\{X(t),t\in\mathcal{T}\}$中任意$n$个随机变量的联合分布，其满足对称性和相容性。
+\begin{property}
+    \begin{enumerate}
+        \item （对称性）过程的有限维分布族与变量$X(t_1),\cdots,X(t_n)$的排序无关，即对$\{1,\cdots,n\}$的任一置换$(i_1,\cdots,i_n)$有
+              $$
+                  F_{t_{i_1},\cdots,t_{i_n}}(x_{i_1},\cdots,x_{i_n})  = F_{t_1,\cdots,t_n}(x_1,\cdots,x_n).
+              $$
+        \item (相容性）高维分布的边际分布与相应的低维分布一致，即对任意$m< n$，有
+              $$
+                  F_{t_1,\cdots,t_{m},t_{m+1},\cdots,t_{n}}(x_1,\cdots,x_m,\infty,\cdots,\infty) = F_{t_1,\cdots,t_m}(x_1,\cdots,x_m).
+              $$
+    \end{enumerate}
+\end{property}
+除了对过程分布的定义，我们也可以定义过程的数字特征。
+\begin{definition}
+    \begin{enumerate}
+        \item 称过程的期望$E(X(t))$为过程的均值函数，记作$\mu_{X}(t)$；
+        \item 称$\text{Var}(X(t))$为过程的方差函数；
+        \item 称$E(X(t_1)X(t_2))$为过程的自相关函数，记为$r_{X}(t_1,t_2)$；
+        \item 称$\text{Cov}(X(t_1),X(t_2)) = E((X(t_1)-\mu_{X}(t_1))(X(t_2)-\mu_{X}(t_2)))$为协方差函数，记为$R_{X}(t_1,t_2)$；
+    \end{enumerate}
+\end{definition}
+\begin{theorem}
+    协方差函数是非负定的，即对任何$t_1,t_2,\cdots,t_n \in \mathcal{T}$及任意实数$b_1,b_2,\cdots,b_n$，恒有
+    $$
+        \sum_{i=1}^n \sum_{j=1}^n b_ib_j R_{X}(t_i,t_j) \geq 0
+    $$
+\end{theorem}
+
+\begin{definition}
+    如果随机过程$X(t)$满足对任意的$t_1,t_2,\cdots,t_n\in \mathcal{T}$和任意$h$有
+    $$
+        (X(t_1+h), \cdots,X(t_n+h)) \overset{d}{=} (X(t_1),\cdots,X(t_n))
+    $$
+    则称该过程为严平稳的。
+\end{definition}
+\begin{definition}
+    如果随机过程$X(t)$的所有二阶矩存在并有$E(X(t))=m$及协方差函数$R_X(t,s)$只与时间差$t-s$有关，则称该过程为宽平稳的或二阶矩平稳的。
+\end{definition}
+
+\begin{definition}
+    如果对任意的$t_1<t_2<\cdots<t_n,t_1,\cdots,t_n\in \mathcal{T}$，随机变量$X(t_2)-X(t_1),X(t_3)-X(t_2),\cdots,X(t_n)-X(t_{n-1})$是相互独立的，则称$X(t)$为独立增量过程。如果进一步有对任意的$t_1,t_2$，$$
+        X(t_1+h) - X(t_1) \overset{d}{=} X(t_2+h) - X(t_2)
+    $$
+    则称$X(t)$为平稳独立增量的过程。
+\end{definition}
+
+
+\section{泊松过程的基本概念}
+\begin{definition}{泊松过程（Poisson过程）}
+    如果一个整数值随机过程$\{N(t),t\geq 0\}$满足以下三个条件：
+    \begin{enumerate}
+        \item  $N(0) = 0$；
+        \item $N(t)$是独立增量过程；
+        \item 对任何$t>0, s\geq 0$增量$N(t+s) - N(s)$服从参数为$\lambda t$的泊松分布，即
+              $$
+                  P(N(t+s) - N(s) = k)  = \frac{(\lambda t)^k }{k!}e^{-\lambda t}, k=0,1,\cdots
+              $$
+    \end{enumerate}
+    则称该随机过程为强度为$\lambda >0$的泊松过程。
+\end{definition}
+
+\begin{remark}
+    \begin{enumerate}
+        \item $N(0)=0$表明了泊松过程中随机事件从时刻0开始计数；
+        \item 重要性质：$E(N(t)) = \text{Var}(N(t)) = \lambda t$；
+        \item 增量$N(t+s) - N(t)$表示在$(s,s+t]$中发生的随机事件数。条件2和条件3确保了泊松过程是一个独立平稳增量过程。
+    \end{enumerate}
+\end{remark}
+以下有一个泊松过程的等价定义。
+\begin{theorem}
+    假设一个随机过程$N(t)$满足以下条件：
+    \begin{enumerate}
+        \item  在不相交区间中发生事件的数目相互独立，即对任何整数$n=1,2,\cdots$，设时刻$t_0 = 0 < t_1 < t_2 < \cdots < t_n$，增量$N(t_1) - N(t_0), N(t_2)-N(t_1),\cdots,N(t_n) - N(t_{n-1})$相互独立；
+        \item 对任何时刻$t$和正数$h$，随机变量增量$N(t+h) - N(t)$的分布只依赖于区间长度$h$而不依赖于时刻$t$；
+        \item 存在正常数$\lambda$，当$h\rightarrow0$时，使在长度为$h$的小区间中事件至少发生一次的概率
+              $$
+                  P(N(t+h) - N(t) \geq  1) = \lambda h + o(h).
+              $$
+        \item 在小区间$(t,t+h]$发生两个或两个以上事件的概率为$o(h)$，即当$h\rightarrow0$时，
+              $$
+                  P(N(t+h) - N(t) \geq  2) = o(h).
+              $$
+    \end{enumerate}
+    则该随机过程$N(t)$为泊松过程。
+\end{theorem}
+\begin{remark}
+    在上述定理的条件中，
+    \begin{enumerate}
+        \item 条件1表明前后增量是独立的；
+        \item 条件2表明前后增量是时齐的；
+        \item 条件3和条件4表明事件的概率与$\lambda$有关，且事件具有相继性，即事件是一件一件发生的，在同一瞬间同时发生多个时间的概率很小很小。
+    \end{enumerate}
+\end{remark}
+
+
+\begin{enumerate}
+    \item 方兆本，缪柏其《随机过程》科学出版社\quad 第2章
+\end{enumerate}

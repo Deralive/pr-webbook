@@ -71,3 +71,20 @@ sphinx:
     - sphinx_proof
     - sphinx_design
     - sphinx_togglebutton
+
+
+# https://sphinx-book-theme.readthedocs.io/en/stable/reference/extensions.html
+# This is a extension which can be used to add sphinx-book-theme to the book.
+# Marked by Deralive
+
+# https://sphinx-thebe.readthedocs.io/en/latest/configure.html
+# 将按钮嵌入至书中，允许用户在浏览器中运行代码
+
+# https://diler-digitell.github.io/tutorial_jupyter_books/content/3_create/media.html
+# This is a extension which can be used to add media files to the book.
+# Marked by Deralive
+
+# https://jupyterbook.org/en/stable/content/code-outputs.html
+# This is a extension which can be used to add code outputs to the book.
+# Marked by Deralive
+
