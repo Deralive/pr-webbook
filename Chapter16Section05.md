@@ -4,12 +4,147 @@
 我们共有 $n$ 个学生参加本学期的期中考试，记为 $x_1,x_2,\cdots,x_{n}$ 。常常会对学生的考试成绩进行排名，学生的考试成绩可以按从小到大进行排序，于是可以得到一组有序样本 $x_{(1)}\leq x_{(2)}\leq \cdots \leq x_{(n)}$ 。我们记 $y_i = x_{(i)}$ 。易知， $y_1,y_2,\cdots,y_{n}$ 既不独立也不同分布。
 `````
 
-设 $x_1,x_2,\cdots,x_n$ 是来自于总体 $X$ 的样本， $x_{(i)}$ 称为样本的第 $i$ 个次序统计量，它表示将样本观测值从小到大排序后得到的第 $i$ 个观测值，其中 $x_{(1)}=\min\{x_1,x_2,\cdots,x_n\}$ 称为该样本的最小次序统计量， $x_{(n)}=\max\{x_1,x_2,\cdots,x_n\}$ 称为该样本的最大次序统计量， $(x_{(1)},x_{(2)},\cdots,x_{(n)})$ 称为该样本的次序统计量。
+次序统计量
+: 设 $x_1,x_2,\cdots,x_n$ 是来自于总体 $X$ 的样本， $x_{(i)}$ 称为样本的第 $i$ 个次序统计量，它表示将样本观测值从小到大排序后得到的第 $i$ 个观测值，其中 $x_{(1)}=\min\{x_1,x_2,\cdots,x_n\}$ 称为该样本的最小次序统计量， $x_{(n)}=\max\{x_1,x_2,\cdots,x_n\}$ 称为该样本的最大次序统计量， $(x_{(1)},x_{(2)},\cdots,x_{(n)})$ 称为该样本的次序统计量。
 
 ```{admonition} Question
 
 - 如何求 $x_{(k)}$ 的分布？
 - 如何求 $x_{(n)} - x_{(1)}$ 的分布？
+```
+
+````{prf:theorem} 
+设总体 $X$ 的密度函数为 $p(x)$，分布函数为 $F(x)$，$x_1,x_2,\cdots,x_n$ 为样本，则第 $k$ 个次序统计量 $x_{(k)}$ 的密度函数为
+
+$$
+p_k(x) = \frac{n!}{(k-1)!(n-k)!} (F(x))^{k-1} (1-F(x))^{n-k} p(x).
+$$
+````
+
+以下给出两种证明方法。
+
+``````{tab-set}
+
+`````{tab-item} 方法一
+
+因为我们需要将 $x_{(k)}$ 看成一个随机变量，所以记 $X_{(k)}$ 为第 $k$ 个次序统计量。
+首先考虑 $X_{(k)}$ 的分布函数 $F_{k}(x) = P(X_{(k)}\leq x)$ 。注意到事件
+
+$$
+\begin{eqnarray*}
+\left\{
+X_{(k)} \leq x
+\right\} &\Leftrightarrow& \left\{
+x_1,x_2,\cdots,x_n\text{中至少有 $k$ 个}\leq x
+\right\} \\
+&\Leftrightarrow& \cup_{j=k}^{n} \left\{
+x_1,x_2,\cdots,x_n\text{中恰好有 $j$ 个}\leq x
+\right\}
+\end{eqnarray*}
+$$
+
+所以，
+
+$$
+\begin{eqnarray*}
+F_k(x)
+&=& \sum_{j=k}^n P\left( x_1,x_2,\cdots,x_n\text{中恰好有 $j$ 个}\leq x \right)\\
+&=&\sum_{j=k}^n C_{n}^j (F(x))^{j} (1-F(x))^{n-j}
+\end{eqnarray*}
+$$
+
+根据引理 2.1，我们可知
+
+$$
+F_k(x) = \int_{0}^{F(x)} \frac{n!}{(k-1)!(n-k)!} x^{k-1}(1-x)^{n-k}\text{d}x.
+$$
+
+于是，定理得证。
+`````
+
+`````{tab-item} 方法二
+
+````{prf:lemma}
+
+对于 $0<p<1$ ，有
+
+$$
+\sum_{j=k}^n C_n^j p^j(1-p)^{n-j} = \int_{0}^p \frac{n!}{(k-1)!(n-k)!} x^{k-1}(1-x)^{n-k}\text{d}x
+$$
+
+```{dropdown} Proof
+令
+
+$$
+g(p) = \sum_{j=k}^n C_n^j p^j(1-p)^{n-j}.
+$$
+
+于是，关于 $g(p)$ 对 $p$ 求导，即
+
+$$
+\begin{eqnarray*}
+\frac{\partial }{\partial p} g(p) &=& \frac{\partial }{\partial p}\left( \sum_{j=k}^n C_n^j p^j(1-p)^{n-j}\right)\\
+&=& \sum_{j=k}^n \left(\frac{\partial }{\partial p} p^j(1-p)^{n-j}\right)
+\end{eqnarray*}
+$$
+
+注意到，第 $k$ 项为
+
+$$
+C_n^k\left(k p^{k-1}(1-p)^{n-k}-(n-k)p^{k}(1-p)^{n-k-1}\right),$$
+
+而第 $k+1$ 项为
+
+$$
+C_n^{k+1}\left((k+1) p^{k}(1-p)^{n-k-1}-(n-k-1) p^{k+1}(1-p)^{n-k-2}\right).$$
+
+同时，
+
+$$
+C_n^k p^{k}(n-k)(1-p)^{n-k-1} = C_n^{k+1}(k+1) p^{k}(1-p)^{n-k-1}.
+$$
+
+所以，进行前后消除，我们有
+
+$$\frac{\partial}{\partial p} g(p)=\frac{n !}{(k-1) !(n-k) !} p^{k-1}(1-p)^{n-k}.$$
+
+我们可以验证其初始值相等即可。
+```
+
+````
+
+对任意的实数 $x$ ，考虑次序统计两个 $x_{(k)}$ 取值落在小区间 $(x,x+\Delta x]$ 内这一事件，它等价于“样本量 $n$ 的样本中有 1 个观测值落在 $(x,x+\Delta x]$ 之间（多于一个观测值落在区间） $(x,x+\Delta x]$ 的概率是 $\Delta x$ 的高阶无穷小量，后同），而有 $k-1$ 个观测值小于等于 $x$ ，有 $n-k$ 个观测值大于 $x+\Delta x$ ”。
+
+样本的每一个分量小于等于 $x$ 的概率是 $F(x)$ ，落入区间 $(x,x+\Delta x]$ 的概率为 $F(x+\Delta x)-F(x)$ ，大于 $x+\Delta x$ 的概率为 $1-F(x+\Delta x)$ ，而将 $n$ 个分量分成这样的三组，总的分法有 $\frac{n!}{(k-1)!11!(n-k)!}$ 种。于是，若以 $F_k(x)$ 记 $x_{(k)}$ 的分布函数，则由多项式分布可得
+
+$$
+F_k(x+\Delta x) - F_k(x) \approx \frac{n!}{(k-1)!11!(n-k)!} (F(x))^{k-1} (F(x+\Delta x)-F(x))(1-F(x+\Delta x))^{n-k},
+$$
+
+两边除以 $\Delta x$ ，并令 $\Delta x \rightarrow 0$ ，即有
+
+$$
+\begin{eqnarray*}
+p_k(x) &=& \lim_{\Delta x \rightarrow 0} \frac{F_k(x+\Delta x) - F_k(x)}{\Delta x}\\
+&=& \frac{n!}{(k-1)!1!(n-k)!} (F(x))^{k-1} p(x)(1-F(x+\Delta x))^{n-k}
+\end{eqnarray*}
+$$
+
+其中 $p_k(x)$ 的非零区间与总体的非零区间相同。
+
+`````
+``````
+
+``````{prf:theorem}
+对于统计量 $(x_{(i)},x_{(j)})(i<j)$ 得联合分布密度函数为
+
+$$
+\begin{eqnarray*}
+p_{ij}(y,z) &=& \frac{n!}{(i-1)!(j-i-1)!(n-j)!} \\
+&&(F(y))^{i-1} (F(z)-F(y))^{j-i-1}(1-F(z))^{n-j}p(y)p(z), y\leq z.
+\end{eqnarray*}
+$$
+
 
 ```{dropdown} Proof
 对增量 $\Delta y, \Delta z$ 以及 $y<z$ ，事件 $\{x_{(i)} \in (y,y+\Delta y], x_{(j)} \in (z , z+\Delta z]\}$ 可以表述为“样本量为 $n$ 的样本 $x_1,x_2,\cdots,x_n$ 中有 $i-1$ 个观测值小于等于 $y$ ，一个落入区间 $(y,y+\Delta y]$ , $j-i-1$ 个落入区间 $(y+\Delta y, z]$ ， 一个落入区间 $(z,z+\Delta z]$ ，而余下 $n-j$ 个大于 $z+\Delta z$ ”。
@@ -35,10 +170,14 @@ $$
 
 ```
 
-````{prf:example}
+``````
+
+
+`````{prf:example}
 设总体分布为 $U(0,1)$ ， $x_1,x_2,\cdots,x_n$ 为其样本，则
 
 - $x_{(k)}$ 的分布是 $Be(k,n-k+1)$ .
+
 因为 $x_i$ 的分布函数为
 
 $$F(x) =
@@ -94,9 +233,11 @@ $$F_{n}(x)=\frac{1}{n} \sum_{i=1}^{n} I_{\left\{x_{i} \leq x\right\}}=\frac{1}{n
 
 ```
 
+
 ## 样本分位数
 
- $m_{0.5}$ 定义如下：
+中位数
+: $m_{0.5}$ 定义如下：
 
 $$
 m_{0.5} = \left\{\begin{aligned}
@@ -108,7 +249,8 @@ $$
 
 称 $m_{0.5}$ 为中位数。
 
- $m_{p}$ 定义如下：
+样本 $p$ 分位数
+: $m_{p}$ 定义如下：
 
 $$
 m_{p} = \left\{\begin{aligned}

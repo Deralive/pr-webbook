@@ -178,3 +178,12 @@ parts:
       - file: Chapter24Section02
       - file: Chapter24Section03
       - file: Chapter24Section04
+    - file: ChapterAppendix
+      sections:
+        - file: ChapterAppendix01
+        - file: ChapterAppendix02
+    - file: TestChapter
+      sections:
+      - file: TestVideoSection.md
+      - file: TestBeamerSection
+      - file: TestCodeRunnerSection.md

@@ -151,7 +151,7 @@ $$
 ```
 `````
 ## $n$ 维情况（选修）
-设 $n$ 维随机变量 $\mathbf{X}=\left(X_{1}, X_{2}, \cdots, X_{n}\right)'$ 的联合密度函数为 $p(x_1,x_2,\cdots,x_n)$ 。如果变换
+设 $n$ 维随机变量 $\boldsymbol{X}=\left(X_{1}, X_{2}, \cdots, X_{n}\right)'$ 的联合密度函数为 $p(x_1,x_2,\cdots,x_n)$ 。如果变换
 
 $$\left\{\begin{aligned}
 &y_{1}=g_{1}\left(x_{1}, x_{2}, \cdots, x_{n}\right) \\

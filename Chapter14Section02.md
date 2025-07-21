@@ -13,14 +13,16 @@ $$
 \lim_{n\rightarrow \infty} P(S_n^{\ast} \leq s) = \Phi(s)
 $$
 
-``````
-
 ```{admonition} Remark
 
 - 这个定理的证明需要利用特征函数，学生可以参考《概率论与数理统计教程》第 212 页。
 - 林德伯格-莱维中心极限定理表示独立同分布，且二阶矩存在的随机变量序列是满足中心极限定理。
 
 ```
+
+``````
+
+
 
 以下，我们讨论一种特定的分布——二项分布。
 
@@ -37,9 +39,8 @@ $$
 \lim_{n\rightarrow \infty} P(S_n^{\ast} \leq s) = \Phi(s).
 $$
 
-``````
 
-```{admonition} Remark
+``````{admonition} Remark
 
 对于棣莫弗-拉普拉斯（de Moivre-Laplace）中心极限定理，我们具体讨论一下。
 
@@ -59,7 +60,6 @@ $$
 \text{未修正：}P(5\leq S_n \leq 15) &=& \Phi\left(\frac{15 - 10}{\sqrt{25\times 0.4\times 0.6}}\right) -\Phi\left(\frac{5 - 10}{\sqrt{25\times 0.4\times 0.6}}\right) = 0.9588.
 \end{eqnarray*}
 $$
-
 `````
 
 同时，这种修正方案也可以适用于计算 $P(S_n = k)$ 的情况。
@@ -72,3 +72,6 @@ $$
 $$
 
 `````
+``````
+
+``````

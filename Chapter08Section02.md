@@ -10,7 +10,7 @@
 随机向量
 : 如果 $X_{1}(\omega),X_{2}(\omega),...,X_{n}(\omega)$ 是定义在同一个样本空间 $\Omega=\{\omega\}$ 上的 $n$ 个随机变量，则称
 
-$$\mathbf{X}(\omega)=\left(X_{1}(\omega), X_{2}(\omega), \ldots, X_{n}(\omega)\right)'$$
+$$\boldsymbol{X}(\omega)=\left(X_{1}(\omega), X_{2}(\omega), \ldots, X_{n}(\omega)\right)'$$
 
 为 $n$ 维(或 $n$ 元)随机变量或随机向量。
 

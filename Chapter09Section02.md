@@ -2,12 +2,12 @@
 对一般多维随机向量函数的数学期望，我们可以类似于一维随机变量函数的数学期望定义。
 
 ``````{prf:theorem}
-若多维随机变量 $\mathbf{X}$ 的分布用联合分布列 $P(\mathbf{X}=\mathbf{x})$ 或用联合密度函数 $p(\mathbf{x})$ 表示，则 $Z=g(\mathbf{X})$ 的数学期望为
+若多维随机变量 $\boldsymbol{X}$ 的分布用联合分布列 $P(\boldsymbol{X}=\boldsymbol{x})$ 或用联合密度函数 $p(\boldsymbol{x})$ 表示，则 $Z=g(\boldsymbol{X})$ 的数学期望为
 
 $$E(Z)=\left\{
 \begin{aligned}
-&\sum_{\mathbf{x}} g\left(\mathbf{x}\right) P\left(\mathbf{X}=\mathbf{x}\right), & \text{在离散场合} \\
-&\int_{R^n} g(\mathbf{x}) p(\mathbf{x}) \text{d} \mathbf{x} , & \text{在连续场合}
+&\sum_{\boldsymbol{x}} g\left(\boldsymbol{x}\right) P\left(\boldsymbol{X}=\boldsymbol{x}\right), & \text{在离散场合} \\
+&\int_{R^n} g(\boldsymbol{x}) p(\boldsymbol{x}) \text{d} \boldsymbol{x} , & \text{在连续场合}
 \end{aligned}\right.$$
 
 ``````
@@ -102,8 +102,9 @@ $$
 
 $$E(X+Y) = E(X) + E(Y).$$
 
-```{admonition}
-Remark $n$ 个随机变量和的期望等于 $n$ 个随机变量期望的和，即
+```{admonition} Remark
+
+$n$ 个随机变量和的期望等于 $n$ 个随机变量期望的和，即
 
 $$
 E\left(\sum_{i=1}^{n} X_i\right) = \sum_{i=1}^{n} E(X_i)

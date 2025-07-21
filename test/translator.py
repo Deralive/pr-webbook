@@ -513,6 +513,41 @@ parts:
     print(f"\n✅ 成功生成目录文件: {output_file}")
 
 
+def process_simple_tex_file(input_filename: str, output_filename: str):
+    """
+    对单个简单的 .tex 文件进行基础处理，并保存为 .md 文件。
+    处理流程:
+    1. 逐行应用 envs_cover 中的正则替换。
+    2. 对全文应用 one_dollar_replacer。
+    3. 对全文应用 two_dollar_replacer。
+    """
+    try:
+        with open(input_filename, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+    except FileNotFoundError:
+        print(f"  ❌ 文件未找到: {input_filename}")
+        return
+
+    # 1. 逐行应用基础正则替换
+    processed_lines = [envs_cover(line.strip()) for line in lines]
+    full_content = "\n".join(processed_lines)
+
+    # 2. & 3. 应用美元符号格式化
+    content_after_one_dollar = one_dollar_replacer(full_content)
+    final_content = two_dollar_replacer(content_after_one_dollar)
+
+    # 确保输出目录存在
+    output_dir = os.path.dirname(output_filename)
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
+
+    # 写入到输出文件
+    with open(output_filename, 'w', encoding='utf-8') as f:
+        f.write(final_content)
+
+    print(f"  ✅ 简单处理完成，已保存至: {output_filename}")
+
+
 # ---------------------------------------------------------------------------
 # Part 3: 主函数 - 流程控制器
 # ---------------------------------------------------------------------------
@@ -539,6 +574,16 @@ def main():
     else:
         print("️ 没有文件被成功处理，无法生成 _toc.yml。")
 
+def main2():
+    """
+    主函数 2，用于处理单个文件
+    """
+    input_filename = "temp.tex"
+    output_dir = "../temp.md"
+    print(f"🚀 正在处理 {input_filename}...")
+
+    process_simple_tex_file(input_filename, output_dir)
+
 
 if __name__ == '__main__':
-    main()
+    main2()

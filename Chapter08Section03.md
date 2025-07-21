@@ -1,6 +1,7 @@
 # 随机向量的联合分布函数
 
-对任意 $n$ 个实数 $x_{1}, x_{2}, \cdots, x_{n}$ ， $n$ 个事件 $\left\{X_{1} \leqslant x_{1}\right\},\left\{X_{2} \leqslant x_{2}\right\},...,\left\{X_{n} \leqslant x_{n}\right\}$ 同时发生的概率
+随机向量的联合分布函数
+: 对任意 $n$ 个实数 $x_{1}, x_{2}, \cdots, x_{n}$ ， $n$ 个事件 $\left\{X_{1} \leqslant x_{1}\right\},\left\{X_{2} \leqslant x_{2}\right\},...,\left\{X_{n} \leqslant x_{n}\right\}$ 同时发生的概率
 
 $$
 \begin{eqnarray*}
@@ -9,7 +10,7 @@ F\left(x_{1}, x_{2}, \cdots, x_{n}\right)&=&P\left( \{X_{1} \leqslant x_{1}\} \c
 \end{eqnarray*}
 $$
 
-称为 $n$ 维随机向量 $\mathbf{X}$ 的联合分布函数。
+称为 $n$ 维随机向量 $\boldsymbol{X}$ 的联合分布函数。
 
 ```{admonition} Remark
 对于二维随机向量 $(X,Y)'$ ，其联合分布函数为

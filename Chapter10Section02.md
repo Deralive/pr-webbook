@@ -70,10 +70,9 @@ p_Z(z) = \int_{-\infty}^{\infty} p_{X}(x) p_{Y}(z-x) \text{d}x.
 $$
 
 ```
-``````
 
 ```{admonition} Remark
-
+:class: dropdown
 - **卷积**名称的由来：在泛函分析中，卷积指的是通过两个可积函数 $f$ 和 $g$ ，利用积分运算来生成一个新的函数，即
 
 $$
@@ -84,6 +83,8 @@ $$
 - 上述定理给出的是连续场合的卷积公式，在离散场合同样适用。值得注意的是，连续场合下的密度函数应被替换为分布列，而求积分运算应被替换为求和。
 
 ```
+
+``````
 
 根据卷积公式，我们应用于两个例子中。
 
@@ -141,9 +142,9 @@ $$
 
 也就是说， $Z \sim N\left(\mu_{1}+\mu_{2}, \sigma_{1}^{2}+\sigma_{2}^{2}\right)$ 。
 ```
-`````
 
 ```{admonition} Remark
+:class: dropdown
 这个结论也可推广至有限个独立的正态分布随机变量的线性组合。也就是说，若 $X_i\sim N(\mu_i,\sigma_i^2),i=1,2,\cdots,n$ ，诸 $X_i$ 之间相互独立且 $a_1,a_2,\cdots,a_n$ 为 $n$ 个非零常数，则
 
 $$
@@ -153,8 +154,19 @@ $$
 其中， $\mu_0 = \sum_{i=1}^n a_i \mu_i$ ， $\sigma_0^2 = \sum_{i=1}^n a_i^2 \sigma_0^2$ 。
 ```
 
-```{admonition} Question
+`````
+
+````{admonition} Question
 如果 $(X_1,X_2)'$ 服从二元正态分布随机变量，且 $\text{Corr}(X_1,X_2) = \rho \neq 0$ ，那么 $X-Y$ 的分布是什么？
+
+```{admonition} Tips
+这个问题留给学生课后思考。
+````
+`````{prf:example}
+设随机变量 $X \sim Ga\left(\alpha_{1}, \lambda\right), Y \sim Ga\left(\alpha_{2}, \lambda\right)$ 且 $X$ 与 $Y$ 独立。证明
+
+$$ X+Y \sim Ga\left(\alpha_{1}+\alpha_{2}, \lambda\right).$$
+
 ```{dropdown} Proof
 首先， $Z=X+Y$ 仍在 $(0,+\infty)$ 上取值，所以当 $z \leqslant 0$ 时， $p_Z(z)=0$ 。而当 $z>0$ 时，
 
@@ -171,13 +183,15 @@ $$
 ```
 
 ```{admonition} Remark
-
+:class: dropdown
 - 这个结论也可以推广至有限个独立的伽马分布随机变量的和。
 - 由于指数分布是一种特殊的伽马分布，即 $Exp(\lambda) = Ga(1,\lambda)$ 。那么 $m$ 个独立同分布的指数分布随机变量之和为伽马分布。
 - 由于卡方分布是一种特殊的伽马分布，
 即 $\chi^2(n) = Ga\left(\frac{n}{2},\frac{1}{2}\right)$ 。那么 $m$ 个独立的卡方分布随机变量之和仍为卡方分布。
 
 ```
+
+`````
 
 这里我们总结一下，具有可加性的常见分布。
 

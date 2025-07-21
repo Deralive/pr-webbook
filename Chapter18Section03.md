@@ -68,11 +68,12 @@ $$
 
 该分布与 $\theta$ 无关，这证明了充分性。
 ```
-``````
 
 ```{admonition} Remark
 这里 $T$ 可以是一维的，也可以是多维的。
 ```
+
+``````
 
 `````{prf:example}
 设 $x_1,x_2,\cdots,x_n$ 是来自于 $b(1,\theta)$ 的样本。于是， $x_1,x_2,\cdots,x_n$ 的概率函数为
@@ -87,7 +88,11 @@ $$
 `````{prf:example}
 设 $x_1,x_2,\cdots,x_n$ 是来自于 $N(\mu,\sigma^2)$ 的样本。
 
-- 若 $\sigma^2 = \sigma_0^2$ ，其中 $\sigma_0^2$ 已知。 $x_1,x_2,\cdots,x_n$ 的概率函数为
+````{tab-set}
+
+```{tab-item} 若 $\sigma^2 = \sigma_0^2$ ，其中 $\sigma_0^2$ 已知。 
+
+$x_1,x_2,\cdots,x_n$ 的概率函数为
 
 $$
 \begin{eqnarray*}
@@ -107,7 +112,11 @@ $$g(t,\mu) = \exp\{n\bar{x}\mu / \sigma_0^2 - n\mu^2/(2\sigma_0^2)\},$$
 $$h(x_1,x_2,\cdots,x_n) = (2\pi\sigma_0^2)^{-n/2} \exp\{ -\sum_{i=1}^n x_i^2/(2\sigma_0^2)\}.$$
 
 根据因子分解定理， $t=\bar{x}$ 是充分统计量。
-- 若 $\mu = 0$ 。 $x_1,x_2,\cdots,x_n$ 的概率函数为
+```
+
+```{tab-item} 若 $\mu = 0$
+
+$x_1,x_2,\cdots,x_n$ 的概率函数为
 
 $$
 \begin{eqnarray*}
@@ -131,7 +140,11 @@ h(x_1,x_2,\cdots,x_n) = 1.
 $$
 
 根据因子分解定理， $t = \sum_{i=1}^n x_i^2$ 是充分统计量。
-- 令 $\theta = (\mu,\sigma_0^2)'$ 。 $x_1,x_2,\cdots,x_n$ 的概率函数为
+```
+
+```{tab-item} 令 $\theta = (\mu,\sigma_0^2)'$
+
+$x_1,x_2,\cdots,x_n$ 的概率函数为
 
 $$
 \begin{eqnarray*}
@@ -145,7 +158,7 @@ $$
 令
 
 $$
-\mathbf{t} = (t_1,t_2)' = (\bar{x},\sum_{i=1}^n x_i^2)',
+\boldsymbol{t} = (t_1,t_2)' = (\bar{x},\sum_{i=1}^n x_i^2)',
 $$
 
 $$
@@ -159,7 +172,8 @@ h(x_1,x_2,\cdots,x_n) = 1.
 $$
 
 根据因子分解定理， $\mathbf{t} = (t_1,t_2)' = (\bar{x},\sum_{i=1}^n x_i^2)'$ 是充分统计量。
-
+```
+````
 `````
 
 以下例子是一个拓展。

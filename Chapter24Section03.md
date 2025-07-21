@@ -142,7 +142,8 @@ $$
 
 ```
 
-若后验分布 $\pi \left(\theta \mid x_{1}, \cdots, x_{n}\right)$ 与先验分布属于同一分布族，则称该分布族是 $\theta$ 的共轭先验分布（族）。
+共轭先验分布（族）
+: 若后验分布 $\pi \left(\theta \mid x_{1}, \cdots, x_{n}\right)$ 与先验分布属于同一分布族，则称该分布族是 $\theta$ 的共轭先验分布（族）。
 
 这里我们针对贝叶斯估计做一些更为深入的讨论。
 
@@ -167,15 +168,15 @@ $$
 \begin{eqnarray*}
 \text{MSE}_{\theta}(\hat{\theta}) &=& E_{x_1,x_2,\cdots,x_n}(\hat{\theta}-\theta)^2\\
 &=& \int_{x_n \in R} \cdots \int_{x_1 \in R} (\hat{\theta}-\theta)^2 p(x_1,x_2,\cdots,x_n|\theta) \text{d}x_1\cdots\text{d}x_n\\
-&=& \int_{\mathbf{x} \in R^{n}} (\hat{\theta}-\theta)^2 p(\mathbf{x}|\theta) \text{d} \mathbf{x}.
+&=& \int_{\boldsymbol{x} \in R^{n}} (\hat{\theta}-\theta)^2 p(\boldsymbol{x}|\theta) \text{d} \boldsymbol{x}.
 \end{eqnarray*}
 $$
 
-这里 $\mathbf{x} = (x_1,x_2,\cdots,x_n)'$ 。我们之前在介绍均方误差时，参数 $\theta$ 认为是一个未知常数，但在贝叶斯学派中， $\theta$ 认为是一个随机变量，所以 $MSE(\hat{\theta})$ 也被认为是一个随机变量，其依赖于 $\theta$ 。我们可以整体来比较估计的均方误差，于是计算均方误差的期望，即
+这里 $\boldsymbol{x} = (x_1,x_2,\cdots,x_n)'$ 。我们之前在介绍均方误差时，参数 $\theta$ 认为是一个未知常数，但在贝叶斯学派中， $\theta$ 认为是一个随机变量，所以 $MSE(\hat{\theta})$ 也被认为是一个随机变量，其依赖于 $\theta$ 。我们可以整体来比较估计的均方误差，于是计算均方误差的期望，即
 
 $$
 \begin{eqnarray*}
-E_\theta(\text{MSE}_{\theta}(\hat{\theta})) &=& \int_{\theta \in \Theta} \int_{\mathbf{x} \in R^{n}} \left( \int (\hat{\theta}-\theta)^2 p(\mathbf{x}|\theta) \text{d} \mathbf{x} \right)\cdot \pi(\theta) \text{d} \theta\\
+E_\theta(\text{MSE}_{\theta}(\hat{\theta})) &=& \int_{\theta \in \Theta} \int_{\boldsymbol{x} \in R^{n}} \left( \int (\hat{\theta}-\theta)^2 p(\boldsymbol{x}|\theta) \text{d} \mathbf{x} \right)\cdot \pi(\theta) \text{d} \theta\\
 &=& \int_{\theta \in \Theta} \int_{\mathbf{x} \in R^{n}} (\hat{\theta}-\theta)^2 p(\mathbf{x}|\theta) \cdot \pi(\theta) \text{d} \mathbf{x} \text{d} \theta\\
 &=& \int_{\theta \in \Theta} \int_{\mathbf{x} \in R^{n}} (\hat{\theta}-\theta)^2 \pi(\theta|\mathbf{x}) m(\mathbf{x})\text{d} \mathbf{x} \text{d} \theta\\
 &=&\int_{\mathbf{x} \in R^{n}} \int_{\theta \in \Theta} (\hat{\theta}-\theta)^2 \pi(\theta|\mathbf{x}) \text{d} \theta m(\mathbf{x}) \text{d} \mathbf{x}
