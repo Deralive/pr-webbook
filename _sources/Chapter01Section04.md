@@ -294,3 +294,6 @@ P(A) &=& \frac{S_A}{S_{\Omega}} = \frac{2000}{3600} = \frac{5}{9}
 
 此外，可以观看专题精讲——“蒲丰投针”了解更多几何方法。
 
+<video controls autoplay muted="true" loop="true" width="800">
+    <source src="./Pufeng-puts-needle.mp4" type="video/mp4">
+</video>
