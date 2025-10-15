@@ -187,3 +187,5 @@ parts:
       - file: TestVideoSection.md
       - file: TestBeamerSection
       - file: TestCodeRunnerSection.md
+      - file: Testipynb.md
+      - file: Coin Tossing
