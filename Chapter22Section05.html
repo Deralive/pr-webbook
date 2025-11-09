@@ -423,6 +423,55 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/Deralive/pr-webbook/master?urlpath=tree/Chapter22Section05.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -492,6 +541,23 @@
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Chapter22Section05.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
       
       
       
@@ -652,6 +718,49 @@ H_0: \mu = \mu_0 \quad \text{vs} \quad H_1: \mu &gt; \mu_0
 <li><p>如果 <span class="math notranslate nohighlight">\(p \leq \alpha\)</span> ，则在显著性水平 <span class="math notranslate nohighlight">\(\alpha\)</span> 下拒绝 <span class="math notranslate nohighlight">\(H_0\)</span> ；</p></li>
 <li><p>如果 <span class="math notranslate nohighlight">\(p&gt;\alpha\)</span> ，则在显著性水平 <span class="math notranslate nohighlight">\(\alpha\)</span> 下接受 <span class="math notranslate nohighlight">\(H_0\)</span> 。</p></li>
 </ul>
+<button title="Run code" class="thebelab-button thebe-launch-button" onclick="initThebe()">Run code</button><div class="thebe highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;请输入样本量（一个整数 eg: 30）：&quot;</span><span class="p">))</span>  
+<span class="n">alpha</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;请输入显著性水平（一个小数 eg: 0.05）&quot;</span><span class="p">))</span>
+<span class="n">num_simulations</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;请输入实验重复次数（一个整数 eg: 10000）：&quot;</span><span class="p">))</span>  
+<span class="n">method</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;请输入临界值法或p值法（eg: 临界值法）：&quot;</span><span class="p">)</span>
+<span class="n">reject_count</span> <span class="o">=</span> <span class="mi">0</span> 
+<span class="n">rejection_rate</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">match</span> <span class="n">method</span><span class="p">:</span>
+    <span class="k">case</span> <span class="s2">&quot;临界值法&quot;</span><span class="p">:</span> 
+        <span class="n">z_critical</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>  
+
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_simulations</span><span class="p">):</span>
+            <span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>  
+            <span class="n">sample_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>  
+            <span class="n">z_statistic</span> <span class="o">=</span> <span class="n">sample_mean</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>  
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z_statistic</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">z_critical</span><span class="p">:</span>  
+                <span class="n">reject_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="c1"># 计算拒绝原假设的频率</span>
+        <span class="n">rejection_rate</span> <span class="o">=</span> <span class="n">reject_count</span> <span class="o">/</span> <span class="n">num_simulations</span>  
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;通过临界值法在</span><span class="si">{</span><span class="n">num_simulations</span><span class="si">}</span><span class="s2">次实验中拒绝原假设的频率: </span><span class="si">{</span><span class="n">rejection_rate</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="k">case</span> <span class="s2">&quot;p值法&quot;</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_simulations</span><span class="p">):</span>
+            <span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>  
+            <span class="n">sample_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>  
+            <span class="n">z_statistic</span> <span class="o">=</span> <span class="n">sample_mean</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>  
+            <span class="n">p_value</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z_statistic</span><span class="p">)))</span>  
+            <span class="k">if</span> <span class="n">p_value</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">:</span>  
+                <span class="n">reject_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="c1"># 计算拒绝原假设的频率</span>
+        <span class="n">rejection_rate</span> <span class="o">=</span> <span class="n">reject_count</span> <span class="o">/</span> <span class="n">num_simulations</span>  
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;通过p值法在</span><span class="si">{</span><span class="n">num_simulations</span><span class="si">}</span><span class="s2">次实验中拒绝原假设的频率: </span><span class="si">{</span><span class="n">rejection_rate</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;显著性水平: </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rejection_rate</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.01</span><span class="p">:</span>  
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;拒绝原假设的频率接近显著性水平，符合预期，说明模拟实验在一定程度上验证了假设检验的理论&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;拒绝原假设的频率与显著性水平有差异，可能受样本量、模拟次数等因素影响，可进一步分析&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
