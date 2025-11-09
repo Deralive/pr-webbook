@@ -110,7 +110,12 @@ $$
 
 由此可以得到 $M$ 个样本均值的取值，来得到其经验分布函数。
 
+```{thebe-button}
+启动交互式环境
+```
+
 ```{code-block} python
+:class: thebe
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
