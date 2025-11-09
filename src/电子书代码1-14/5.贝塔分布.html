@@ -1,0 +1,796 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; “概率论与数理统计”课程笔记</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"5be2e50282434333a09c25d228554712": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "7f9834bc48bc4b8892d9034792898be1": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "61db6f7e0b77438e9b7b678beb46739b": {"model_name": "FloatSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "FloatSliderView", "behavior": "drag-tap", "continuous_update": true, "description": "\u03b1 (\u5f62\u72b6\u53c2\u6570)", "description_allow_html": false, "disabled": false, "layout": "IPY_MODEL_5be2e50282434333a09c25d228554712", "max": 5.0, "min": 0.1, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.1, "style": "IPY_MODEL_7f9834bc48bc4b8892d9034792898be1", "tabbable": null, "tooltip": null, "value": 2.0}}, "652e3cd050d54da19b98f9c5c4e5419c": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "c044fa73f41b4ac3b17aac221b198c58": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "678560c5a9bf4f228826fd7034ec0f87": {"model_name": "FloatSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "FloatSliderView", "behavior": "drag-tap", "continuous_update": true, "description": "\u03b2 (\u5f62\u72b6\u53c2\u6570)", "description_allow_html": false, "disabled": false, "layout": "IPY_MODEL_652e3cd050d54da19b98f9c5c4e5419c", "max": 5.0, "min": 0.1, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.1, "style": "IPY_MODEL_c044fa73f41b4ac3b17aac221b198c58", "tabbable": null, "tooltip": null, "value": 2.0}}, "e1e212010ef44aeb9234d35d6552bc37": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "7f59ea32cb4a49c091a60ffa2fb5ea0c": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_61db6f7e0b77438e9b7b678beb46739b", "IPY_MODEL_678560c5a9bf4f228826fd7034ec0f87", "IPY_MODEL_e8af6b193e4648f98759d635b88b97bf"], "layout": "IPY_MODEL_e1e212010ef44aeb9234d35d6552bc37", "tabbable": null, "tooltip": null}}, "bf0387dc6e5d496d9097357eed3a6b71": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "e8af6b193e4648f98759d635b88b97bf": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_bf0387dc6e5d496d9097357eed3a6b71", "msg_id": "", "outputs": [{"output_type": "display_data", "metadata": {}, "data": {"text/plain": "<Figure size 1000x600 with 1 Axes>", "image/png": "iVBORw0KGgoAAAANSUhEUgAAA90AAAJOCAYAAACqS2TfAAAAOnRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjEwLjYsIGh0dHBzOi8vbWF0cGxvdGxpYi5vcmcvq6yFwwAAAAlwSFlzAAAPYQAAD2EBqD+naQAAeVVJREFUeJzt3Qd4m+XV//GjZcuyLa84zt6TkbACYa9AIAlhjzDKKH1bKJQCL/8yU9K3LRsKlEILFGhZZe+9AoWwQwiQHTtx4gzH8ZRsy5b0v84ty3YcO7ETP9bw93NduhzJ64nyxNbvOec+ty0cDocFAAAAAAB0O3v3f0kAAAAAAEDoBgAAAADAQlS6AQAAAACwCKEbAAAAAACLELoBAAAAALAIoRsAAAAAAIsQugEAAAAAsAihGwAAAAAAixC6AQAAAACwCKEbABBTjY2NnboFg8F2P/+7776TNWvWbPHYnnvuKR988EHz/XvvvVdmzpy53WOpra2VzZs3N9///vvv5Zlnnuny32nDhg0yceJEef3117v8uQAAILkQugEAMbNu3TpxuVyduu22227tfo3/+Z//kaeeesr8ub6+XsLhsKxdu3aLkK5hetOmTeZ9DQ0NHQb4hx56SEaPHm0+Vn388cfy85//XMrLy7v093rxxRflhx9+kFGjRnXp8wAAQPIhdAMAYiYlJcW81WpycXFxh7fLL7/cBO/2uN1uc1Pp6elit9ultLRUjj76aLHZbOb2u9/9TubNm2fep9/z2Wef3erraBi//fbb5dhjj5U+ffqYxy688ELJzc2Vq666qt3vrZ+zcOFCWb58uRQVFTXf/va3v8lhhx0mqampWzyut5UrV8qiRYtk/fr1kkhqamrMBYicnBzz9zrooINkyZIlXfoa+vfX5zczM1P23Xdf89xZ7d1335UJEyaYc2TSpEmyYMGCnf6a//73v2XkyJHmnBw0aJA8/PDDXfr8UCgkN9xwg/Tr108GDhwo99xzz04fEwAgfjljfQAAgN7L6Yz8GsrPzzfhpSNer7f5Y9vSIK3BWlVWVppwpWHmiSeekPHjx8vgwYPlT3/6k7z22mvy3//+VwKBgDgcjq2+jgZlDcJ/+MMfmh/Tr3XHHXfIqaeeKjNmzJATTjhhqzZyDXQdGT58eIfv+/3vfy833nijJIpf/vKX8tZbb5kLEHpR4o9//KMcd9xxsnjxYvNvsD3ahTB16lTznP7nP/8xXQR6Xy9AZGVlWXLM+u958cUXy6OPPmrOA7348rOf/Wyngvc777wj5557rpx11lnm3+/55583F2fGjBkjBx98cKe+hn7ebbfdZm4auvW5LSgokNNPP32HjwsAEL8I3QCAmGkvrGkVUSuHDz74oGn17uhjKyoqpK6uzqz31vbxjRs3isfjMYF6+vTppkKuQTnaMq6BSN+Xlpa21fdcsWKFXHvttfLb3/5WRowYscX7TjnlFJk1a5acffbZ8uabb24RrDQwaQVYK7/6tTXQ61ruAw880Pwdnn76aVNZP+mkkySRaUVbg/Lnn38u++yzj3ls6NChcswxx5h173vsscd2v8Zjjz0mhYWFptKvF1imTZsmn332mfzjH//osJNgZ73wwgumsq7/Huqf//ynOUeqq6tNtX1HaGC+5JJLmqvTZ555pgwbNsyE786E7qqqKhO29eLOpZde2nwu631CNwAkJ9rLAQBxRYP03LlzJSMjY5sf95e//EX69+8vn376qfy///f/TKXwueeeM+/TwK4BS4PwTTfdJFOmTJFbb721wwrsOeecY6rSc+bMafdjNEAfcMABctRRR5mQGKUVdm1p1yq8/lm/l67/jn4vXdsdi2FqWuHVMDhgwACZPHmyeY6i3QDt0dAYbcVve9OQqSH5m2++aQ7cKi8vz7ztaH18W++//74ceuihW3Q0aOfAe++9J1bRCzHRJQxKL85EZwS0R/+uHT0P+hxFz63/+7//a/4cPce0Ut/Z50H/LfQc10p56+fhp59+kpKSkp342wIA4hWVbgBAzLQXBLVyrUFGQ/S2XHPNNeamLcpajdYWXaXD0rQSqW3PX3/9tQlSGro1AGt1tjUNStoqrEPPtCKuFe/2Ws+VrveePXu2+T5a9dWAr+ubo7T1WsOYhnINdzpRXSvfGurbTlfXiwVtv89HH30khx9+uMyfP79TleOO6N9f2771osUtt9wiS5cuNc/RtrzxxhvmWNujrfp6YUEr+K1p1V+/x+67796p49Lhdvvtt98Wj2lXwbJly6Qn6DpqPReOP/745hkAbf3qV7/aaglBVDS877rrrls8vmrVKhOYr7vuuk4/DzonQLskovS+BnedDaAXSgAAyYXQDQCIGQ2I7bXfauBu207e9mO1pbs1rV5qBfH888+Xt99+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1q2TkSNHitvttvaIAQAAAABIptCdkpIiDzzwgAnUCxcuFIfDIVdeeaW88MILstdee8nXX38t8+fPl/3339/6IwYAAAAAIJlCt1a4f/GLX5j13Lvvvrv88MMPEg6HTQX8qaeektNPP13uvvtumT59epe++aZNm2T48OFSVFTUqY+fOXOmOZbobcqUKV36fgAAAAAA9CTntt65cuVKueWWW0zYdrlc5ma325tbzNV+++1nBqhdccUVcuyxx3YpcM+YMaPTgVtpRV0r7YMGDTL39XgAAAAAAEjISvfy5ctNONZwq2u6tbrd1jvvvCN33nmnHHjggTJ37txOf+MzzjhDzjzzzE5//Nq1a83332233SQ7O9vc0tPTO/35AAAAAADEVaX76KOPNjdtAX/88cflvPPOM23do0ePlosvvtgMUZs9e7a8/fbbUlxcLI888kinW8wffPBB83W1St4ZX375pQSDQVPlLi8vl+OOO07uv/9+ycnJ6dzfFACABKQXnAOhsASCYalveqv364NhaQiFpTEk0hgOS1D/HBZpDIUl2PQ28rhIuOnrmLfmz63fRh7XvUfsNpvYbe39OXLfYRNx2W3i1FurP0feirhsNnE5bJIavdnt4rJHlqkBANBbbTN0t6ZV6ZNOOskMS9MArN5880359NNPzWA1DdC//OUvO/2N9eO7YvHixTJx4kS5/fbbTYv7hRdeKNdcc40Z8NYe3d5Mb1FVVVXmrVbs9QYkg2gHCuc0kkkyn9camH2NIXOrbQxLXTAstfpn8zYstcGWx+saQyZkN4QSv6UupTmER966HTZJc9rF47SJx2mXtKa3HvN45M8a5pNJMp/X6N04t5GMQt38s7pToVuvUDudTnPTPbvT0tLM46eddpoJ3NEJ5xkZGbJ+/Xrp16+fdDcN2HqLuu2228xFgI5C90033SRz5szZ6vHS0lIJBALdfnxArH4gVFZWmhdyejEKSAaJeF5rZdkX1JtNakMi/qBIbcjW9FbvRx5vCCdXkOwMfdliLiLok9QFLltYPHYRjyMsHodIml0k3RE2b1s/ptX3RJCI5zXQGZzbSEaVlZXd+vVs4fYWarehIVrXYGv41l8UGrDz8vJkwIABpt177733Nuurn3vuOTn++OO7NOBMv2ZhYaEMGzasy5Xv8ePHS11d3RaD3bZV6R48eLCUlZWZ9eBAsvyi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m2T48OGdfj0xd+5cGT9+vBkCfuedd0qvDN26x/dxxx0ne++9t3z99ddm2Nqjjz663R8gZ511ltxwww3y9ttvy+zZs2XJkiU9dsyAFef1E088YW5vvfWW/Pjjj7Jo0SK5+eabebKR0Od1a/qCT4dwAsl0bj/wwANSWVkpv/nNbyw/TsDq8/rf//63eU09f/58+eSTT8zrkZtuuoknHnEVuGfMmNHpwF1aWiozZ86UWbNmybx588xr7Q8//LBr3zScBF588cVwTk5O2Ofzmfvfffdd+MADD9zm51x22WXhqVOnNt//y1/+Er7uuussP1bAyvP6pptuCn/22WfN92fPnh0+9thjedKR0Od11Ny5c8N9+/YN5+XlhQsLCy0+UqBnzu21a9eGs7Kywu+//z5POZLivP71r38dvu+++5rv//GPfwzPmjXL8mMFOuvII48M33333dqy0anXE3fddVd43Lhx4VAoZO6/9NJL4bPOOivcFUlR6V6wYIHZdszj8Zj7EyZMMFfitvc5RxxxRPP9fffd12xfBiTyeX311VfL/vvv33xfrzSPHj3a8mMFrDyvo9WWX/7yl3LPPfdIRkYGTziS5tz+7W9/a5a6FRcXy2effdYDRwpYe17vuuuu8vjjj8uGDRtk1apV8vTTT8tRRx3F04648eCDD3aps0j/Hxx++OFis9l2ODcmReiuqqoyPflR+oQ4HA4pLy/v9Od4vV4pKSmx/FgBK8/r1pYuXSovvvii/M///A9POhL+vP7zn/8sY8aMkdNPP70HjhLomXNb2xSfffZZGTRokKxYsULOPfdcueSSS3j6kdDn9YUXXig1NTXSr18/GTZsmPl8PbeBeNH6nO6M7siNSRG6nU6nGRrVmtvtFr/f3+nP2d7HA4lwXrceynPBBReYX3x6xRlI5PNaZxPomtf777+/B44Q6LlzW6st++23n7z22mvyhz/8QT744AP529/+xowZxI0dOa/vvvtuM0BNq9yrV6+WxsZGM48DSFTdkRuTInTrdERd4N6aTmxOSUnp9Ods7+OBRDivo/7v//5PNm/eLLfddpuFRwhYf17rFFzt1vjjH/9odpoAkuln9po1a2TatGnNLYuDBw+W/Px8U/UGEvW81iFTGrKHDBlizmkdovbwww/3wNEC1uiO3JgUoVu3MdAWrajCwkKz/k+foM5+jk5YHDhwoOXHClh5XqtXX33VbGXw/PPPN6/BAhL1vNYqyX//+1/zAk4rJ3rTx3Rd4ZNPPtmDRw50/89sbStvvZWStuTqBVNejyCRz2vtttu4cWPzfd1xIhgMWn6sgFW6IzcmReg+5JBDTK/9I4880rz2b8qUKWbNie7p2t5/9JNPPtkMdli4cKH5JafDeaZOnRqDowe677zWNlzdzuDee+81V5f13GbZBBL5vNZfavoi77vvvmu+acX7jTfeMNt3AIn8M1t/XmuL+fvvv29acS+++GIZN26cuagEJOp5ffDBB5vtSnVrsX/84x/mvObnNRKBnusNDQ1bPa7n76effirvvfeeef+tt97a9dwYThIvv/xy2OPxmK1k8vPzwz/++KN5XP+K8+fPb/dzrr322nBKSkrY6/WG995777Df7+/howa697z+7W9/a97X+jZ06FCeZiT8z+vW9JxmyzAky7n90EMPhUePHh12u93hyZMnhxcvXtzDRw1073ldXl4ePuecc8zH6nl9/PHHh0tLS3maEXfabhmmry90m7z23H///WGXy2W20Bs+fHh4/fr1XfpetqZvmBS0fUXHt+vWBnl5eZ36HN32YO3atXLooYeyphtJc14D8Y7zGsmKcxvJiPMaENN5t3jxYtPN0dXtS5MqdAMAAAAAEE+SYk03AAAAAADxiNANAAAAAIBFCN0AAAAAAFiE0A0AAAAAgEUI3QAAAAAAWITQDQBAnJozZ448/vjjln39oqIiueiiiyQUCln2PQAA6O3YMgwAgBhYs2aNjBgxQiZMmCCrVq2SE044QW688UYZOHCgeX9DQ4MMGjRIXnjhBTnwwAO3+vxHH31U7rnnHvn222879f10h1C92e0t19vr6+vN93jsscdk2rRpW3x8MBgUh8PRfP+www6TiooKyc7O3upr19XVSUlJiaxevbpLzwEAAL0BlW4AAGIgJSVF+vbtK19//bXsueeecvTRR8uYMWNk6dKlMmPGDBkwYIBs3rxZfvnLX8puu+0mo0aNkvnz5zd/flpammRmZjbf14q4y+UyoVgfz8/P3+L7vfHGG+J2u837oh/j9XpNYD711FMlNTW1+XE9tsMPP3yLz9f3axBvbGzc6qaP6/F01gEHHCA33HBD8/3JkyfLH/7whx18JgEAiG/OWB8AAAC9UbTiHAgETPCOVrRfffVVeeaZZ2TfffeVhx9+WGbOnNlc+dbP0YCr7eBahbbZbKZ6re/TQH3sscfKK6+8Yr7eiSeeuMX3mz59uvle7733nuyxxx7y0UcfyV//+lfz9rnnnjN//vDDD2XJkiUybty4rY5Xv6+2ou+1115bvW/dunXyv//7v53+u1933XVywQUXyPXXXy/fffedLFq0SN56660deBYBAIh/hG4AAGLov//9r+y+++6SkZEhp59+utTU1MgjjzxiWrk1XL/00kvm44YNG2bC8rPPPiu/+tWvTAjWKvWQIUNMpfjMM880ITyqdWt41Pr16+WUU06RP//5z6bK3ta7775r2tw1hLdtNz/rrLNMG3xH4fjXv/51p//OegFAK/lPP/20+XoXX3xxu23rAAAkA0I3AAAx9Prrr8vBBx9s2rTPPfdc8fl8ptJcVVVlWsI9Hk9zC/q9995rWsH1dtJJJ5n2c61UK62Utxe0ozTMa9VcP09Drob3tuu9tcX9pptuMh+jYf+YY46RSy+9VD799FMTivVYOqLHryH60EMPldtuu61T1W69bdiwQZYtW9bl5w0AgERB6AYAIIY0QJ999tmmiq3t2zqwTEOoruPWtd25ublm4FnrQO33+02b+C677CJPPPGEqUJri7muxe5IdXW1aV+/+eabzX39mtpurmpra81NXXbZZSZARwe6adBXWn2vrKzs8OtrlV0/t7M02F911VWmut92/TkAAMmEQWoAAMSQtoZrpbu4uNgEXK0ma6u50sd0W6/y8vItPuff//63CbkajnUg2VNPPWUq4+np6R1+n/79+8tdd91l/qxV7Wg1W2nL+Wuvvdb8sVdeeaVpeW9Nw7q2tGubu95mz54t/fr1M3/Oy8uTq6++ukt/b/27rV27Vr744gtzPAAAJCsq3QAAxNjYsWPNELO267IffPBBcTqdzWuxla7j1jXZ55xzjvzwww+mHVwHmWmI1RC8Ldq6Pnz4cFPl1vXiGpZb0zXb2lKube2tj0PpEDfdpiwa7LUyfuedd5rHNfy33oqsMzTEn3/++aZir8PjogPjAABINoRuAABiSKvb1157rfzlL3/Z4nGt/uqQMQ3SWnnWKrO6/fbbTdVa29A1dB911FHmcW3T3l5w1cC8ceNGWbFihVm/rZXuaEVbQ/A///lP067eNnBHK/I5OTnN67q///57s62YblOmobugoKDTf2fd01v3Bl+wYIH5/n/6058I3QCApEXoBgAgBqIt1VrB1uCpIVoHkWkFOrpuW3377bcmkOuWXkr37dbtwHSbrdbrtbVirJXntjZt2iR9+vTZ4rGRI0eaNdo6qfyBBx6QTz75RJ588kn54IMPzBrytj7//HMTkFuvGdc15Fqdb731mQ5c03Xj26OD1jT0jx492kwx11b1d955xzwGAECyIXQDABADGlqVVq31pkPKHnroIbPG+ZprrpH777/fVJB1oJpO+NY/l5WVmaFjetMqd7T6rftda8U7OvxMK9XRIWnjx483YXjMmDFbfP/999/fDHDToJuammr29x48eHC7xzpx4kR5++23TXiPVsH1zxrSdf25XkDQiwTbGuTW+iLAP/7xj+atx7T6rlug/fGPfyR0AwCSEqEbAIAY0BDdmgbRI4880oRfDbj6VivCOkhNA7mG6G+++aZ5Hbau7dbb8uXLTZVYq85Rune30gq6VpK1oqxhV9dq62R0/TpffvmlHHLIIabKrVuS6TZiOrBN15cPHTpUjj/+eDnjjDPM52glOisra4u2c/2ztrO3Xsutw9x+8YtfmFtHNKzr2vLWdI06AADJyhZmZCgAAAlNK97b2qNbaWjXEK2BWqela8DXIB2lLwe0hXzu3LmycOFCs52XBnAAALBzCN0AAAAAAFiEfboBAAAAALAIoRsAAAAAAIsQugEAAAAAsAihGwAAAAAAixC6AQAAAACwCKEbAAAAAACLELoBAAAAALAIoRsAAAAAAIsQugEAAAAAEGv8f21o+YdozCuPAAAAAElFTkSuQmCC"}}], "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'src/电子书代码1-14/5.贝塔分布';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="“概率论与数理统计”课程笔记 - Home"/>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="“概率论与数理统计”课程笔记 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">概率部分</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter01.html">1. 概率</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter01Section01.html">1.1. 引导问题：盲盒为什么受欢迎？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter01Section02.html">1.2. 随机事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter01Section03.html">1.3. 概率公理化定义</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter01Section04.html">1.4. 确定概率的方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter01Section05.html">1.5. 概率的性质</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter01Section06.html">1.6. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter02.html">2. 条件概率</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter02Section01.html">2.1. 引导问题：“阳了”之后，为什么需要我复查？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter02Section02.html">2.2. 条件概率的定义</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter02Section03.html">2.3. 乘法公式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter02Section04.html">2.4. 全概率公式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter02Section05.html">2.5. 贝叶斯公式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter02Section06.html">2.6. 独立性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter02Section07.html">2.7. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter03.html">3. 一元随机变量</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter03Section01.html">3.1. 随机变量的定义</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter03Section02.html">3.2. 分布函数</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter04.html">4. 一元离散随机变量</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter04Section01.html">4.1. 概率分布列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter04Section02.html">4.2. 单点分布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter04Section03.html">4.3. 二项分布与二点分布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter04Section04.html">4.4. 几何分布与负二项分布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter04Section05.html">4.5. 泊松分布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter04Section06.html">4.6. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter05.html">5. 一元连续随机变量</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter05Section01.html">5.1. 引导问题：对于早八点的课程，学生何时能到教室？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter05Section02.html">5.2. 概率密度函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter05Section03.html">5.3. 常见的连续随机变量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter05Section04.html">5.4. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter06.html">6. 数学期望</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter06Section01.html">6.1. 引导问题：期望的来源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter06Section02.html">6.2. 数学期望</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter06Section03.html">6.3. 数学期望的性质</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter06Section04.html">6.4. 方差与标准差</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter06Section05.html">6.5. <span class="math notranslate nohighlight">\(k\)</span> 阶矩</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter06Section06.html">6.6. 基于矩的概率不等式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter06Section07.html">6.7. 信息量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter06Section08.html">6.8. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter07.html">7. 一元随机变量函数的分布</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter07Section01.html">7.1. 引导问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter07Section02.html">7.2. 离散随机变量函数的分布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter07Section03.html">7.3. 连续随机变量函数的分布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter07Section04.html">7.4. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter08.html">8. 随机向量及常见分布</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter08Section01.html">8.1. 引导问题：一维 vs 多维</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter08Section02.html">8.2. 随机向量的定义</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter08Section03.html">8.3. 随机向量的联合分布函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter08Section04.html">8.4. 边际分布函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter08Section05.html">8.5. 联合分布列与边际分布列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter08Section06.html">8.6. 随机变量的独立性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter08Section07.html">8.7. 常见的多维随机变量的分布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter08Section08.html">8.8. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter09.html">9. 多维随机变量的特征数</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter09Section01.html">9.1. 回顾：一维随机变量函数的数学期望</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter09Section02.html">9.2. 多维随机向量函数的数学期望</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter09Section03.html">9.3. 协方差与相关系数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter09Section04.html">9.4. 期望向量与协方差矩阵</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter09Section05.html">9.5. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter10.html">10. 多维随机变量函数的分布</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter10Section01.html">10.1. 引导问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter10Section02.html">10.2. 可加性（卷积公式）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter10Section03.html">10.3. 极值分布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter10Section04.html">10.4. 变量变换法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter10Section05.html">10.5. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter11.html">11. 条件分布与条件期望</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter11Section01.html">11.1. 引导问题：公平 vs 不公平</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter11Section02.html">11.2. 离散场合下的条件分布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter11Section03.html">11.3. 连续场合下的条件分布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter11Section04.html">11.4. 混合场合下的条件分布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter11Section05.html">11.5. 条件数学期望</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter11Section06.html">11.6. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter12.html">12. 随机变量序列的收敛性</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter12Section01.html">12.1. 引导问题：数列的收敛性 vs 随机变量序列的收敛性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter12Section02.html">12.2. 依概率收敛</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter12Section03.html">12.3. 按分布收敛</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter12Section04.html">12.4. 以概率 1 收敛（选修）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter12Section05.html">12.5. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter13.html">13. 大数定律</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter13Section01.html">13.1. 引导问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter13Section02.html">13.2. 伯努利大数定律</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter13Section03.html">13.3. 大数定律的一般形式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter13Section04.html">13.4. 不同形式的大数定律</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter13Section05.html">13.5. 强大数定律（选修）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter13Section06.html">13.6. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter14.html">14. 中心极限定理</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter14Section01.html">14.1. 引导问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter14Section02.html">14.2. 独立同分布下的中心极限定理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter14Section03.html">14.3. 棣莫弗-拉普拉斯中心极限定理的应用案例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter14Section04.html">14.4. 其他条件下的中心极限定理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter14Section05.html">14.5. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter15.html">15. 总体与样本</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter15Section01.html">15.1. 引导问题：数据的价值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter15Section02.html">15.2. 总体与个体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter15Section03.html">15.3. 样本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter15Section04.html">15.4. 补充案例</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter16.html">16. 经验分布函数、统计量及其分布</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter16Section01.html">16.1. 引导问题：数据的价值 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter16Section02.html">16.2. 经验分布函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter16Section03.html">16.3. 统计量的定义</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter16Section04.html">16.4. 常见统计量：样本矩</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter16Section05.html">16.5. 常见统计量：次序统计量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter16Section06.html">16.6. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter17.html">17. 三大抽样分布</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter17Section01.html">17.1. 引导问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter17Section02.html">17.2. 三种分布的构造方式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter17Section03.html">17.3. 正态分布下样本方差的分布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter17Section04.html">17.4. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter18.html">18. 充分统计量</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter18Section01.html">18.1. 引导问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter18Section02.html">18.2. 定义</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter18Section03.html">18.3. 因子分解定理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter18Section04.html">18.4. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter19.html">19. 频率学派的常见点估计方法</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter19Section01.html">19.1. 引导问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter19Section02.html">19.2. 替换思想</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter19Section03.html">19.3. 拟合思想</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter19Section04.html">19.4. 似然思想</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter19Section05.html">19.5. EM 算法（选修）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter19Section06.html">19.6. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter20.html">20. 频率学派中点估计的常见评价方法</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter20Section01.html">20.1. 引导问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter20Section02.html">20.2. 有限样本的评估方式——均方误差</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter20Section03.html">20.3. 大样本的评估方式 1——相合性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter20Section04.html">20.4. 大样本的评估方式 2——渐近正态性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter20Section05.html">20.5. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter21.html">21. 区间估计</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter21Section01.html">21.1. 区间估计的概念</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter21Section02.html">21.2. 枢轴量法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter21Section03.html">21.3. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter22.html">22. 假设检验</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter22Section01.html">22.1. 引导案例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter22Section02.html">22.2. 假设检验的基本概念</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter22Section03.html">22.3. 单个总体正态分布下的假设检验问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter22Section04.html">22.4. 两个总体正态分布下的假设检验问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter22Section05.html">22.5. <span class="math notranslate nohighlight">\(p\)</span> 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter22Section06.html">22.6. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter23.html">23. 似然比检验与分布拟合检验</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter23Section01.html">23.1. 引导问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter23Section02.html">23.2. 似然比检验</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter23Section03.html">23.3. 分布的拟合优度检验</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter23Section04.html">23.4. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chapter24.html">24. 贝叶斯学派下的统计方法</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter24Section01.html">24.1. 引导问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter24Section02.html">24.2. 贝叶斯方法的思想</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter24Section03.html">24.3. 点估计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Chapter24Section04.html">24.4. 习题</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../ChapterAppendix.html">25. 随机过程简介与泊松过程</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../ChapterAppendix01.html">25.1. 随机过程的基本概念</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ChapterAppendix02.html">25.2. 泊松过程的基本概念</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../TestChapter.html">26. 本章节用于测试附加内容</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../TestVideoSection.html">26.1. 测试视频添加</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../TestBeamerSection.html">26.2. Google PPT Test Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../TestCodeRunnerSection.html">26.3. Sample Code-Runner Section</a></li>
+
+
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/Deralive/pr-webbook/master?urlpath=tree/src/电子书代码1-14/5.贝塔分布.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Deralive/pr-webbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Deralive/pr-webbook/edit/master/src/电子书代码1-14/5.贝塔分布.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Deralive/pr-webbook/issues/new?title=Issue%20on%20page%20%2Fsrc/电子书代码1-14/5.贝塔分布.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/src/电子书代码1-14/5.贝塔分布.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">FloatSlider</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.special</span><span class="w"> </span><span class="kn">import</span> <span class="n">beta</span> <span class="k">as</span> <span class="n">beta_func</span>  <span class="c1"># 导入贝塔函数</span>
+
+<span class="c1"># 设置中文字体</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SimHei&#39;</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.unicode_minus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># 解决负号显示问题</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">beta_distribution</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    绘制贝塔分布的概率密度函数</span>
+<span class="sd">    alpha: 形状参数α</span>
+<span class="sd">    beta: 形状参数β</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>  <span class="c1"># 固定x轴范围为[0, 1]</span>
+    
+    <span class="c1"># 计算贝塔分布的概率密度函数</span>
+    <span class="n">pdf</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="p">(</span><span class="n">alpha</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="n">beta</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="n">beta_func</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span>
+    
+    <span class="c1"># 绘制分布</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;随机变量 X&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;概率密度 f(X)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;贝塔分布: α=</span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s1">, β=</span><span class="si">{</span><span class="n">beta</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># 固定x轴显示范围</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># 固定y轴显示范围，可根据情况调整</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># 创建交互式控件</span>
+<span class="n">alpha_slider</span> <span class="o">=</span> <span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;α (形状参数)&#39;</span><span class="p">)</span>
+<span class="n">beta_slider</span> <span class="o">=</span> <span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;β (形状参数)&#39;</span><span class="p">)</span>
+
+<span class="c1"># 创建交互式界面</span>
+<span class="n">interactive_plot</span> <span class="o">=</span> <span class="n">interactive</span><span class="p">(</span><span class="n">beta_distribution</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha_slider</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">beta_slider</span><span class="p">)</span>
+<span class="n">interactive_plot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "7f59ea32cb4a49c091a60ffa2fb5ea0c"}</script></div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Deralive/pr-webbook",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./src\电子书代码1-14"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By 倪葎@DaSE-ECNU
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
