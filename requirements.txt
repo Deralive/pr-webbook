@@ -1,5 +1,6 @@
 jupyter-book
 matplotlib
 numpy
+pandas
 scipy
 ipywidgets # 本库用于创建交互式小部件
