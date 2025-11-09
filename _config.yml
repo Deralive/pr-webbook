@@ -61,23 +61,18 @@ parse:
 
 sphinx:
   config:
-    nb_execution_show_tb: True
+    nb_execution_show_tb: True # Show activate execution tracebacks，将执行错误的跟踪信息打印到终端，而非保存在日志文件中
     html_extra_path: ['./videos']
     mathjax_path: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
     html_js_files:
     - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
     html_theme_options:
-      # 在页面顶部添加一个启动按钮，可以选择 a) Binder, b) JupyterHub, c) Thebe
       launch_buttons:
-        # a) BinderHub 配置
         binderhub_url: "https://mybinder.org" # 这是公共的 Binder 服务
-        # c) Thebe 实时交互配置 (推荐，因为它只激活当前页面)
         thebe: true
 
-      # Thebe/Binder 需要知道你的代码仓库在哪里
       repository_url: https://github.com/Deralive/pr-webbook # 必须替换成你自己的仓库 URL
-      repository_branch: master # 或者 master，取决于你的主分支名称
-#      path_to_book: "" # 如果你的书在仓库的子目录中，需要指定路径，例如 "docs/"
+      repository_branch: master
 
       # 在代码单元格右上角显示 "在 Binder 中打开" 的图标
       use_edit_page_button: true
