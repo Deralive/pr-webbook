@@ -1,0 +1,189 @@
+# 目录
+# Learn more at [https://jupyterbook.org/customize/toc.html](https://jupyterbook.org/customize/toc.html)
+
+format: jb-book
+root: intro.md
+parts:
+  - caption: 概率部分
+    numbered: True
+    chapters:
+      - file: Chapter01
+        sections:
+          - file: Chapter01Section01
+          - file: Chapter01Section02
+          - file: Chapter01Section03
+          - file: Chapter01Section04
+          - file: Chapter01Section05
+          - file: Chapter01Section06
+      - file: Chapter02
+        sections:
+          - file: Chapter02Section01
+          - file: Chapter02Section02
+          - file: Chapter02Section03
+          - file: Chapter02Section04
+          - file: Chapter02Section05
+          - file: Chapter02Section06
+          - file: Chapter02Section07
+      - file: Chapter03
+        sections:
+          - file: Chapter03Section01
+          - file: Chapter03Section02
+      - file: Chapter04
+        sections:
+          - file: Chapter04Section01
+          - file: Chapter04Section02
+          - file: Chapter04Section03
+          - file: Chapter04Section04
+          - file: Chapter04Section05
+          - file: Chapter04Section06
+      - file: Chapter05
+        sections:
+          - file: Chapter05Section01
+          - file: Chapter05Section02
+          - file: Chapter05Section03
+          - file: Chapter05Section04
+      - file: Chapter06
+        sections:
+          - file: Chapter06Section01
+          - file: Chapter06Section02
+          - file: Chapter06Section03
+          - file: Chapter06Section04
+          - file: Chapter06Section05
+          - file: Chapter06Section06
+          - file: Chapter06Section07
+          - file: Chapter06Section08
+      - file: Chapter07
+        sections:
+          - file: Chapter07Section01
+          - file: Chapter07Section02
+          - file: Chapter07Section03
+          - file: Chapter07Section04
+      - file: Chapter08
+        sections:
+          - file: Chapter08Section01
+          - file: Chapter08Section02
+          - file: Chapter08Section03
+          - file: Chapter08Section04
+          - file: Chapter08Section05
+          - file: Chapter08Section06
+          - file: Chapter08Section07
+          - file: Chapter08Section08
+      - file: Chapter09
+        sections:
+          - file: Chapter09Section01
+          - file: Chapter09Section02
+          - file: Chapter09Section03
+          - file: Chapter09Section04
+          - file: Chapter09Section05
+      - file: Chapter10
+        sections:
+          - file: Chapter10Section01
+          - file: Chapter10Section02
+          - file: Chapter10Section03
+          - file: Chapter10Section04
+          - file: Chapter10Section05
+      - file: Chapter11
+        sections:
+          - file: Chapter11Section01
+          - file: Chapter11Section02
+          - file: Chapter11Section03
+          - file: Chapter11Section04
+          - file: Chapter11Section05
+          - file: Chapter11Section06
+      - file: Chapter12
+        sections:
+          - file: Chapter12Section01
+          - file: Chapter12Section02
+          - file: Chapter12Section03
+          - file: Chapter12Section04
+          - file: Chapter12Section05
+      - file: Chapter13
+        sections:
+          - file: Chapter13Section01
+          - file: Chapter13Section02
+          - file: Chapter13Section03
+          - file: Chapter13Section04
+          - file: Chapter13Section05
+          - file: Chapter13Section06
+      - file: Chapter14
+        sections:
+          - file: Chapter14Section01
+          - file: Chapter14Section02
+          - file: Chapter14Section03
+          - file: Chapter14Section04
+          - file: Chapter14Section05
+      - file: Chapter15
+        sections:
+          - file: Chapter15Section01
+          - file: Chapter15Section02
+          - file: Chapter15Section03
+          - file: Chapter15Section04
+      - file: Chapter16
+        sections:
+          - file: Chapter16Section01
+          - file: Chapter16Section02
+          - file: Chapter16Section03
+          - file: Chapter16Section04
+          - file: Chapter16Section05
+          - file: Chapter16Section06
+      - file: Chapter17
+        sections:
+          - file: Chapter17Section01
+          - file: Chapter17Section02
+          - file: Chapter17Section03
+          - file: Chapter17Section04
+      - file: Chapter18
+        sections:
+          - file: Chapter18Section01
+          - file: Chapter18Section02
+          - file: Chapter18Section03
+          - file: Chapter18Section04
+      - file: Chapter19
+        sections:
+          - file: Chapter19Section01
+          - file: Chapter19Section02
+          - file: Chapter19Section03
+          - file: Chapter19Section04
+          - file: Chapter19Section05
+          - file: Chapter19Section06
+      - file: Chapter20
+        sections:
+          - file: Chapter20Section01
+          - file: Chapter20Section02
+          - file: Chapter20Section03
+          - file: Chapter20Section04
+          - file: Chapter20Section05
+      - file: Chapter21
+        sections:
+          - file: Chapter21Section01
+          - file: Chapter21Section02
+          - file: Chapter21Section03
+      - file: Chapter22
+        sections:
+          - file: Chapter22Section01
+          - file: Chapter22Section02
+          - file: Chapter22Section03
+          - file: Chapter22Section04
+          - file: Chapter22Section05
+          - file: Chapter22Section06
+      - file: Chapter23
+        sections:
+          - file: Chapter23Section01
+          - file: Chapter23Section02
+          - file: Chapter23Section03
+          - file: Chapter23Section04
+      - file: Chapter24
+        sections:
+          - file: Chapter24Section01
+          - file: Chapter24Section02
+          - file: Chapter24Section03
+          - file: Chapter24Section04
+      - file: ChapterAppendix
+        sections:
+          - file: ChapterAppendix01
+          - file: ChapterAppendix02
+      - file: TestChapter
+        sections:
+          - file: TestBeamerSection
+          - file: TestCodeRunnerSection
+
