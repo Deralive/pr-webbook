@@ -135,8 +135,9 @@ p_U(u) = \int_{-\infty}^{\infty} p_{X}(u/v)p_{Y}(v)\frac{1}{|v|} \text{d}v.
 $$
 
 ```{dropdown} Proof
-
+证明过程待写.
 ```
+
 `````
 
 `````{prf:example} 商的公式
@@ -147,8 +148,9 @@ p_U(u) = \int_{-\infty}^{\infty} p_{X}(uv)p_{Y}(v)|v| \text{d}v.
 $$
 
 ```{dropdown} Proof
-
+证明过程待写.
 ```
+
 `````
 ## $n$ 维情况（选修）
 设 $n$ 维随机变量 $\boldsymbol{X}=\left(X_{1}, X_{2}, \cdots, X_{n}\right)'$ 的联合密度函数为 $p(x_1,x_2,\cdots,x_n)$ 。如果变换

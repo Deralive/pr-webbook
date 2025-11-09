@@ -72,10 +72,6 @@ $p$ 值
 - 如果 $p \leq \alpha$ ，则在显著性水平 $\alpha$ 下拒绝 $H_0$ ；
 - 如果 $p>\alpha$ ，则在显著性水平 $\alpha$ 下接受 $H_0$ 。
 
-```{thebe-button}
-启动交互式环境
-```
-
 ```{code-block} python3
 :class: thebe
 import numpy as np

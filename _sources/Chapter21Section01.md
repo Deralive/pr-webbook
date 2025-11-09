@@ -75,10 +75,6 @@ $$
 
 ```
 
-```{thebe-button}
-启动交互式环境
-```
-
 ```{code-block} python
 :class: thebe
 import numpy as np
