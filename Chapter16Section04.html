@@ -785,7 +785,6 @@ E(\bar{x}) &amp;=&amp; E\left( \frac{1}{n}\sum_{i=1}^{n} x_{i} \right) = \frac{1
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.gridspec</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gridspec</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;font.family&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;SimHei&quot;</span><span class="p">]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;axes.unicode_minus&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>  
 
 <span class="n">sample_sizes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;请输入样本量集合（以逗号分隔的正整数 eg: 3, 4, 5, 6, 7, 8, 9, 10, ..., 20）：&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>

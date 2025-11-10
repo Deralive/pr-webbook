@@ -81,7 +81,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
 
-plt.rcParams["font.family"] = ["SimHei"]  
 plt.rcParams["axes.unicode_minus"] = False
 np.random.seed(400)
 
@@ -118,7 +117,7 @@ for i, (lower, upper, is_correct) in enumerate(intervals):
     plt.plot(i+1, sample_means[i], 'o', color=color, markersize=3)
 
 # 绘制真实均值线
-plt.axhline(y=0, color='blue', linestyle='--', linewidth=1.5, label='实际均值')
+plt.axhline(y=0, color='blue', linestyle='--', linewidth=1.5, label='Actual Mean Value')
 
 plt.title(f'Confidence Intervals for Mean Estimation of Standard Normal Distribution \n(Sample size: {sample_size}, Number of experiments: {n_experiments}, Confidence level: {confidence_level}, Actual success rate: {success_rate:.2f}%)', fontsize=14)
 plt.xlabel('Experiment number', fontsize=12)

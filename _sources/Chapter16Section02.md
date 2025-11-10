@@ -70,8 +70,6 @@ $$
 :class: thebe
 import numpy as np
 import matplotlib.pyplot as plt
-
-plt.rcParams["font.family"] = ["SimHei"]  
 plt.rcParams["axes.unicode_minus"] = False  
 
 sample_size = int(input("请输入样本量（一个正整数 eg: 200）："))
@@ -88,7 +86,7 @@ plt.figure(figsize=(10, 6))
 for i in range(n):
     if i < n - 1:
         if i == 0:
-            plt.plot([sorted_data[i], sorted_data[i+1]], [empirical_probs[i], empirical_probs[i]], 'b-', linewidth=1.5, alpha=0.5, label='实际CDF')  # 水平实线
+            plt.plot([sorted_data[i], sorted_data[i+1]], [empirical_probs[i], empirical_probs[i]], 'b-', linewidth=1.5, alpha=0.5, label='Actual CDF')  # 水平实线
         plt.plot([sorted_data[i], sorted_data[i+1]], [empirical_probs[i], empirical_probs[i]], 'b-', linewidth=1.5, alpha=0.5) 
 
 plt.plot([-endl, sorted_data[0]], [0, 0], 'b-', linewidth=1.5, alpha=0.5)  # 左侧水平实线
