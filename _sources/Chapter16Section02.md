@@ -106,11 +106,11 @@ plt.scatter(sorted_data[0], 0, marker='o', facecolor='blue', edgecolor='blue', s
 from scipy import stats
 x_theory = np.linspace(-endl, endl, endl*25)
 cdf_theory = stats.norm.cdf(x_theory, loc=0, scale=1)
-plt.plot(x_theory, cdf_theory, 'orange', label='理论CDF', linewidth=1.5, alpha=0.9)
+plt.plot(x_theory, cdf_theory, 'orange', label='Theoretical CDF', linewidth=1.5, alpha=0.9)
 
-plt.title(f'正态分布经验CDF与理论CDF对比(样本量: {sample_size})', fontsize=15)
-plt.xlabel('模拟数据值', fontsize=12)
-plt.ylabel('累积概率', fontsize=12)
+plt.title(f'Comparison of Empirical and Theoretical CDFs for Normal Distribution \n(Sample Size: {sample_size})', fontsize=15)
+plt.xlabel('Simulated Data Values', fontsize=12)
+plt.ylabel('Cumulative Probability', fontsize=12)
 plt.legend()
 plt.grid(True, linestyle='--', alpha=0.5)
 plt.show()

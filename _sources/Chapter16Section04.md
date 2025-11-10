@@ -156,63 +156,63 @@ for i, n in enumerate(sample_sizes):
 fig = plt.figure(figsize=(15, 10))
 gs = gridspec.GridSpec(2, 2, figure=fig)
 
-# 绘制样本均值的分布
+# Plot distribution of sample means
 ax1 = fig.add_subplot(gs[0, 0])
-ax1.hist(means, bins=bins_num, density=True, alpha=0.7, color='skyblue', label='样本均值分布')
+ax1.hist(means, bins=bins_num, density=True, alpha=0.7, color='skyblue', label='Sample mean distribution')
 x = np.linspace(min(means), max(means), 100)
-ax1.plot(x, stats.norm.pdf(x, 0, 1/np.sqrt(n)), 'r-', lw=2, label=f'理论分布')
-ax1.set_title(f'{n}个标准正态分布样本的样本均值的蒙特卡洛分布(蒙特卡洛模拟次数{num_simulations})')
-ax1.set_xlabel('样本均值')
-ax1.set_ylabel('密度')
+ax1.plot(x, stats.norm.pdf(x, 0, 1/np.sqrt(n)), 'r-', lw=2, label='Theoretical distribution')
+ax1.set_title(f'Monte Carlo distribution of sample means from {n} standard normal samples \n(Simulations: {num_simulations})')
+ax1.set_xlabel('Sample mean')
+ax1.set_ylabel('Density')
 ax1.legend()
 ax1.grid(True, linestyle='--', alpha=0.7)
 
-# 绘制样本方差的分布
+# Plot distribution of sample variances
 ax2 = fig.add_subplot(gs[0, 1])
-ax2.hist(variances, bins=bins_num, density=True, alpha=0.7, color='lightgreen', label='样本方差分布')
+ax2.hist(variances, bins=bins_num, density=True, alpha=0.7, color='lightgreen', label='Sample variance distribution')
 df = n - 1
 x = np.linspace(min(variances), max(variances), 100)
-ax2.plot(x, stats.chi2.pdf((df*x), df) * df, 'r-', lw=2, label=f'理论分布')
-ax2.set_title(f'{n}个标准正态分布样本的样本方差的蒙特卡洛分布(蒙特卡洛模拟次数{num_simulations})')
-ax2.set_xlabel('样本方差')
-ax2.set_ylabel('密度')
+ax2.plot(x, stats.chi2.pdf((df*x), df) * df, 'r-', lw=2, label='Theoretical distribution')
+ax2.set_title(f'Monte Carlo distribution of sample variances from {n} standard normal samples \n(Simulations: {num_simulations})')
+ax2.set_xlabel('Sample variance')
+ax2.set_ylabel('Density')
 ax2.legend()
 ax2.grid(True, linestyle='--', alpha=0.7)
 
-# 绘制样本偏度的分布
+# Plot distribution of sample skewness
 ax3 = fig.add_subplot(gs[1, 0])
-ax3.hist(skewnesses, bins=bins_num, density=True, alpha=0.7, color='salmon', label='样本偏度分布')
+ax3.hist(skewnesses, bins=bins_num, density=True, alpha=0.7, color='salmon', label='Sample skewness distribution')
 x = np.linspace(min(skewnesses), max(skewnesses), 100)
-ax3.set_title(f'{n}个标准正态分布样本的样本偏度的蒙特卡洛分布(蒙特卡洛模拟次数{num_simulations})')
-ax3.set_xlabel('样本偏度')
-ax3.set_ylabel('密度')
+ax3.set_title(f'Monte Carlo distribution of sample skewness from {n} standard normal samples \n(Simulations: {num_simulations})')
+ax3.set_xlabel('Sample skewness')
+ax3.set_ylabel('Density')
 ax3.legend()
 ax3.grid(True, linestyle='--', alpha=0.7)
 
-# 绘制样本峰度的分布
+# Plot distribution of sample kurtosis
 ax4 = fig.add_subplot(gs[1, 1])
-ax4.hist(kurtosises, bins=bins_num, density=True, alpha=0.7, color='plum', label='样本峰度分布')
+ax4.hist(kurtosises, bins=bins_num, density=True, alpha=0.7, color='plum', label='Sample kurtosis distribution')
 x = np.linspace(min(kurtosises), max(kurtosises), 100)
-ax4.set_title(f'{n}个标准正态分布样本的样本峰度的蒙特卡洛分布(蒙特卡洛模拟次数{num_simulations})')
-ax4.set_xlabel('样本峰度')
-ax4.set_ylabel('密度')
+ax4.set_title(f'Monte Carlo distribution of sample kurtosis from {n} standard normal samples \n(Simulations: {num_simulations})')
+ax4.set_xlabel('Sample kurtosis')
+ax4.set_ylabel('Density')
 ax4.legend()
 ax4.grid(True, linestyle='--', alpha=0.7)
 
 plt.show()
 
-# 创建并显示四个统计量的分位数表格
+# Create and display quantile tables for the four statistics
 def create_quantile_table(results, statistic_name):
     df = pd.DataFrame(results, index=p_values, columns=sample_sizes)
     df.index.name = 'p'
     df.columns.name = 'n'
-    print(f"\n{statistic_name}的分位数表：")
+    print(f"\nQuantile table for {statistic_name}:")
     print(df)
 
-mean_table = create_quantile_table(mean_results, "样本均值")
-variance_table = create_quantile_table(variance_results, "样本方差")
-skewness_table = create_quantile_table(skewness_results, "样本偏度")
-kurtosis_table = create_quantile_table(kurtosis_results, "样本峰度")
+mean_table = create_quantile_table(mean_results, "sample mean")
+variance_table = create_quantile_table(variance_results, "sample variance")
+skewness_table = create_quantile_table(skewness_results, "sample skewness")
+kurtosis_table = create_quantile_table(kurtosis_results, "sample kurtosis")
 ```
 
 ```{admonition} Question
