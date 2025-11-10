@@ -118,7 +118,6 @@ import pandas as pd
 from scipy import stats
 import matplotlib.gridspec as gridspec
 
-plt.rcParams["font.family"] = ["SimHei"]
 plt.rcParams["axes.unicode_minus"] = False  
 
 sample_sizes = np.array(input("请输入样本量集合（以逗号分隔的正整数 eg: 3, 4, 5, 6, 7, 8, 9, 10, ..., 20）：").split(","), dtype=int)
