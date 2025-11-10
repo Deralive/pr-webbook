@@ -120,9 +120,9 @@ for i, (lower, upper, is_correct) in enumerate(intervals):
 # 绘制真实均值线
 plt.axhline(y=0, color='blue', linestyle='--', linewidth=1.5, label='实际均值')
 
-plt.title(f'标准正态分布均值t估计的置信区间 (样本量: {sample_size}, 实验次数: {n_experiments}, 置信水平: {confidence_level}, 实际成功率: {success_rate:.2f}%)', fontsize=14)
-plt.xlabel('实验次数', fontsize=12)
-plt.ylabel('均值', fontsize=12)
+plt.title(f'Confidence Intervals for Mean Estimation of Standard Normal Distribution \n(Sample size: {sample_size}, Number of experiments: {n_experiments}, Confidence level: {confidence_level}, Actual success rate: {success_rate:.2f}%)', fontsize=14)
+plt.xlabel('Experiment number', fontsize=12)
+plt.ylabel('Mean value', fontsize=12)
 plt.legend()
 plt.grid(True, linestyle='--', alpha=0.7)
 plt.tight_layout()
