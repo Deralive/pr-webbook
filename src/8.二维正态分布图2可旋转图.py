@@ -1,6 +1,9 @@
 import numpy as np
-import plotly.graph_objects as go
+import matplotlib.pyplot as plt
+# 导入 3D 绘图工具
+from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
 from scipy.stats import multivariate_normal
+from matplotlib import cm
 
 
 def prompt_float(message: str) -> float:
@@ -55,30 +58,30 @@ def compute_surface(mu_x, mu_y, sigma_x, sigma_y, rho):
 
 
 def plot_surface(X, Y, Z, mu_x, mu_y, sigma_x, sigma_y, rho):
-    fig = go.Figure(
-        data=[
-            go.Surface(
-                z=Z,
-                x=X,
-                y=Y,
-                colorscale="Viridis",
-                hovertemplate="x=%{x:.2f}<br>y=%{y:.2f}<br>density=%{z:.4f}<extra></extra>",
-            )
-        ]
+    fig = plt.figure(figsize=(9, 7))
+    # 使用 fig.add_subplot 配合 projection='3d' 创建 3D 坐标轴
+    ax = fig.add_subplot(111, projection='3d')
+
+    # 绘制 3D 曲面图
+    ax.plot_surface(
+        X, Y, Z,
+        cmap=cm.viridis,
+        linewidth=0,
+        antialiased=False,
+        alpha=0.85  # 设置透明度
     )
 
-    fig.update_layout(
-        title=f"3D Bivariate Normal Surface (μx={mu_x}, μy={mu_y}, ρ={rho})",
-        scene=dict(
-            xaxis_title="X",
-            yaxis_title="Y",
-            zaxis_title="Density",
-        ),
-        width=900,
-        height=650,
-    )
+    # 设置标题和标签
+    ax.set_title(f"3D Bivariate Normal Surface (μx={mu_x}, μy={mu_y}, ρ={rho})")
+    ax.set_xlabel("X")
+    ax.set_ylabel("Y")
+    ax.set_zlabel("Density")
 
-    fig.show()
+    # 调整视角
+    ax.view_init(elev=30, azim=45)
+
+    plt.tight_layout()
+    plt.show()
 
 
 def main():
