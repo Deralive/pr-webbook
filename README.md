@@ -21,3 +21,14 @@ uv run jupyter-book build docs # 增量构建
 uv run jupyter-book build docs --all # 强制重新构建
 ```
 
+要托管至 Github 平台，请使用以下命令：
+
+```bash
+uv run ghp-import -n -p -f docs/_build/html 
+```
+
+在 Github 的 Pages 页面应该要选择从分支进行部署，选根目录：
+
+![Pasted image 20250708164611.png](assets/README/Pasted%20image%2020250708164611.png)
+
+
