@@ -3,4 +3,5 @@ matplotlib
 numpy
 pandas
 scipy
+plotly
 ipywidgets # 本库用于创建交互式小部件
