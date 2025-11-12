@@ -311,6 +311,7 @@ P(A) &=& \frac{S_A}{S_{\Omega}} = \frac{2000}{3600} = \frac{5}{9}
 </video>
 
 ```{code-block} python3
+:class: thebe
 import numpy as np
 import matplotlib.pyplot as plt
 

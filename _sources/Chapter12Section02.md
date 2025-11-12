@@ -85,6 +85,7 @@ kernelspec:
 ```
 
 ```{code-block} python3
+:class: thebe
 import numpy as np
 import matplotlib.pyplot as plt
 
