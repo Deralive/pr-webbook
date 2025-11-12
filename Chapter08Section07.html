@@ -1002,8 +1002,10 @@ p_{X_1}(x_1) &amp;=&amp;\int_{-\infty}^{+\infty} p(x_1, x_2) d x_2 \\
 </pre></div>
 </div>
 <div class="thebe highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">multivariate_normal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">cm</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">prompt_float</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
@@ -1058,30 +1060,26 @@ p_{X_1}(x_1) &amp;=&amp;\int_{-\infty}^{+\infty} p(x_1, x_2) d x_2 \\
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">mu_x</span><span class="p">,</span> <span class="n">mu_y</span><span class="p">,</span> <span class="n">sigma_x</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">,</span> <span class="n">rho</span><span class="p">):</span>
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span>
-        <span class="n">data</span><span class="o">=</span><span class="p">[</span>
-            <span class="n">go</span><span class="o">.</span><span class="n">Surface</span><span class="p">(</span>
-                <span class="n">z</span><span class="o">=</span><span class="n">Z</span><span class="p">,</span>
-                <span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
-                <span class="n">y</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span>
-                <span class="n">colorscale</span><span class="o">=</span><span class="s2">&quot;Viridis&quot;</span><span class="p">,</span>
-                <span class="n">hovertemplate</span><span class="o">=</span><span class="s2">&quot;x=%</span><span class="si">{x:.2f}</span><span class="s2">&lt;br&gt;y=%</span><span class="si">{y:.2f}</span><span class="s2">&lt;br&gt;density=%</span><span class="si">{z:.4f}</span><span class="s2">&lt;extra&gt;&lt;/extra&gt;&quot;</span><span class="p">,</span>
-            <span class="p">)</span>
-        <span class="p">]</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+    <span class="c1"># 使用 fig.add_subplot 配合 projection=&#39;3d&#39; 创建 3D 坐标轴</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span>
+        <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">viridis</span><span class="p">,</span>
+        <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">antialiased</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.85</span>
     <span class="p">)</span>
 
-    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
-        <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;3D Bivariate Normal Surface (μx=</span><span class="si">{</span><span class="n">mu_x</span><span class="si">}</span><span class="s2">, μy=</span><span class="si">{</span><span class="n">mu_y</span><span class="si">}</span><span class="s2">, ρ=</span><span class="si">{</span><span class="n">rho</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
-        <span class="n">scene</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-            <span class="n">xaxis_title</span><span class="o">=</span><span class="s2">&quot;X&quot;</span><span class="p">,</span>
-            <span class="n">yaxis_title</span><span class="o">=</span><span class="s2">&quot;Y&quot;</span><span class="p">,</span>
-            <span class="n">zaxis_title</span><span class="o">=</span><span class="s2">&quot;Density&quot;</span><span class="p">,</span>
-        <span class="p">),</span>
-        <span class="n">width</span><span class="o">=</span><span class="mi">900</span><span class="p">,</span>
-        <span class="n">height</span><span class="o">=</span><span class="mi">650</span><span class="p">,</span>
-    <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;3D Bivariate Normal Surface (μx=</span><span class="si">{</span><span class="n">mu_x</span><span class="si">}</span><span class="s2">, μy=</span><span class="si">{</span><span class="n">mu_y</span><span class="si">}</span><span class="s2">, ρ=</span><span class="si">{</span><span class="n">rho</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">&quot;Density&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="n">elev</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">azim</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
 
-    <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
