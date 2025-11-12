@@ -41,6 +41,7 @@ $$
 称这个分布为二项分布。记 $X\sim b(n,p)$ 。
 
 ```{code-block} python3
+:class: thebe
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.special import comb

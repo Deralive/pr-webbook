@@ -12,6 +12,7 @@ $$
 称 $X$ 的分布为均匀分布。记 $X\sim U(a,b)$ 。
 
 ```{code-block} python3
+:class: thebe
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -88,6 +89,7 @@ $$
 ```
 
 ```{code-block} python3
+:class: thebe
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -272,6 +274,7 @@ $$
 ````
 
 ```{code-block} python3
+:class: thebe
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -436,6 +439,7 @@ $$
 ```
 
 ```{code-block} python3
+:class: thebe
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.special import gamma as gamma_func
@@ -644,6 +648,7 @@ $$
 ```
 
 ```{code-block} python3
+:class: thebe
 import numpy as np
 import matplotlib.pyplot as plt
 
