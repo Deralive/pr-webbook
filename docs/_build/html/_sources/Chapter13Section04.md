@@ -103,6 +103,7 @@ $$\frac{1}{n}\sum_{i=1}^{n}X_{i}$$
 ``````
 
 ```{code-block} python3
+:class: thebe
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -222,6 +223,7 @@ if __name__ == "__main__":
 ```
 
 ```{code-block} python3
+:class: thebe
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
