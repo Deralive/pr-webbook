@@ -1,5 +1,14 @@
 # Probability Theory and Mathematical Statistics Web-book
 
+# ⚠️ 此仓库已迁移
+
+> **注意：** 本项目已不再在此处维护。所有后续开发、更新和 Issue 处理都已迁移至新地址。
+> **Note:** This project is no longer maintained here. All future development has moved to the new repository.
+
+👉 **新仓库地址 / New Repository:** [pr-webbook](https://github.com/LyuNi-ECNU/pr-webbook)
+
+---
+
 ## 版权说明
 
 本项目及其所有相关内容，包括但不限于文本、代码、图像及构建的网站，其版权均归作者所有。
