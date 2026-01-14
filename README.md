@@ -2,10 +2,8 @@
 
 # ⚠️ 此仓库已迁移
 
-> **注意：** 本项目已不再在此处维护。所有后续开发、更新和 Issue 处理都已迁移至新地址。
-> **Note:** This project is no longer maintained here. All future development has moved to the new repository.
-
-👉 **新仓库地址 / New Repository:** [pr-webbook](https://github.com/LyuNi-ECNU/pr-webbook)
+> - **注意：** 本项目已不再在此处维护。所有后续维护都已迁移至新仓库。
+> - 👉 **新仓库地址：**[LyuNi-ECNU/pr-webbook](https://github.com/LyuNi-ECNU/pr-webbook)
 
 ---
 
@@ -50,6 +48,6 @@ uv run ghp-import -n -p -f docs/_build/html
 
 在 Github 的 Pages 页面应该要选择从分支进行部署，选根目录：
 
-![Pasted image 20250708164611.png](assets/README/Pasted%20image%2020250708164611.png)
+<img src="assets/README/Pasted%20image%2020250708164611.png" width="600" alt="Pasted image 20250708164611.png">
 
 
